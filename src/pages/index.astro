@@ -396,7 +396,7 @@ const AGENDA = [
         <p class="reveal">Ens expliques una mica de tu, trobem un horari, i ens veiem al box. Sense pressió: tornes si vols tornar.</p>
       </div>
       <div class="contact-grid">
-        <form class="contact-form reveal" action="https://formspree.io/f/xlgonajg" method="POST">
+        <form class="contact-form reveal" id="home-form">
           <div class="form-row two">
             <div class="field">
               <label for="f-name">Nom</label>
@@ -438,11 +438,12 @@ const AGENDA = [
               <textarea id="f-msg" name="message" placeholder="Explica'ns una mica sobre tu"></textarea>
             </div>
           </div>
-          <button class="form-submit" type="submit">
+          <button class="form-submit" type="submit" id="home-submit">
             Envia
             <span class="arr"></span>
           </button>
           <div class="form-note">En enviar acceptes la nostra política de privacitat.</div>
+          <div id="home-msg" style="display:none; padding:16px; border-radius:8px; margin-top:16px; font-family:var(--f-display);"></div>
         </form>
         <aside class="contact-side reveal">
           <a class="contact-card" href="https://wa.me/34629066531" target="_blank" rel="noopener">
@@ -527,6 +528,57 @@ const AGENDA = [
           const el = row as HTMLElement;
           el.style.display = (filter === 'all' || el.dataset.cat === filter) ? '' : 'none';
         });
+      });
+    }
+
+    // Form submission
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUDz1NLQNnPrpajlOqUEedro2Rm8fsvXiXlv72cebx7SnXhH88lgFyC46RbqEqlTFiLQ/exec';
+    const homeForm = document.getElementById('home-form') as HTMLFormElement;
+
+    if (homeForm) {
+      homeForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const btn = document.getElementById('home-submit') as HTMLButtonElement;
+        const msg = document.getElementById('home-msg') as HTMLElement;
+        const btnText = btn.innerHTML;
+
+        btn.innerHTML = 'Enviant...';
+        btn.disabled = true;
+        msg.style.display = 'none';
+
+        const data = {
+          origen: 'Home',
+          name: (form.querySelector('[name="name"]') as HTMLInputElement).value,
+          email: (form.querySelector('[name="email"]') as HTMLInputElement).value,
+          phone: (form.querySelector('[name="phone"]') as HTMLInputElement).value,
+          topic: (form.querySelector('[name="topic"]') as HTMLSelectElement).value,
+          schedule: (form.querySelector('[name="schedule"]') as HTMLSelectElement).value,
+          message: (form.querySelector('[name="message"]') as HTMLTextAreaElement).value
+        };
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          msg.style.display = 'block';
+          msg.style.background = 'var(--accent-ink)';
+          msg.style.color = 'var(--bone)';
+          msg.innerHTML = '<strong>Gràcies!</strong> Hem rebut el teu missatge. Et contactem aviat.';
+          form.reset();
+        } catch (err) {
+          msg.style.display = 'block';
+          msg.style.background = '#fee';
+          msg.style.color = '#c00';
+          msg.innerHTML = 'Error en enviar. Prova per WhatsApp: <a href="https://wa.me/34629066531" style="color:#c00;">629 06 65 31</a>';
+        }
+
+        btn.innerHTML = btnText;
+        btn.disabled = false;
       });
     }
   </script>

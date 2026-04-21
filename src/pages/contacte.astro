@@ -106,7 +106,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       <div class="eyebrow reveal"><span class="num">01</span><span>Formulari</span></div>
       <div style="height:24px"></div>
       <div class="contact-grid">
-        <form action="https://formspree.io/f/xlgonajg" method="POST" class="reveal" style="display:grid; gap:28px;">
+        <form id="contact-form" class="reveal" style="display:grid; gap:28px;">
           <h2 class="h-xl">Reserva una<br>primera <em class="serif">classe</em><span class="dot">.</span></h2>
           <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Escriu-nos les teves dades i et responem amb dia i hora. Si ja saps quina disciplina vols provar, ens ho dius.</p>
 
@@ -132,9 +132,10 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
           </div>
           <div class="field"><label>Alguna cosa més que ens hauríem de saber?</label><textarea name="note" placeholder="Lesions, objectius, preguntes, dubtes..."></textarea></div>
           <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
-            <button type="submit" class="form-submit">Enviar<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
+            <button type="submit" class="form-submit" id="contact-submit">Enviar<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
             <span style="font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">o per WhatsApp al <a href="https://wa.me/34629066531" style="color:var(--accent-hi);">629 06 65 31</a></span>
           </div>
+          <div id="contact-msg" style="display:none; padding:20px; border-radius:8px; font-family:var(--f-display);"></div>
         </form>
 
         <aside class="reveal">
@@ -171,4 +172,54 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
   </section>
 
   <Footer />
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUDz1NLQNnPrpajlOqUEedro2Rm8fsvXiXlv72cebx7SnXhH88lgFyC46RbqEqlTFiLQ/exec';
+
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('contact-submit');
+    const msg = document.getElementById('contact-msg');
+    const btnText = btn.innerHTML;
+
+    btn.innerHTML = 'Enviant...';
+    btn.disabled = true;
+    msg.style.display = 'none';
+
+    const data = {
+      origen: 'Contacte',
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      disc: form.disc.value,
+      level: form.level.value,
+      when: form.when.value,
+      note: form.note.value
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      msg.style.display = 'block';
+      msg.style.background = 'var(--accent-ink)';
+      msg.style.color = 'var(--bone)';
+      msg.innerHTML = '<strong>Gràcies!</strong> Hem rebut el teu missatge. Et contactem aviat.';
+      form.reset();
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.style.background = '#fee';
+      msg.style.color = '#c00';
+      msg.innerHTML = 'Error en enviar. Prova per WhatsApp: <a href="https://wa.me/34629066531" style="color:#c00;">629 06 65 31</a>';
+    }
+
+    btn.innerHTML = btnText;
+    btn.disabled = false;
+  });
+</script>
 </Layout>
