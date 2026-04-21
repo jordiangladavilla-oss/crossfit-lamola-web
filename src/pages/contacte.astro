@@ -46,7 +46,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       "logo": "https://crossfitlamola.com/assets/logo-full.png",
       "image": "https://crossfitlamola.com/assets/hero-still.jpg",
       "telephone": "+34629066531",
-      "email": "info@crossfitlamola.com",
+      "email": "hola@crossfitlamola.com",
       "priceRange": "€€",
       "foundingDate": "2025",
       "currenciesAccepted": "EUR",
@@ -112,11 +112,11 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
           <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Escriu-nos les teves dades i et responem amb dia i hora. Si ja saps quina disciplina vols provar, ens ho dius.</p>
 
           <div class="form-row two">
-            <div class="field"><label>Nom i cognom</label><input type="text" name="name" required placeholder="Com et dius?"></div>
-            <div class="field"><label>Telèfon</label><input type="tel" name="phone" required placeholder="629 ..."></div>
+            <div class="field"><label>Nom i cognom</label><input type="text" name="name" required aria-required="true" placeholder="Com et dius?"></div>
+            <div class="field"><label>Telèfon</label><input type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
           </div>
           <div class="form-row two">
-            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tu@correu.com"></div>
+            <div class="field"><label>Email</label><input type="email" name="email" required aria-required="true" placeholder="tu@correu.com"></div>
             <div class="field"><label>Disciplina que t'interessa</label>
               <select name="disc">
                 <option>No ho sé encara</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>

@@ -21,6 +21,72 @@ const AGENDA = [
   bodyData={{ "data-hero": "full" }}
 >
   <Schema type="home" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Puc fer CrossFit si no estic en forma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. De fet, és per on tothom comença. Cada moviment té versions més senzilles i un coach t'acompanya des del primer dia fins que el teu cos es sent còmode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El meu cos es muscularà molt ràpid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Posar-se massa musculat és un projecte molt més llarg i específic que venir tres dies per setmana. El que trobaràs és forma, postura i un cos que aguanta el dia a dia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em faré mal fent CrossFit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si fas bé les coses, no. Programem per progressar, no per trencar. Els pesos són els teus, la tècnica va primer, i els coaches corregeixen en temps real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I si no conec a ningú al box?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "És el cas més habitual. Al cap de dues setmanes hi ha noms i rostres que ja et reconeixen. En comunitat això passa sense esforç."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc fer CrossFit si sóc massa gran?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A la comunitat hi ha persones de 19 anys i de més de 60. L'edat no és una qualitat, és una variable. Escalem la programació al teu nivell, sempre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què inclou la primera classe gratuïta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una hora amb un coach que et fa una breu valoració, t'explica el moviment del dia, i et posa a entrenar amb la resta del grup. Res més. Cap compromís després."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quant costa CrossFit La Mola i què inclou cada pla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hi ha quotes mensuals segons dies per setmana, i bons de 10 classes. Sense permanència. T'ho expliquem tranquil·lament després de la primera classe, o escriu-nos per WhatsApp i ho parlem."
+          }
+        }
+      ]
+    }
+    </script>
+  </Fragment>
 
   <Nav currentPage="/" />
 
@@ -401,11 +467,11 @@ const AGENDA = [
           <div class="form-row two">
             <div class="field">
               <label for="f-name">Nom</label>
-              <input id="f-name" name="name" type="text" placeholder="El teu nom" required>
+              <input id="f-name" name="name" type="text" placeholder="El teu nom" required aria-required="true">
             </div>
             <div class="field">
               <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" placeholder="hola@exemple.com" required>
+              <input id="f-email" name="email" type="email" placeholder="hola@exemple.com" required aria-required="true">
             </div>
           </div>
           <div class="form-row two" style="margin-top: 20px">
