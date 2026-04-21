@@ -1,0 +1,76 @@
+---
+interface Props {
+  type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte'
+}
+
+const { type = 'base' } = Astro.props
+
+const baseSchema = {
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "@id": "https://crossfitlamola.com/#organization",
+  "name": "CrossFit La Mola",
+  "alternateName": "La Mola CrossFit",
+  "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2.",
+  "url": "https://crossfitlamola.com/",
+  "logo": "https://crossfitlamola.com/assets/logo-full.png",
+  "image": "https://crossfitlamola.com/assets/hero-still.jpg",
+  "telephone": "+34629066531",
+  "email": "hola@crossfitlamola.com",
+  "priceRange": "€€",
+  "foundingDate": "2025",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avinguda del Vallès 724 C",
+    "postalCode": "08227",
+    "addressLocality": "Terrassa",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
+  "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
+  "sameAs": [
+    "https://www.instagram.com/lamolacrossfit/"
+  ],
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"21:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
+  ],
+  "areaServed": [
+    {"@type":"City","name":"Terrassa"},
+    {"@type":"City","name":"Sabadell"},
+    {"@type":"City","name":"Sant Cugat del Vallès"},
+    {"@type":"City","name":"Rubí"},
+    {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+  ]
+}
+
+const homeExtras = {
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "@id": "https://crossfitlamola.com/#organization-team",
+  "employee": [
+    {"@type":"Person","name":"Sergi","jobTitle":"Head Coach & Co-fundador","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 2 Trainer (CF-L2)"}},
+    {"@type":"Person","name":"Eli","jobTitle":"Coach & Co-fundadora","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 1 Trainer (CF-L1)"}},
+    {"@type":"Person","name":"Juse","jobTitle":"Coach","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 1 Trainer (CF-L1)"}}
+  ],
+  "amenityFeature": [
+    {"@type":"LocationFeatureSpecification","name":"Zona WOD amb rig"},
+    {"@type":"LocationFeatureSpecification","name":"Plataformes d'halterofília"},
+    {"@type":"LocationFeatureSpecification","name":"Zona cardio"},
+    {"@type":"LocationFeatureSpecification","name":"Zona Hybrid training"},
+    {"@type":"LocationFeatureSpecification","name":"Zona Open exterior"},
+    {"@type":"LocationFeatureSpecification","name":"Coffee Corner"},
+    {"@type":"LocationFeatureSpecification","name":"Sala de nutrició"},
+    {"@type":"LocationFeatureSpecification","name":"Sala de fisioteràpia"},
+    {"@type":"LocationFeatureSpecification","name":"Vestidors amb dutxa"},
+    {"@type":"LocationFeatureSpecification","name":"Lavabo accessible"},
+    {"@type":"LocationFeatureSpecification","name":"Parking"}
+  ]
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+{type === 'home' && <script type="application/ld+json" set:html={JSON.stringify(homeExtras)} />}

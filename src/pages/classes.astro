@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+import Schema from '../components/Schema.astro'
+---
+
+<Layout
+  title="Classes · CrossFit La Mola Terrassa"
+  description="9 disciplines a Terrassa: WOD, halterofilia, hybrid training, running club, strength i mes. Classes dirigides per a tots els nivells."
+>
+  <Schema type="classes" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json" data-schema="itemlist-disciplines">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Disciplines a CrossFit La Mola",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Classe diaria variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofilia","description":"Tecnica olimpica: arrencada i dos temps","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength","description":"Forca pura amb barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Gymnastics / Bodyweight","description":"Dominis, handstands, calisthenics","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Tecnica de cursa i resistencia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"Combinacio de CrossFit i endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"ABS","description":"Core i estabilitat","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Programacio propia","description":"Entrenament personalitzat dels coaches","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Coach Box","description":"Atencio individualitzada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+      ]
+    }
+    </script>
+    <style>
+      .disc-list{ margin-top: 60px; border-top: 1px solid var(--line-ink-s); }
+      .disc{
+        display:grid; grid-template-columns:1fr; gap:24px;
+        padding: clamp(28px,3.5vw,52px) 0;
+        border-bottom: 1px solid var(--line-ink-s);
+        align-items: start;
+      }
+      @media(min-width:900px){
+        .disc{ grid-template-columns: 80px 1.1fr 1fr 0.9fr; gap:40px; align-items:center; }
+      }
+      .disc .num{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-ink); }
+      .disc h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(30px,4.2vw,56px); letter-spacing:-0.03em; line-height:.96; margin:0;}
+      .disc h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink);}
+      .disc .tagline{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-ink); margin-top:10px;}
+      .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
+      .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
+      .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
+      .disc .thumb{ display:none;}
+      @media(min-width:900px){
+        .disc .thumb{ display:block; aspect-ratio:3/2; overflow:hidden; background:var(--ink-2);}
+        .disc .thumb img{ width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02); transition:transform 1.2s cubic-bezier(.2,.8,.2,1);}
+        .disc:hover .thumb img{ transform:scale(1.04);}
+      }
+
+      /* Path section */
+      .path{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line);}
+      .path > div{ display:grid; grid-template-columns:80px 1fr; gap:28px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
+      @media(min-width:760px){ .path > div{ grid-template-columns:120px 1.2fr 2fr; gap:40px; align-items:center;} }
+      .path .when{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; color:var(--accent-hi);}
+      .path h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.6vw,32px); letter-spacing:-0.025em; margin:0;}
+      .path p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2); margin:0;}
+
+      .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+      @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+    </style>
+  </Fragment>
+
+  <Nav currentPage="/classes" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/class-wod.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/">Inici</a><span>/</span><span>Classes</span></div>
+      <div class="kicker"><span>9 disciplines</span><span class="bar"></span><span>Una mateixa intencio</span></div>
+      <h1>Troba el teu<br><em class="serif">moviment</em><span class="dot">.</span></h1>
+      <p class="sub">Entrenar no es repetir. Es construir amb tecnica, carrega i cap. Tenim una classe per a cada moment del teu cami.</p>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 --</span><span>Les 9 disciplines</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Nou maneres<br>d'entrar al <em class="serif">box</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Cada classe te la seva intencio: una per construir forca pura, una altra per trobar el ritme, una altra per pulir la tecnica. No cal triar-ne nomes una.</p>
+      </div>
+
+      <div class="disc-list reveal-stagger">
+        <article class="disc" style="--i:0">
+          <span class="num">01</span>
+          <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Classe estrella - 60 min</div></div>
+          <p>La classe central de CrossFit. Escalfament, part tecnica, WOD i tornada a la calma. Un coach guia el grup de principi a fi.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>12 atletes</strong></span><span>Frequencia <strong>Diari</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:1">
+          <span class="num">02</span>
+          <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
+          <p>Halterofilia olimpica. Treballem els dos aixecaments i les seves derivacions amb progressions adaptades a cada atleta.</p>
+          <div class="meta"><span>Nivell <strong>Intermedi+</strong></span><span>Capacitat <strong>10 atletes</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:2">
+          <span class="num">03</span>
+          <div><h3>Hybrid Club</h3><div class="tagline">Forca + Cardio - 60 min</div></div>
+          <p>Per a qui vol les dues coses: forca de pes lliure i capacitat cardiovascular llarga. Inspirat en el format Hyrox.</p>
+          <div class="meta"><span>Nivell <strong>Intermedi</strong></span><span>Capacitat <strong>12 atletes</strong></span><span>Frequencia <strong>3x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:3">
+          <span class="num">04</span>
+          <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnastic - 45 min</div></div>
+          <p>Tot el que fa el teu cos sense pes extern: pull-ups, muscle-ups, handstands, anelles. Progressions des del primer dia.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>10 atletes</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:4">
+          <span class="num">05</span>
+          <div><h3>Strength Club</h3><div class="tagline">Series i pesos - 60 min</div></div>
+          <p>Un cicle estructurat de forca: squat, bench, deadlift, press. Aqui es fa pesat, amb cap i descans.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>10 atletes</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:5">
+          <span class="num">06</span>
+          <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + capacitat - 30 min</div></div>
+          <p>Curt, intens, pensat per sumar-lo a un altre WOD o com a sessio independent. Calories al bike i treball de core.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>14 atletes</strong></span><span>Frequencia <strong>3x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:6">
+          <span class="num">07</span>
+          <div><h3>The Program</h3><div class="tagline">Avancat i competidor - 90 min</div></div>
+          <p>Programa dirigit per a qui vol competir o portar el rendiment a un altre nivell. Inclou seguiment individualitzat.</p>
+          <div class="meta"><span>Nivell <strong>Avancat</strong></span><span>Capacitat <strong>8 atletes</strong></span><span>Frequencia <strong>4x/setmana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:7">
+          <span class="num">08</span>
+          <div><h3>Entrena amb el teu <em>Coach</em></h3><div class="tagline">1 a 1 - 60 min</div></div>
+          <p>Sessio privada amb el coach que triis. Per pulir tecnica, preparar una competicio o tornar despres d'una lesio.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>1 atleta</strong></span><span>Frequencia <strong>Sota demanda</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:8">
+          <span class="num">09</span>
+          <div><h3>Running Club</h3><div class="tagline">Aire lliure - 60 min</div></div>
+          <p>Sortim a correr pel Valles. Entrenament estructurat: fartleks, series, llargs. Fem pinya abans i cervesa despres, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix credit</em>.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Capacitat <strong>Obert</strong></span><span>Frequencia <strong>1x/setmana</strong></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" style="padding-top:0;">
+    <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
+    <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
+      <div class="eyebrow reveal"><span class="num">02 --</span><span>La teva primera vegada</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Mai has fet <em class="serif">CrossFit</em>?<br>Comencem pel principi<span class="dot">.</span></h2>
+        <p class="lead reveal">No cal estar en forma per comencar: cal comencar per estar-hi. El proces de benvinguda es el mateix per a tothom.</p>
+      </div>
+
+      <div class="path reveal-stagger">
+        <div style="--i:0"><div class="when">Pas 1</div><h4>Contacta i agendem visita</h4><p>Ens expliques una mica de tu (objectius, condicio actual, experiencia) i preparem la primera classe adaptada. T'assessorem amb el que millor s'adapti.</p></div>
+        <div style="--i:1"><div class="when">Pas 2 - Primera classe gratuita</div><h4>Vines a una classe real</h4><p>Vine una mica abans i fes una ullada a les instal-lacions: portes obertes a tot. Entres a una classe amb el grup, el coach et dona alternatives adaptades i t'ensenya els moviments basics.</p></div>
+        <div style="--i:2"><div class="when">Pas 3</div><h4>Comentem la jugada</h4><p>Despres de la classe parlem: com t'has sentit, que cal reforcar, i planegem un cami optim de progres segons les teves necessitats.</p></div>
+        <div style="--i:3"><div class="when">A partir d'aqui</div><h4>Segueixes el teu ritme</h4><p>Tries la tarifa que t'encaixa, reserves per l'app i vens quan et va be. La resta la construim junts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/class-weightlifting.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 --</span><span>Tria classe i reserva</span></div>
+      <h2 class="h-hero reveal">Veure <em class="serif">l'agenda</em><br>de la setmana<span class="dot">.</span></h2>
+      <p class="reveal">Consulta horaris i coaches en temps real. La primera classe es gratuita. Nomes cal reservar-la.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/agenda">Obrir l'agenda<span class="arr"></span></a>
+        <a class="btn-ghost" href="/tarifes">Veure tarifes</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

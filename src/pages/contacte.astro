@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const title = "Contacte · CrossFit La Mola Terrassa"
+const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsApp 629 06 65 31. Dl–Dv 07:00–21:30. Primera classe gratuïta."
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <style>
+      .contact-grid{ display:grid; grid-template-columns:1fr; gap:60px; margin-top:40px;}
+      @media(min-width:900px){ .contact-grid{ grid-template-columns:1.1fr 0.9fr; gap:80px;} }
+
+      .info-block{ display:grid; gap:0; border-top:1px solid var(--line);}
+      .info-block > div{ padding:22px 0; border-bottom:1px solid var(--line);}
+      .info-block .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;}
+      .info-block .value{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em;}
+      .info-block .value a{ color:var(--bone);}
+      .info-block .value a:hover{ color:var(--accent-hi);}
+      .info-block .note{ font-family:var(--f-serif); font-size:15px; color:var(--bone-2); margin-top:4px;}
+
+      .map{ aspect-ratio:16/10; background:var(--ink-2); position:relative; overflow:hidden; margin-top:60px; border-top:1px solid var(--line);}
+      .map iframe{ width:100%; height:100%; border:0; filter:invert(.92) hue-rotate(180deg) saturate(.4) brightness(.85);}
+
+      .visit-bar{ display:grid; grid-template-columns:1fr; gap:1px; margin-top:60px; background:var(--line-ink);}
+      @media(min-width:760px){ .visit-bar{ grid-template-columns:repeat(3,1fr);} }
+      .visit-bar > div{ background:var(--bone); padding:28px 24px;}
+      .visit-bar h4{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 12px;}
+      .visit-bar p{ font-family:var(--f-display); font-weight:500; font-size:clamp(17px,1.6vw,21px); letter-spacing:-0.015em; margin:0; line-height:1.3;}
+      .visit-bar p em{ font-family:var(--f-serif); font-style:italic; font-weight:300;}
+
+      .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+      @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+    </style>
+    <script type="application/ld+json" data-schema="base">
+    {
+      "@context": "https://schema.org",
+      "@type": "ExerciseGym",
+      "@id": "https://crossfitlamola.com/#organization",
+      "name": "CrossFit La Mola",
+      "alternateName": "La Mola CrossFit",
+      "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2.",
+      "url": "https://crossfitlamola.com/",
+      "logo": "https://crossfitlamola.com/assets/logo-full.png",
+      "image": "https://crossfitlamola.com/assets/hero-still.jpg",
+      "telephone": "+34629066531",
+      "email": "info@crossfitlamola.com",
+      "priceRange": "€€",
+      "foundingDate": "2025",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avinguda del Vallès 724 C",
+        "postalCode": "08227",
+        "addressLocality": "Terrassa",
+        "addressRegion": "Catalunya",
+        "addressCountry": "ES"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
+      "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
+      "sameAs": [
+        "https://www.instagram.com/lamolacrossfit/",
+        "https://share.google/pTO0bMKcTnShi6oAO"
+      ],
+      "openingHoursSpecification": [
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"21:30"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
+      ],
+      "areaServed": [
+        {"@type":"City","name":"Terrassa"},
+        {"@type":"City","name":"Sabadell"},
+        {"@type":"City","name":"Sant Cugat del Vallès"},
+        {"@type":"City","name":"Rubí"},
+        {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json" data-schema="contactpage">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contacta amb CrossFit La Mola",
+      "mainEntity": {"@id":"https://crossfitlamola.com/#organization"}
+    }
+    </script>
+  </Fragment>
+
+  <Nav currentPage="/contacte" />
+
+  <section class="page-hero" style="min-height:50svh">
+    <div class="bg" style="background-image:url('/assets/community-7.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/">Inici</a><span>/</span><span>Contacte</span></div>
+      <div class="kicker"><span>Escriu-nos</span><span class="bar"></span><span>Resposta en 24h</span></div>
+      <h1>Diga'ns<br><em class="serif">hola</em><span class="dot">.</span></h1>
+      <p class="sub">Per WhatsApp és el més ràpid. Si prefereixes veure'ns, passa pel box: la porta és oberta.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01</span><span>Formulari</span></div>
+      <div style="height:24px"></div>
+      <div class="contact-grid">
+        <form action="https://formspree.io/f/xlgonajg" method="POST" class="reveal" style="display:grid; gap:28px;">
+          <h2 class="h-xl">Reserva una<br>primera <em class="serif">classe</em><span class="dot">.</span></h2>
+          <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Escriu-nos les teves dades i et responem amb dia i hora. Si ja saps quina disciplina vols provar, ens ho dius.</p>
+
+          <div class="form-row two">
+            <div class="field"><label>Nom i cognom</label><input type="text" name="name" required placeholder="Com et dius?"></div>
+            <div class="field"><label>Telèfon</label><input type="tel" name="phone" required placeholder="629 ..."></div>
+          </div>
+          <div class="form-row two">
+            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tu@correu.com"></div>
+            <div class="field"><label>Disciplina que t'interessa</label>
+              <select name="disc">
+                <option>No ho sé encara</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="field"><label>Has fet CrossFit abans?</label>
+              <select name="level"><option>Mai</option><option>Alguna classe solta</option><option>Sí, tinc experiència</option><option>Competeixo</option></select>
+            </div>
+            <div class="field"><label>Quan vols venir?</label>
+              <select name="when"><option>Aquesta setmana</option><option>La setmana vinent</option><option>Encara no ho sé</option></select>
+            </div>
+          </div>
+          <div class="field"><label>Alguna cosa més que ens hauríem de saber?</label><textarea name="note" placeholder="Lesions, objectius, preguntes, dubtes..."></textarea></div>
+          <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+            <button type="submit" class="form-submit">Enviar<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
+            <span style="font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">o per WhatsApp al <a href="https://wa.me/34629066531" style="color:var(--accent-hi);">629 06 65 31</a></span>
+          </div>
+        </form>
+
+        <aside class="reveal">
+          <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(26px,2.8vw,36px); letter-spacing:-0.025em; margin:0 0 8px;">O trobeu-nos<br>a qualsevol <em class="serif">canal</em><span class="dot">.</span></h3>
+          <div class="info-block">
+            <div><div class="label">WhatsApp · Preferit</div><div class="value"><a href="https://wa.me/34629066531">+34 629 06 65 31</a></div><div class="note">Resposta en minuts, de dilluns a dissabte.</div></div>
+            <div><div class="label">Trucada</div><div class="value"><a href="tel:+34629066531">+34 629 06 65 31</a></div><div class="note">Per parlar directament, de dilluns a dissabte.</div></div>
+            <div><div class="label">Adreça</div><div class="value">Av. del Vallès 724C<br>08227 Terrassa · Barcelona</div><div class="note"><a href="https://share.google/Pme73HGLekvRLepee" target="_blank" rel="noopener" style="color:var(--accent-hi);">Com arribar &#8594;</a></div></div>
+            <div><div class="label">Horari del box</div><div class="value" style="font-size:18px; line-height:1.5;">Dl–Dv · 07:00 – 21:30<br>Ds · 09:30 – 11:30<br>Dg · 09:30 – 11:30<br><span style="color:var(--muted); font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;">Diumenge tancat</span></div></div>
+            <div><div class="label">Xarxes</div><div class="value"><a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a></div><div class="note">El dia a dia, fotos i la comunitat.</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02</span><span>On som</span></div>
+      <div style="height:16px"></div>
+      <h2 class="h-xl reveal">A dos minuts<br>de la <em class="serif">sortida</em><span class="dot">.</span></h2>
+      <p class="lead reveal" style="margin-top:22px;">A l'Av. del Vallès, a tocar de la C-58. Pàrquing gratuït a la porta i parada de bus a 50 metres.</p>
+
+      <div class="visit-bar reveal-stagger">
+        <div style="--i:0"><h4>01 · En cotxe</h4><p>Sortida <em>"Terrassa centre"</em> des de la C-58. Pàrquing gratuït davant del box.</p></div>
+        <div style="--i:1"><h4>02 · Transport públic</h4><p>FGC · <em>Estació del Nord</em> a 8 min caminant. Bus línia 3 a la porta.</p></div>
+        <div style="--i:2"><h4>03 · En bici</h4><p>Carril bici des del centre. Tenim <em>espai cobert</em> per aparcar-la dins del box.</p></div>
+      </div>
+
+      <div class="map reveal">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=2.0014%2C41.5613%2C2.0314%2C41.5813&amp;layer=mapnik&amp;marker=41.5713%2C2.0164" loading="lazy" title="Mapa de CrossFit La Mola"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

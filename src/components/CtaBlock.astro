@@ -1,0 +1,36 @@
+---
+interface Props {
+  eyebrowNum?: string
+  eyebrowText?: string
+  title: string
+  subtitle?: string
+  bgImage?: string
+}
+
+const {
+  eyebrowNum = '09',
+  eyebrowText = 'Encara no ens coneixes?',
+  title,
+  subtitle,
+  bgImage = '/assets/hero-climb.jpg'
+} = Astro.props
+---
+
+<section class="cta-block">
+  <div class="bg" style={`background-image: url('${bgImage}')`} aria-hidden="true"></div>
+  <div class="inner">
+    <div class="eyebrow reveal" style="color:var(--bone-3)">
+      <span class="num" style="color:var(--accent-hi)">{eyebrowNum}</span>
+      <span>{eyebrowText}</span>
+    </div>
+    <h2 class="h-hero reveal" style="font-size: clamp(44px, 8vw, 120px)" set:html={title} />
+    {subtitle && <p class="reveal">{subtitle}</p>}
+    <div class="actions reveal">
+      <a class="btn-primary" href="/contacte">
+        Reserva la primera classe
+        <span class="arr"></span>
+      </a>
+      <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o escriu-nos per WhatsApp</a>
+    </div>
+  </div>
+</section>

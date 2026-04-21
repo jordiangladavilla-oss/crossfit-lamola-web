@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="El box · CrossFit La Mola Terrassa"
+  description="Instal·lacions, coaches i comunitat del box de CrossFit La Mola a Terrassa. Zona WOD, halterofília, cardio i gimnàstic."
+  canonical="https://crossfitlamola.com/el-box"
+>
+  <Nav currentPage="/el-box" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/team.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/">Inici</a><span>/</span><span>El box</span></div>
+      <div class="kicker"><span>L'espai</span><span class="bar"></span><span>Terrassa</span></div>
+      <h1>El nom ve de la<br><em class="serif">muntanya</em><span class="dot">.</span></h1>
+      <p class="sub">La Mola corona Terrassa. Es una manera de relacionar-se amb l'esforc: pas a pas, acceptar el desnivell, sostenir el ritme.</p>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Perque nosaltres</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Un espai per a la<br><em class="serif">millora continua</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Som un projecte amb nom, cara i filosofia propia. Un box on els coaches et recorden el nom i on vas fallar l'ultima repeticio.</p>
+      </div>
+
+      <div class="why-grid reveal-stagger">
+        <div class="why-item" style="--i:0"><div class="n">01</div><h3>CrossFit Affiliate oficial</h3><p>Box afiliat a CrossFit, LLC. Coaches amb certificacio oficial i formacio continua segons els estandards de la metodologia.</p></div>
+        <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programacio i progressio</h3><p>Cicles estructurats amb objectiu clar. Cada sessio te una funcio dins del bloc i cada bloc prepara el seguent. Entrenes per millorar, no per esgotar-te.</p></div>
+        <div class="why-item" style="--i:2"><div class="n">03</div><h3>Material de qualitat</h3><p>Box completament equipat. Barres olimpiques, dumbbells, kettlebells, worms, rampes HSW, GHD, remeres i ski ergs. Marques de referencia i material en perfecte estat.</p></div>
+        <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusiu i sense egos</h3><p>Comunitat integradora: persones que comencen, competidores, families, gent gran. Respecte pel proces de cadascu, sense comparacions ni pressions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" style="padding-top:0;">
+    <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
+    <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>L'equip tecnic</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Tres persones.<br>Una manera d'entendre<br><em class="serif">el moviment</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Programen, corregeixen i acompanyen. Tambe recorden el teu ultim PR i el dia que no et veies amb cor.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="reveal-stagger">
+        <div style="display:grid; grid-template-columns:1fr; gap:40px;" class="coach-layout">
+          <article style="--i:0; display:grid; grid-template-columns:1fr; gap:24px;">
+            <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i co-fundador de CrossFit La Mola, certificat CF-L2" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+            <div>
+              <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">01 · Head Coach</div>
+              <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Sergi</h3>
+              <div style="display:grid; grid-template-columns:130px 1fr; gap:8px 20px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--bone-2); margin-bottom:18px;">
+                <span style="color:var(--muted);">In love with</span><span style="color:var(--bone);">Squat snatch</span>
+                <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">Wall climbs</span>
+                <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Free HSPU</span>
+              </div>
+              <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"Snatch i clean no son trucs. Son hores. Vine amb paciencia — el que busques ja es dins teu, nomes cal pulir-lo un dia si i un altre tambe."</p>
+            </div>
+          </article>
+        </div>
+        <!-- Juse -->
+        <article style="--i:1; display:grid; grid-template-columns:1fr; gap:24px;">
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div>
+            <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">02 · Coach</div>
+            <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Juse</h3>
+            <div style="display:grid; grid-template-columns:130px 1fr; gap:8px 20px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--bone-2); margin-bottom:18px;">
+              <span style="color:var(--muted);">In love with</span><span style="color:var(--bone);">Squat clean</span>
+              <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">Strict HSPU</span>
+              <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Heavy ramp</span>
+            </div>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit es el pilar central del meu dia a dia. Una dosi diaria de forca — mental i fisica — que aixo costa. Ser coach es ensenyar, pero sobretot es aprendre de tothom."</p>
+          </div>
+        </article>
+        <!-- Eli -->
+        <article style="--i:2; display:grid; grid-template-columns:1fr; gap:24px;">
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach i co-fundadora de CrossFit La Mola, certificada CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div>
+            <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">03 · Coach</div>
+            <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Eli</h3>
+            <div style="display:grid; grid-template-columns:130px 1fr; gap:8px 20px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--bone-2); margin-bottom:18px;">
+              <span style="color:var(--muted);">In love with</span><span style="color:var(--bone);">Wall climbs</span>
+              <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">HSPU</span>
+              <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Snatch</span>
+            </div>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit es una via per trobar pau mental — reconnectar i aprendre a valorar el meu cos. Tecnica abans que pes."</p>
+          </div>
+        </article>
+      </div>
+
+      <style>
+        @media(min-width:760px){
+          .coach-layout ~ article, section .reveal-stagger > article{ }
+          .sec .reveal-stagger{ grid-template-columns:repeat(3,1fr) !important; gap:28px !important;}
+        }
+      </style>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>Les instal·lacions</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Un box dissenyat<br>per al <em class="serif">rendiment</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Zona WOD principal, halterofilia separada, rig de gimnastic, vestuaris i dutxes. Tot pensat perque entrenar sigui el que si passi aqui dins.</p>
+      </div>
+
+      <div class="gallery reveal-stagger">
+        <figure class="huge" style="--i:0"><img src="/assets/community-3.jpg" alt=""><figcaption>Zona WOD principal</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/detail-rope.jpg" alt=""><figcaption>Rig de gimnastic</figcaption></figure>
+        <figure style="--i:2"><img src="/assets/detail-chalk.jpg" alt=""><figcaption>Halterofilia</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/detail-dumbbells.jpg" alt=""><figcaption>Equipacio</figcaption></figure>
+        <figure class="wide" style="--i:4"><img src="/assets/community-5.jpg" alt=""><figcaption>Zona open exterior</figcaption></figure>
+        <figure style="--i:5"><img src="/assets/detail-board.jpg" alt=""><figcaption>Whiteboard &amp; programacio</figcaption></figure>
+        <figure class="tall" style="--i:6"><img src="/assets/community-6.jpg" alt=""><figcaption>Vestuaris i dutxes</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/detail-rings.jpg" alt=""><figcaption>Anelles i paral·leles</figcaption></figure>
+        <figure style="--i:8"><img src="/assets/community-4.jpg" alt=""><figcaption>Coffee corner</figcaption></figure>
+      </div>
+
+      <div class="equip reveal">
+        <div><h4>Equipacio principal</h4><ul><li>Rig de competicio</li><li>Barres Rogue &amp; Ruster</li><li>Discs Ruster 0,5–25 kg</li><li>Kettlebells 4–48 kg</li><li>Plio boxes</li><li>Wall balls 5–15 kg</li><li>Sandbags 50–200 lb</li><li>Sled push x 4</li></ul></div>
+        <div><h4>Material i accessoris</h4><ul><li>Plataformes dedicades</li><li>Alcadors tecnificacio halterofilia</li><li>Worms 2–4 persones</li><li>Rampa Handstand Walk</li><li>GHD</li><li>Politges i accessoris</li></ul></div>
+        <div><h4>Cardio &amp; Gimnastic</h4><ul><li>Concept2 Row &amp; SkiErg</li><li>Assault &amp; Echo Bike</li><li>Accessoris d'estiraments</li><li>Ropes per rope climbs</li><li>Paral·leles</li><li>Zona lliure per warm-ups</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Ves-hi un dia</span></div>
+      <h2 class="h-hero reveal">Veure'l es<br><em class="serif">mes facil</em><span class="dot">.</span></h2>
+      <p class="reveal">Et fem una visita guiada, t'ensenyem les instal·lacions i entrenes la primera classe amb un coach.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/contacte">Reserva una visita<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o escriu-nos per WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .why-grid{ display:grid; grid-template-columns:1fr; gap:40px; margin-top:60px;}
+  @media(min-width:760px){ .why-grid{ grid-template-columns:repeat(2,1fr); gap:48px 60px;} }
+  @media(min-width:1100px){ .why-grid{ grid-template-columns:repeat(4,1fr);} }
+  .why-item .n{ font-family:var(--f-display); font-weight:500; font-size:clamp(44px,5vw,68px); letter-spacing:-0.03em; color:var(--accent-ink); line-height:1;}
+  .why-item h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,24px); letter-spacing:-0.02em; margin:16px 0 10px;}
+  .why-item p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.75; margin:0;}
+
+  .gallery{ display:grid; gap:10px; grid-template-columns:repeat(6,1fr); grid-auto-rows:14vw; }
+  .gallery figure{ margin:0; overflow:hidden; background:var(--ink-2); grid-column:span 3; grid-row:span 1;}
+  .gallery figure.tall{ grid-row:span 2;} .gallery figure.wide{ grid-column:span 6;}
+  .gallery figure.huge{ grid-column:span 4; grid-row:span 2;}
+  .gallery figure img{ width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02); transition:transform 1.2s cubic-bezier(.2,.8,.2,1);}
+  .gallery figure:hover img{ transform:scale(1.04);}
+  .gallery figcaption{ position:absolute; left:14px; bottom:12px; right:14px; font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.5); opacity:.92; pointer-events:none;}
+  .gallery figure{ position:relative;}
+  .gallery figure::after{ content:""; position:absolute; inset:auto 0 0 0; height:50%; background:linear-gradient(to top, rgba(0,0,0,.55), transparent); opacity:.85; pointer-events:none;}
+  @media(max-width:760px){ .gallery{ grid-auto-rows:32vw;} .gallery figure, .gallery figure.huge{ grid-column:span 6;} .gallery figure.tall{ grid-row:span 1;} }
+
+  .equip{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line-ink); margin-top:60px;}
+  @media(min-width:760px){ .equip{ grid-template-columns:repeat(3,1fr);} }
+  .equip > div{ background:var(--bone-soft); padding:28px 26px;}
+  .equip h4{ font-family:var(--f-mono); font-weight:400; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 16px;}
+  .equip ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:17px; line-height:2; color:var(--bone-ink); opacity:.8;}
+</style>

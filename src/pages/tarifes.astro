@@ -1,0 +1,238 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="Tarifes · CrossFit La Mola Terrassa"
+  description="Tarifes del box. Sense permanència. Primera classe gratuïta. Quotes il·limitades, 10 classes/mes i open gym."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" data-schema="offercatalog">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "name": "Quotes CrossFit La Mola",
+      "itemListElement": [
+        {"@type":"Offer","name":"Ocasional · 5 sessions/mes","description":"5 reserves mensuals, accés a totes les disciplines, sense permanència","priceCurrency":"EUR","price":"49.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Regular · 10 sessions/mes","description":"10 reserves mensuals, accés a totes les disciplines, sense permanència","priceCurrency":"EUR","price":"79.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Constant · 15 sessions/mes","description":"15 reserves mensuals, accés a totes les disciplines, sense permanència","priceCurrency":"EUR","price":"84.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Màster · Il·limitat sènior (+60)","description":"Reserves il·limitades, quota especial per a +60 anys","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
+        {"@type":"Offer","name":"Unlimited Access","description":"Reserves il·limitades, accés a totes les disciplines, inclou The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Drop-in","description":"Una classe i accés a les instal·lacions aquell dia","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Bono 10 sessions","description":"10 classes sense data límit","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"}
+      ]
+    })}
+    </script>
+  </Fragment>
+
+  <style>
+    .price-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line-ink); }
+    @media(min-width:700px){ .price-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1100px){ .price-grid{ grid-template-columns:repeat(3,1fr);} }
+    .price{ background:var(--bone-soft); padding:clamp(32px,3vw,44px); display:flex; flex-direction:column; gap:22px; position:relative; color:var(--bone-ink);}
+    .price *{ color: inherit; }
+    .price h3 em{ color:var(--accent-ink);}
+    .price .per{ color:var(--muted-ink);}
+    .price.featured{ background:var(--ink); color:var(--bone);}
+    .price.featured .per{ color:var(--muted);}
+    .price.featured h3 em{ color:var(--accent-hi);}
+    .price .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink);}
+    .price.featured .tag{ color:var(--accent-hi);}
+    .price h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(32px,3.4vw,44px); letter-spacing:-0.03em; line-height:.95; margin:0;}
+    .price h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300;}
+    .price .num{ font-family:var(--f-display); font-weight:500; font-size:clamp(56px,7vw,88px); letter-spacing:-0.045em; line-height:1;}
+    .price .num sup{ font-size:.4em; font-weight:500; vertical-align:top; margin-left:4px;}
+    .price .per{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; margin-left:8px;}
+    .price ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:16.5px; line-height:1.55; display:grid; gap:10px; flex:1;}
+    .price ul li{ display:flex; gap:12px; align-items:baseline;}
+    .price ul li::before{ content:""; width:6px; height:6px; background:var(--accent-ink); border-radius:50%; flex:none; transform:translateY(2px);}
+    .price.featured ul li::before{ background:var(--accent-hi);}
+    .price .price-cta{
+      display:inline-flex; align-items:center; gap:12px; padding:16px 24px 15px;
+      border-radius:999px; background:var(--bone-ink); color:var(--bone);
+      font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+      width:max-content; transition:transform .25s, background .2s;
+    }
+    .price.featured .price-cta{ background:var(--bone); color:var(--ink);}
+    .price .price-cta:hover{ transform:translateY(-2px); background:var(--accent-hi); color:var(--ink);}
+
+    .price{ transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+    .price:hover{ transform: translateY(-3px); box-shadow: 0 20px 40px -20px rgba(16,14,11,.2); }
+    .price.featured:hover{ box-shadow: 0 24px 48px -20px rgba(0,0,0,.5); }
+    .price.featured{ position:relative; overflow:hidden; }
+    .price.featured::before{
+      content:""; position:absolute; top:0; right:0; width:140px; height:140px;
+      background: radial-gradient(circle at top right, var(--accent) 0%, transparent 65%);
+      opacity:.22; pointer-events:none;
+    }
+
+    .price-custom{
+      background: transparent;
+      border: 1px dashed var(--line-ink-s);
+      color: var(--bone-ink);
+    }
+    .price-custom .tag{ color: var(--muted-ink);}
+    .price-custom h3 em{ color: var(--accent-ink);}
+    .price-custom .custom-body{
+      font-family: var(--f-serif); font-size: 16.5px; line-height: 1.5;
+      color: var(--bone-ink); opacity: .85; margin: 0; flex: 1;
+    }
+    .price-custom .price-cta{
+      background: transparent; color: var(--bone-ink);
+      border: 1px solid var(--bone-ink);
+    }
+    .price-custom .price-cta:hover{ background: var(--bone-ink); color: var(--bone);}
+
+    .extras{ display:grid; grid-template-columns:1fr; gap:0; margin-top:60px; border-top:1px solid var(--line);}
+    .extras > div{ display:grid; grid-template-columns:1fr auto; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+    @media(min-width:760px){ .extras > div{ grid-template-columns:200px 1fr auto;} }
+    .extras .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-hi);}
+    .extras h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0;}
+    .extras p{ font-family:var(--f-serif); font-size:16px; color:var(--bone-2); margin:4px 0 0;}
+    .extras .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line-ink); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line-ink); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em;}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-ink); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:14px 0 0; max-width:60ch;}
+
+    .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+    @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+  </style>
+
+  <Nav currentPage="/tarifes" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/community-2.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/">Inici</a><span>/</span><span>Tarifes</span></div>
+      <div class="kicker"><span>Transparents</span><span class="bar"></span><span>Sense permanència</span></div>
+      <h1>Un preu<br><em class="serif">sense</em> lletra petita<span class="dot">.</span></h1>
+      <p class="sub">Cinc quotes pensades per adaptar-se a com vius la setmana. Sense matrícula la primera vegada, sense permanència, i la primera classe sempre és gratis.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Quotes mensuals</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Tria com<br>vols venir<span class="dot">.</span></h2>
+        <p class="lead reveal">Totes les quotes inclouen accés a totes les disciplines. L'única diferència és el nombre de reserves al mes. Només la <em class="serif">Il·limitada</em> inclou The Program.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price" style="--i:0">
+          <span class="tag">01 · Ocasional</span>
+          <h3>5 sessions <em>/</em> mes</h3>
+          <div><span class="num">49<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>5 reserves mensuals</li>
+            <li>Accés a totes les disciplines</li>
+            <li>Sense permanència</li>
+            <li>Reserva per app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/contacte">Començar ara →</a>
+        </div>
+
+        <div class="price" style="--i:1">
+          <span class="tag">02 · Regular</span>
+          <h3>10 sessions <em>/</em> mes</h3>
+          <div><span class="num">79<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>10 reserves mensuals</li>
+            <li>Accés a totes les disciplines</li>
+            <li>Sense permanència</li>
+            <li>Reserva per app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/contacte">Començar ara →</a>
+        </div>
+
+        <div class="price" style="--i:2">
+          <span class="tag">03 · Constant</span>
+          <h3>15 sessions <em>/</em> mes</h3>
+          <div><span class="num">84<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>15 reserves mensuals</li>
+            <li>Accés a totes les disciplines</li>
+            <li>Sense permanència</li>
+            <li>Reserva per app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/contacte">Començar ara →</a>
+        </div>
+
+        <div class="price" style="--i:3">
+          <span class="tag">04 · Màster <em class="serif" style="color:var(--accent-ink); font-family:var(--f-serif); font-style:italic;">(+60 anys)</em></span>
+          <h3>Il·limitat <em>sènior</em></h3>
+          <div><span class="num">60<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>Reserves il·limitades</li>
+            <li>Accés a totes les disciplines</li>
+            <li>Quota especial per a +60 anys</li>
+            <li>Sense permanència</li>
+          </ul>
+          <a class="price-cta" href="/contacte">Començar ara →</a>
+        </div>
+
+        <div class="price featured" style="--i:4">
+          <span class="tag">05 · Il·limitada · Recomanada</span>
+          <h3>Unlimited <em>Access</em></h3>
+          <div><span class="num">105<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>Reserves il·limitades</li>
+            <li>Accés a totes les disciplines</li>
+            <li><strong style="color:var(--accent-hi); font-weight:500;">Inclou The Program</strong></li>
+            <li>Sense permanència</li>
+          </ul>
+          <a class="price-cta" href="/contacte">Començar ara →</a>
+        </div>
+      </div>
+
+      <div class="extras reveal">
+        <div><span class="label">Extra · 01</span><div><h4>Drop-in <em class="serif">(dia obert)</em></h4><p>Per a atletes de pas. Una classe i accés a les instal·lacions aquell dia.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/dia</span></span></div>
+        <div><span class="label">Extra · 02</span><div><h4>Bono 10 sessions</h4><p>10 classes a consumir sense data límit. Ideal per horaris irregulars o retorns puntuals.</p></div><span class="p">115€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
+        <div><span class="label">Extra · 03</span><div><h4>Classe extra <em class="serif">(si has consumit la quota)</em></h4><p>Si has fet totes les reserves del mes i en vols una més. L'alternativa és pujar de tarifa.</p></div><span class="p">6€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/classe</span></span></div>
+        <div><span class="label">Extra · 04</span><div><h4>Quota de manteniment <em class="serif">(màx. 2 mesos/any)</em></h4><p>Si marxes de vacances pots mantenir la plaça sense perdre-la. Reactiva quan tornis.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
+        <div><span class="label">Extra · 05</span><div><h4>Matrícula <em class="serif">(només si tornes)</em></h4><p>La primera inscripció no té cost. Si deixes la quota i tornes més endavant, s'abona la matrícula.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/única</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Preguntes freqüents</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Dubtes<br>habituals<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>Puc provar abans de pagar?</summary><p>Sí. La primera classe és gratuïta per a qualsevol disciplina. Només cal reservar-la des de la pàgina de contacte o enviant-nos un WhatsApp.</p></details>
+        <details><summary>Com es reserven les classes?</summary><p>Amb l'app <strong>Aimharder</strong> (iOS i Android). Pots reservar 24h abans i cancel·lar amb prou antelació sense penalització.</p></details>
+        <details><summary>Què passa si me'n vaig de vacances?</summary><p>Pots aplicar la <strong>quota de manteniment (25€/mes)</strong> per conservar la plaça. Màxim 2 mesos per any natural. Reactives quan tornis.</p></details>
+        <details><summary>Hi ha descomptes?</summary><p>Sí. Tenim <strong>quota especial per a estudiants</strong> i <strong>descomptes per serveis públics</strong>: sanitaris, policia, bombers. Escriu-nos i t'ho expliquem.</p></details>
+        <details><summary>Puc canviar de tarifa?</summary><p>Sí, quan vulguis. Si has consumit les reserves del mes, pots <strong>pujar de tarifa</strong> o bé pagar <strong>classes extres a 6€/classe</strong>. El canvi s'aplica al mes següent.</p></details>
+        <details><summary>Hi ha matrícula?</summary><p>La primera inscripció <strong>no té cost</strong>. Només hi ha matrícula de <strong>40€</strong> si deixes la quota i tornes a inscriure't més endavant.</p></details>
+        <details><summary>Quant dura el compromís?</summary><p>No hi ha permanència. Pots donar-te de baixa quan vulguis avisant amb 15 dies d'antelació al cobrament del mes següent.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 —</span><span>Comencem</span></div>
+      <h2 class="h-hero reveal">La primera<br>sempre és <em class="serif">gratis</em><span class="dot">.</span></h2>
+      <p class="reveal">Reserva una classe, vine a provar-la i després decideixes.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/contacte">Reservar primera classe<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o per WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

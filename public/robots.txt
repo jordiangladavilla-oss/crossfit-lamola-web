@@ -1,0 +1,8 @@
+# robots.txt — CrossFit La Mola
+# https://crossfitlamola.com/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://crossfitlamola.com/sitemap.xml
