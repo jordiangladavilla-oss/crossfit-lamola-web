@@ -17,7 +17,7 @@ import Footer from '../components/Footer.astro'
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Horari</span></div>
       <div class="kicker"><span>Setmanal</span><span class="bar"></span><span>Reserva via Aimharder</span></div>
       <h1>L'horari<br>de la <em class="serif">setmana</em><span class="dot">.</span></h1>
-      <p class="sub">Dilluns a divendres de 07:00 a 21:30. Dissabte i diumenge de 09:30 a 11:30 amb activitats especials. Reserva per l'app. La primera classe sempre es gratis.</p>
+      <p class="sub">Dilluns a dijous de 07:00 a 21:30. Divendres de 07:00 a 20:30. Dissabte i diumenge de 09:30 a 11:30 amb activitats especials. Reserva per l'app. La primera classe sempre es gratis.</p>
     </div>
   </section>
 
@@ -25,7 +25,7 @@ import Footer from '../components/Footer.astro'
     <div class="wrap">
       <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Obert ara</span></span>
       <span>Av. del Valles 724C · Terrassa</span>
-      <span>Dl-Dv 07:00-21:30 · Ds 09:30-11:30 · Dg 09:30-11:30</span>
+      <span>Dl-Dj 07:00-21:30 · Dv 07:00-20:30 · Ds-Dg 09:30-11:30</span>
       <span style="margin-left:auto;"><a href="https://wa.me/34629066531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
     </div>
   </div>
@@ -122,7 +122,8 @@ import Footer from '../components/Footer.astro'
       "https://share.google/pTO0bMKcTnShi6oAO"
     ],
     "openingHoursSpecification": [
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"21:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"20:30"},
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
     ],
     "areaServed": [
