@@ -135,7 +135,7 @@ import Footer from '../components/Footer.astro'
   }
   </script>
 
-  <style>
+  <style is:global>
     .status-strip{ padding:18px var(--page-pad); background:var(--bone-soft); color:var(--bone-ink); border-bottom:1px solid var(--line-ink);}
     .status-strip .wrap{ max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; gap:20px 32px; align-items:center; font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;}
     .status-strip .dot-live{ width:8px; height:8px; background:#2f8f3f; border-radius:50%; display:inline-block; margin-right:10px; box-shadow:0 0 0 4px rgba(47,143,63,.15);}
