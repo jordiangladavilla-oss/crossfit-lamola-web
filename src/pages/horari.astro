@@ -57,7 +57,9 @@ import Footer from '../components/Footer.astro'
         <button class="filter" data-f="etc">Entrena amb coach <span class="count" id="c-etc"></span></button>
       </div>
 
-      <div class="week reveal" id="week"></div>
+      <div class="week reveal" id="week">
+        <div class="loading" style="grid-column:1/-1;text-align:center;padding:60px 20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-ink);">Carregant horari...</div>
+      </div>
 
       <div class="legend reveal">
         <span class="chip" style="--c:var(--bone-ink);">WOD</span>
@@ -217,228 +219,165 @@ import Footer from '../components/Footer.astro'
   </style>
 
   <script>
-  (function(){
-    // Status
-    function updateStatus(){
-      var now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
-      var open = (d>=1&&d<=5 && h>=7 && h<21.5) || (d===6 && h>=9.5 && h<11.5) || (d===0 && h>=9.5 && h<11.5);
-      var dot=document.getElementById('statusDot'), t=document.getElementById('statusText');
-      if (dot && t) {
-        if (open){ dot.classList.remove('closed'); t.textContent='Obert ara'; }
-        else { dot.classList.add('closed'); t.textContent='Tancat ara'; }
-      }
+  const JSON_URL = 'https://raw.githubusercontent.com/jordiangladavilla-oss/lamola-tv-horari2026/main/horari.json';
+
+  interface ClassItem {
+    disc: string;
+    label: string;
+  }
+
+  interface Slot {
+    time: string;
+    classes: ClassItem[];
+  }
+
+  interface Day {
+    name: string;
+    abbr: string;
+    slots: Slot[];
+  }
+
+  interface HorariData {
+    days: Day[];
+  }
+
+  function updateStatus() {
+    const now = new Date();
+    const d = now.getDay();
+    const h = now.getHours() + now.getMinutes() / 60;
+    const open = (d >= 1 && d <= 5 && h >= 7 && h < 21.5) || (d === 6 && h >= 9.5 && h < 11.5) || (d === 0 && h >= 9.5 && h < 11.5);
+    const dot = document.getElementById('statusDot');
+    const t = document.getElementById('statusText');
+    if (dot && t) {
+      if (open) { dot.classList.remove('closed'); t.textContent = 'Obert ara'; }
+      else { dot.classList.add('closed'); t.textContent = 'Tancat ara'; }
     }
-    updateStatus(); setInterval(updateStatus, 60000);
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
 
-    // Full schedule — exact data provided by the box
-    var SCHEDULE = {
-      "Dilluns": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
-        ["19:30-20:30", ["WOD", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Dimarts": [
-        ["07:00-08:00", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
-        ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "BODYWEIGHT LAB - ADVANCE", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Dimecres": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
-        ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "LA MOLA WEIGHTLIFTING", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "BODYWEIGHT LAB - BASE", "RUNNING CLUB", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
-        ["19:30-20:30", ["WOD", "ABS & CALS", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Dijous": [
-        ["07:00-08:00", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
-        ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Divendres": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
-        ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Dissabte": [
-        ["09:30-10:30", ["WOD IN PAIRS", "OPEN"]],
-        ["10:30-11:30", ["WOD IN PAIRS", "OPEN"]]
-      ],
-      "Diumenge": [
-        ["09:30-10:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]]
-      ]
-    };
-
-    // Classify a class name -> filter key + display label
-    function classify(name){
-      var n=name.toUpperCase();
-      if (n==='OPEN' || n==='OPEN EXTERIOR') return {k:'open', l:n, interior:n==='OPEN'};
-      if (n==='ENTRENA CON TU COACH') return {k:'etc', l:'Entrena amb el coach'};
-      if (n.indexOf('THE PROGRAM')>=0) return {k:'pr', l:'The Program'};
-      if (n.indexOf('WEIGHTLIFTING')>=0) return {k:'wl', l:'Weightlifting'};
-      if (n.indexOf('HYBRID')>=0) return {k:'hy', l:'Hybrid Club'};
-      if (n.indexOf('STRENGTH')>=0) return {k:'st', l:'Strength · Powerlifting'};
-      if (n.indexOf('BODYWEIGHT')>=0) return {k:'bw', l:n.indexOf('ADVANCE')>=0?'Bodyweight Lab · Advance':'Bodyweight Lab · Base'};
-      if (n.indexOf('ABS')>=0) return {k:'ab', l:'Abs & Cals'};
-      if (n.indexOf('RUNNING')>=0 || n.indexOf('RUN BY')>=0) return {k:'rc', l:n.indexOf('BEACH')>=0?'Run + Brunch + Beach':'Running Club'};
-      if (n.indexOf('WOD IN PAIRS')>=0) return {k:'wod', l:'WOD in Pairs'};
-      if (n.indexOf('WOD')>=0) return {k:'wod', l: n.indexOf('INICIACI')>=0?'WOD · Iniciacio':'WOD'};
-      return {k:'wod', l:name};
+  async function loadSchedule() {
+    try {
+      const res = await fetch(JSON_URL);
+      const data: HorariData = await res.json();
+      renderSchedule(data);
+    } catch (err) {
+      console.error('Error carregant horari:', err);
+      const week = document.getElementById('week');
+      if (week) week.innerHTML = '<p class="empty" style="grid-column:1/-1;text-align:center;">Error carregant horari. Recarrega la pagina.</p>';
     }
+  }
 
-    // Compute this week's Mon-Sun dates
-    var days=['Dilluns','Dimarts','Dimecres','Dijous','Divendres','Dissabte','Diumenge'];
-    var abbr=['Dl','Dm','Dc','Dj','Dv','Ds','Dg'];
-    var monday=new Date(); var day=monday.getDay(); var diff=(day===0?-6:1-day); monday.setDate(monday.getDate()+diff);
-    var today=new Date(); today.setHours(0,0,0,0);
-    var fmt=function(d){ return d.getDate()+' '+['gen','feb','mar','abr','mai','jun','jul','ago','set','oct','nov','des'][d.getMonth()];};
-    document.querySelectorAll('.js-week-range').forEach(function(el){ var s=new Date(monday); var e=new Date(monday); e.setDate(e.getDate()+6); el.textContent = fmt(s)+' - '+fmt(e); });
+  function renderSchedule(data: HorariData) {
+    const dayNames = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte', 'Diumenge'];
+    const abbrs = ['Dl', 'Dm', 'Dc', 'Dj', 'Dv', 'Ds', 'Dg'];
 
-    var counts={all:0,wod:0,wl:0,hy:0,bw:0,st:0,ab:0,pr:0,rc:0,etc:0};
-    var week=document.getElementById('week');
+    const monday = new Date();
+    const day = monday.getDay();
+    const diff = (day === 0 ? -6 : 1 - day);
+    monday.setDate(monday.getDate() + diff);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    if (week) {
-      days.forEach(function(dname, i){
-        var d=new Date(monday); d.setDate(d.getDate()+i);
-        var isToday=(d.getTime()===today.getTime());
-        var div=document.createElement('div'); div.className='day'+(isToday?' today':'');
-        div.innerHTML='<h4><span class="full">'+dname+'</span><span class="abbrev">'+abbr[i]+'</span></h4>';
+    const counts: Record<string, number> = { all: 0, wod: 0, wl: 0, hy: 0, bw: 0, st: 0, ab: 0, pr: 0, rc: 0, etc: 0 };
+    const week = document.getElementById('week');
+    if (!week) return;
+    week.innerHTML = '';
 
-        var slots=SCHEDULE[dname]||[];
-        // Detect a day with ONLY open-gym (no coached classes at all) — keep them visible by default
-        var dayHasCoached = slots.some(function(entry){
-          return entry[1].some(function(c){ return classify(c).k !== 'open'; });
-        });
-        if (!slots.length){
-          div.innerHTML += '<p class="empty">Descans · sense classes</p>';
-        } else {
-          slots.forEach(function(entry){
-            var time=entry[0], arr=entry[1];
-            // Split into coached classes and open-gym
-            var coached=[], opens=[];
-            arr.forEach(function(c){ var r=classify(c); if(r.k==='open') opens.push(r); else coached.push(r); });
+    data.days.forEach((dayData, i) => {
+      const d = new Date(monday);
+      d.setDate(d.getDate() + i);
+      const isToday = (d.getTime() === today.getTime());
+      const div = document.createElement('div');
+      div.className = 'day' + (isToday ? ' today' : '');
+      div.innerHTML = '<h4><span class="full">' + dayData.name + '</span><span class="abbrev">' + dayData.abbr + '</span></h4>';
 
-            if (!coached.length && !opens.length) return;
+      const dayHasCoached = dayData.slots.some(slot => slot.classes.some(c => c.disc !== 'open'));
 
-            if (coached.length){
-              coached.forEach(function(r){
-                counts.all++; if(counts[r.k]!==undefined) counts[r.k]++;
-                var extras='';
-                if (opens.length) extras='+ Open'+(opens.some(function(o){return !o.interior;})?' · Exterior':'');
-                var el=document.createElement('div');
-                el.className='slot';
-                el.setAttribute('data-disc', r.k);
-                el.innerHTML='<div class="time">'+time+'</div><div class="disc">'+r.l+'</div>'+(extras?'<div class="extras">'+extras+'</div>':'');
-                div.appendChild(el);
-              });
-            } else if (opens.length){
-              // Open-only slot — hidden by default UNLESS this day has no coached classes at all
-              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open · Exterior':'Open Gym';}).join(' · ');
-              var el=document.createElement('div');
-              el.className='slot open-only' + (dayHasCoached ? '' : ' always-visible');
-              el.setAttribute('data-disc', 'open');
-              el.innerHTML='<div class="time">'+time+'</div><div class="disc">'+label+'</div>';
+      if (!dayData.slots.length) {
+        div.innerHTML += '<p class="empty">Descans · sense classes</p>';
+      } else {
+        dayData.slots.forEach(slot => {
+          const coached = slot.classes.filter(c => c.disc !== 'open');
+          const opens = slot.classes.filter(c => c.disc === 'open');
+
+          if (!coached.length && !opens.length) return;
+
+          if (coached.length) {
+            coached.forEach(c => {
+              counts.all++;
+              if (counts[c.disc] !== undefined) counts[c.disc]++;
+              let extras = '';
+              if (opens.length) {
+                const hasExterior = opens.some(o => o.label.toLowerCase().includes('exterior'));
+                extras = '+ Open' + (hasExterior ? ' · Exterior' : '');
+              }
+              const el = document.createElement('div');
+              el.className = 'slot';
+              el.setAttribute('data-disc', c.disc);
+              el.innerHTML = '<div class="time">' + slot.time + '</div><div class="disc">' + c.label + '</div>' + (extras ? '<div class="extras">' + extras + '</div>' : '');
               div.appendChild(el);
-            }
-          });
-        }
-        week.appendChild(div);
-      });
-    }
+            });
+          } else if (opens.length) {
+            const label = opens.map(o => o.label.toLowerCase().includes('exterior') ? 'Open · Exterior' : 'Open Gym').join(' · ');
+            const el = document.createElement('div');
+            el.className = 'slot open-only' + (dayHasCoached ? '' : ' always-visible');
+            el.setAttribute('data-disc', 'open');
+            el.innerHTML = '<div class="time">' + slot.time + '</div><div class="disc">' + label + '</div>';
+            div.appendChild(el);
+          }
+        });
+      }
+      week.appendChild(div);
+    });
 
-    Object.keys(counts).forEach(function(k){ var el=document.getElementById('c-'+k); if(el) el.textContent='· '+counts[k]; });
+    Object.keys(counts).forEach(k => {
+      const el = document.getElementById('c-' + k);
+      if (el) el.textContent = '· ' + counts[k];
+    });
 
-    // Filters
-    var currentFilter='all';
-    var filtersEl = document.getElementById('filters');
+    setupFilters();
+  }
+
+  function setupFilters() {
+    let currentFilter = 'all';
+    let showOpen = false;
+
+    const filtersEl = document.getElementById('filters');
     if (filtersEl) {
-      filtersEl.addEventListener('click', function(e){
-        var b=e.target.closest('.filter'); if(!b) return;
-        document.querySelectorAll('.filter').forEach(function(x){x.classList.remove('on');});
+      filtersEl.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const b = target.closest('.filter') as HTMLElement;
+        if (!b) return;
+        document.querySelectorAll('.filter').forEach(x => x.classList.remove('on'));
         b.classList.add('on');
-        currentFilter=b.dataset.f;
+        currentFilter = b.dataset.f || 'all';
         applyFilter();
       });
     }
 
-    var showOpen=false;
-    var showOpenEl = document.getElementById('showOpen');
+    const showOpenEl = document.getElementById('showOpen') as HTMLInputElement;
     if (showOpenEl) {
-      showOpenEl.addEventListener('change', function(e){
-        showOpen=e.target.checked;
+      showOpenEl.addEventListener('change', (e) => {
+        showOpen = (e.target as HTMLInputElement).checked;
         applyFilter();
       });
     }
 
-    function applyFilter(){
-      document.querySelectorAll('.slot').forEach(function(s){
-        var d=s.dataset.disc;
-        var isOpen=(d==='open');
-        var alwaysVisible=s.classList.contains('always-visible');
-        var matchFilter = (currentFilter==='all') || (d===currentFilter);
-        var visible = matchFilter && (!isOpen || showOpen || alwaysVisible);
-        s.classList.toggle('hidden', !visible);
+    function applyFilter() {
+      document.querySelectorAll('.slot').forEach(s => {
+        const el = s as HTMLElement;
+        const d = el.dataset.disc;
+        const isOpen = (d === 'open');
+        const alwaysVisible = el.classList.contains('always-visible');
+        const matchFilter = (currentFilter === 'all') || (d === currentFilter);
+        const visible = matchFilter && (!isOpen || showOpen || alwaysVisible);
+        el.classList.toggle('hidden', !visible);
       });
     }
     applyFilter();
-  })();
+  }
+
+  loadSchedule();
   </script>
 </Layout>
