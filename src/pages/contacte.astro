@@ -107,6 +107,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       <div style="height:24px"></div>
       <div class="contact-grid">
         <form id="contact-form" class="reveal" style="display:grid; gap:28px;">
+          <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
           <h2 class="h-xl">Reserva una<br>primera <em class="serif">classe</em><span class="dot">.</span></h2>
           <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Escriu-nos les teves dades i et responem amb dia i hora. Si ja saps quina disciplina vols provar, ens ho dius.</p>
 
@@ -195,7 +196,8 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       disc: form.disc.value,
       level: form.level.value,
       when: form.when.value,
-      note: form.note.value
+      note: form.note.value,
+      website: form.website.value
     };
 
     try {
