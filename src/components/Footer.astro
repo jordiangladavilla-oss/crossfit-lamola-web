@@ -1,5 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const prefix = lang === 'ca' ? '' : `/${lang}`
+
 const currentYear = new Date().getFullYear()
+
+const langLabel = { ca: 'Català', es: 'Español', en: 'English' }[lang]
 ---
 
 <footer>
@@ -10,36 +18,29 @@ const currentYear = new Date().getFullYear()
       </div>
     </div>
     <div class="foot-col">
-      <h5>Navegació</h5>
-      <a href="/classes">Classes</a>
-      <a href="/horari">Horari</a>
-      <a href="/tarifes">Tarifes</a>
-      <a href="/el-box">El box</a>
-      <a href="/agenda">Agenda</a>
-      <a href="/contacte">Contacte</a>
-    </div>
-    <div class="foot-col foot-col--thin">
-      <h5>Serveis</h5>
-      <a href="/empreses">Team Building</a>
-      <a href="/partnerships">Partnerships</a>
-      <a href="/formacio">Formacions FP</a>
-      <a href="/events-privats">Esdeveniments privats</a>
+      <h5>{t('footer.nav')}</h5>
+      <a href={`${prefix}/classes`}>{t('nav.classes')}</a>
+      <a href={`${prefix}/horari`}>{t('nav.horari')}</a>
+      <a href={`${prefix}/tarifes`}>{t('nav.tarifes')}</a>
+      <a href={`${prefix}/el-box`}>{t('nav.elbox')}</a>
+      <a href={`${prefix}/agenda`}>{t('nav.agenda')}</a>
+      <a href={`${prefix}/contacte`}>{t('nav.contacte')}</a>
     </div>
     <div class="foot-col">
-      <h5>On som</h5>
+      <h5>{t('footer.location')}</h5>
       <p>Av. del Vallès 724C</p>
       <p>08227 Terrassa · Barcelona</p>
-      <a href="https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA" target="_blank" rel="noopener">Com arribar →</a>
+      <a href="https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA" target="_blank" rel="noopener">{t('footer.directions')} →</a>
     </div>
     <div class="foot-col">
-      <h5>Contacte</h5>
+      <h5>{t('nav.contacte')}</h5>
       <a href="https://wa.me/34629066531">629 06 65 31</a>
       <a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a>
     </div>
   </div>
   <div class="foot-bottom">
     <span>© {currentYear} CrossFit La Mola.</span>
-    <span><a href="/avis-legal">Avís legal</a> · <a href="/privacitat">Privacitat</a> · <a href="/cookies">Cookies</a></span>
-    <span>Fet a casa · Català</span>
+    <span><a href={`${prefix}/avis-legal`}>{t('footer.legal')}</a> · <a href={`${prefix}/privacitat`}>{t('footer.privacy')}</a> · <a href={`${prefix}/cookies`}>{t('footer.cookies')}</a></span>
+    <span>{t('footer.madein')} · {langLabel}</span>
   </div>
 </footer>

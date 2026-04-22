@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="Cookie Policy · CrossFit La Mola"
+  description="Cookie policy for the CrossFit La Mola website, Terrassa. Information about the cookies we use, how to manage them and your rights under GDPR regulations."
+>
+  <Fragment slot="head">
+    <style>
+      .legal-content{ max-width:780px; margin:0 auto;}
+      .legal-content h2{ font-family:var(--f-display); font-weight:600; font-size:clamp(22px,2.5vw,28px); margin:48px 0 16px; letter-spacing:-0.02em;}
+      .legal-content h3{ font-family:var(--f-display); font-weight:500; font-size:18px; margin:32px 0 12px;}
+      .legal-content p, .legal-content li{ font-family:var(--f-serif); font-size:17px; line-height:1.7; color:var(--bone-2); margin:0 0 16px;}
+      .legal-content ul{ padding-left:24px; margin:0 0 20px;}
+      .legal-content li{ margin-bottom:8px;}
+      .legal-content a{ color:var(--accent-hi); text-decoration:underline;}
+      .legal-content strong{ color:var(--bone); font-weight:500;}
+      .legal-content table{ width:100%; border-collapse:collapse; margin:20px 0 32px; font-family:var(--f-serif); font-size:15px;}
+      .legal-content th, .legal-content td{ text-align:left; padding:12px; border-bottom:1px solid var(--line);}
+      .legal-content th{ font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+      .legal-content td{ color:var(--bone-2);}
+    </style>
+  </Fragment>
+
+  <Nav />
+
+  <section class="page-hero" style="min-height:40svh">
+    <div class="bg" style="background:#1a1814"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Cookies</span></div>
+      <h1>Cookie<br><em class="serif">policy</em><span class="dot">.</span></h1>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner legal-content">
+      <p><strong>Last updated:</strong> April 2025</p>
+
+      <h2>1. What are cookies?</h2>
+      <p>Cookies are small text files stored on your device when you visit a website. They allow us to remember your preferences, analyze how you use the site, and improve your browsing experience.</p>
+
+      <h2>2. What cookies do we use?</h2>
+
+      <h3>Technical cookies (necessary)</h3>
+      <p>These are essential for the website to function. They do not require consent.</p>
+      <table>
+        <tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr>
+        <tr><td>cookie_consent</td><td>Remembers your cookie choice</td><td>1 year</td></tr>
+      </table>
+
+      <h3>Analytics cookies</h3>
+      <p>These help us understand how visitors use the website to improve it.</p>
+      <table>
+        <tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+        <tr><td>_ga</td><td>Google Analytics</td><td>Distinguish users</td><td>2 years</td></tr>
+        <tr><td>_ga_*</td><td>Google Analytics</td><td>Maintain session state</td><td>2 years</td></tr>
+      </table>
+
+      <h2>3. How to manage cookies?</h2>
+      <p>You can accept or reject analytics cookies through the banner that appears when you first visit the website.</p>
+      <p>You can also configure your browser to block or delete cookies:</p>
+      <ul>
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+        <li><a href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge</a></li>
+      </ul>
+      <p>Please note that blocking all cookies may affect the functionality of some parts of the website.</p>
+
+      <h2>4. Third-party cookies</h2>
+      <p>Some cookies are set by third-party services that appear on our pages:</p>
+      <ul>
+        <li><strong>Google Analytics:</strong> To analyze website usage. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+        <li><strong>OpenStreetMap:</strong> To display maps. Does not install persistent cookies.</li>
+      </ul>
+
+      <h2>5. Updates</h2>
+      <p>We may update this policy to reflect changes in the cookies we use. We recommend reviewing it periodically.</p>
+
+      <h2>6. Contact</h2>
+      <p>If you have questions about our cookie policy, contact us at <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

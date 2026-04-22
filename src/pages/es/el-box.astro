@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Nav from '../components/Nav.astro'
-import Footer from '../components/Footer.astro'
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
 ---
 
 <Layout
   title="El box · CrossFit La Mola Terrassa"
-  description="Descobreix les instal·lacions i l'equip de coaches de CrossFit La Mola a Terrassa. Rig de 15 places, zona WOD, halterofília, cardio i gimnàstic. Coaches certificats CF-L1 i CF-L2."
+  description="Descubre las instalaciones y el equipo de coaches de CrossFit La Mola en Terrassa. Rig de 15 plazas, zona WOD, halterofilia, cardio y gimnástico. Coaches certificados CF-L1 y CF-L2."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
@@ -15,15 +15,15 @@ import Footer from '../components/Footer.astro'
       "@type": "ExerciseGym",
       "@id": "https://crossfitlamola.com/#organization",
       "name": "CrossFit La Mola",
-      "description": "Box de CrossFit afiliat a Terrassa amb 400m² d'instal·lacions, rig de 15 places, zona d'halterofília i equip de cardio Concept2 i Rogue.",
-      "url": "https://crossfitlamola.com/el-box",
+      "description": "Box de CrossFit afiliado en Terrassa con 400m² de instalaciones, rig de 15 plazas, zona de halterofilia y equipo de cardio Concept2 y Rogue.",
+      "url": "https://crossfitlamola.com/es/el-box",
       "image": "https://crossfitlamola.com/assets/team.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Avinguda del Vallès 724 C",
         "postalCode": "08227",
         "addressLocality": "Terrassa",
-        "addressRegion": "Catalunya",
+        "addressRegion": "Cataluña",
         "addressCountry": "ES"
       },
       "employee": [
@@ -31,14 +31,14 @@ import Footer from '../components/Footer.astro'
           "@type": "Person",
           "name": "Sergi",
           "jobTitle": "Head Coach",
-          "description": "Co-fundador de CrossFit La Mola, certificat CF-L2",
+          "description": "Co-fundador de CrossFit La Mola, certificado CF-L2",
           "image": "https://crossfitlamola.com/assets/coach-sergi.jpg"
         },
         {
           "@type": "Person",
           "name": "Juse",
           "jobTitle": "Coach",
-          "description": "Coach de CrossFit La Mola, certificat CF-L1",
+          "description": "Coach de CrossFit La Mola, certificado CF-L1",
           "image": "https://crossfitlamola.com/assets/coach-juse.jpg"
         },
         {
@@ -50,42 +50,42 @@ import Footer from '../components/Footer.astro'
         }
       ],
       "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Rig de competició (15 places)", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Zona halterofília", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Equip cardio Concept2 i Rogue", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Vestuaris i dutxes", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Pàrquing gratuït", "value": true}
+        {"@type": "LocationFeatureSpecification", "name": "Rig de competición (15 plazas)", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Zona halterofilia", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Equipo cardio Concept2 y Rogue", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Vestuarios y duchas", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Parking gratuito", "value": true}
       ]
     }
     </script>
   </Fragment>
 
-  <Nav currentPage="/el-box" />
+  <Nav currentPage="/es/el-box" />
 
   <section class="page-hero">
     <div class="bg" style="background-image:url('/assets/team.jpg')"></div>
     <div class="inner">
-      <div class="crumb"><a href="/">Inici</a><span>/</span><span>El box</span></div>
-      <div class="kicker"><span>L'espai</span><span class="bar"></span><span>Terrassa</span></div>
-      <h1>El nom ve de la<br><em class="serif">muntanya</em><span class="dot">.</span></h1>
-      <p class="sub">La Mola corona Terrassa. Es una manera de relacionar-se amb l'esforc: pas a pas, acceptar el desnivell, sostenir el ritme.</p>
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>El box</span></div>
+      <div class="kicker"><span>El espacio</span><span class="bar"></span><span>Terrassa</span></div>
+      <h1>El nombre viene de la<br><em class="serif">montana</em><span class="dot">.</span></h1>
+      <p class="sub">La Mola corona Terrassa. Es una forma de relacionarse con el esfuerzo: paso a paso, aceptar el desnivel, sostener el ritmo.</p>
     </div>
   </section>
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 —</span><span>Perque nosaltres</span></div>
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Por que nosotros</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Un espai per a la<br><em class="serif">millora continua</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Som un projecte amb nom, cara i filosofia propia. Un box on els coaches et recorden el nom i on vas fallar l'ultima repeticio.</p>
+        <h2 class="h-xl reveal">Un espacio para la<br><em class="serif">mejora continua</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Somos un proyecto con nombre, cara y filosofia propia. Un box donde los coaches te recuerdan el nombre y donde fallaste la ultima repeticion.</p>
       </div>
 
       <div class="why-grid reveal-stagger">
-        <div class="why-item" style="--i:0"><div class="n">01</div><h3>CrossFit Affiliate oficial</h3><p>Box afiliat a CrossFit, LLC. Coaches amb certificacio oficial i formacio continua segons els estandards de la metodologia.</p></div>
-        <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programacio i progressio</h3><p>Cicles estructurats amb objectiu clar. Cada sessio te una funcio dins del bloc i cada bloc prepara el seguent. Entrenes per millorar, no per esgotar-te.</p></div>
-        <div class="why-item" style="--i:2"><div class="n">03</div><h3>Material de qualitat</h3><p>Box completament equipat. Barres olimpiques, dumbbells, kettlebells, worms, rampes HSW, GHD, remeres i ski ergs. Marques de referencia i material en perfecte estat.</p></div>
-        <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusiu i sense egos</h3><p>Comunitat integradora: persones que comencen, competidores, families, gent gran. Respecte pel proces de cadascu, sense comparacions ni pressions.</p></div>
+        <div class="why-item" style="--i:0"><div class="n">01</div><h3>CrossFit Affiliate oficial</h3><p>Box afiliado a CrossFit, LLC. Coaches con certificacion oficial y formacion continua segun los estandares de la metodologia.</p></div>
+        <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programacion y progresion</h3><p>Ciclos estructurados con objetivo claro. Cada sesion tiene una funcion dentro del bloque y cada bloque prepara el siguiente. Entrenas para mejorar, no para agotarte.</p></div>
+        <div class="why-item" style="--i:2"><div class="n">03</div><h3>Material de calidad</h3><p>Box completamente equipado. Barras olimpicas, dumbbells, kettlebells, worms, rampas HSW, GHD, remeros y ski ergs. Marcas de referencia y material en perfecto estado.</p></div>
+        <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusivo y sin egos</h3><p>Comunidad integradora: personas que empiezan, competidores, familias, gente mayor. Respeto por el proceso de cada uno, sin comparaciones ni presiones.</p></div>
       </div>
     </div>
   </section>
@@ -93,17 +93,17 @@ import Footer from '../components/Footer.astro'
   <section class="sec ink" style="padding-top:0;">
     <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
     <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
-      <div class="eyebrow reveal"><span class="num">02 —</span><span>L'equip tecnic</span></div>
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>El equipo tecnico</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Tres persones.<br>Una manera d'entendre<br><em class="serif">el moviment</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Programen, corregeixen i acompanyen. Tambe recorden el teu ultim PR i el dia que no et veies amb cor.</p>
+        <h2 class="h-xl reveal">Tres personas.<br>Una manera de entender<br><em class="serif">el movimiento</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Programan, corrigen y acompanan. Tambien recuerdan tu ultimo PR y el dia que no te veias con fuerzas.</p>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="reveal-stagger">
         <div style="display:grid; grid-template-columns:1fr; gap:40px;" class="coach-layout">
           <article style="--i:0; display:grid; grid-template-columns:1fr; gap:24px;">
-            <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i co-fundador de CrossFit La Mola, certificat CF-L2" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+            <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach y co-fundador de CrossFit La Mola, certificado CF-L2" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
             <div>
               <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">01 · Head Coach</div>
               <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Sergi</h3>
@@ -112,13 +112,13 @@ import Footer from '../components/Footer.astro'
                 <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">Wall climbs</span>
                 <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Free HSPU</span>
               </div>
-              <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit és el pilar del meu dia a dia — em dona disciplina i una força, tant mental com física, que porto a tots els àmbits de la vida. Ser coach a La Mola és ensenyar, però sobretot és aprendre de tothom i acompanyar: un recorregut mutu entre coach i atleta per trobar, cada dia, una versió una mica millor de nosaltres mateixos."</p>
+              <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit es el pilar de mi dia a dia — me da disciplina y una fuerza, tanto mental como fisica, que llevo a todos los ambitos de la vida. Ser coach en La Mola es ensenar, pero sobre todo es aprender de todos y acompanar: un recorrido mutuo entre coach y atleta para encontrar, cada dia, una version un poco mejor de nosotros mismos."</p>
             </div>
           </article>
         </div>
         <!-- Juse -->
         <article style="--i:1; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificado CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">02 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Juse</h3>
@@ -127,12 +127,12 @@ import Footer from '../components/Footer.astro'
               <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">Strict HSPU</span>
               <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Heavy ramp</span>
             </div>
-            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit és una via d’escapament: un espai on deixar els problemes fora durant una estona, buidar el cap i reconnectar amb mi mateix. Com a coach, el que més valoro no és només el que la gent aprèn a nivell pràctic, sinó tot allò que s'emporta més enllà del box: la constança, la confiança i la capacitat de celebrar cada progrés, per petit que sigui. El CrossFit és una eina — l'aprenentatge real és mental. Veure com tot això s'aplica fora és el més gratificant."</p>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit es una via de escape: un espacio donde dejar los problemas fuera durante un rato, vaciar la cabeza y reconectar conmigo mismo. Como coach, lo que mas valoro no es solo lo que la gente aprende a nivel practico, sino todo lo que se lleva mas alla del box: la constancia, la confianza y la capacidad de celebrar cada progreso, por pequeno que sea. El CrossFit es una herramienta — el aprendizaje real es mental. Ver como todo esto se aplica fuera es lo mas gratificante."</p>
           </div>
         </article>
         <!-- Eli -->
         <article style="--i:2; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach i co-fundadora de CrossFit La Mola, certificada CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach y co-fundadora de CrossFit La Mola, certificada CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">03 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Eli</h3>
@@ -141,7 +141,7 @@ import Footer from '../components/Footer.astro'
               <span style="color:var(--muted);">Kriptonita</span><span style="color:var(--bone);">HSPU</span>
               <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Snatch</span>
             </div>
-            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit m'ha donat pau mental i una relació nova amb el meu cos: basada en el que pot fer, no en com es veu. M'ha ensenyat a posar el focus allà on realment importa — la salut, la força, la funcionalitat. Com a coach, el que més m'apassiona és el moment en què algú fa seus els moviments i els WODs deixen de ser una programació per convertir-se en un repte personal. La meva feina és adaptar el procés, donar eines i acompanyar cada persona des d'on és, sabent que el progrés té el seu propi ritme."</p>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"El CrossFit me ha dado paz mental y una relacion nueva con mi cuerpo: basada en lo que puede hacer, no en como se ve. Me ha ensenado a poner el foco donde realmente importa — la salud, la fuerza, la funcionalidad. Como coach, lo que mas me apasiona es el momento en que alguien hace suyos los movimientos y los WODs dejan de ser una programacion para convertirse en un reto personal. Mi trabajo es adaptar el proceso, dar herramientas y acompanar a cada persona desde donde esta, sabiendo que el progreso tiene su propio ritmo."</p>
           </div>
         </article>
       </div>
@@ -157,29 +157,29 @@ import Footer from '../components/Footer.astro'
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">03 —</span><span>Les instal·lacions</span></div>
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>Las instalaciones</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Un box dissenyat<br>per al <em class="serif">rendiment</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Zona WOD principal, halterofilia separada, rig de gimnastic, vestuaris i dutxes. Tot pensat perque entrenar sigui el que si passi aqui dins.</p>
+        <h2 class="h-xl reveal">Un box disenado<br>para el <em class="serif">rendimiento</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Zona WOD principal, halterofilia separada, rig de gimnastico, vestuarios y duchas. Todo pensado para que entrenar sea lo que pase aqui dentro.</p>
       </div>
 
       <div class="gallery reveal-stagger">
         <figure class="huge" style="--i:0"><img src="/assets/community-3.jpg" alt=""><figcaption>Zona WOD principal</figcaption></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/detail-rope.jpg" alt=""><figcaption>Rig de gimnastic</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/detail-rope.jpg" alt=""><figcaption>Rig gimnastico</figcaption></figure>
         <figure style="--i:2"><img src="/assets/detail-chalk.jpg" alt=""><figcaption>Halterofilia</figcaption></figure>
-        <figure style="--i:3"><img src="/assets/detail-dumbbells.jpg" alt=""><figcaption>Equipacio</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/detail-dumbbells.jpg" alt=""><figcaption>Equipacion</figcaption></figure>
         <figure class="wide" style="--i:4"><img src="/assets/community-5.jpg" alt=""><figcaption>Zona open exterior</figcaption></figure>
-        <figure style="--i:5"><img src="/assets/detail-board.jpg" alt=""><figcaption>Whiteboard &amp; programacio</figcaption></figure>
-        <figure class="tall" style="--i:6"><img src="/assets/community-6.jpg" alt=""><figcaption>Vestuaris i dutxes</figcaption></figure>
-        <figure style="--i:7"><img src="/assets/detail-rings.jpg" alt=""><figcaption>Anelles i paral·leles</figcaption></figure>
+        <figure style="--i:5"><img src="/assets/detail-board.jpg" alt=""><figcaption>Whiteboard y programacion</figcaption></figure>
+        <figure class="tall" style="--i:6"><img src="/assets/community-6.jpg" alt=""><figcaption>Vestuarios y duchas</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/detail-rings.jpg" alt=""><figcaption>Anillas y paralelas</figcaption></figure>
         <figure style="--i:8"><img src="/assets/community-4.jpg" alt=""><figcaption>Coffee corner</figcaption></figure>
       </div>
 
       <div class="equip reveal">
-        <div><h4>Strength &amp; WOD</h4><ul><li>Rig (15 places)</li><li>Barres olímpiques (10–20 kg)</li><li>Discos bumper (0,5–25 kg)</li><li>Kettlebells (8–32 kg)</li><li>Dumbells (5–45 kg)</li><li>Wallball (5–9 kg)</li><li>Sandbags (40–90 kg)</li><li>Sled push &amp; pull ×3</li></ul></div>
-        <div><h4>Gimnàstic</h4><ul><li>Anelles ×8</li><li>Rope climbs ×8</li><li>Colxonetes HSPU</li><li>Rampa HSW</li><li>Worm 2–4 persones</li><li>GHD</li><li>Paral·leles</li><li>Heavy jump ropes</li></ul></div>
-        <div><h4>Cardio &amp; Accessoris</h4><ul><li>Bike ergs</li><li>Ski ergs</li><li>Row Concept2</li><li>Row Rogue</li><li>Echo Bike Rogue</li><li>Massage guns</li><li>Foam rollers</li><li>Cinturons, gomes, grips</li></ul></div>
+        <div><h4>Strength &amp; WOD</h4><ul><li>Rig (15 plazas)</li><li>Barras olímpicas (10–20 kg)</li><li>Discos bumper (0,5–25 kg)</li><li>Kettlebells (8–32 kg)</li><li>Dumbells (5–45 kg)</li><li>Wallball (5–9 kg)</li><li>Sandbags (40–90 kg)</li><li>Sled push &amp; pull ×3</li></ul></div>
+        <div><h4>Gimnástico</h4><ul><li>Anillas ×8</li><li>Rope climbs ×8</li><li>Colchonetas HSPU</li><li>Rampa HSW</li><li>Worm 2–4 personas</li><li>GHD</li><li>Paralelas</li><li>Heavy jump ropes</li></ul></div>
+        <div><h4>Cardio &amp; Accesorios</h4><ul><li>Bike ergs</li><li>Ski ergs</li><li>Row Concept2</li><li>Row Rogue</li><li>Echo Bike Rogue</li><li>Massage guns</li><li>Foam rollers</li><li>Cinturones, gomas, grips</li></ul></div>
       </div>
     </div>
   </section>
@@ -187,12 +187,12 @@ import Footer from '../components/Footer.astro'
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Ves-hi un dia</span></div>
-      <h2 class="h-hero reveal">Veure'l es<br><em class="serif">mes facil</em><span class="dot">.</span></h2>
-      <p class="reveal">Et fem una visita guiada, t'ensenyem les instal·lacions i entrenes la primera classe amb un coach.</p>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Pasate un dia</span></div>
+      <h2 class="h-hero reveal">Verlo es<br><em class="serif">mas facil</em><span class="dot">.</span></h2>
+      <p class="reveal">Te hacemos una visita guiada, te ensenamos las instalaciones y entrenas la primera clase con un coach.</p>
       <div class="actions reveal">
-        <a class="btn-primary" href="/contacte">Reserva una visita<span class="arr"></span></a>
-        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o escriu-nos per WhatsApp</a>
+        <a class="btn-primary" href="/es/contacte">Reserva una visita<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o escribenos por WhatsApp</a>
       </div>
     </div>
   </section>

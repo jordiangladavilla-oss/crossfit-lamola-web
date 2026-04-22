@@ -3,15 +3,21 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Schema from '../components/Schema.astro'
+import { agendaEvents, formatEventDays, getEventMonthShort } from '../data/agenda'
 
-const AGENDA = [
-  { d:"18", m:"Abr", title:"Masterclass Iniciació CrossFit", cat:"activitat", meta:["11:45–13:15h","Gratuïta","Al box"], tag:false, note:"Sessió d'introducció per a qui comença. Cap experiència prèvia necessària." },
-  { d:"19", m:"Abr", title:"Running Club @ La Barceloneta", cat:"activitat", meta:["10:00h","Run + brunch","Barcelona"], tag:false, note:"Sortida pel passeig marítim i brunch després. Tots els nivells." },
-  { d:"23–24", m:"Mai", title:"Mountain Club · Pedraforca", cat:"activitat", meta:["Cap de setmana","2.506 m","Camping Wecamp"], tag:true, note:"Dos dies a la muntanya. Campament al peu i ascensió fins al cim." },
-  { d:"30", m:"Mai", title:"Beach WOD · La Mola & Ikaika Masnou", cat:"activitat", meta:["09:00–16:00h","Platja"], tag:false, note:"Jornada a la platja en col·laboració amb Ikaika Training Masnou." },
-  { d:"05–07", m:"Jun", title:"FCL Games", cat:"competicio", meta:["CrossFit Lynx","Individual"], tag:false, note:"Tres dies de competició al més alt nivell regional. Categoria individual." },
-  { d:"14", m:"Jun", title:"Seminari Halterofília amb Alfonso", cat:"seminari", meta:["Al box","50€","Places limitades"], tag:true, note:"Seminari intensiu de tècnica olímpica. Snatch, Clean & Jerk i treball accessori." },
-]
+// Transformem els events per al format de la secció agenda del index
+const AGENDA = agendaEvents.slice(0, 6).map(e => {
+  const placeParts = e.place.split(' · ')
+  return {
+    d: formatEventDays(e),
+    m: getEventMonthShort(e, 'ca'),
+    title: e.name,
+    cat: e.cat === 'comp-ext' ? 'competicio' : e.cat,
+    meta: placeParts,
+    tag: e.featured || false,
+    note: ''
+  }
+})
 ---
 
 <Layout
@@ -353,8 +359,6 @@ const AGENDA = [
         <button class="chip is-active" data-filter="all">Tot</button>
         <button class="chip" data-filter="activitat">Activitats</button>
         <button class="chip" data-filter="competicio">Competicions</button>
-        <button class="chip" data-filter="festa">Festes</button>
-        <button class="chip" data-filter="seminari">Seminaris</button>
       </div>
       <div class="agenda" id="agenda-list" aria-live="polite">
         {AGENDA.map(item => (

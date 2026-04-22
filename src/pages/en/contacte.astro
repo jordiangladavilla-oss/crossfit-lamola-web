@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const title = "Contact · CrossFit La Mola Terrassa"
+const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp 629 06 65 31. Mon–Thu 07:00–21:30, Fri 07:00–20:30. First class free."
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <style>
+      .contact-grid{ display:grid; grid-template-columns:1fr; gap:60px; margin-top:40px;}
+      @media(min-width:900px){ .contact-grid{ grid-template-columns:1.1fr 0.9fr; gap:80px;} }
+
+      .info-block{ display:grid; gap:0; border-top:1px solid var(--line);}
+      .info-block > div{ padding:22px 0; border-bottom:1px solid var(--line);}
+      .info-block .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;}
+      .info-block .value{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em;}
+      .info-block .value a{ color:var(--bone);}
+      .info-block .value a:hover{ color:var(--accent-hi);}
+      .info-block .note{ font-family:var(--f-serif); font-size:15px; color:var(--bone-2); margin-top:4px;}
+
+      .map{ aspect-ratio:16/10; background:var(--ink-2); position:relative; overflow:hidden; margin-top:60px; border-top:1px solid var(--line);}
+      .map iframe{ width:100%; height:100%; border:0; filter:invert(.92) hue-rotate(180deg) saturate(.4) brightness(.85);}
+
+      .visit-bar{ display:grid; grid-template-columns:1fr; gap:1px; margin-top:60px; background:var(--line-ink);}
+      @media(min-width:760px){ .visit-bar{ grid-template-columns:repeat(3,1fr);} }
+      .visit-bar > div{ background:var(--bone); padding:28px 24px;}
+      .visit-bar h4{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 12px;}
+      .visit-bar p{ font-family:var(--f-display); font-weight:500; font-size:clamp(17px,1.6vw,21px); letter-spacing:-0.015em; margin:0; line-height:1.3;}
+      .visit-bar p em{ font-family:var(--f-serif); font-style:italic; font-weight:300;}
+
+      .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+      @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+    </style>
+    <script type="application/ld+json" data-schema="base">
+    {
+      "@context": "https://schema.org",
+      "@type": "ExerciseGym",
+      "@id": "https://crossfitlamola.com/#organization",
+      "name": "CrossFit La Mola",
+      "alternateName": "La Mola CrossFit",
+      "description": "CrossFit box in Terrassa since 2025. Functional training, weightlifting, gymnastics and cardio with CF-L1 and CF-L2 certified coaches.",
+      "url": "https://crossfitlamola.com/",
+      "logo": "https://crossfitlamola.com/assets/logo-full.png",
+      "image": "https://crossfitlamola.com/assets/hero-still.jpg",
+      "telephone": "+34629066531",
+      "email": "hola@crossfitlamola.com",
+      "priceRange": "€€",
+      "foundingDate": "2025",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida del Valles 724 C",
+        "postalCode": "08227",
+        "addressLocality": "Terrassa",
+        "addressRegion": "Catalonia",
+        "addressCountry": "ES"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
+      "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
+      "sameAs": [
+        "https://www.instagram.com/lamolacrossfit/",
+        "https://share.google/pTO0bMKcTnShi6oAO"
+      ],
+      "openingHoursSpecification": [
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:30"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"20:30"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
+      ],
+      "areaServed": [
+        {"@type":"City","name":"Terrassa"},
+        {"@type":"City","name":"Sabadell"},
+        {"@type":"City","name":"Sant Cugat del Valles"},
+        {"@type":"City","name":"Rubi"},
+        {"@type":"AdministrativeArea","name":"Valles Occidental"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json" data-schema="contactpage">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact CrossFit La Mola",
+      "mainEntity": {"@id":"https://crossfitlamola.com/#organization"}
+    }
+    </script>
+  </Fragment>
+
+  <Nav currentPage="/en/contacte" />
+
+  <section class="page-hero" style="min-height:50svh">
+    <div class="bg" style="background-image:url('/assets/community-7.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Contact</span></div>
+      <div class="kicker"><span>Get in touch</span><span class="bar"></span><span>Reply within 24h</span></div>
+      <h1>Say<br><em class="serif">hello</em><span class="dot">.</span></h1>
+      <p class="sub">WhatsApp is quickest. If you'd rather see us in person, swing by the box: the door's always open.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01</span><span>Form</span></div>
+      <div style="height:24px"></div>
+      <div class="contact-grid">
+        <form id="contact-form" class="reveal" style="display:grid; gap:28px;">
+          <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+          <h2 class="h-xl">Book your<br>first <em class="serif">class</em><span class="dot">.</span></h2>
+          <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Drop us your details and we'll get back to you with a day and time. If you already know which discipline you want to try, let us know.</p>
+
+          <div class="form-row two">
+            <div class="field"><label>Full name</label><input type="text" name="name" required aria-required="true" placeholder="What's your name?"></div>
+            <div class="field"><label>Phone</label><input type="tel" name="phone" required aria-required="true" placeholder="+34 629 ..."></div>
+          </div>
+          <div class="form-row two">
+            <div class="field"><label>Email</label><input type="email" name="email" required aria-required="true" placeholder="you@email.com"></div>
+            <div class="field"><label>Discipline you're interested in</label>
+              <select name="disc">
+                <option>Not sure yet</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="field"><label>Done CrossFit before?</label>
+              <select name="level"><option>Never</option><option>A few drop-in classes</option><option>Yes, I'm experienced</option><option>I compete</option></select>
+            </div>
+            <div class="field"><label>When do you want to come?</label>
+              <select name="when"><option>This week</option><option>Next week</option><option>Not sure yet</option></select>
+            </div>
+          </div>
+          <div class="field"><label>Anything else we should know?</label><textarea name="note" placeholder="Injuries, goals, questions..."></textarea></div>
+          <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+            <button type="submit" class="form-submit" id="contact-submit">Send<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
+            <span style="font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">or WhatsApp us at <a href="https://wa.me/34629066531" style="color:var(--accent-hi);">629 06 65 31</a></span>
+          </div>
+          <div id="contact-msg" style="display:none; padding:20px; border-radius:8px; font-family:var(--f-display);"></div>
+        </form>
+
+        <aside class="reveal">
+          <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(26px,2.8vw,36px); letter-spacing:-0.025em; margin:0 0 8px;">Or find us<br>on any <em class="serif">channel</em><span class="dot">.</span></h3>
+          <div class="info-block">
+            <div><div class="label">WhatsApp · Preferred</div><div class="value"><a href="https://wa.me/34629066531" style="display:inline-flex;align-items:center;gap:10px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Message us</a></div><div class="note">Reply within minutes, Monday to Saturday.</div></div>
+            <div><div class="label">Call</div><div class="value"><a href="tel:+34629066531">629 06 65 31</a></div><div class="note">To speak directly, Monday to Saturday.</div></div>
+            <div><div class="label">Address</div><div class="value">Av. del Valles 724C<br>08227 Terrassa · Barcelona</div><div class="note"><a href="https://share.google/Pme73HGLekvRLepee" target="_blank" rel="noopener" style="color:var(--accent-hi);">Get directions &#8594;</a></div></div>
+            <div><div class="label">Box hours</div><div class="value" style="font-size:18px; line-height:1.5;">Mon–Thu · 07:00 – 21:30<br>Fri · 07:00 – 20:30<br>Sat–Sun · 09:30 – 11:30</div></div>
+            <div><div class="label">Social</div><div class="value"><a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a></div><div class="note">Daily life, photos, and community.</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02</span><span>Location</span></div>
+      <div style="height:16px"></div>
+      <h2 class="h-xl reveal">Two minutes<br>off the <em class="serif">highway</em><span class="dot">.</span></h2>
+      <p class="lead reveal" style="margin-top:22px;">On Av. del Valles, right off the C-58. Free parking at the door and a bus stop 50 meters away.</p>
+
+      <div class="visit-bar reveal-stagger">
+        <div style="--i:0"><h4>01 · By car</h4><p>Exit <em>"Terrassa centre"</em> from the C-58. Free parking right outside the box.</p></div>
+        <div style="--i:1"><h4>02 · Public transport</h4><p>FGC · <em>Estacio del Nord</em> station, 8 min walk. Bus line 3 stops at the door.</p></div>
+        <div style="--i:2"><h4>03 · By bike</h4><p>Bike lane from the centre. We have <em>covered parking</em> inside the box.</p></div>
+      </div>
+
+      <div class="map reveal">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=2.0014%2C41.5613%2C2.0314%2C41.5813&amp;layer=mapnik&amp;marker=41.5713%2C2.0164" loading="lazy" title="CrossFit La Mola map"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
+
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('contact-submit');
+    const msg = document.getElementById('contact-msg');
+    const btnText = btn.innerHTML;
+
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
+    msg.style.display = 'none';
+
+    const data = {
+      origen: 'Contact EN',
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      disc: form.disc.value,
+      level: form.level.value,
+      when: form.when.value,
+      note: form.note.value,
+      website: form.website.value
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      msg.style.display = 'block';
+      msg.style.background = 'var(--accent-ink)';
+      msg.style.color = 'var(--bone)';
+      msg.innerHTML = '<strong>Thanks!</strong> We got your message. We\'ll be in touch soon.';
+      form.reset();
+
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          event_category: 'forms',
+          event_label: 'Contact EN',
+          value: 1
+        });
+      }
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.style.background = '#fee';
+      msg.style.color = '#c00';
+      msg.innerHTML = 'Error sending. Try WhatsApp: <a href="https://wa.me/34629066531" style="color:#c00;">629 06 65 31</a>';
+    }
+
+    btn.innerHTML = btnText;
+    btn.disabled = false;
+  });
+</script>
+</Layout>

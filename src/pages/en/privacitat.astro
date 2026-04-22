@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="Privacy Policy · CrossFit La Mola"
+  description="Privacy policy and personal data protection at CrossFit La Mola, Terrassa. Information about your GDPR rights, purpose of processing and how to exercise your rights."
+>
+  <Fragment slot="head">
+    <style>
+      .legal-content{ max-width:780px; margin:0 auto;}
+      .legal-content h2{ font-family:var(--f-display); font-weight:600; font-size:clamp(22px,2.5vw,28px); margin:48px 0 16px; letter-spacing:-0.02em;}
+      .legal-content h3{ font-family:var(--f-display); font-weight:500; font-size:18px; margin:32px 0 12px;}
+      .legal-content p, .legal-content li{ font-family:var(--f-serif); font-size:17px; line-height:1.7; color:var(--bone-2); margin:0 0 16px;}
+      .legal-content ul{ padding-left:24px; margin:0 0 20px;}
+      .legal-content li{ margin-bottom:8px;}
+      .legal-content a{ color:var(--accent-hi); text-decoration:underline;}
+      .legal-content strong{ color:var(--bone); font-weight:500;}
+    </style>
+  </Fragment>
+
+  <Nav />
+
+  <section class="page-hero" style="min-height:40svh">
+    <div class="bg" style="background:#1a1814"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Privacy</span></div>
+      <h1>Privacy<br><em class="serif">policy</em><span class="dot">.</span></h1>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner legal-content">
+      <p><strong>Last updated:</strong> April 2025</p>
+
+      <h2>1. Data controller</h2>
+      <p>The data controller responsible for your personal data is:</p>
+      <ul>
+        <li><strong>Name:</strong> CrossFit La Mola</li>
+        <li><strong>Address:</strong> Av. del Vallès 724C, 08227 Terrassa, Barcelona, Spain</li>
+        <li><strong>Email:</strong> hola@crossfitlamola.com</li>
+        <li><strong>Phone:</strong> +34 629 06 65 31</li>
+      </ul>
+
+      <h2>2. Purpose of processing</h2>
+      <p>We collect and process your personal data for the following purposes:</p>
+      <ul>
+        <li>Managing your registration and participation in classes</li>
+        <li>Responding to your inquiries and information requests</li>
+        <li>Sending communications related to our services (schedules, changes, events)</li>
+        <li>Managing fee collection and billing</li>
+        <li>Complying with applicable legal obligations</li>
+      </ul>
+
+      <h2>3. Legal basis</h2>
+      <p>The legal basis for processing your data is:</p>
+      <ul>
+        <li><strong>Contract performance:</strong> when you sign up as a member</li>
+        <li><strong>Consent:</strong> when you send us an inquiry or request</li>
+        <li><strong>Legitimate interest:</strong> to send you information about our services</li>
+        <li><strong>Legal obligation:</strong> to comply with tax and accounting regulations</li>
+      </ul>
+
+      <h2>4. Data we collect</h2>
+      <p>We may collect the following categories of data:</p>
+      <ul>
+        <li>Identification data: name, surname, ID number</li>
+        <li>Contact data: phone, email, address</li>
+        <li>Health data relevant to sports practice (injuries, medical conditions)</li>
+        <li>Images and videos during activities (with your consent)</li>
+        <li>Bank details for payment management</li>
+      </ul>
+
+      <h2>5. Data retention</h2>
+      <p>We will keep your data while you maintain your relationship with us. Once terminated, data will be kept for the legally established periods:</p>
+      <ul>
+        <li>Tax data: 4 years</li>
+        <li>Contractual data: 5 years</li>
+        <li>Health data: will be deleted when you cease to be a member</li>
+      </ul>
+
+      <h2>6. Recipients</h2>
+      <p>Your data will not be shared with third parties, except:</p>
+      <ul>
+        <li>Banking entities for payment management</li>
+        <li>Public administrations when legally required</li>
+        <li>Service providers (hosting, email) with whom we have confidentiality agreements</li>
+      </ul>
+
+      <h2>7. Your rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access:</strong> know what data we hold about you</li>
+        <li><strong>Rectification:</strong> correct inaccurate data</li>
+        <li><strong>Erasure:</strong> request the deletion of your data</li>
+        <li><strong>Objection:</strong> object to certain processing</li>
+        <li><strong>Restriction:</strong> restrict processing in certain cases</li>
+        <li><strong>Portability:</strong> receive your data in electronic format</li>
+      </ul>
+      <p>To exercise these rights, contact us at <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
+      <p>You can also file a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+
+      <h2>8. Security</h2>
+      <p>We apply appropriate technical and organizational measures to protect your data against unauthorized access, loss, or destruction.</p>
+
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this privacy policy. Any significant changes will be communicated through our website or by email.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

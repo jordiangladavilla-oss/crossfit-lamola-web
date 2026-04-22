@@ -32,14 +32,21 @@ export const ui = {
     'common.bookNow': 'Reservar ara',
 
     // Footer
-    'footer.navigation': 'Navegació',
+    'footer.nav': 'Navegació',
     'footer.services': 'Serveis',
+    'footer.teambuilding': 'Team Building',
+    'footer.partnerships': 'Partnerships',
+    'footer.training': 'Formacions FP',
+    'footer.privateevents': 'Esdeveniments privats',
+    'footer.location': 'On som',
+    'footer.directions': 'Com arribar',
     'footer.contact': 'Contacte',
     'footer.followUs': 'Segueix-nos',
     'footer.rights': 'Tots els drets reservats',
     'footer.legal': 'Avís legal',
     'footer.privacy': 'Privacitat',
     'footer.cookies': 'Cookies',
+    'footer.madein': 'Fet a casa',
 
     // Home
     'home.title': 'CrossFit La Mola · Box a Terrassa',
@@ -164,14 +171,21 @@ export const ui = {
     'common.bookNow': 'Reservar ahora',
 
     // Footer
-    'footer.navigation': 'Navegación',
+    'footer.nav': 'Navegación',
     'footer.services': 'Servicios',
+    'footer.teambuilding': 'Team Building',
+    'footer.partnerships': 'Partnerships',
+    'footer.training': 'Formaciones FP',
+    'footer.privateevents': 'Eventos privados',
+    'footer.location': 'Donde estamos',
+    'footer.directions': 'Como llegar',
     'footer.contact': 'Contacto',
     'footer.followUs': 'Síguenos',
     'footer.rights': 'Todos los derechos reservados',
     'footer.legal': 'Aviso legal',
     'footer.privacy': 'Privacidad',
     'footer.cookies': 'Cookies',
+    'footer.madein': 'Hecho en casa',
 
     // Home
     'home.title': 'CrossFit La Mola · Box en Terrassa',
@@ -296,14 +310,21 @@ export const ui = {
     'common.bookNow': 'Book now',
 
     // Footer
-    'footer.navigation': 'Navigation',
+    'footer.nav': 'Navigation',
     'footer.services': 'Services',
+    'footer.teambuilding': 'Team Building',
+    'footer.partnerships': 'Partnerships',
+    'footer.training': 'FP Training',
+    'footer.privateevents': 'Private events',
+    'footer.location': 'Location',
+    'footer.directions': 'Get directions',
     'footer.contact': 'Contact',
     'footer.followUs': 'Follow us',
     'footer.rights': 'All rights reserved',
     'footer.legal': 'Legal notice',
     'footer.privacy': 'Privacy',
     'footer.cookies': 'Cookies',
+    'footer.madein': 'Made at home',
 
     // Home
     'home.title': 'CrossFit La Mola · Box in Terrassa',

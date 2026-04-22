@@ -20,16 +20,19 @@ const currentRoute = getRouteFromUrl(Astro.url);
 <style>
   .lang-switch {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     font-family: var(--f-mono);
     font-size: 10px;
     letter-spacing: .1em;
+    background: rgba(255,255,255,0.1);
+    padding: 4px;
+    border-radius: 6px;
   }
 
   .lang-option {
     padding: 6px 8px;
     border-radius: 4px;
-    color: var(--muted);
+    color: rgba(255,255,255,0.5);
     transition: color 0.2s, background 0.2s;
   }
 
@@ -39,19 +42,42 @@ const currentRoute = getRouteFromUrl(Astro.url);
 
   .lang-option.active {
     color: var(--bone);
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* Quan el nav te fons clar (on-bone) */
+  :global(.nav.on-bone) .lang-switch {
+    background: rgba(0,0,0,0.08);
+  }
+
+  :global(.nav.on-bone) .lang-option {
+    color: rgba(45,42,38,0.5);
+  }
+
+  :global(.nav.on-bone) .lang-option:hover {
+    color: var(--bone-ink);
+  }
+
+  :global(.nav.on-bone) .lang-option.active {
+    color: var(--bone-ink);
+    background: rgba(0,0,0,0.12);
+  }
+
+  /* Mobile nav */
+  :global(.nav-mobile) .lang-switch {
     background: rgba(255,255,255,0.1);
   }
 
-  .sec.bone .lang-option {
-    color: var(--muted-ink);
+  :global(.nav-mobile) .lang-option {
+    color: rgba(255,255,255,0.6);
   }
 
-  .sec.bone .lang-option:hover {
-    color: var(--bone-ink);
+  :global(.nav-mobile) .lang-option:hover {
+    color: var(--bone);
   }
 
-  .sec.bone .lang-option.active {
-    color: var(--bone-ink);
-    background: rgba(0,0,0,0.08);
+  :global(.nav-mobile) .lang-option.active {
+    color: var(--bone);
+    background: rgba(255,255,255,0.2);
   }
 </style>

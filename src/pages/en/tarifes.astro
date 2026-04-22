@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="Pricing · CrossFit La Mola Terrassa"
+  description="Box pricing. No contracts. First class free. Unlimited memberships, 10 classes/month and open gym."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" data-schema="offercatalog">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "name": "CrossFit La Mola Memberships",
+      "itemListElement": [
+        {"@type":"Offer","name":"Occasional · 5 sessions/month","description":"5 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"49.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"Regular · 10 sessions/month","description":"10 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"79.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"Consistent · 15 sessions/month","description":"15 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"84.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"Master · Unlimited senior (+60)","description":"Unlimited bookings, special rate for 60+","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
+        {"@type":"Offer","name":"Unlimited Access","description":"Unlimited bookings, access to all disciplines, includes The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"Drop-in","description":"One class and facility access for the day","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"10 Session Pack","description":"10 classes with no expiration","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"}
+      ]
+    })}
+    </script>
+  </Fragment>
+
+  <style>
+    .price-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line-ink); }
+    @media(min-width:700px){ .price-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1100px){ .price-grid{ grid-template-columns:repeat(3,1fr);} }
+    .price{ background:var(--bone-soft); padding:clamp(32px,3vw,44px); display:flex; flex-direction:column; gap:22px; position:relative; color:var(--bone-ink);}
+    .price *{ color: inherit; }
+    .price h3 em{ color:var(--accent-ink);}
+    .price .per{ color:var(--muted-ink);}
+    .price.featured{ background:var(--ink); color:var(--bone);}
+    .price.featured .per{ color:var(--muted);}
+    .price.featured h3 em{ color:var(--accent-hi);}
+    .price .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink);}
+    .price.featured .tag{ color:var(--accent-hi);}
+    .price h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(32px,3.4vw,44px); letter-spacing:-0.03em; line-height:.95; margin:0;}
+    .price h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300;}
+    .price .num{ font-family:var(--f-display); font-weight:500; font-size:clamp(56px,7vw,88px); letter-spacing:-0.045em; line-height:1;}
+    .price .num sup{ font-size:.4em; font-weight:500; vertical-align:top; margin-left:4px;}
+    .price .per{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; margin-left:8px;}
+    .price ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:16.5px; line-height:1.55; display:grid; gap:10px; flex:1;}
+    .price ul li{ display:flex; gap:12px; align-items:baseline;}
+    .price ul li::before{ content:""; width:6px; height:6px; background:var(--accent-ink); border-radius:50%; flex:none; transform:translateY(2px);}
+    .price.featured ul li::before{ background:var(--accent-hi);}
+    .price .price-cta{
+      display:inline-flex; align-items:center; gap:12px; padding:16px 24px 15px;
+      border-radius:999px; background:var(--bone-ink); color:var(--bone);
+      font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+      width:max-content; transition:transform .25s, background .2s;
+    }
+    .price.featured .price-cta{ background:var(--bone); color:var(--ink);}
+    .price .price-cta:hover{ transform:translateY(-2px); background:var(--accent-hi); color:var(--ink);}
+
+    .price{ transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+    .price:hover{ transform: translateY(-3px); box-shadow: 0 20px 40px -20px rgba(16,14,11,.2); }
+    .price.featured:hover{ box-shadow: 0 24px 48px -20px rgba(0,0,0,.5); }
+    .price.featured{ position:relative; overflow:hidden; }
+    .price.featured::before{
+      content:""; position:absolute; top:0; right:0; width:140px; height:140px;
+      background: radial-gradient(circle at top right, var(--accent) 0%, transparent 65%);
+      opacity:.22; pointer-events:none;
+    }
+
+    .price-custom{
+      background: transparent;
+      border: 1px dashed var(--line-ink-s);
+      color: var(--bone-ink);
+    }
+    .price-custom .tag{ color: var(--muted-ink);}
+    .price-custom h3 em{ color: var(--accent-ink);}
+    .price-custom .custom-body{
+      font-family: var(--f-serif); font-size: 16.5px; line-height: 1.5;
+      color: var(--bone-ink); opacity: .85; margin: 0; flex: 1;
+    }
+    .price-custom .price-cta{
+      background: transparent; color: var(--bone-ink);
+      border: 1px solid var(--bone-ink);
+    }
+    .price-custom .price-cta:hover{ background: var(--bone-ink); color: var(--bone);}
+
+    .extras{ display:grid; grid-template-columns:1fr; gap:0; margin-top:60px; border-top:1px solid var(--line);}
+    .extras > div{ display:grid; grid-template-columns:1fr auto; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+    @media(min-width:760px){ .extras > div{ grid-template-columns:200px 1fr auto;} }
+    .extras .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-hi);}
+    .extras h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0;}
+    .extras p{ font-family:var(--f-serif); font-size:16px; color:var(--bone-2); margin:4px 0 0;}
+    .extras .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line-ink); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line-ink); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em;}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-ink); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:14px 0 0; max-width:60ch;}
+
+    .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+    @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+  </style>
+
+  <Nav currentPage="/en/tarifes" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/community-2.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Pricing</span></div>
+      <div class="kicker"><span>Transparent</span><span class="bar"></span><span>No contracts</span></div>
+      <h1>Pricing<br><em class="serif">without</em> the fine print<span class="dot">.</span></h1>
+      <p class="sub">Five plans designed to fit your week. No sign-up fee the first time, no lock-in, and the first class is always free.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Monthly memberships</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Pick how<br>you want to train<span class="dot">.</span></h2>
+        <p class="lead reveal">Every plan includes access to all disciplines. The only difference is how many bookings you get per month. Only <em class="serif">Unlimited</em> includes The Program.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price" style="--i:0">
+          <span class="tag">01 · Occasional</span>
+          <h3>5 sessions <em>/</em> month</h3>
+          <div><span class="num">49<sup>€</sup></span><span class="per">/month</span></div>
+          <ul>
+            <li>5 monthly bookings</li>
+            <li>Access to all disciplines</li>
+            <li>No contract</li>
+            <li>Book via Aimharder app</li>
+          </ul>
+          <a class="price-cta" href="/en/contacte">Get started →</a>
+        </div>
+
+        <div class="price" style="--i:1">
+          <span class="tag">02 · Regular</span>
+          <h3>10 sessions <em>/</em> month</h3>
+          <div><span class="num">79<sup>€</sup></span><span class="per">/month</span></div>
+          <ul>
+            <li>10 monthly bookings</li>
+            <li>Access to all disciplines</li>
+            <li>No contract</li>
+            <li>Book via Aimharder app</li>
+          </ul>
+          <a class="price-cta" href="/en/contacte">Get started →</a>
+        </div>
+
+        <div class="price" style="--i:2">
+          <span class="tag">03 · Consistent</span>
+          <h3>15 sessions <em>/</em> month</h3>
+          <div><span class="num">84<sup>€</sup></span><span class="per">/month</span></div>
+          <ul>
+            <li>15 monthly bookings</li>
+            <li>Access to all disciplines</li>
+            <li>No contract</li>
+            <li>Book via Aimharder app</li>
+          </ul>
+          <a class="price-cta" href="/en/contacte">Get started →</a>
+        </div>
+
+        <div class="price" style="--i:3">
+          <span class="tag">04 · Master <em class="serif" style="color:var(--accent-ink); font-family:var(--f-serif); font-style:italic;">(60+ years)</em></span>
+          <h3>Unlimited <em>senior</em></h3>
+          <div><span class="num">60<sup>€</sup></span><span class="per">/month</span></div>
+          <ul>
+            <li>Unlimited bookings</li>
+            <li>Access to all disciplines</li>
+            <li>Special rate for 60+</li>
+            <li>No contract</li>
+          </ul>
+          <a class="price-cta" href="/en/contacte">Get started →</a>
+        </div>
+
+        <div class="price featured" style="--i:4">
+          <span class="tag">05 · Unlimited · Recommended</span>
+          <h3>Unlimited <em>Access</em></h3>
+          <div><span class="num">105<sup>€</sup></span><span class="per">/month</span></div>
+          <ul>
+            <li>Unlimited bookings</li>
+            <li>Access to all disciplines</li>
+            <li><strong style="color:var(--accent-hi); font-weight:500;">Includes The Program</strong></li>
+            <li>No contract</li>
+          </ul>
+          <a class="price-cta" href="/en/contacte">Get started →</a>
+        </div>
+      </div>
+
+      <div class="extras reveal">
+        <div><span class="label">Extra · 01</span><div><h4>Drop-in</h4><p>For visiting athletes. One class plus facility access for the day.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/day</span></span></div>
+        <div><span class="label">Extra · 02</span><div><h4>10 Session Pack</h4><p>10 classes to use whenever. No expiration. Great for irregular schedules.</p></div><span class="p">115€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/pack</span></span></div>
+        <div><span class="label">Extra · 03</span><div><h4>Extra class <em class="serif">(if you've used your quota)</em></h4><p>Used all your monthly bookings and want one more? Add extra sessions or upgrade your plan.</p></div><span class="p">6€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/class</span></span></div>
+        <div><span class="label">Extra · 04</span><div><h4>Hold fee <em class="serif">(max. 2 months/year)</em></h4><p>Going on vacation? Keep your spot without losing it. Reactivate when you're back.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month</span></span></div>
+        <div><span class="label">Extra · 05</span><div><h4>Rejoining fee <em class="serif">(only if you return)</em></h4><p>First sign-up is free. If you cancel and come back later, there's a rejoining fee.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/once</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>FAQ</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Common<br>questions<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>Can I try before I commit?</summary><p>Yes. Your first class is free for any discipline. Just book through the contact page or send us a WhatsApp.</p></details>
+        <details><summary>How do I book classes?</summary><p>Through the <strong>Aimharder</strong> app (iOS and Android). You can book up to 24h in advance and cancel without penalty if you give enough notice.</p></details>
+        <details><summary>What if I go on vacation?</summary><p>You can apply the <strong>hold fee (25€/month)</strong> to keep your spot. Maximum 2 months per calendar year. Reactivate when you're back.</p></details>
+        <details><summary>Are there discounts?</summary><p>Yes. We offer <strong>student rates</strong> and <strong>discounts for public service workers</strong>: healthcare, police, firefighters. Get in touch and we'll explain.</p></details>
+        <details><summary>Can I change my plan?</summary><p>Anytime. If you've used your monthly bookings, you can <strong>upgrade</strong> or <strong>pay for extra classes at 6€/each</strong>. Changes apply the following month.</p></details>
+        <details><summary>Is there a sign-up fee?</summary><p>First sign-up is <strong>free</strong>. There's only a <strong>40€ rejoining fee</strong> if you cancel and come back later.</p></details>
+        <details><summary>How long is the commitment?</summary><p>There's no lock-in. You can cancel anytime with 15 days notice before the next billing date.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 —</span><span>Let's go</span></div>
+      <h2 class="h-hero reveal">First class<br>is always <em class="serif">free</em><span class="dot">.</span></h2>
+      <p class="reveal">Book a class, come try it, then decide.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/en/contacte">Book your first class<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">or WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

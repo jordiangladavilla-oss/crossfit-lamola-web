@@ -3,39 +3,131 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
-import { useTranslations } from '../../i18n/utils'
+import { agendaEvents, formatEventDays, getEventMonthShort, getEventName, getEventPlace } from '../../data/agenda'
 
-const t = useTranslations('en')
+// Transform events for the index agenda section format
+const AGENDA = agendaEvents.slice(0, 6).map(e => {
+  const placeParts = getEventPlace(e, 'en').split(' · ')
+  return {
+    d: formatEventDays(e),
+    m: getEventMonthShort(e, 'en'),
+    title: getEventName(e, 'en'),
+    cat: e.cat === 'comp-ext' ? 'competicio' : e.cat,
+    meta: placeParts,
+    tag: e.featured || false,
+    note: ''
+  }
+})
 ---
 
 <Layout
-  title={t('home.title')}
-  description={t('home.description')}
+  title="CrossFit La Mola · Box in Terrassa"
+  description="CrossFit box in Terrassa, Barcelona. Functional training for all levels with certified coaches. Free first class."
   canonical="https://crossfitlamola.com/en"
   bodyData={{ "data-hero": "full" }}
 >
   <Schema type="home" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I do CrossFit if I'm not in shape?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. That's where everyone starts. Every movement has a simpler version and a coach will be with you from day one until your body feels comfortable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I bulk up quickly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Getting 'too muscular' is a much longer and more specific project than coming three days a week. What you'll find is shape, posture, and a body that handles daily life better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I get injured doing CrossFit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you do things properly, no. We program to progress, not to break. The weights are yours to choose, technique comes first, and coaches correct in real time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I don't know anyone at the box?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's the most common case. Within two weeks there'll be names and faces that already know yours. In a community, this happens effortlessly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Am I too old for CrossFit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The community includes people from 19 to over 60. Age isn't a barrier, it's a variable. We always scale the programming to your level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the free first class include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One hour with a coach who does a brief assessment, walks you through the movement of the day, and gets you training with the group. Nothing more. No commitment afterwards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does CrossFit La Mola cost and what does each plan include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are monthly memberships based on days per week, and 10-class packs. No long-term commitment. We'll walk you through everything calmly after your first class, or message us on WhatsApp and we'll talk."
+          }
+        }
+      ]
+    }
+    </script>
+  </Fragment>
 
-  <Nav currentPage="/" lang="en" />
+  <Nav currentPage="/" />
 
   <section class="hero" id="top">
     <div class="hero-grid">
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-still.jpg">
-          <source src="/assets/hero-loop.mp4" type="video/mp4">
+          <source src="/assets/hero.mp4" type="video/mp4">
         </video>
       </div>
+
       <div class="hero-copy">
         <div>
-          <div class="hero-kicker"><span>Move with purpose</span><span class="bar"></span><span>CrossFit Affiliate</span></div>
-          <img src="/assets/wordmark.svg" alt="CrossFit La Mola" class="hero-logo">
-          <p class="h-m" style="margin-top:20px; max-width:18ch;">{t('home.heroTagline')}</p>
+          <div class="hero-kicker">
+            <span>Move with purpose</span>
+            <span class="bar"></span>
+            <span>Terrassa · CrossFit Affiliate</span>
+          </div>
+          <h1 class="visually-hidden">CrossFit La Mola · CrossFit box in Terrassa.</h1>
+          <img class="hero-logo" src="/assets/logo-full.png" alt="CrossFit La Mola. Build strength together.">
         </div>
+
         <div class="hero-bottom-row">
-          <p class="hero-sub">{t('home.heroSubtitle')}</p>
-          <a href="/en/contacte" class="hero-cta">{t('common.bookNow')}<span class="arr"></span></a>
+          <p class="hero-sub">
+            3 coaches. 9 disciplines. One space.<br>
+            You bring the effort, consistency does the rest.
+          </p>
+          <a class="hero-cta" href="/en/contacte">
+            Book your first class
+            <span class="arr"></span>
+          </a>
         </div>
+
         <div class="hero-meta">
+          <span><span class="k">CrossFit</span> <span class="v">Affiliate</span></span>
           <span><span class="k">Athletes</span> <span class="v">+250</span></span>
           <span><span class="k">Coaches</span> <span class="v">03</span></span>
           <span><span class="k">Classes/week</span> <span class="v">60+</span></span>
@@ -45,16 +137,530 @@ const t = useTranslations('en')
   </section>
 
   <div class="status-strip">
-    <span class="live" id="live-status">Class in progress · Check the schedule</span>
+    <span class="live" id="live-status">Class in progress · View schedule</span>
     <span>Mon–Thu 07:00–21:30 · Fri 07:00–20:30 · Sat–Sun 09:30–11:30</span>
     <span>Av. del Vallès 724C · 08227 Terrassa</span>
   </div>
 
-  <!-- TODO: Rest of home content translated -->
-  <section class="sec bone" style="padding: 120px var(--page-pad); text-align:center;">
-    <p style="font-size: 24px; color: var(--muted-ink);">Page under construction</p>
-    <p style="margin-top: 16px;"><a href="/" style="color: var(--accent-ink);">← Back to Catalan version</a></p>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>
+        WOD <em>·</em> Weightlifting <span class="sep"></span>
+        Hybrid Club <em>·</em> Bodyweight Lab <span class="sep"></span>
+        Strength Club <em>·</em> Abs &amp; Cals <span class="sep"></span>
+        The Program <em>·</em> Train with your Coach <span class="sep"></span>
+        Running Club <em>·</em>
+      </span>
+      <span>
+        WOD <em>·</em> Weightlifting <span class="sep"></span>
+        Hybrid Club <em>·</em> Bodyweight Lab <span class="sep"></span>
+        Strength Club <em>·</em> Abs &amp; Cals <span class="sep"></span>
+        The Program <em>·</em> Train with your Coach <span class="sep"></span>
+        Running Club <em>·</em>
+      </span>
+    </div>
+  </div>
+
+  <section class="sec bone" id="manifest">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01</span><span>Move with purpose</span></div>
+      <div style="height: 32px"></div>
+      <div class="manifest">
+        <h2 class="h-xl reveal">
+          Same routine.<br>Every <em class="serif">single day</em><span class="dot">.</span>
+        </h2>
+        <div class="manifest-body reveal">
+          <p>The door opens. Bars hit the ground. Movement begins.</p>
+          <p>Strength comes with time. So does confidence.</p>
+          <p>Community starts on day one.</p>
+          <p class="sig">Sergi · Juse · Eli</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <Footer lang="en" />
+  <section class="sec bone" id="story" style="padding-top: 0;">
+    <div class="inner">
+      <div style="border-top: 1px solid var(--line-ink); padding-top: clamp(60px, 8vw, 100px)"></div>
+      <div class="story-grid">
+        <div class="story-copy reveal">
+          <div class="eyebrow"><span class="num">02</span><span>Respect the craft</span></div>
+          <h2 class="h-xl">The name comes from a<br><em class="serif">mountain</em><span class="dot">.</span></h2>
+          <p>La Mola is a mountain overlooking Terrassa. Training is like climbing it: step by step, embracing the slope, keeping your pace.</p>
+          <p>We don't chase one-day peaks. We come back Tuesday, a little higher than before.</p>
+          <a href="/en/el-box" class="story-link">Explore the box <span class="arr"></span></a>
+        </div>
+        <div class="story-images reveal-stagger">
+          <figure class="tall" style="--i:0"><img src="/assets/community-3.jpg" alt="CrossFit La Mola community"></figure>
+          <figure style="--i:1"><img src="/assets/detail-chalk.jpg" alt="Chalk detail"></figure>
+          <figure style="--i:2"><img src="/assets/detail-dumbbells.jpg" alt="Dumbbells"></figure>
+          <figure style="--i:3"><img src="/assets/community-6.jpg" alt="Group training"></figure>
+          <figure style="--i:4"><img src="/assets/detail-rope.jpg" alt="Rope"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="disciplines" style="padding-top: clamp(60px, 8vw, 120px)">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">03</span><span>Leave no one behind</span></div>
+      <div style="height: 24px"></div>
+      <div class="disc-head">
+        <h2 class="h-xl reveal">9 disciplines.<br><em class="serif">One philosophy</em><span class="dot">.</span></h2>
+        <p class="reveal">The WOD is the core. Weightlifting, gymnastics, and hybrid work in one hour. Specialty sessions for those who want more.</p>
+      </div>
+      <div class="disc-grid reveal-stagger">
+        <a href="/en/classes" class="disc-card" style="--i:0">
+          <div class="img"><img src="/assets/class-wod.jpg" alt="WOD class"></div>
+          <div class="body">
+            <div class="tag">Every day · Core</div>
+            <h3>WOD</h3>
+            <p>The essence of CrossFit. Warm-up, strength or skill, and a METCON that changes daily. Five days a week, plus a WOD in pairs on Saturdays.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:1">
+          <div class="img"><img src="/assets/class-weightlifting.jpg" alt="Weightlifting class"></div>
+          <div class="body">
+            <div class="tag">Olympic lifting · Technique</div>
+            <h3>Weightlifting</h3>
+            <p>Snatch, clean and jerk. The three star movements demand detail and patience. We lift better first. Lifting heavy comes after.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:2">
+          <div class="img"><img src="/assets/class-hybrid.jpg" alt="Hybrid Club class"></div>
+          <div class="body">
+            <div class="tag">Strength + Endurance</div>
+            <h3>Hybrid Club</h3>
+            <p>Training hard without the technical barrier. Strength and endurance combined with simple movements, no Olympic lifting or complex gymnastics.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:3">
+          <div class="img"><img src="/assets/class-bodyweight.jpg" alt="Bodyweight Lab class"></div>
+          <div class="body">
+            <div class="tag">Gymnastics · Base / Advance</div>
+            <h3>Bodyweight Lab</h3>
+            <p>We control the body by breaking down gymnastic movements. Base for beginners; Advance for butterfly, BMU, HSW and HSPU.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:4">
+          <div class="img"><img src="/assets/class-strength.jpg" alt="Strength Club class"></div>
+          <div class="body">
+            <div class="tag">Pure strength · 2 days/week</div>
+            <h3>Strength Club</h3>
+            <p>Two days a week dedicated to strength. Squat, deadlift and press, with variations to reinforce stability and core.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:5">
+          <div class="img"><img src="/assets/class-abs.jpg" alt="Abs & Cals class"></div>
+          <div class="body">
+            <div class="tag">Machines · Core</div>
+            <h3>Abs &amp; Cals</h3>
+            <p>Row, ski erg, bike erg and echo bike, combined with specific core work. Designed to improve your WOD performance.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:6">
+          <div class="img"><img src="/assets/class-program.jpg" alt="The Program class"></div>
+          <div class="body">
+            <div class="tag">Competition · RX · Cycles</div>
+            <h3>The Program</h3>
+            <p>For those who want to compete. Three weekly sessions following RX programming, structured in cycles for solid, consistent progress.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:7">
+          <div class="img"><img src="/assets/class-coach.jpg" alt="Train with your Coach class"></div>
+          <div class="body">
+            <div class="tag">90 min · Shared programming</div>
+            <h3>Train with your Coach</h3>
+            <p>Three days a week we train 90 minutes alongside one of the coaches. It's not a directed class: you follow the same whiteboard and adapt movements to your level.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+        <a href="/en/classes" class="disc-card" style="--i:8">
+          <div class="img"><img src="/assets/class-running.jpg" alt="Running Club class"></div>
+          <div class="body">
+            <div class="tag">Running · In community</div>
+            <h3>Running Club</h3>
+            <p>Add running to your training and do it in community. A space to share the run with other athletes.</p>
+            <span class="link">View class →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" id="coaches">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">04</span><span>100 fades · Strength stays</span></div>
+      <div style="height: 24px"></div>
+      <div class="coaches-head">
+        <h2 class="h-xl reveal">3 people.<br>One way of<br>understanding <em class="serif">movement</em><span class="dot">.</span></h2>
+        <p class="reveal">They program, they correct, they're there for you. They remember your PR and the day you didn't think you could.</p>
+      </div>
+      <div class="coaches-grid reveal-stagger">
+        <article class="coach" style="--i:0">
+          <div class="photo">
+            <span class="tag">01 · Head Coach</span>
+            <img src="/assets/coach-sergi.jpg" alt="Sergi, head coach and co-founder of CrossFit La Mola, CF-L2 certified">
+          </div>
+          <h3>Sergi</h3>
+          <div class="coach-kvs">
+            <span class="k">In love with</span> <span class="v">Squat snatch</span>
+            <span class="k">Kryptonite</span> <span class="v">Wall climbs</span>
+            <span class="k">Work in progress</span> <span class="v">Free handstand push-up</span>
+          </div>
+          <p class="coach-quote">"Coaching is teaching, but mostly learning. CrossFit is the foundation of my day—mental and physical strength in one hour."</p>
+        </article>
+        <article class="coach" style="--i:1">
+          <div class="photo">
+            <span class="tag">02 · Coach</span>
+            <img src="/assets/coach-juse.jpg" alt="Juse, coach at CrossFit La Mola, CF-L1 certified">
+          </div>
+          <h3>Juse</h3>
+          <div class="coach-kvs">
+            <span class="k">In love with</span> <span class="v">Squat clean</span>
+            <span class="k">Kryptonite</span> <span class="v">Strict HSPU</span>
+            <span class="k">Work in progress</span> <span class="v">Heavy ramp</span>
+          </div>
+          <p class="coach-quote">"The snatch and clean aren't tricks. They're hours. Come with patience: what you're looking for is already inside you."</p>
+        </article>
+        <article class="coach" style="--i:2">
+          <div class="photo">
+            <span class="tag">03 · Coach</span>
+            <img src="/assets/coach-eli.jpg" alt="Eli, coach and co-founder of CrossFit La Mola, CF-L1 certified">
+          </div>
+          <h3>Eli</h3>
+          <div class="coach-kvs">
+            <span class="k">In love with</span> <span class="v">Wall climbs</span>
+            <span class="k">Kryptonite</span> <span class="v">HSPU</span>
+            <span class="k">Work in progress</span> <span class="v">Snatch</span>
+          </div>
+          <p class="coach-quote">"For me, CrossFit is peace of mind. Reconnecting, appreciating my body. Technique before weight. Progress is never linear."</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="agenda">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">05</span><span>Support · Encourage</span></div>
+      <div style="height: 24px"></div>
+      <div class="schedule-head">
+        <h2 class="h-xl reveal">More than<br><em class="serif">training</em><span class="dot">.</span></h2>
+        <p class="reveal">Things happen outside the box: mountain trips, beach days, competitions, parties. The journey's easier together. Here are the next dates.</p>
+      </div>
+      <div class="schedule-strip" id="filter-strip">
+        <button class="chip is-active" data-filter="all">All</button>
+        <button class="chip" data-filter="activitat">Activities</button>
+        <button class="chip" data-filter="competicio">Competitions</button>
+      </div>
+      <div class="agenda" id="agenda-list" aria-live="polite">
+        {AGENDA.map(item => (
+          <div class={`agenda-row ${item.tag ? 'tag' : ''}`} data-cat={item.cat}>
+            <div class="date">{item.d}<span class="m">{item.m}</span></div>
+            <div class="title">{item.title}</div>
+            <div class="meta">{item.meta.map((m, i) => <><span>{m}</span>{i < item.meta.length - 1 && <span class="sep">·</span>}</>)}</div>
+            <div class="note">{item.note}</div>
+          </div>
+        ))}
+      </div>
+      <div class="agenda-foot">
+        <span>Own source</span>
+        <a href="/en/agenda">View full calendar →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" id="comunitat">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">06</span><span>You show up · We stay</span></div>
+      <div style="height: 24px"></div>
+      <div class="comm-head">
+        <h2 class="h-xl reveal">The people <em class="serif">who make</em> the box<span class="dot">.</span></h2>
+        <p class="reveal">Some come for health. Some for performance. Some to compete. Some to disconnect. Some to connect. Different paths, one box. Everyone scales. Everyone moves forward.</p>
+      </div>
+      <div class="comm-grid reveal-stagger">
+        <figure class="huge" style="--i:0"><img src="/assets/team.jpg" alt="The whole team at the box"></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/community-5.jpg" alt="Training"></figure>
+        <figure style="--i:2"><img src="/assets/detail-chalk.jpg" alt="Chalk"></figure>
+        <div class="quote-card" style="--i:3">
+          <blockquote>"Great atmosphere, excellent professionals, family-friendly with very good facilities."</blockquote>
+          <cite>Marc · December 2025</cite>
+        </div>
+        <figure class="tall" style="--i:4"><img src="/assets/community-7.jpg" alt="Community"></figure>
+        <figure style="--i:5"><img src="/assets/community-4.jpg" alt="Athletes"></figure>
+        <figure style="--i:6"><img src="/assets/community-6.jpg" alt="Training"></figure>
+        <div class="quote-card" style="--i:7">
+          <blockquote>"Without a doubt the best box I've ever been to. They're very approachable, attentive, always looking out for you. Everything is organized, clean and impeccable. Plus, they never stop innovating and improving. A pleasure to train here!"</blockquote>
+          <cite>Eva · April 2025</cite>
+        </div>
+        <figure style="--i:8"><img src="/assets/community-3.jpg" alt="Community"></figure>
+        <figure class="wide" style="--i:9"><img src="/assets/community-2.jpg" alt="Group"></figure>
+        <figure class="tall" style="--i:10"><img src="/assets/community-8.jpg" alt="Athletes"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="faq">
+    <div class="inner">
+      <div class="faq-head">
+        <div class="eyebrow reveal"><span class="num">07</span><span>Frequently asked questions</span></div>
+        <h2 class="h-xl reveal">Everything you need to <em class="serif">know</em><span class="dot">.</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Can I do CrossFit if I'm not in shape?<span class="sign"></span></summary>
+          <p class="a">Yes. That's where everyone starts. Every movement has a simpler version and a coach will be with you from day one until your body feels comfortable.</p>
+        </details>
+        <details>
+          <summary>Will I bulk up quickly?<span class="sign"></span></summary>
+          <p class="a">No. Getting "too muscular" is a much longer and more specific project than coming three days a week. What you'll find is shape, posture, and a body that handles daily life better.</p>
+        </details>
+        <details>
+          <summary>Will I get injured?<span class="sign"></span></summary>
+          <p class="a">If you do things properly, no. We program to progress, not to break. The weights are yours to choose, technique comes first, and coaches correct in real time.</p>
+        </details>
+        <details>
+          <summary>What if I don't know anyone?<span class="sign"></span></summary>
+          <p class="a">That's the most common case. Within two weeks there'll be names and faces that already know yours. In a community, this happens effortlessly.</p>
+        </details>
+        <details>
+          <summary>Am I too old?<span class="sign"></span></summary>
+          <p class="a">The community includes people from 19 to over 60. Age isn't a barrier, it's a variable. We always scale the programming to your level.</p>
+        </details>
+        <details>
+          <summary>What if I look ridiculous?<span class="sign"></span></summary>
+          <p class="a">Nobody cares how you do it. We've all been there. There are no spectators at the box.</p>
+        </details>
+        <details>
+          <summary>What if I gas out on the first class?<span class="sign"></span></summary>
+          <p class="a">It happens. It's part of the story. Breathe, drink water, keep going. We never leave you behind.</p>
+        </details>
+        <details>
+          <summary>What if I can't keep the routine?<span class="sign"></span></summary>
+          <p class="a">No problem. The days come back. Miss a week? Message us. Come back after three months? We scale again. The door stays open.</p>
+        </details>
+        <details>
+          <summary>What does the free first class include?<span class="sign"></span></summary>
+          <p class="a">One hour with a coach who does a brief assessment, walks you through the movement of the day, and gets you training with the group. Nothing more. No commitment afterwards.</p>
+        </details>
+        <details>
+          <summary>How much does it cost and what does each plan include?<span class="sign"></span></summary>
+          <p class="a">There are monthly memberships based on days per week, and 10-class packs. No long-term commitment. We'll walk you through everything calmly after your first class, or message us on WhatsApp and we'll talk.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" id="contact">
+    <div class="inner">
+      <div class="contact-head">
+        <div class="eyebrow reveal"><span class="num">08</span><span>Progress over perfection</span></div>
+        <h2 class="h-xl reveal">First class free.<br><em class="serif">On us</em><span class="dot">.</span></h2>
+        <p class="reveal">Tell us a bit about yourself, we'll find a time that works, and we'll see you there. No pressure. Come back if you want to.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form reveal" id="home-form">
+          <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+          <div class="form-row two">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" placeholder="Your name" required aria-required="true">
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" placeholder="hello@example.com" required aria-required="true">
+            </div>
+          </div>
+          <div class="form-row two" style="margin-top: 20px">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" placeholder="Optional">
+            </div>
+            <div class="field">
+              <label for="f-topic">I'm interested in</label>
+              <select id="f-topic" name="topic">
+                <option>Free first class</option>
+                <option>Sign up (I know the pricing)</option>
+                <option>Help choosing a plan</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 20px">
+            <div class="field">
+              <label for="f-when">Preferred time</label>
+              <select id="f-when" name="schedule">
+                <option>Mornings</option>
+                <option>Afternoons</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 20px">
+            <div class="field">
+              <label for="f-msg">Message (optional)</label>
+              <textarea id="f-msg" name="message" placeholder="Tell us a bit about yourself"></textarea>
+            </div>
+          </div>
+          <button class="form-submit" type="submit" id="home-submit">
+            Send
+            <span class="arr"></span>
+          </button>
+          <div class="form-note">By submitting you accept our privacy policy.</div>
+          <div id="home-msg" style="display:none; padding:16px; border-radius:8px; margin-top:16px; font-family:var(--f-display);"></div>
+        </form>
+        <aside class="contact-side reveal">
+          <a class="contact-card" href="https://wa.me/34629066531" target="_blank" rel="noopener">
+            <span class="ic">W</span>
+            <div>
+              <h5>Chat on WhatsApp</h5>
+              <p>+34 629 06 65 31</p>
+            </div>
+          </a>
+          <div class="contact-card">
+            <span class="ic">☎</span>
+            <div>
+              <h5>Call us</h5>
+              <a href="tel:+34629066531">629 06 65 31</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="ic">⌁</span>
+            <div>
+              <h5>Hours</h5>
+              <p>Mon–Thu · 07:00–21:30</p>
+              <p>Fri · 07:00–20:30</p>
+              <p>Sat–Sun · 09:30–11:30</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="ic">◎</span>
+            <div>
+              <h5>Where we are</h5>
+              <p>Av. del Vallès 724C</p>
+              <p>08227 Terrassa · Barcelona</p>
+              <a href="https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA" target="_blank" rel="noopener" style="color:var(--accent-hi); margin-top:6px;">Get directions →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="join-bg" aria-hidden="true"></div>
+    <div class="join-inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">09</span><span>Don't know us yet?</span></div>
+      <h2 class="h-hero reveal" style="font-size: clamp(44px, 8vw, 120px)">
+        Come one day.<br><em class="serif">Decide the next</em><span class="dot">.</span>
+      </h2>
+      <p class="offer reveal">The first class is on us. If you come back, it's because you liked it, not because of a promotion.</p>
+      <div class="join-actions reveal">
+        <a class="btn-primary" href="/en/contacte">
+          Book your first class
+          <span class="arr"></span>
+        </a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">or message us on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const liveStatus = document.getElementById('live-status');
+    if (liveStatus) {
+      const d = new Date();
+      const day = d.getDay();
+      const hm = d.getHours() + d.getMinutes() / 60;
+      let open = false;
+      if (day >= 1 && day <= 5) open = hm >= 6.5 && hm < 21.5;
+      else if (day === 6 || day === 0) open = hm >= 9 && hm < 12;
+      liveStatus.textContent = open ? 'Class in progress · View schedule' : 'Closed · Come back tomorrow';
+    }
+
+    const filterStrip = document.getElementById('filter-strip');
+    const agendaList = document.getElementById('agenda-list');
+    if (filterStrip && agendaList) {
+      filterStrip.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('.chip');
+        if (!btn) return;
+        filterStrip.querySelectorAll('.chip').forEach(c => c.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const filter = btn.getAttribute('data-filter');
+        agendaList.querySelectorAll('.agenda-row').forEach(row => {
+          const el = row as HTMLElement;
+          el.style.display = (filter === 'all' || el.dataset.cat === filter) ? '' : 'none';
+        });
+      });
+    }
+
+    // Form submission
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
+    const homeForm = document.getElementById('home-form') as HTMLFormElement;
+
+    if (homeForm) {
+      homeForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const btn = document.getElementById('home-submit') as HTMLButtonElement;
+        const msg = document.getElementById('home-msg') as HTMLElement;
+        const btnText = btn.innerHTML;
+
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        msg.style.display = 'none';
+
+        const data = {
+          origen: 'Home EN',
+          name: (form.querySelector('[name="name"]') as HTMLInputElement).value,
+          email: (form.querySelector('[name="email"]') as HTMLInputElement).value,
+          phone: (form.querySelector('[name="phone"]') as HTMLInputElement).value,
+          topic: (form.querySelector('[name="topic"]') as HTMLSelectElement).value,
+          schedule: (form.querySelector('[name="schedule"]') as HTMLSelectElement).value,
+          message: (form.querySelector('[name="message"]') as HTMLTextAreaElement).value,
+          website: (form.querySelector('[name="website"]') as HTMLInputElement).value
+        };
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          msg.style.display = 'block';
+          msg.style.background = 'var(--accent-ink)';
+          msg.style.color = 'var(--bone)';
+          msg.innerHTML = '<strong>Thank you!</strong> We received your message. We\'ll be in touch soon.';
+          form.reset();
+
+          // Google Analytics conversion event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+              event_category: 'forms',
+              event_label: 'Home EN',
+              value: 1
+            });
+          }
+        } catch (err) {
+          msg.style.display = 'block';
+          msg.style.background = '#fee';
+          msg.style.color = '#c00';
+          msg.innerHTML = 'Error sending. Try WhatsApp: <a href="https://wa.me/34629066531" style="color:#c00;">629 06 65 31</a>';
+        }
+
+        btn.innerHTML = btnText;
+        btn.disabled = false;
+      });
+    }
+  </script>
 </Layout>

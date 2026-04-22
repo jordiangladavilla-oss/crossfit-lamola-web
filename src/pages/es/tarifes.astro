@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="Tarifas · CrossFit La Mola Terrassa"
+  description="Tarifas del box. Sin permanencia. Primera clase gratis. Cuotas ilimitadas, 10 clases/mes y open gym."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" data-schema="offercatalog">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "name": "Cuotas CrossFit La Mola",
+      "itemListElement": [
+        {"@type":"Offer","name":"Ocasional · 5 sesiones/mes","description":"5 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"49.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Regular · 10 sesiones/mes","description":"10 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"79.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Constante · 15 sesiones/mes","description":"15 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"84.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Master · Ilimitado senior (+60)","description":"Reservas ilimitadas, cuota especial para +60 anos","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
+        {"@type":"Offer","name":"Unlimited Access","description":"Reservas ilimitadas, acceso a todas las disciplinas, incluye The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Drop-in","description":"Una clase y acceso a las instalaciones ese dia","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Bono 10 sesiones","description":"10 clases sin fecha limite","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"}
+      ]
+    })}
+    </script>
+  </Fragment>
+
+  <style>
+    .price-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line-ink); }
+    @media(min-width:700px){ .price-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1100px){ .price-grid{ grid-template-columns:repeat(3,1fr);} }
+    .price{ background:var(--bone-soft); padding:clamp(32px,3vw,44px); display:flex; flex-direction:column; gap:22px; position:relative; color:var(--bone-ink);}
+    .price *{ color: inherit; }
+    .price h3 em{ color:var(--accent-ink);}
+    .price .per{ color:var(--muted-ink);}
+    .price.featured{ background:var(--ink); color:var(--bone);}
+    .price.featured .per{ color:var(--muted);}
+    .price.featured h3 em{ color:var(--accent-hi);}
+    .price .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink);}
+    .price.featured .tag{ color:var(--accent-hi);}
+    .price h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(32px,3.4vw,44px); letter-spacing:-0.03em; line-height:.95; margin:0;}
+    .price h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300;}
+    .price .num{ font-family:var(--f-display); font-weight:500; font-size:clamp(56px,7vw,88px); letter-spacing:-0.045em; line-height:1;}
+    .price .num sup{ font-size:.4em; font-weight:500; vertical-align:top; margin-left:4px;}
+    .price .per{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; margin-left:8px;}
+    .price ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:16.5px; line-height:1.55; display:grid; gap:10px; flex:1;}
+    .price ul li{ display:flex; gap:12px; align-items:baseline;}
+    .price ul li::before{ content:""; width:6px; height:6px; background:var(--accent-ink); border-radius:50%; flex:none; transform:translateY(2px);}
+    .price.featured ul li::before{ background:var(--accent-hi);}
+    .price .price-cta{
+      display:inline-flex; align-items:center; gap:12px; padding:16px 24px 15px;
+      border-radius:999px; background:var(--bone-ink); color:var(--bone);
+      font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+      width:max-content; transition:transform .25s, background .2s;
+    }
+    .price.featured .price-cta{ background:var(--bone); color:var(--ink);}
+    .price .price-cta:hover{ transform:translateY(-2px); background:var(--accent-hi); color:var(--ink);}
+
+    .price{ transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+    .price:hover{ transform: translateY(-3px); box-shadow: 0 20px 40px -20px rgba(16,14,11,.2); }
+    .price.featured:hover{ box-shadow: 0 24px 48px -20px rgba(0,0,0,.5); }
+    .price.featured{ position:relative; overflow:hidden; }
+    .price.featured::before{
+      content:""; position:absolute; top:0; right:0; width:140px; height:140px;
+      background: radial-gradient(circle at top right, var(--accent) 0%, transparent 65%);
+      opacity:.22; pointer-events:none;
+    }
+
+    .price-custom{
+      background: transparent;
+      border: 1px dashed var(--line-ink-s);
+      color: var(--bone-ink);
+    }
+    .price-custom .tag{ color: var(--muted-ink);}
+    .price-custom h3 em{ color: var(--accent-ink);}
+    .price-custom .custom-body{
+      font-family: var(--f-serif); font-size: 16.5px; line-height: 1.5;
+      color: var(--bone-ink); opacity: .85; margin: 0; flex: 1;
+    }
+    .price-custom .price-cta{
+      background: transparent; color: var(--bone-ink);
+      border: 1px solid var(--bone-ink);
+    }
+    .price-custom .price-cta:hover{ background: var(--bone-ink); color: var(--bone);}
+
+    .extras{ display:grid; grid-template-columns:1fr; gap:0; margin-top:60px; border-top:1px solid var(--line);}
+    .extras > div{ display:grid; grid-template-columns:1fr auto; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+    @media(min-width:760px){ .extras > div{ grid-template-columns:200px 1fr auto;} }
+    .extras .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-hi);}
+    .extras h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0;}
+    .extras p{ font-family:var(--f-serif); font-size:16px; color:var(--bone-2); margin:4px 0 0;}
+    .extras .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line-ink); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line-ink); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em;}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-ink); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:14px 0 0; max-width:60ch;}
+
+    .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+    @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+  </style>
+
+  <Nav currentPage="/es/tarifes" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/community-2.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Tarifas</span></div>
+      <div class="kicker"><span>Transparentes</span><span class="bar"></span><span>Sin permanencia</span></div>
+      <h1>Un precio<br><em class="serif">sin</em> letra pequena<span class="dot">.</span></h1>
+      <p class="sub">Cinco cuotas pensadas para adaptarse a como vives la semana. Sin matricula la primera vez, sin permanencia, y la primera clase siempre es gratis.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Cuotas mensuales</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Elige como<br>quieres venir<span class="dot">.</span></h2>
+        <p class="lead reveal">Todas las cuotas incluyen acceso a todas las disciplinas. La unica diferencia es el numero de reservas al mes. Solo la <em class="serif">Ilimitada</em> incluye The Program.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price" style="--i:0">
+          <span class="tag">01 · Ocasional</span>
+          <h3>5 sesiones <em>/</em> mes</h3>
+          <div><span class="num">49<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>5 reservas mensuales</li>
+            <li>Acceso a todas las disciplinas</li>
+            <li>Sin permanencia</li>
+            <li>Reserva por app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/es/contacte">Empezar ahora →</a>
+        </div>
+
+        <div class="price" style="--i:1">
+          <span class="tag">02 · Regular</span>
+          <h3>10 sesiones <em>/</em> mes</h3>
+          <div><span class="num">79<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>10 reservas mensuales</li>
+            <li>Acceso a todas las disciplinas</li>
+            <li>Sin permanencia</li>
+            <li>Reserva por app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/es/contacte">Empezar ahora →</a>
+        </div>
+
+        <div class="price" style="--i:2">
+          <span class="tag">03 · Constante</span>
+          <h3>15 sesiones <em>/</em> mes</h3>
+          <div><span class="num">84<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>15 reservas mensuales</li>
+            <li>Acceso a todas las disciplinas</li>
+            <li>Sin permanencia</li>
+            <li>Reserva por app Aimharder</li>
+          </ul>
+          <a class="price-cta" href="/es/contacte">Empezar ahora →</a>
+        </div>
+
+        <div class="price" style="--i:3">
+          <span class="tag">04 · Master <em class="serif" style="color:var(--accent-ink); font-family:var(--f-serif); font-style:italic;">(+60 anos)</em></span>
+          <h3>Ilimitado <em>senior</em></h3>
+          <div><span class="num">60<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>Reservas ilimitadas</li>
+            <li>Acceso a todas las disciplinas</li>
+            <li>Cuota especial para +60 anos</li>
+            <li>Sin permanencia</li>
+          </ul>
+          <a class="price-cta" href="/es/contacte">Empezar ahora →</a>
+        </div>
+
+        <div class="price featured" style="--i:4">
+          <span class="tag">05 · Ilimitada · Recomendada</span>
+          <h3>Unlimited <em>Access</em></h3>
+          <div><span class="num">105<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li>Reservas ilimitadas</li>
+            <li>Acceso a todas las disciplinas</li>
+            <li><strong style="color:var(--accent-hi); font-weight:500;">Incluye The Program</strong></li>
+            <li>Sin permanencia</li>
+          </ul>
+          <a class="price-cta" href="/es/contacte">Empezar ahora →</a>
+        </div>
+      </div>
+
+      <div class="extras reveal">
+        <div><span class="label">Extra · 01</span><div><h4>Drop-in <em class="serif">(dia abierto)</em></h4><p>Para atletas de paso. Una clase y acceso a las instalaciones ese dia.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/dia</span></span></div>
+        <div><span class="label">Extra · 02</span><div><h4>Bono 10 sesiones</h4><p>10 clases a consumir sin fecha limite. Ideal para horarios irregulares o vueltas puntuales.</p></div><span class="p">115€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
+        <div><span class="label">Extra · 03</span><div><h4>Clase extra <em class="serif">(si has consumido la cuota)</em></h4><p>Si has hecho todas las reservas del mes y quieres una mas. La alternativa es subir de tarifa.</p></div><span class="p">6€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/clase</span></span></div>
+        <div><span class="label">Extra · 04</span><div><h4>Cuota de mantenimiento <em class="serif">(max. 2 meses/ano)</em></h4><p>Si te vas de vacaciones puedes mantener la plaza sin perderla. Reactiva cuando vuelvas.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
+        <div><span class="label">Extra · 05</span><div><h4>Matricula <em class="serif">(solo si vuelves)</em></h4><p>La primera inscripcion no tiene coste. Si dejas la cuota y vuelves mas adelante, se abona la matricula.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/unica</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Preguntas frecuentes</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Dudas<br>habituales<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>Puedo probar antes de pagar?</summary><p>Si. La primera clase es gratuita para cualquier disciplina. Solo tienes que reservarla desde la pagina de contacto o enviandonos un WhatsApp.</p></details>
+        <details><summary>Como se reservan las clases?</summary><p>Con la app <strong>Aimharder</strong> (iOS y Android). Puedes reservar 24h antes y cancelar con suficiente antelacion sin penalizacion.</p></details>
+        <details><summary>Que pasa si me voy de vacaciones?</summary><p>Puedes aplicar la <strong>cuota de mantenimiento (25€/mes)</strong> para conservar la plaza. Maximo 2 meses por ano natural. Reactivas cuando vuelvas.</p></details>
+        <details><summary>Hay descuentos?</summary><p>Si. Tenemos <strong>cuota especial para estudiantes</strong> y <strong>descuentos para servicios publicos</strong>: sanitarios, policia, bomberos. Escribenos y te lo explicamos.</p></details>
+        <details><summary>Puedo cambiar de tarifa?</summary><p>Si, cuando quieras. Si has consumido las reservas del mes, puedes <strong>subir de tarifa</strong> o bien pagar <strong>clases extra a 6€/clase</strong>. El cambio se aplica al mes siguiente.</p></details>
+        <details><summary>Hay matricula?</summary><p>La primera inscripcion <strong>no tiene coste</strong>. Solo hay matricula de <strong>40€</strong> si dejas la cuota y vuelves a inscribirte mas adelante.</p></details>
+        <details><summary>Cuanto dura el compromiso?</summary><p>No hay permanencia. Puedes darte de baja cuando quieras avisando con 15 dias de antelacion al cobro del mes siguiente.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 —</span><span>Empezamos</span></div>
+      <h2 class="h-hero reveal">La primera<br>siempre es <em class="serif">gratis</em><span class="dot">.</span></h2>
+      <p class="reveal">Reserva una clase, ven a probarla y despues decides.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/es/contacte">Reservar primera clase<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">o por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

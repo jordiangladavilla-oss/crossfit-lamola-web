@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="Política de Privacidad · CrossFit La Mola"
+  description="Política de privacidad y protección de datos personales de CrossFit La Mola, Terrassa. Información sobre tus derechos RGPD, finalidad del tratamiento y cómo ejercer tus derechos."
+>
+  <Fragment slot="head">
+    <style>
+      .legal-content{ max-width:780px; margin:0 auto;}
+      .legal-content h2{ font-family:var(--f-display); font-weight:600; font-size:clamp(22px,2.5vw,28px); margin:48px 0 16px; letter-spacing:-0.02em;}
+      .legal-content h3{ font-family:var(--f-display); font-weight:500; font-size:18px; margin:32px 0 12px;}
+      .legal-content p, .legal-content li{ font-family:var(--f-serif); font-size:17px; line-height:1.7; color:var(--bone-2); margin:0 0 16px;}
+      .legal-content ul{ padding-left:24px; margin:0 0 20px;}
+      .legal-content li{ margin-bottom:8px;}
+      .legal-content a{ color:var(--accent-hi); text-decoration:underline;}
+      .legal-content strong{ color:var(--bone); font-weight:500;}
+    </style>
+  </Fragment>
+
+  <Nav />
+
+  <section class="page-hero" style="min-height:40svh">
+    <div class="bg" style="background:#1a1814"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Privacidad</span></div>
+      <h1>Política de<br><em class="serif">privacidad</em><span class="dot">.</span></h1>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner legal-content">
+      <p><strong>Última actualización:</strong> Abril 2025</p>
+
+      <h2>1. Responsable del tratamiento</h2>
+      <p>El responsable del tratamiento de tus datos personales es:</p>
+      <ul>
+        <li><strong>Denominación:</strong> CrossFit La Mola</li>
+        <li><strong>Dirección:</strong> Av. del Vallès 724C, 08227 Terrassa, Barcelona</li>
+        <li><strong>Correo electrónico:</strong> hola@crossfitlamola.com</li>
+        <li><strong>Teléfono:</strong> 629 06 65 31</li>
+      </ul>
+
+      <h2>2. Finalidad del tratamiento</h2>
+      <p>Recogemos y tratamos tus datos personales para las siguientes finalidades:</p>
+      <ul>
+        <li>Gestionar tu inscripción y participación en las clases</li>
+        <li>Responder a tus consultas y solicitudes de información</li>
+        <li>Enviar comunicaciones relacionadas con nuestros servicios (horarios, cambios, eventos)</li>
+        <li>Gestionar el cobro de las cuotas y facturación</li>
+        <li>Cumplir con las obligaciones legales aplicables</li>
+      </ul>
+
+      <h2>3. Legitimación</h2>
+      <p>La base legal para el tratamiento de tus datos es:</p>
+      <ul>
+        <li><strong>Ejecución de un contrato:</strong> cuando te das de alta como socio/a</li>
+        <li><strong>Consentimiento:</strong> cuando nos envías una consulta o solicitud</li>
+        <li><strong>Interés legítimo:</strong> para enviarte información sobre nuestros servicios</li>
+        <li><strong>Obligación legal:</strong> para cumplir con normativas fiscales y contables</li>
+      </ul>
+
+      <h2>4. Datos que recogemos</h2>
+      <p>Podemos recoger las siguientes categorías de datos:</p>
+      <ul>
+        <li>Datos identificativos: nombre, apellidos, DNI/NIE</li>
+        <li>Datos de contacto: teléfono, email, dirección</li>
+        <li>Datos de salud relevantes para la práctica deportiva (lesiones, condiciones médicas)</li>
+        <li>Imágenes y vídeos durante las actividades (con tu consentimiento)</li>
+        <li>Datos bancarios para la gestión de pagos</li>
+      </ul>
+
+      <h2>5. Conservación de los datos</h2>
+      <p>Conservaremos tus datos mientras mantengas tu relación con nosotros. Una vez finalizada, los datos se conservarán durante los plazos legalmente establecidos:</p>
+      <ul>
+        <li>Datos fiscales: 4 años</li>
+        <li>Datos contractuales: 5 años</li>
+        <li>Datos de salud: se suprimirán cuando dejes de ser socio/a</li>
+      </ul>
+
+      <h2>6. Destinatarios</h2>
+      <p>Tus datos no se cederán a terceros, excepto:</p>
+      <ul>
+        <li>Entidades bancarias para la gestión de pagos</li>
+        <li>Administraciones públicas cuando sea legalmente requerido</li>
+        <li>Proveedores de servicios (hosting, email) con los que tenemos contratos de confidencialidad</li>
+      </ul>
+
+      <h2>7. Tus derechos</h2>
+      <p>Tienes derecho a:</p>
+      <ul>
+        <li><strong>Acceso:</strong> saber qué datos tenemos sobre ti</li>
+        <li><strong>Rectificación:</strong> corregir datos incorrectos</li>
+        <li><strong>Supresión:</strong> solicitar la eliminación de tus datos</li>
+        <li><strong>Oposición:</strong> oponerte a determinados tratamientos</li>
+        <li><strong>Limitación:</strong> restringir el tratamiento en ciertos casos</li>
+        <li><strong>Portabilidad:</strong> recibir tus datos en formato electrónico</li>
+      </ul>
+      <p>Para ejercer estos derechos, contáctanos en <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
+      <p>También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+
+      <h2>8. Seguridad</h2>
+      <p>Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos contra accesos no autorizados, pérdida o destrucción.</p>
+
+      <h2>9. Cambios en esta política</h2>
+      <p>Podemos actualizar esta política de privacidad. Cualquier cambio significativo será comunicado a través de nuestra web o por correo electrónico.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

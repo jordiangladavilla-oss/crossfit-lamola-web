@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="Avís Legal · CrossFit La Mola"
+  description="Avís legal i condicions d'ús del web de CrossFit La Mola, Terrassa. Informació del titular, propietat intel·lectual, responsabilitats i jurisdicció segons la LSSI-CE."
+>
+  <Fragment slot="head">
+    <style>
+      .legal-content{ max-width:780px; margin:0 auto;}
+      .legal-content h2{ font-family:var(--f-display); font-weight:600; font-size:clamp(22px,2.5vw,28px); margin:48px 0 16px; letter-spacing:-0.02em;}
+      .legal-content h3{ font-family:var(--f-display); font-weight:500; font-size:18px; margin:32px 0 12px;}
+      .legal-content p, .legal-content li{ font-family:var(--f-serif); font-size:17px; line-height:1.7; color:var(--bone-2); margin:0 0 16px;}
+      .legal-content ul{ padding-left:24px; margin:0 0 20px;}
+      .legal-content li{ margin-bottom:8px;}
+      .legal-content a{ color:var(--accent-hi); text-decoration:underline;}
+      .legal-content strong{ color:var(--bone); font-weight:500;}
+    </style>
+  </Fragment>
+
+  <Nav />
+
+  <section class="page-hero" style="min-height:40svh">
+    <div class="bg" style="background:#1a1814"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/">Inici</a><span>/</span><span>Avís legal</span></div>
+      <h1>Avís<br><em class="serif">legal</em><span class="dot">.</span></h1>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner legal-content">
+      <p><strong>Última actualització:</strong> Abril 2025</p>
+
+      <h2>1. Informació general</h2>
+      <p>En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSICE), s'informa:</p>
+      <ul>
+        <li><strong>Titular:</strong> CrossFit La Mola</li>
+        <li><strong>Domicili:</strong> Av. del Vallès 724C, 08227 Terrassa, Barcelona</li>
+        <li><strong>Correu electrònic:</strong> hola@crossfitlamola.com</li>
+        <li><strong>Telèfon:</strong> 629 06 65 31</li>
+        <li><strong>Activitat:</strong> Centre esportiu especialitzat en CrossFit</li>
+      </ul>
+
+      <h2>2. Objecte</h2>
+      <p>Aquest lloc web té com a objecte proporcionar informació sobre els serveis de CrossFit La Mola, incloent classes, horaris, tarifes i dades de contacte.</p>
+
+      <h2>3. Condicions d'ús</h2>
+      <p>L'accés i ús d'aquest lloc web atribueix la condició d'usuari i implica l'acceptació de les presents condicions. L'usuari es compromet a:</p>
+      <ul>
+        <li>Fer un ús lícit del web, conforme a la legislació vigent</li>
+        <li>No realitzar activitats que puguin danyar, inutilitzar o sobrecarregar el web</li>
+        <li>No introduir virus o programes maliciosos</li>
+        <li>Respectar els drets de propietat intel·lectual</li>
+      </ul>
+
+      <h2>4. Propietat intel·lectual</h2>
+      <p>Tots els continguts d'aquest web (textos, imatges, logotips, disseny, codi font) són propietat de CrossFit La Mola o dels seus legítims titulars, i estan protegits per la legislació sobre propietat intel·lectual.</p>
+      <p>La marca "CrossFit" és propietat de CrossFit, LLC. CrossFit La Mola és un box afiliat amb llicència per utilitzar la marca.</p>
+      <p>Queda prohibida la reproducció, distribució o modificació dels continguts sense autorització expressa.</p>
+
+      <h2>5. Exclusió de responsabilitat</h2>
+      <p>CrossFit La Mola no es fa responsable de:</p>
+      <ul>
+        <li>Errors o omissions en els continguts del web</li>
+        <li>La disponibilitat i continuïtat del lloc web</li>
+        <li>Els danys causats per virus o programes maliciosos</li>
+        <li>L'ús indegut del web per part dels usuaris</li>
+        <li>Els continguts de llocs web de tercers als quals es pugui accedir mitjançant enllaços</li>
+      </ul>
+
+      <h2>6. Enllaços externs</h2>
+      <p>Aquest web pot contenir enllaços a llocs web de tercers. CrossFit La Mola no controla aquests llocs i no és responsable dels seus continguts ni de les seves polítiques de privacitat.</p>
+
+      <h2>7. Modificacions</h2>
+      <p>CrossFit La Mola es reserva el dret de modificar els continguts del web i aquestes condicions d'ús en qualsevol moment i sense previ avís.</p>
+
+      <h2>8. Legislació i jurisdicció</h2>
+      <p>Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia, les parts se sotmeten als jutjats i tribunals de Terrassa, amb renúncia expressa a qualsevol altre fur que pogués correspondre'ls.</p>
+
+      <h2>9. Contacte</h2>
+      <p>Per a qualsevol consulta sobre aquest avís legal, pots contactar-nos a <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

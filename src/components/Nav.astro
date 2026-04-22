@@ -1,22 +1,31 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
 interface Props {
   currentPage?: string
 }
 
 const { currentPage = '' } = Astro.props
 
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const prefix = lang === 'ca' ? '' : `/${lang}`
+
 const links = [
-  { href: '/classes', label: 'Classes' },
-  { href: '/horari', label: 'Horari' },
-  { href: '/tarifes', label: 'Tarifes' },
-  { href: '/el-box', label: 'El box' },
-  { href: '/agenda', label: 'Agenda' },
-  { href: '/contacte', label: 'Contacte' },
+  { href: `${prefix}/classes`, label: t('nav.classes') },
+  { href: `${prefix}/horari`, label: t('nav.horari') },
+  { href: `${prefix}/tarifes`, label: t('nav.tarifes') },
+  { href: `${prefix}/el-box`, label: t('nav.elbox') },
+  { href: `${prefix}/agenda`, label: t('nav.agenda') },
+  { href: `${prefix}/contacte`, label: t('nav.contacte') },
 ]
+
+const homeHref = prefix || '/'
 ---
 
 <nav class="nav" id="nav">
-  <a href="/" class="mark" aria-label="CrossFit La Mola">
+  <a href={homeHref} class="mark" aria-label="CrossFit La Mola">
     <img src="/assets/logo-short.png" alt="La Mola.">
   </a>
   <ul>
@@ -28,7 +37,10 @@ const links = [
       </li>
     ))}
   </ul>
-  <a href="/contacte" class="cta-mini">Primera classe gratuïta</a>
+  <div class="nav-right">
+    <LanguageSwitcher />
+    <a href={`${prefix}/contacte`} class="cta-mini">{t('nav.cta')}</a>
+  </div>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
     <span></span>
     <span></span>
@@ -40,5 +52,6 @@ const links = [
   {links.map(link => (
     <a href={link.href}>{link.label}</a>
   ))}
-  <a href="/contacte" class="cta-mini" style="margin-top: 20px;">Primera classe gratuïta</a>
+  <LanguageSwitcher />
+  <a href={`${prefix}/contacte`} class="cta-mini" style="margin-top: 20px;">{t('nav.cta')}</a>
 </div>

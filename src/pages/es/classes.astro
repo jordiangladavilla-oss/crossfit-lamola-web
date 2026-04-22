@@ -1,0 +1,191 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
+---
+
+<Layout
+  title="Clases · CrossFit La Mola Terrassa"
+  description="9 disciplinas en Terrassa: WOD, halterofilia, hybrid training, running club, strength y mas. Clases dirigidas para todos los niveles."
+>
+  <Schema type="classes" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json" data-schema="itemlist-disciplines">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Disciplinas en CrossFit La Mola",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Clase diaria variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofilia","description":"Tecnica olimpica: arrancada y dos tiempos","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength","description":"Fuerza pura con barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Gymnastics / Bodyweight","description":"Dominadas, pino, calistenia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Tecnica de carrera y resistencia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"Combinacion de CrossFit y cardio largo","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"ABS","description":"Core y estabilidad","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Programacion propia","description":"Entrenamiento personalizado de los coaches","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Coach Box","description":"Atencion individualizada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+      ]
+    }
+    </script>
+    <style>
+      .disc-list{ margin-top: 60px; border-top: 1px solid var(--line-ink-s); }
+      .disc{
+        display:grid; grid-template-columns:1fr; gap:24px;
+        padding: clamp(28px,3.5vw,52px) 0;
+        border-bottom: 1px solid var(--line-ink-s);
+        align-items: start;
+      }
+      @media(min-width:900px){
+        .disc{ grid-template-columns: 80px 1.1fr 1fr 0.9fr; gap:40px; align-items:center; }
+      }
+      .disc .num{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-ink); }
+      .disc h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(30px,4.2vw,56px); letter-spacing:-0.03em; line-height:.96; margin:0;}
+      .disc h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink);}
+      .disc .tagline{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-ink); margin-top:10px;}
+      .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
+      .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
+      .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
+      .disc .thumb{ display:none;}
+      @media(min-width:900px){
+        .disc .thumb{ display:block; aspect-ratio:3/2; overflow:hidden; background:var(--ink-2);}
+        .disc .thumb img{ width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02); transition:transform 1.2s cubic-bezier(.2,.8,.2,1);}
+        .disc:hover .thumb img{ transform:scale(1.04);}
+      }
+
+      /* Path section */
+      .path{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line);}
+      .path > div{ display:grid; grid-template-columns:80px 1fr; gap:28px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
+      @media(min-width:760px){ .path > div{ grid-template-columns:120px 1.2fr 2fr; gap:40px; align-items:center;} }
+      .path .when{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; color:var(--accent-hi);}
+      .path h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.6vw,32px); letter-spacing:-0.025em; margin:0;}
+      .path p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2); margin:0;}
+
+      .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
+      @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
+    </style>
+  </Fragment>
+
+  <Nav currentPage="/es/classes" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/class-wod.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Clases</span></div>
+      <div class="kicker"><span>9 disciplinas</span><span class="bar"></span><span>Un mismo objetivo</span></div>
+      <h1>Encuentra tu<br><em class="serif">ritmo</em><span class="dot">.</span></h1>
+      <p class="sub">Entrenar no es repetir. Es construir con tecnica, carga y cabeza. Tenemos una clase para cada momento de tu camino.</p>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 --</span><span>Las 9 disciplinas</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Nueve formas<br>de entrar al <em class="serif">box</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Cada clase tiene su proposito: una para construir fuerza bruta, otra para encontrar el ritmo, otra para pulir tecnica. No hace falta elegir solo una.</p>
+      </div>
+
+      <div class="disc-list reveal-stagger">
+        <article class="disc" style="--i:0">
+          <span class="num">01</span>
+          <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Clase principal - 60 min</div></div>
+          <p>El corazon de CrossFit. Calentamiento, parte tecnica, WOD y vuelta a la calma. Un coach guia al grupo de principio a fin.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>Diaria</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:1">
+          <span class="num">02</span>
+          <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
+          <p>Halterofilia olimpica. Trabajamos los dos levantamientos y sus variantes con progresiones adaptadas a cada atleta.</p>
+          <div class="meta"><span>Nivel <strong>Intermedio+</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:2">
+          <span class="num">03</span>
+          <div><h3>Hybrid Club</h3><div class="tagline">Fuerza + Cardio - 60 min</div></div>
+          <p>Para quien quiere las dos cosas: fuerza de peso libre y capacidad cardiovascular de larga duracion. Inspirado en el formato Hyrox.</p>
+          <div class="meta"><span>Nivel <strong>Intermedio</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:3">
+          <span class="num">04</span>
+          <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnasia - 45 min</div></div>
+          <p>Dos niveles: Base para aprender los fundamentos gimnasticos, y Advance para butterfly pull-ups, muscle-ups, HSW y HSPU.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:4">
+          <span class="num">05</span>
+          <div><h3>Strength Club</h3><div class="tagline">Series y peso - 60 min</div></div>
+          <p>Ciclo estructurado de fuerza: squat, bench, deadlift, press. Aqui se va pesado, con cabeza y descanso.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:5">
+          <span class="num">06</span>
+          <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + cardio - 30 min</div></div>
+          <p>Corto, intenso, pensado para sumarlo a otro WOD o como sesion independiente. Calorias en la bike y trabajo de core.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:6">
+          <span class="num">07</span>
+          <div><h3>The Program</h3><div class="tagline">Avanzado y competidor - 90 min</div></div>
+          <p>Programa dirigido para quien quiere competir o llevar el rendimiento a otro nivel. Incluye seguimiento individualizado.</p>
+          <div class="meta"><span>Nivel <strong>Avanzado</strong></span><span>Frecuencia <strong>4x/semana</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:7">
+          <span class="num">08</span>
+          <div><h3>Entrena con tu <em>Coach</em></h3><div class="tagline">1 a 1 - 60 min</div></div>
+          <p>Sesion privada con el coach que elijas. Para pulir tecnica, preparar una competicion o volver despues de una lesion.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>Bajo demanda</strong></span></div>
+        </article>
+
+        <article class="disc" style="--i:8">
+          <span class="num">09</span>
+          <div><h3>Running Club</h3><div class="tagline">Aire libre - 60 min</div></div>
+          <p>Salimos a correr por el Valles. Entrenamiento estructurado: fartleks, series, tiradas largas. Hacemos grupo antes y cerveza despues, a veces. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consume credito</em>.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>1x/semana</strong></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink" style="padding-top:0;">
+    <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
+    <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
+      <div class="eyebrow reveal"><span class="num">02 --</span><span>Tu primera vez</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Nunca has hecho <em class="serif">CrossFit</em>?<br>Empezamos desde cero<span class="dot">.</span></h2>
+        <p class="lead reveal">No hace falta estar en forma para empezar: hace falta empezar para estarlo. El proceso de bienvenida es el mismo para todos.</p>
+      </div>
+
+      <div class="path reveal-stagger">
+        <div style="--i:0"><div class="when">Paso 1</div><h4>Contacta y agendamos visita</h4><p>Cuentanos un poco de ti (objetivos, estado actual, experiencia) y preparamos tu primera clase adaptada. Te asesoramos con lo que mejor te encaje.</p></div>
+        <div style="--i:1"><div class="when">Paso 2 - Primera clase gratis</div><h4>Ven a una clase real</h4><p>Llega un poco antes y echa un vistazo a las instalaciones: puertas abiertas a todo. Entras a una clase con el grupo, el coach te da alternativas adaptadas y te ensena los movimientos basicos.</p></div>
+        <div style="--i:2"><div class="when">Paso 3</div><h4>Hablamos del plan</h4><p>Despues de la clase charlamos: como te has sentido, que hay que reforzar, y planificamos un camino de progreso segun tus necesidades.</p></div>
+        <div style="--i:3"><div class="when">A partir de aqui</div><h4>Sigues a tu ritmo</h4><p>Eliges la tarifa que te encaje, reservas por la app y vienes cuando te va bien. El resto lo construimos juntos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/class-weightlifting.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 --</span><span>Elige clase y reserva</span></div>
+      <h2 class="h-hero reveal">Ver la <em class="serif">agenda</em><br>de la semana<span class="dot">.</span></h2>
+      <p class="reveal">Consulta horarios y coaches en tiempo real. La primera clase es gratis. Solo tienes que reservarla.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/es/agenda">Abrir la agenda<span class="arr"></span></a>
+        <a class="btn-ghost" href="/es/tarifes">Ver tarifas</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

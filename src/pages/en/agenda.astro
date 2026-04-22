@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Nav from '../components/Nav.astro'
-import Footer from '../components/Footer.astro'
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
 import {
   agendaEvents,
   getEventsByMonth,
@@ -14,45 +14,37 @@ import {
   catLabels,
   monthNames,
   type AgendaEvent
-} from '../data/agenda'
+} from '../../data/agenda'
 
-const lang = 'ca'
+const lang = 'en'
 const eventsByMonth = getEventsByMonth(lang)
 const featuredEvent = getFeaturedEvent()
 
-// Per al schema JSON
 const AGENDA_EVENTS_2026 = agendaEvents.map(e => ({
-  name: e.name,
+  name: e.nameEn || e.name,
   start: e.start,
   end: e.end,
-  place: e.place,
+  place: e.placeEn || e.place,
   cat: e.cat
 }))
 
-// Helper per obtenir el número del mes
-function getMonthNumber(event: AgendaEvent): string {
-  const date = new Date(event.start)
-  return (date.getMonth() + 1).toString().padStart(2, '0')
-}
-
-// Helper per determinar si és rang de dies
 function isDateRange(event: AgendaEvent): boolean {
   return event.start !== event.end
 }
 
-// Helper per obtenir el badge text
 function getBadgeText(event: AgendaEvent): string {
-  if (event.cat === 'comp-ext') return 'Competició externa'
-  if (event.cat === 'seminari') return event.place.includes('€') ? event.place.split('·').pop()?.trim() || 'Seminari' : 'Seminari'
+  if (event.cat === 'comp-ext') return 'External competition'
+  if (event.cat === 'seminari') return event.place.includes('€') ? event.place.split('·').pop()?.trim() || 'Seminar' : 'Seminar'
   if (event.cat === 'festa') return 'Save the date'
-  if (event.cat === 'masterclass') return 'Gratuïta'
-  return event.place.split('·').pop()?.trim() || ''
+  if (event.cat === 'masterclass') return 'Free'
+  const place = event.placeEn || event.place
+  return place.split('·').pop()?.trim() || ''
 }
 ---
 
 <Layout
-  title="Agenda 2026 · CrossFit La Mola Terrassa"
-  description="Calendari 2026 de competicions i events de CrossFit a Catalunya. Wodcelona, Basque Txapelketa, Summer Fest i més."
+  title="Calendar 2026 · CrossFit La Mola Terrassa"
+  description="2026 calendar of CrossFit competitions and events in Catalonia. Wodcelona, Basque Txapelketa, Summer Fest and more."
 >
   <Fragment slot="head">
     <style>
@@ -63,32 +55,18 @@ function getBadgeText(event: AgendaEvent): string {
 
       .month-band{ border-top:1px solid var(--line-ink); padding:44px 0 16px; position:relative;}
       .month-band:first-of-type{ border-top:none; padding-top:0;}
-      .month-band .month-label{
-        font-family:var(--f-display); font-weight:500; font-size:clamp(42px,5vw,72px);
-        letter-spacing:-0.04em; line-height:.9; margin:0 0 4px;
-        color:var(--bone-ink); display:flex; align-items:baseline; gap:14px;
-      }
+      .month-band .month-label{ font-family:var(--f-display); font-weight:500; font-size:clamp(42px,5vw,72px); letter-spacing:-0.04em; line-height:.9; margin:0 0 4px; color:var(--bone-ink); display:flex; align-items:baseline; gap:14px;}
       .month-band .month-label em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink); font-size:.6em;}
 
       .event-list{ display:grid; gap:0; border-top:1px solid var(--line-ink-s); margin-top:28px;}
-      .event{
-        display:grid; grid-template-columns:1fr; gap:12px;
-        padding:28px 0; border-bottom:1px solid var(--line-ink-s);
-        align-items:baseline; transition:background .2s, padding .2s;
-        position:relative;
-      }
-      @media(min-width:900px){
-        .event{ grid-template-columns:110px 1fr 160px auto; gap:32px; align-items:center;}
-      }
+      .event{ display:grid; grid-template-columns:1fr; gap:12px; padding:28px 0; border-bottom:1px solid var(--line-ink-s); align-items:baseline; transition:background .2s, padding .2s; position:relative;}
+      @media(min-width:900px){ .event{ grid-template-columns:110px 1fr 160px auto; gap:32px; align-items:center;} }
       .event.hidden{ display:none;}
       .event:hover{ background:var(--bone-soft); margin:0 -16px; padding-left:16px; padding-right:16px;}
       .event.featured{ background:var(--ink); color:var(--bone); padding:32px 24px; margin:12px 0; border-radius:2px; border-bottom:none;}
       .event.featured:hover{ padding:32px 24px;}
 
-      .event .when{
-        font-family:var(--f-display); font-weight:500; font-size:36px; letter-spacing:-0.035em;
-        line-height:.9; color:var(--accent-ink);
-      }
+      .event .when{ font-family:var(--f-display); font-weight:500; font-size:36px; letter-spacing:-0.035em; line-height:.9; color:var(--accent-ink);}
       .event.featured .when{ color:var(--accent-hi);}
       .event .when small{ display:block; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; margin-top:4px; color:var(--muted-ink);}
       .event.featured .when small{ color:var(--bone-3);}
@@ -96,10 +74,7 @@ function getBadgeText(event: AgendaEvent): string {
       .event .meta{ display:grid; gap:4px;}
       .event .cat{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-ink);}
       .event.featured .cat{ color:var(--bone-3);}
-      .event h3{
-        font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px);
-        letter-spacing:-0.025em; line-height:1.05; margin:0;
-      }
+      .event h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.025em; line-height:1.05; margin:0;}
       .event h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink);}
       .event.featured h3 em{ color:var(--accent-hi);}
       .event .desc{ font-family:var(--f-serif); font-size:15.5px; line-height:1.45; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:52ch;}
@@ -108,23 +83,11 @@ function getBadgeText(event: AgendaEvent): string {
       .event .place{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--bone-ink); opacity:.7;}
       .event.featured .place{ color:var(--bone-3);}
 
-      .event .badge{
-        font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase;
-        padding:6px 12px 5px; border-radius:999px; background:var(--accent-ink); color:var(--bone);
-        white-space:nowrap;
-      }
+      .event .badge{ font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; padding:6px 12px 5px; border-radius:999px; background:var(--accent-ink); color:var(--bone); white-space:nowrap;}
       .event.featured .badge{ background:var(--accent-hi); color:var(--ink);}
       .event .badge.secondary{ background:transparent; color:var(--accent-ink); border:1px solid var(--accent-ink);}
 
-      .std-poster{
-        margin-top:60px; padding:clamp(40px,6vw,80px) clamp(28px,4vw,60px);
-        background:
-          radial-gradient(circle at 20% 30%, rgba(185,169,114,.15) 0%, transparent 60%),
-          radial-gradient(circle at 80% 70%, rgba(185,169,114,.10) 0%, transparent 55%),
-          var(--ink);
-        color:var(--bone); position:relative; overflow:hidden;
-        display:grid; gap:20px; grid-template-columns:1fr;
-      }
+      .std-poster{ margin-top:60px; padding:clamp(40px,6vw,80px) clamp(28px,4vw,60px); background:radial-gradient(circle at 20% 30%, rgba(185,169,114,.15) 0%, transparent 60%),radial-gradient(circle at 80% 70%, rgba(185,169,114,.10) 0%, transparent 55%),var(--ink); color:var(--bone); position:relative; overflow:hidden; display:grid; gap:20px; grid-template-columns:1fr;}
       @media(min-width:900px){ .std-poster{ grid-template-columns:1fr 1fr; align-items:end;} }
       .std-poster .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--accent-hi);}
       .std-poster h2{ font-family:var(--f-display); font-weight:500; font-size:clamp(52px,7vw,108px); letter-spacing:-0.04em; line-height:.9; margin:6px 0 0;}
@@ -134,38 +97,25 @@ function getBadgeText(event: AgendaEvent): string {
       .std-poster .stars{ position:absolute; top:24px; right:24px; font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-hi);}
       .std-poster .desc{ font-family:var(--f-serif); font-size:18px; line-height:1.4; color:var(--bone-2); margin:0; max-width:44ch;}
     </style>
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ExerciseGym",
-      "@id": "https://crossfitlamola.com/#organization",
-      "name": "CrossFit La Mola",
-      "url": "https://crossfitlamola.com/",
-      "logo": "https://crossfitlamola.com/assets/logo-full.png"
-    })} />
     <script type="application/ld+json" set:html={JSON.stringify(AGENDA_EVENTS_2026.map(e => ({
       "@context":"https://schema.org",
       "@type":"SportsEvent",
       "name": e.name,
       "startDate": e.start,
       "endDate": e.end,
-      "eventStatus":"https://schema.org/EventScheduled",
-      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
-      "location":{ "@type":"Place", "name": e.place,
-        "address":{"@type":"PostalAddress","addressLocality":"Terrassa","addressCountry":"ES"}
-      },
-      "organizer":{"@id":"https://crossfitlamola.com/#organization"}
+      "location":{ "@type":"Place", "name": e.place }
     })))} />
   </Fragment>
 
-  <Nav currentPage="/agenda" />
+  <Nav currentPage="/en/agenda" />
 
   <section class="page-hero">
     <div class="bg" style="background-image:url('/assets/community-1.jpg')"></div>
     <div class="inner">
-      <div class="crumb"><a href="/">Inici</a><span>/</span><span>Agenda</span></div>
-      <div class="kicker"><span>Calendari</span><span class="bar"></span><span>Temporada 2026</span></div>
-      <h1>Agenda<br><em class="serif">Temporada</em> 2026<span class="dot">.</span></h1>
-      <p class="sub">Masterclasses, seminaris, competicions externes i events especials. Tot el que passa fora de l'horari setmanal.</p>
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Calendar</span></div>
+      <div class="kicker"><span>Calendar</span><span class="bar"></span><span>2026 Season</span></div>
+      <h1>Calendar<br><em class="serif">Season</em> 2026<span class="dot">.</span></h1>
+      <p class="sub">Masterclasses, seminars, external competitions and special events.</p>
     </div>
   </section>
 
@@ -174,14 +124,14 @@ function getBadgeText(event: AgendaEvent): string {
       <div class="eyebrow reveal"><span class="num">01 —</span><span>Events · 2026</span></div>
       <div style="height:16px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Tot el que<br>passa <em class="serif">aquest any</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Competicions externes, seminaris amb atletes convidats, masterclasses obertes i sortides de comunitat.</p>
+        <h2 class="h-xl reveal">Everything happening<br><em class="serif">this year</em><span class="dot">.</span></h2>
+        <p class="lead reveal">External competitions, seminars with guest athletes, open masterclasses and community outings.</p>
       </div>
 
       <div class="cat-filters reveal" id="cat-filters">
-        <button class="cat-filter on" data-f="all">Tots</button>
-        <button class="cat-filter" data-f="comp-ext">Competicions</button>
-        <button class="cat-filter" data-f="activitat">Activitats</button>
+        <button class="cat-filter on" data-f="all">All</button>
+        <button class="cat-filter" data-f="comp-ext">Competitions</button>
+        <button class="cat-filter" data-f="activitat">Activities</button>
       </div>
 
       {featuredEvent && (
@@ -212,12 +162,7 @@ function getBadgeText(event: AgendaEvent): string {
               <div class={`event ${event.featured ? 'featured' : ''}`} data-cat={event.cat}>
                 <div class="when">
                   {formatEventDays(event)}
-                  <small>
-                    {isDateRange(event)
-                      ? `– ${new Date(event.end).getDate().toString().padStart(2, '0')}`
-                      : getEventDayName(event, lang)
-                    }
-                  </small>
+                  <small>{isDateRange(event) ? `– ${new Date(event.end).getDate().toString().padStart(2, '0')}` : getEventDayName(event, lang)}</small>
                 </div>
                 <div class="meta">
                   <span class="cat">{catLabels[lang][event.cat]}</span>
@@ -225,9 +170,7 @@ function getBadgeText(event: AgendaEvent): string {
                   <p class="desc">{getEventDesc(event, lang)}</p>
                 </div>
                 <div class="place" set:html={getEventPlace(event, lang).split('·').slice(0, 2).join('<br>')} />
-                <span class={`badge ${event.cat === 'masterclass' ? 'secondary' : ''}`}>
-                  {getBadgeText(event)}
-                </span>
+                <span class={`badge ${event.cat === 'masterclass' ? 'secondary' : ''}`}>{getBadgeText(event)}</span>
               </div>
             ))}
           </div>
@@ -239,11 +182,11 @@ function getBadgeText(event: AgendaEvent): string {
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">02 —</span><span>Inscripcions</span></div>
-      <h2 class="h-hero reveal">Vols anar-hi<br><em class="serif">amb nosaltres</em><span class="dot">.</span></h2>
-      <p class="reveal">Parla amb qualsevol coach o escriu-nos. T'expliquem com inscriure't, com preparar-te i amb qui aniràs.</p>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">02 —</span><span>Sign up</span></div>
+      <h2 class="h-hero reveal">Want to join<br><em class="serif">us</em><span class="dot">.</span></h2>
+      <p class="reveal">Talk to any coach or write to us. We'll explain how to sign up and who you'll be going with.</p>
       <div class="actions reveal">
-        <a class="btn-primary" href="/contacte">Apuntar-me<span class="arr"></span></a>
+        <a class="btn-primary" href="/en/contacte">Sign me up<span class="arr"></span></a>
         <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
