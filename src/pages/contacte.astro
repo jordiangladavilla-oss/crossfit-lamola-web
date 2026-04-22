@@ -213,6 +213,15 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       msg.style.color = 'var(--bone)';
       msg.innerHTML = '<strong>Gràcies!</strong> Hem rebut el teu missatge. Et contactem aviat.';
       form.reset();
+
+      // Google Analytics conversion event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          event_category: 'forms',
+          event_label: 'Contacte',
+          value: 1
+        });
+      }
     } catch (err) {
       msg.style.display = 'block';
       msg.style.background = '#fee';
