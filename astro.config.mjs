@@ -6,6 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://crossfitlamola.com',
   compressHTML: true,
+  i18n: {
+    defaultLocale: 'ca',
+    locales: ['ca', 'es', 'en'],
+    routing: {
+      prefixDefaultLocale: false  // crossfitlamola.com = català, /es = español, /en = english
+    }
+  },
   build: {
     inlineStylesheets: 'auto'
   },

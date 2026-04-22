@@ -1,0 +1,57 @@
+---
+import { languages, getLangFromUrl, getRouteFromUrl, getLocalizedPath } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentRoute = getRouteFromUrl(Astro.url);
+---
+
+<div class="lang-switch">
+  {Object.entries(languages).map(([lang, label]) => (
+    <a
+      href={getLocalizedPath(currentRoute, lang as keyof typeof languages)}
+      class:list={['lang-option', { active: currentLang === lang }]}
+      aria-label={`Canviar a ${label}`}
+    >
+      {lang.toUpperCase()}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+  }
+
+  .lang-option {
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: var(--muted);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .lang-option:hover {
+    color: var(--bone);
+  }
+
+  .lang-option.active {
+    color: var(--bone);
+    background: rgba(255,255,255,0.1);
+  }
+
+  .sec.bone .lang-option {
+    color: var(--muted-ink);
+  }
+
+  .sec.bone .lang-option:hover {
+    color: var(--bone-ink);
+  }
+
+  .sec.bone .lang-option.active {
+    color: var(--bone-ink);
+    background: rgba(0,0,0,0.08);
+  }
+</style>

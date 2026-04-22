@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
+import { useTranslations } from '../../i18n/utils'
+
+const t = useTranslations('es')
+---
+
+<Layout
+  title={t('home.title')}
+  description={t('home.description')}
+  canonical="https://crossfitlamola.com/es"
+  bodyData={{ "data-hero": "full" }}
+>
+  <Schema type="home" slot="head" />
+
+  <Nav currentPage="/" lang="es" />
+
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div class="hero-media">
+        <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-still.jpg">
+          <source src="/assets/hero-loop.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-copy">
+        <div>
+          <div class="hero-kicker"><span>Move with purpose</span><span class="bar"></span><span>CrossFit Affiliate</span></div>
+          <img src="/assets/wordmark.svg" alt="CrossFit La Mola" class="hero-logo">
+          <p class="h-m" style="margin-top:20px; max-width:18ch;">{t('home.heroTagline')}</p>
+        </div>
+        <div class="hero-bottom-row">
+          <p class="hero-sub">{t('home.heroSubtitle')}</p>
+          <a href="/es/contacte" class="hero-cta">{t('common.bookNow')}<span class="arr"></span></a>
+        </div>
+        <div class="hero-meta">
+          <span><span class="k">Atletes</span> <span class="v">+250</span></span>
+          <span><span class="k">Coaches</span> <span class="v">03</span></span>
+          <span><span class="k">Clases/semana</span> <span class="v">60+</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="status-strip">
+    <span class="live" id="live-status">Clase en curso · Consulta el horario</span>
+    <span>Lu–Ju 07:00–21:30 · Vi 07:00–20:30 · Sa–Do 09:30–11:30</span>
+    <span>Av. del Vallès 724C · 08227 Terrassa</span>
+  </div>
+
+  <!-- TODO: Resto del contenido de la home traducido -->
+  <section class="sec bone" style="padding: 120px var(--page-pad); text-align:center;">
+    <p style="font-size: 24px; color: var(--muted-ink);">Página en construcción</p>
+    <p style="margin-top: 16px;"><a href="/" style="color: var(--accent-ink);">← Volver a la versión en catalán</a></p>
+  </section>
+
+  <Footer lang="es" />
+</Layout>
