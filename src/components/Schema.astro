@@ -62,9 +62,42 @@ const homeExtras = {
   "@type": "ExerciseGym",
   "@id": "https://crossfitlamola.com/#organization-team",
   "employee": [
-    {"@type":"Person","name":"Sergi","jobTitle":"Head Coach & Co-fundador","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 2 Trainer (CF-L2)"}},
-    {"@type":"Person","name":"Eli","jobTitle":"Coach & Co-fundadora","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 1 Trainer (CF-L1)"}},
-    {"@type":"Person","name":"Juse","jobTitle":"Coach","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"CrossFit Level 1 Trainer (CF-L1)"}}
+    {
+      "@type": "Person",
+      "@id": "https://crossfitlamola.com/#coach-sergi",
+      "name": "Sergi",
+      "jobTitle": "Head Coach & Co-fundador",
+      "description": "Titulat en FP Grau Superior d'Esports. Practica CrossFit des de fa +15 anys. Ha entrenat al CAR (Centre d'Alt Rendiment) en halterofília. Ha competit a la Federació Catalana d'Halterofília amb el Club Matadepera sota la direcció del Sr. Paredes.",
+      "knowsAbout": ["CrossFit", "Halterofília Olímpica", "Strength & Conditioning", "Programació d'entrenament"],
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 2 Trainer (CF-L2)"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "FP Grau Superior d'Esports"}
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://crossfitlamola.com/#coach-eli",
+      "name": "Eliana",
+      "jobTitle": "Coach & Co-fundadora",
+      "description": "Directora de projectes de màrqueting i comunicació amb +5 anys d'experiència a l'editorial Cinco Tintas Barcelona. Practica CrossFit des de fa +10 anys. Ha realitzat formacions i seminaris específics en gimnàstics i perfeccionament de tècnica.",
+      "knowsAbout": ["CrossFit", "Gymnastics", "Tècnica de moviments", "Màrqueting esportiu"],
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 1 Trainer (CF-L1)"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "Formació especialitzada en Gymnastics"}
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://crossfitlamola.com/#coach-juse",
+      "name": "Juse",
+      "jobTitle": "Coach",
+      "description": "Titulat en FP Grau Superior d'Esports. Nivell molt avançat en CrossFit. Ha practicat alta competició en futbol i altres disciplines esportives.",
+      "knowsAbout": ["CrossFit", "Preparació física", "Entrenament d'alt rendiment", "Futbol"],
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 1 Trainer (CF-L1)"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "FP Grau Superior d'Esports"}
+      ]
+    }
   ],
   "amenityFeature": [
     {"@type":"LocationFeatureSpecification","name":"Zona WOD amb rig"},
@@ -80,7 +113,24 @@ const homeExtras = {
     {"@type":"LocationFeatureSpecification","name":"Parking"}
   ]
 }
+
+const heroVideo = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "CrossFit La Mola - Box de CrossFit a Terrassa",
+  "description": "Descobreix el nostre box de CrossFit a Terrassa. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2. Classes per a tots els nivells.",
+  "thumbnailUrl": "https://crossfitlamola.com/assets/hero-still.jpg",
+  "contentUrl": "https://crossfitlamola.com/assets/hero.mp4",
+  "uploadDate": "2025-01-01",
+  "duration": "PT30S",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://crossfitlamola.com/#organization",
+    "name": "CrossFit La Mola"
+  }
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
 {type === 'home' && <script type="application/ld+json" set:html={JSON.stringify(homeExtras)} />}
+{type === 'home' && <script type="application/ld+json" set:html={JSON.stringify(heroVideo)} />}

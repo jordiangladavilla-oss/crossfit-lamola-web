@@ -146,14 +146,19 @@ function getBadgeText(event: AgendaEvent): string {
       "@context":"https://schema.org",
       "@type":"SportsEvent",
       "name": e.name,
+      "description": e.desc,
       "startDate": e.start,
       "endDate": e.end,
       "eventStatus":"https://schema.org/EventScheduled",
       "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
-      "location":{ "@type":"Place", "name": e.place,
-        "address":{"@type":"PostalAddress","addressLocality":"Terrassa","addressCountry":"ES"}
+      "sport": "CrossFit",
+      "location":{
+        "@type":"Place",
+        "name": e.place.split('·')[0].trim(),
+        "address":{"@type":"PostalAddress","addressLocality":"Terrassa","addressRegion":"Catalunya","addressCountry":"ES"}
       },
-      "organizer":{"@id":"https://crossfitlamola.com/#organization"}
+      "organizer":{"@id":"https://crossfitlamola.com/#organization"},
+      "performer":{"@id":"https://crossfitlamola.com/#organization"}
     })))} />
   </Fragment>
 

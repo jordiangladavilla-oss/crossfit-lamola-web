@@ -25,6 +25,7 @@ const AGENDA_EVENTS_2026 = agendaEvents.map(e => ({
   start: e.start,
   end: e.end,
   place: e.placeEs || e.place,
+  desc: e.descEs || e.desc || '',
   cat: e.cat
 }))
 
@@ -101,9 +102,19 @@ function getBadgeText(event: AgendaEvent): string {
       "@context":"https://schema.org",
       "@type":"SportsEvent",
       "name": e.name,
+      "description": e.desc,
       "startDate": e.start,
       "endDate": e.end,
-      "location":{ "@type":"Place", "name": e.place }
+      "eventStatus":"https://schema.org/EventScheduled",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "sport": "CrossFit",
+      "location":{
+        "@type":"Place",
+        "name": e.place.split('·')[0].trim(),
+        "address":{"@type":"PostalAddress","addressLocality":"Terrassa","addressRegion":"Catalunya","addressCountry":"ES"}
+      },
+      "organizer":{"@id":"https://crossfitlamola.com/#organization"},
+      "performer":{"@id":"https://crossfitlamola.com/#organization"}
     })))} />
   </Fragment>
 
