@@ -56,11 +56,11 @@ import Schema from '../../components/Schema.astro'
 
       /* Path section */
       .path{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line);}
-      .path > div{ display:grid; grid-template-columns:80px 1fr; gap:28px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
+      .path > div{ display:grid; grid-template-columns:1fr; gap:12px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
       @media(min-width:760px){ .path > div{ grid-template-columns:120px 1.2fr 2fr; gap:40px; align-items:center;} }
-      .path .when{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; color:var(--accent-hi);}
-      .path h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.6vw,32px); letter-spacing:-0.025em; margin:0;}
-      .path p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2); margin:0;}
+      .path .when{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; color:var(--accent-hi); text-transform:uppercase;}
+      .path h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2.6vw,32px); letter-spacing:-0.025em; margin:0;}
+      .path p{ font-family:var(--f-serif); font-size:16px; line-height:1.5; color:var(--bone-2); margin:0;}
 
       .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
       @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
