@@ -1,0 +1,34 @@
+---
+interface BreadcrumbItem {
+  name: string
+  url?: string
+}
+
+interface Props {
+  items: BreadcrumbItem[]
+  lang?: 'ca' | 'es' | 'en'
+}
+
+const { items, lang = 'ca' } = Astro.props
+const baseUrl = 'https://crossfitlamola.com'
+
+const homeLabels = { ca: 'Inici', es: 'Inicio', en: 'Home' }
+
+const fullItems = [
+  { name: homeLabels[lang], url: lang === 'ca' ? '/' : `/${lang}` },
+  ...items
+]
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": fullItems.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    ...(item.url ? { "item": `${baseUrl}${item.url}` } : {})
+  }))
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

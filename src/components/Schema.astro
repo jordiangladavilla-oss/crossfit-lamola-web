@@ -7,20 +7,26 @@ const { type = 'base' } = Astro.props
 
 const baseSchema = {
   "@context": "https://schema.org",
-  "@type": "ExerciseGym",
+  "@type": ["ExerciseGym", "SportsActivityLocation", "HealthClub"],
   "@id": "https://crossfitlamola.com/#organization",
   "name": "CrossFit La Mola",
-  "alternateName": "La Mola CrossFit",
-  "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2.",
+  "alternateName": ["La Mola CrossFit", "CrossFit Terrassa La Mola"],
+  "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2. Instal·lacions de 400m² amb rig de 15 places, zona cardio Concept2 i Rogue, i zona exterior.",
+  "slogan": "Move with purpose. Build strength together.",
   "url": "https://crossfitlamola.com/",
   "logo": "https://crossfitlamola.com/assets/logo-full.png",
-  "image": "https://crossfitlamola.com/assets/hero-still.jpg",
+  "image": [
+    "https://crossfitlamola.com/assets/hero-still.jpg",
+    "https://crossfitlamola.com/assets/elbox-zona-wod.webp",
+    "https://crossfitlamola.com/assets/team.jpg"
+  ],
   "telephone": "+34629066531",
   "email": "hola@crossfitlamola.com",
   "priceRange": "€€",
-  "foundingDate": "2025",
+  "foundingDate": "2025-01",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
+  "numberOfEmployees": {"@type": "QuantitativeValue", "value": 3},
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Avinguda del Vallès 724 C",
@@ -39,6 +45,22 @@ const baseSchema = {
     "ratingCount": "20",
     "reviewCount": "20"
   },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Marc"},
+      "datePublished": "2025-12",
+      "reviewBody": "Molt bon ambient, grans professionals, familiar i amb molt bones instal·lacions.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Eva"},
+      "datePublished": "2025-04",
+      "reviewBody": "Sense dubte el millor box on he estat. Són molt propers, atents, sempre estan pendents de tu. Tot està ordenat, net i impecable.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    }
+  ],
   "sameAs": [
     "https://www.instagram.com/lamolacrossfit/",
     "https://www.google.com/maps/place/CrossFit+La+Mola/@41.581285,2.027955"
@@ -54,7 +76,17 @@ const baseSchema = {
     {"@type":"City","name":"Sant Cugat del Vallès"},
     {"@type":"City","name":"Rubí"},
     {"@type":"AdministrativeArea","name":"Vallès Occidental"}
-  ]
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tarifes CrossFit La Mola",
+    "itemListElement": [
+      {"@type": "Offer", "name": "Primera classe gratuïta", "price": "0", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Quota mensual", "priceRange": "49€ - 105€"}
+    ]
+  },
+  "knowsAbout": ["CrossFit", "Halterofília", "Entrenament funcional", "HIIT", "Gimnàstic", "Strength & Conditioning"],
+  "keywords": "CrossFit Terrassa, box CrossFit, entrenament funcional, halterofília, gimnàs Terrassa, fitness Terrassa"
 }
 
 const homeExtras = {

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -9,6 +10,7 @@ import Footer from '../components/Footer.astro'
   description="Descobreix les instal·lacions i l'equip de coaches de CrossFit La Mola a Terrassa. Rig de 15 places, zona WOD, halterofília, cardio i gimnàstic. Coaches certificats CF-L1 i CF-L2."
 >
   <Fragment slot="head">
+    <Breadcrumb items={[{name: "El Box"}]} lang="ca" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

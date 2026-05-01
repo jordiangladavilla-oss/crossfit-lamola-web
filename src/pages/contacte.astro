@@ -2,12 +2,14 @@
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
 
 const title = "Contacte · CrossFit La Mola Terrassa"
 const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsApp 629 06 65 31. Dl–Dj 07:00–21:30, Dv 07:00–20:30. Primera classe gratuïta."
 ---
 
 <Layout title={title} description={description}>
+  <Breadcrumb items={[{name: "Contacte"}]} lang="ca" slot="head" />
   <Fragment slot="head">
     <style>
       .contact-grid{ display:grid; grid-template-columns:1fr; gap:60px; margin-top:40px;}

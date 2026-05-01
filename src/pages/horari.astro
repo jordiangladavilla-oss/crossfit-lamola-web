@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -9,6 +10,7 @@ import Footer from '../components/Footer.astro'
   description="Horari setmanal del box de CrossFit a Terrassa. Classes de dilluns a diumenge: WOD, halterofilia, hybrid, strength i mes. Reserva per l'app Aimharder."
   canonical="https://crossfitlamola.com/horari"
 >
+  <Breadcrumb items={[{name: "Horari"}]} lang="ca" slot="head" />
   <Nav currentPage="/horari" />
 
   <section class="page-hero">
