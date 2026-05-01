@@ -177,6 +177,15 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
 <script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
 
+  function getSource() {
+    const params = new URLSearchParams(window.location.search);
+    const utm = params.get('utm_source');
+    if (utm) return utm;
+    const from = params.get('from');
+    if (from) return from;
+    return 'web';
+  }
+
   document.getElementById('contact-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -188,8 +197,9 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
     btn.disabled = true;
     msg.style.display = 'none';
 
+    const source = getSource();
     const data = {
-      origen: 'Contacto ES',
+      origen: 'Contacto ES (' + source + ')',
       name: form.name.value,
       email: form.email.value,
       phone: form.phone.value,

@@ -604,6 +604,16 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
 
     // Form submission
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
+
+    function getSource() {
+      const params = new URLSearchParams(window.location.search);
+      const utm = params.get('utm_source');
+      if (utm) return utm;
+      const from = params.get('from');
+      if (from) return from;
+      return 'web';
+    }
+
     const homeForm = document.getElementById('home-form') as HTMLFormElement;
 
     if (homeForm) {
@@ -618,8 +628,9 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
         btn.disabled = true;
         msg.style.display = 'none';
 
+        const source = getSource();
         const data = {
-          origen: 'Home EN',
+          origen: 'Home EN (' + source + ')',
           name: (form.querySelector('[name="name"]') as HTMLInputElement).value,
           email: (form.querySelector('[name="email"]') as HTMLInputElement).value,
           phone: (form.querySelector('[name="phone"]') as HTMLInputElement).value,
