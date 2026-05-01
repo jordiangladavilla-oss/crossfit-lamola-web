@@ -165,15 +165,23 @@ import Footer from '../../components/Footer.astro'
       </div>
 
       <div class="gallery reveal-stagger">
-        <figure class="huge" style="--i:0"><img src="/assets/community-3.jpg" alt=""><figcaption>Zona WOD principal</figcaption></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/detail-rope.jpg" alt=""><figcaption>Rig gimnastico</figcaption></figure>
-        <figure style="--i:2"><img src="/assets/detail-chalk.jpg" alt=""><figcaption>Halterofilia</figcaption></figure>
-        <figure style="--i:3"><img src="/assets/detail-dumbbells.jpg" alt=""><figcaption>Equipacion</figcaption></figure>
-        <figure class="wide" style="--i:4"><img src="/assets/community-5.jpg" alt=""><figcaption>Zona open exterior</figcaption></figure>
-        <figure style="--i:5"><img src="/assets/detail-board.jpg" alt=""><figcaption>Whiteboard y programacion</figcaption></figure>
-        <figure class="tall" style="--i:6"><img src="/assets/community-6.jpg" alt=""><figcaption>Vestuarios y duchas</figcaption></figure>
-        <figure style="--i:7"><img src="/assets/detail-rings.jpg" alt=""><figcaption>Anillas y paralelas</figcaption></figure>
-        <figure style="--i:8"><img src="/assets/community-4.jpg" alt=""><figcaption>Coffee corner</figcaption></figure>
+        <figure class="huge" style="--i:0"><img src="/assets/elbox-zona-wod.webp" alt="Vista aérea de la zona WOD principal de CrossFit La Mola con rig de 15 plazas"><figcaption>Zona WOD principal</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Atletas entrenando en el box durante una clase de CrossFit"><figcaption>Entrenamiento en grupo</figcaption></figure>
+        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Atleta realizando un snatch con camiseta La Mola"><figcaption>Halterofilia</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Detalle de mano cogiendo dumbell Ruster en el rack de equipamiento"><figcaption>Equipación</figcaption></figure>
+        <figure class="wide" style="--i:4"><img src="/assets/elbox-cardio.webp" alt="Zona cardio con Echo Bikes Rogue y Ski Ergs"><figcaption>Zona cardio</figcaption></figure>
+        <figure class="tall" style="--i:5"><img src="/assets/elbox-equipament-1.webp" alt="Rack de equipamiento con dumbells, wallballs y sandbags Ruster"><figcaption>Material</figcaption></figure>
+        <figure style="--i:6"><img src="/assets/elbox-vestuaris.webp" alt="Detalle de los lavabos de los vestuarios con acabados de calidad"><figcaption>Vestuarios</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Atleta con camiseta CrossFit La Mola durante clase"><figcaption>Comunidad</figcaption></figure>
+        <figure class="wide video-hover" style="--i:8">
+          <img src="/assets/elbox-exterior-2.webp" alt="Fachada exterior de CrossFit La Mola con rótulo" class="poster">
+          <video src="/assets/video-exterior.mp4" muted loop playsinline preload="metadata"></video>
+          <figcaption>Zona exterior</figcaption>
+        </figure>
+        <figure class="tall" style="--i:9"><img src="/assets/elbox-coffee-corner.webp" alt="Zona de descanso con sofás y plantas en el coffee corner"><figcaption>Coffee corner</figcaption></figure>
+        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Detalle de cuerdas y anillas de madera en el rig gimnástico"><figcaption>Rig y anillas</figcaption></figure>
+        <figure style="--i:11"><img src="/assets/elbox-exterior-1.webp" alt="Zona exterior con césped artificial y rig para entrenar al aire libre"><figcaption>Training outdoor</figcaption></figure>
+        <figure class="wide" style="--i:12"><img src="/assets/elbox-equipament-2.webp" alt="Worms, sandbags y colchonetas HSPU de la marca Ruster"><figcaption>Material funcional</figcaption></figure>
       </div>
 
       <div class="equip reveal">
@@ -224,4 +232,27 @@ import Footer from '../../components/Footer.astro'
   .equip > div{ background:var(--bone-soft); padding:28px 26px;}
   .equip h4{ font-family:var(--f-mono); font-weight:400; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 16px;}
   .equip ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:17px; line-height:2; color:var(--bone-ink); opacity:.8;}
+
+  .gallery .video-hover{ cursor:pointer;}
+  .gallery .video-hover video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s ease;}
+  .gallery .video-hover .poster{ transition:opacity .4s ease;}
+  .gallery .video-hover:hover video{ opacity:1;}
+  .gallery .video-hover:hover .poster{ opacity:0;}
 </style>
+
+<script>
+  document.querySelectorAll('.video-hover').forEach(fig => {
+    const video = fig.querySelector('video');
+    if (!video) return;
+
+    fig.addEventListener('mouseenter', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+
+    fig.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>

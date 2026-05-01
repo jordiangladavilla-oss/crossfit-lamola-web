@@ -165,15 +165,23 @@ import Footer from '../../components/Footer.astro'
       </div>
 
       <div class="gallery reveal-stagger">
-        <figure class="huge" style="--i:0"><img src="/assets/community-3.jpg" alt=""><figcaption>Main WOD area</figcaption></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/detail-rope.jpg" alt=""><figcaption>Gymnastics rig</figcaption></figure>
-        <figure style="--i:2"><img src="/assets/detail-chalk.jpg" alt=""><figcaption>Weightlifting</figcaption></figure>
-        <figure style="--i:3"><img src="/assets/detail-dumbbells.jpg" alt=""><figcaption>Equipment</figcaption></figure>
-        <figure class="wide" style="--i:4"><img src="/assets/community-5.jpg" alt=""><figcaption>Outdoor open area</figcaption></figure>
-        <figure style="--i:5"><img src="/assets/detail-board.jpg" alt=""><figcaption>Whiteboard & programming</figcaption></figure>
-        <figure class="tall" style="--i:6"><img src="/assets/community-6.jpg" alt=""><figcaption>Locker rooms & showers</figcaption></figure>
-        <figure style="--i:7"><img src="/assets/detail-rings.jpg" alt=""><figcaption>Rings & parallettes</figcaption></figure>
-        <figure style="--i:8"><img src="/assets/community-4.jpg" alt=""><figcaption>Coffee corner</figcaption></figure>
+        <figure class="huge" style="--i:0"><img src="/assets/elbox-zona-wod.webp" alt="Aerial view of CrossFit La Mola main WOD area with 15-station rig"><figcaption>Main WOD area</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Athletes training at the box during a CrossFit class"><figcaption>Group training</figcaption></figure>
+        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Athlete performing a snatch wearing La Mola shirt"><figcaption>Weightlifting</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Hand grabbing Ruster dumbell from equipment rack"><figcaption>Equipment</figcaption></figure>
+        <figure class="wide" style="--i:4"><img src="/assets/elbox-cardio.webp" alt="Cardio zone with Rogue Echo Bikes and Ski Ergs"><figcaption>Cardio zone</figcaption></figure>
+        <figure class="tall" style="--i:5"><img src="/assets/elbox-equipament-1.webp" alt="Equipment rack with Ruster dumbells, wallballs and sandbags"><figcaption>Equipment</figcaption></figure>
+        <figure style="--i:6"><img src="/assets/elbox-vestuaris.webp" alt="Locker room sinks with quality finishes"><figcaption>Locker rooms</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Athlete wearing CrossFit La Mola shirt during class"><figcaption>Community</figcaption></figure>
+        <figure class="wide video-hover" style="--i:8">
+          <img src="/assets/elbox-exterior-2.webp" alt="CrossFit La Mola exterior facade with signage" class="poster">
+          <video src="/assets/video-exterior.mp4" muted loop playsinline preload="metadata"></video>
+          <figcaption>Outdoor area</figcaption>
+        </figure>
+        <figure class="tall" style="--i:9"><img src="/assets/elbox-coffee-corner.webp" alt="Relaxation area with sofas and plants at the coffee corner"><figcaption>Coffee corner</figcaption></figure>
+        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Wooden rings and ropes detail on the gymnastics rig"><figcaption>Rig & rings</figcaption></figure>
+        <figure style="--i:11"><img src="/assets/elbox-exterior-1.webp" alt="Outdoor area with artificial turf and rig for outdoor training"><figcaption>Training outdoor</figcaption></figure>
+        <figure class="wide" style="--i:12"><img src="/assets/elbox-equipament-2.webp" alt="Ruster brand worms, sandbags and HSPU mats"><figcaption>Functional equipment</figcaption></figure>
       </div>
 
       <div class="equip reveal">
@@ -224,4 +232,27 @@ import Footer from '../../components/Footer.astro'
   .equip > div{ background:var(--bone-soft); padding:28px 26px;}
   .equip h4{ font-family:var(--f-mono); font-weight:400; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 16px;}
   .equip ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:17px; line-height:2; color:var(--bone-ink); opacity:.8;}
+
+  .gallery .video-hover{ cursor:pointer;}
+  .gallery .video-hover video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s ease;}
+  .gallery .video-hover .poster{ transition:opacity .4s ease;}
+  .gallery .video-hover:hover video{ opacity:1;}
+  .gallery .video-hover:hover .poster{ opacity:0;}
 </style>
+
+<script>
+  document.querySelectorAll('.video-hover').forEach(fig => {
+    const video = fig.querySelector('video');
+    if (!video) return;
+
+    fig.addEventListener('mouseenter', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+
+    fig.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
