@@ -11,7 +11,7 @@ const baseSchema = {
   "@id": "https://crossfitlamola.com/#organization",
   "name": "CrossFit La Mola",
   "alternateName": ["La Mola CrossFit", "CrossFit Terrassa La Mola"],
-  "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2. Instal·lacions de 400m² amb rig de 15 places, zona cardio Concept2 i Rogue, i zona exterior.",
+  "description": "Box de CrossFit a Terrassa fundat el 13 de gener de 2025. Instal·lacions de 517m² amb rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones de sled push i 12 estacions de màquines cardio. Equipament Rogue, Concept2 i Ruster. Coaches certificats CF-L1 i CF-L2.",
   "slogan": "Move with purpose. Build strength together.",
   "url": "https://crossfitlamola.com/",
   "logo": "https://crossfitlamola.com/assets/logo-full.png",
@@ -23,10 +23,11 @@ const baseSchema = {
   "telephone": "+34629066531",
   "email": "hola@crossfitlamola.com",
   "priceRange": "€€",
-  "foundingDate": "2025-01",
+  "foundingDate": "2025-01-13",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
   "numberOfEmployees": {"@type": "QuantitativeValue", "value": 3},
+  "floorSize": {"@type": "QuantitativeValue", "value": 517, "unitCode": "MTK"},
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Avinguda del Vallès 724 C",
@@ -132,17 +133,26 @@ const homeExtras = {
     }
   ],
   "amenityFeature": [
-    {"@type":"LocationFeatureSpecification","name":"Zona WOD amb rig"},
+    {"@type":"LocationFeatureSpecification","name":"Rig de 15 places Rogue","value":"15 estacions"},
+    {"@type":"LocationFeatureSpecification","name":"Rope climbs","value":"9 cordes"},
+    {"@type":"LocationFeatureSpecification","name":"Barres olímpiques","value":"+30 barres"},
+    {"@type":"LocationFeatureSpecification","name":"Zones sled push","value":"4 zones"},
+    {"@type":"LocationFeatureSpecification","name":"Màquines cardio Concept2 i Rogue","value":"12 estacions"},
     {"@type":"LocationFeatureSpecification","name":"Plataformes d'halterofília"},
-    {"@type":"LocationFeatureSpecification","name":"Zona cardio"},
     {"@type":"LocationFeatureSpecification","name":"Zona Hybrid training"},
     {"@type":"LocationFeatureSpecification","name":"Zona Open exterior"},
     {"@type":"LocationFeatureSpecification","name":"Coffee Corner"},
-    {"@type":"LocationFeatureSpecification","name":"Sala de nutrició"},
-    {"@type":"LocationFeatureSpecification","name":"Sala de fisioteràpia"},
     {"@type":"LocationFeatureSpecification","name":"Vestidors amb dutxa"},
-    {"@type":"LocationFeatureSpecification","name":"Lavabo accessible"},
-    {"@type":"LocationFeatureSpecification","name":"Parking"}
+    {"@type":"LocationFeatureSpecification","name":"Parking gratuït"}
+  ],
+  "brand": [
+    {"@type":"Brand","name":"Rogue Fitness"},
+    {"@type":"Brand","name":"Concept2"},
+    {"@type":"Brand","name":"Ruster Fitness"}
+  ],
+  "sponsor": [
+    {"@type":"Organization","name":"Velites","description":"Partner oficial amb descomptes per atletes"},
+    {"@type":"Organization","name":"Picsil","description":"Partner oficial amb descomptes per atletes"}
   ]
 }
 

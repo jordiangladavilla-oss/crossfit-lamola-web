@@ -7,7 +7,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
 <Layout
   title="El box · CrossFit La Mola Terrassa"
-  description="Descobreix les instal·lacions i l'equip de coaches de CrossFit La Mola a Terrassa. Rig de 15 places, zona WOD, halterofília, cardio i gimnàstic. Coaches certificats CF-L1 i CF-L2."
+  description="517m² d'instal·lacions CrossFit a Terrassa. Rig de 15 places, 9 rope climbs, +30 barres, 12 màquines cardio. Equipament Rogue, Concept2 i Ruster. Coaches certificats CF-L1 i CF-L2."
 >
   <Fragment slot="head">
     <Breadcrumb items={[{name: "El Box"}]} lang="ca" />
@@ -17,7 +17,9 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       "@type": "ExerciseGym",
       "@id": "https://crossfitlamola.com/#organization",
       "name": "CrossFit La Mola",
-      "description": "Box de CrossFit afiliat a Terrassa amb 400m² d'instal·lacions, rig de 15 places, zona d'halterofília i equip de cardio Concept2 i Rogue.",
+      "foundingDate": "2025-01-13",
+      "description": "Box de CrossFit afiliat a Terrassa fundat el 13 de gener de 2025. 517m² d'instal·lacions amb rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones sled push i 12 màquines cardio Concept2 i Rogue.",
+      "floorSize": {"@type": "QuantitativeValue", "value": 517, "unitCode": "MTK"},
       "url": "https://crossfitlamola.com/el-box",
       "image": "https://crossfitlamola.com/assets/team.jpg",
       "address": {
@@ -52,9 +54,13 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         }
       ],
       "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Rig de competició (15 places)", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Zona halterofília", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Equip cardio Concept2 i Rogue", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Rig Rogue de 15 places", "value": "15 estacions"},
+        {"@type": "LocationFeatureSpecification", "name": "Rope climbs", "value": "9 cordes"},
+        {"@type": "LocationFeatureSpecification", "name": "Barres olímpiques", "value": "+30"},
+        {"@type": "LocationFeatureSpecification", "name": "Zones sled push", "value": "4"},
+        {"@type": "LocationFeatureSpecification", "name": "Màquines cardio Concept2 i Rogue", "value": "12 estacions"},
+        {"@type": "LocationFeatureSpecification", "name": "Zona exterior", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Coffee Corner", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Vestuaris i dutxes", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Pàrquing gratuït", "value": true}
       ]
@@ -86,7 +92,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       <div class="why-grid reveal-stagger">
         <div class="why-item" style="--i:0"><div class="n">01</div><h3>CrossFit Affiliate oficial</h3><p>Box afiliat a CrossFit, LLC. Coaches amb certificacio oficial i formacio continua segons els estandards de la metodologia.</p></div>
         <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programacio i progressio</h3><p>Cicles estructurats amb objectiu clar. Cada sessio te una funcio dins del bloc i cada bloc prepara el seguent. Entrenes per millorar, no per esgotar-te.</p></div>
-        <div class="why-item" style="--i:2"><div class="n">03</div><h3>Material de qualitat</h3><p>Box completament equipat. Barres olimpiques, dumbbells, kettlebells, worms, rampes HSW, GHD, remeres i ski ergs. Marques de referencia i material en perfecte estat.</p></div>
+        <div class="why-item" style="--i:2"><div class="n">03</div><h3>517m² d'equipament premium</h3><p>Rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones de sled push i 12 màquines cardio. Equipament Rogue, Concept2 i Ruster. Partners oficials de Velites i Picsil.</p></div>
         <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusiu i sense egos</h3><p>Comunitat integradora: persones que comencen, competidores, families, gent gran. Respecte pel proces de cadascu, sense comparacions ni pressions.</p></div>
       </div>
     </div>
