@@ -1,0 +1,333 @@
+---
+// src/components/PromoPopup.astro
+//
+// CAMPANYA: "Longer days. Better energy." — Maig 2026
+// Activa: 2026-05-01 → 2026-05-31 (incl.)
+// Per la pròxima campanya: només cal canviar PROMO_START/END i el contingut
+// dels nodes marcats amb [EDITAR-CAMPANYA].
+---
+
+<div
+  id="promo"
+  class="promo-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="promo-title"
+  aria-hidden="true"
+>
+  <div class="promo-card">
+    <button
+      type="button"
+      class="promo-close"
+      aria-label="Tancar promoció"
+      data-promo-close
+    >
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M1 1 L13 13 M13 1 L1 13" />
+      </svg>
+    </button>
+
+    <!-- [EDITAR-CAMPANYA] imatge de fons -->
+    <div class="promo-media">
+      <span class="promo-eyebrow"><span class="dot"></span>Promo · Maig</span>
+      <img src="/assets/promo-may-bg.jpg" alt="Promoció maig - Cuota il·limitada amb descompte" loading="lazy" />
+    </div>
+
+    <div class="promo-body">
+      <!-- [EDITAR-CAMPANYA] eyebrow + títol -->
+      <p class="promo-lede"><span class="bar"></span>Cuota il·limitada</p>
+      <h2 class="promo-title" id="promo-title">
+        Longer days.<br /><em>Better energy.</em>
+      </h2>
+
+      <!-- [EDITAR-CAMPANYA] taula de preus -->
+      <div class="promo-table" role="table" aria-label="Tarifes promoció">
+        <div class="col" role="cell">
+          <span class="label">Preu sense dte.</span>
+          <span class="price"><s>105€</s></span>
+          <span class="per">/ mes</span>
+        </div>
+        <div class="col" role="cell">
+          <span class="label">Juny · 15%</span>
+          <span class="price">89€</span>
+          <span class="save">estalvies 16€</span>
+        </div>
+        <div class="col is-best" role="cell">
+          <span class="label">Juny+Juliol · 30%</span>
+          <span class="price">148€</span>
+          <span class="per">73,50€/mes</span>
+          <span class="save">estalvies 63€</span>
+        </div>
+      </div>
+
+      <!-- [EDITAR-CAMPANYA] lletra petita -->
+      <p class="promo-fine">
+        Promo vàlida per a noves persones sòcies. Aplicable només en tarifa il·limitada.
+        Les sessions gratuïtes seran 10 dies consecutius (una classe o open per dia).
+        Alta a abonar el dia que es formalitza.
+      </p>
+
+      <div class="promo-cta-row">
+        <a href="/contacte" class="promo-cta" data-promo-cta id="promo-cta-link">
+          Reservar plaça <span class="arr"></span>
+        </a>
+        <span class="promo-deadline">Altes fins al 31 maig</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    // ============== CONFIGURACIÓ DE LA CAMPANYA ==========================
+    // Format dates: 'YYYY-MM-DD' (inclusius, hora local)
+    var PROMO_START    = '2026-05-01';
+    var PROMO_END      = '2026-05-31';
+    var PROMO_KEY      = 'promo:may2026';
+    var DELAY_MS       = 1800;
+    var SUPPRESS_HOURS = 24;
+    // =====================================================================
+
+    // Detectar idioma i ajustar href del CTA
+    var path = location.pathname;
+    var langPrefix = '';
+    if (path.startsWith('/es/') || path === '/es') langPrefix = '/es';
+    else if (path.startsWith('/en/') || path === '/en') langPrefix = '/en';
+    var ctaLink = document.getElementById('promo-cta-link');
+    if (ctaLink) ctaLink.href = langPrefix + '/contacte';
+
+    var qs = new URLSearchParams(location.search);
+    var force = qs.get('promo');
+    if (force === '0') return;
+    if (document.body.getAttribute('data-promo-active') === 'off') return;
+
+    function inRange() {
+      var now = new Date();
+      var s = new Date(PROMO_START + 'T00:00:00');
+      var e = new Date(PROMO_END   + 'T23:59:59');
+      return now >= s && now <= e;
+    }
+    if (force !== '1' && !inRange()) return;
+
+    function isSuppressed() {
+      if (force === '1') return false;
+      try {
+        var raw = localStorage.getItem(PROMO_KEY);
+        if (!raw) return false;
+        var ts = parseInt(raw, 10);
+        if (!ts) return false;
+        return (Date.now() - ts) / 36e5 < SUPPRESS_HOURS;
+      } catch (_) { return false; }
+    }
+    if (isSuppressed()) return;
+
+    var overlay = document.getElementById('promo');
+    if (!overlay) return;
+
+    function open() {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+    }
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+      try { localStorage.setItem(PROMO_KEY, String(Date.now())); } catch (_) {}
+    }
+
+    overlay.addEventListener('click', function (ev) {
+      if (ev.target === overlay) close();
+      if (ev.target.closest('[data-promo-close]')) close();
+      if (ev.target.closest('[data-promo-cta]')) close();
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    setTimeout(open, DELAY_MS);
+  })();
+</script>
+
+<style>
+  .promo-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(16, 14, 11, .72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: clamp(12px, 3vw, 32px);
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .promo-overlay.is-open { display: flex; opacity: 1; }
+  .promo-overlay.is-open .promo-card {
+    transform: translateY(0) scale(1); opacity: 1;
+  }
+
+  .promo-card {
+    position: relative;
+    width: 100%; max-width: 480px;
+    max-height: calc(100svh - 24px);
+    overflow: auto;
+    background: var(--bone);
+    color: var(--bone-ink);
+    border-radius: 4px;
+    box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.04);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .4s ease;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  .promo-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--ink-2); }
+  .promo-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .promo-media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(243,236,217,0) 55%, rgba(243,236,217,.65) 100%);
+    pointer-events: none;
+  }
+
+  .promo-eyebrow {
+    position: absolute; top: 16px; left: 18px; z-index: 2;
+    font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: .26em; text-transform: uppercase;
+    color: var(--bone);
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 12px 7px;
+    background: rgba(16,14,11,.45);
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+  }
+  .promo-eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-hi);
+    box-shadow: 0 0 0 0 rgba(185,169,114,.6);
+    animation: promo-pulse 2.2s ease-out infinite;
+  }
+  @keyframes promo-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(185,169,114,.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(185,169,114,0); }
+    100% { box-shadow: 0 0 0 0 rgba(185,169,114,0); }
+  }
+
+  .promo-close {
+    position: absolute; top: 14px; right: 14px; z-index: 3;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(243,236,217,.92);
+    color: var(--ink);
+    display: grid; place-items: center;
+    cursor: pointer; border: 0;
+    transition: background .2s, transform .2s;
+  }
+  .promo-close:hover { background: var(--bone); transform: rotate(90deg); }
+  .promo-close svg { width: 14px; height: 14px; }
+
+  .promo-body { padding: clamp(22px, 4vw, 32px); display: flex; flex-direction: column; gap: 18px; }
+
+  .promo-title {
+    font-family: var(--f-display); font-weight: 500;
+    font-size: clamp(28px, 4.4vw, 36px);
+    letter-spacing: -.035em; line-height: .98;
+    margin: 0; color: var(--bone-ink); text-wrap: balance;
+  }
+  .promo-title em {
+    font-family: var(--f-serif); font-style: italic; font-weight: 300;
+    color: var(--accent-ink);
+  }
+
+  .promo-lede {
+    font-family: var(--f-mono); font-size: 11px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--muted-ink);
+    display: flex; align-items: center; gap: 12px;
+    margin: 0;
+  }
+  .promo-lede .bar { width: 28px; height: 1px; background: var(--accent-ink); opacity: .6; }
+
+  .promo-table {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line-ink-s);
+    border-radius: 2px; overflow: hidden; margin-top: 4px;
+  }
+  .promo-table .col {
+    padding: 14px 10px 16px;
+    text-align: center;
+    border-right: 1px solid var(--line-ink-s);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .promo-table .col:last-child { border-right: 0; }
+  .promo-table .col.is-best { background: var(--bone-ink); color: var(--bone); }
+
+  .promo-table .label {
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: .2em; text-transform: uppercase; opacity: .7;
+  }
+  .promo-table .col.is-best .label { color: var(--bone-3); opacity: 1; }
+
+  .promo-table .price {
+    font-family: var(--f-display); font-weight: 500;
+    font-size: 24px; letter-spacing: -.02em; line-height: 1;
+  }
+  .promo-table .col.is-best .price { color: var(--accent-hi); }
+  .promo-table .price s {
+    display: inline-block; opacity: .5; font-size: 16px; font-weight: 300;
+    text-decoration-thickness: 1px;
+  }
+
+  .promo-table .per {
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: .12em; text-transform: uppercase; opacity: .65;
+  }
+  .promo-table .col.is-best .per { color: var(--bone); opacity: .85; }
+
+  .promo-table .save {
+    font-family: var(--f-serif); font-style: italic; font-weight: 300;
+    font-size: 13px; line-height: 1; opacity: .9; color: var(--accent-ink);
+  }
+  .promo-table .col.is-best .save { color: var(--accent-hi); opacity: 1; }
+
+  .promo-fine {
+    font-family: var(--f-serif); font-size: 13px; line-height: 1.5;
+    color: var(--bone-ink); opacity: .7; margin: 0; text-wrap: pretty;
+  }
+
+  .promo-cta-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+    margin-top: 4px;
+  }
+  .promo-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 16px 22px 15px;
+    background: var(--ink); color: var(--bone);
+    border-radius: 999px;
+    font-family: var(--f-mono); font-size: 11.5px;
+    letter-spacing: .18em; text-transform: uppercase;
+    text-decoration: none;
+    transition: transform .25s, background .2s, color .2s;
+  }
+  .promo-cta:hover { transform: translateY(-2px); background: var(--accent); color: var(--bone); }
+  .promo-cta .arr {
+    display: inline-block; width: 22px; height: 1px; background: currentColor;
+    position: relative;
+  }
+  .promo-cta .arr::after {
+    content: ""; position: absolute; right: -1px; top: -3px;
+    width: 7px; height: 7px;
+    border-top: 1px solid currentColor; border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+  .promo-deadline {
+    font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--muted-ink);
+  }
+
+  @media (max-width: 480px) {
+    .promo-media { aspect-ratio: 4 / 3; }
+    .promo-table .price { font-size: 20px; }
+    .promo-table .col { padding: 12px 6px 14px; }
+  }
+</style>
