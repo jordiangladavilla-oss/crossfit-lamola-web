@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import { getLangFromUrl, getRouteFromUrl } from '../i18n/utils'
+import PromoPopup from '../components/PromoPopup.astro'
 
 interface Props {
   title: string
@@ -33,6 +34,7 @@ const hreflangUrls = {
 }
 
 const langCodes = { ca: 'ca', es: 'es', en: 'en' }
+const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
 ---
 
 <!doctype html>
@@ -57,6 +59,15 @@ const langCodes = { ca: 'ca', es: 'es', en: 'en' }
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
 
+  <!-- Geo tags per SEO local -->
+  <meta name="geo.region" content="ES-CT" />
+  <meta name="geo.placename" content="Terrassa, Barcelona, Catalunya" />
+  <meta name="geo.position" content="41.581285;2.027955" />
+  <meta name="ICBM" content="41.581285, 2.027955" />
+
+  <!-- LLMs.txt per assistents IA -->
+  <link rel="author" href="/llms.txt" type="text/plain" />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-19HS7P4XHP"></script>
   <script is:inline>
@@ -67,6 +78,9 @@ const langCodes = { ca: 'ca', es: 'es', en: 'en' }
   </script>
 
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content={ogLocales[currentLang]} />
+  <meta property="og:locale:alternate" content={currentLang !== 'ca' ? 'ca_ES' : 'es_ES'} />
+  <meta property="og:locale:alternate" content={currentLang !== 'en' ? 'en_GB' : 'es_ES'} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -81,6 +95,7 @@ const langCodes = { ca: 'ca', es: 'es', en: 'en' }
   <slot name="head" />
 </head>
 <body class={bodyClass} {...bodyData}>
+  <a href="#main" class="skip-link">Saltar al contingut principal</a>
   <slot />
 
   <script>
@@ -136,5 +151,6 @@ const langCodes = { ca: 'ca', es: 'es', en: 'en' }
       });
     }
   </script>
+  <PromoPopup />
 </body>
 </html>
