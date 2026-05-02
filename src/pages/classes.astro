@@ -8,7 +8,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
 <Layout
   title="Classes · CrossFit La Mola Terrassa"
-  description="9 disciplines a Terrassa: WOD, halterofilia, hybrid training, running club, strength i mes. Classes dirigides per a tots els nivells."
+  description="9 disciplines a Terrassa: WOD, halterofília, hybrid training, running club, strength i mes. Classes dirigides per a tots els nivells."
 >
   <Schema type="classes" slot="head" />
   <Breadcrumb items={[{name: "Classes"}]} lang="ca" slot="head" />
@@ -19,15 +19,15 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       "@type": "ItemList",
       "name": "Disciplines a CrossFit La Mola",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Classe diaria variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofilia","description":"Tecnica olimpica: arrencada i dos temps","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength","description":"Forca pura amb barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Gymnastics / Bodyweight","description":"Dominis, handstands, calisthenics","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Tecnica de cursa i resistencia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"Combinacio de CrossFit i endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"ABS","description":"Core i estabilitat","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Programacio propia","description":"Entrenament personalitzat dels coaches","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Coach Box","description":"Atencio individualitzada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Classe diària variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofília","description":"Tècnica olímpica: arrencada i dos temps","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength Club","description":"Força pura amb barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Bodyweight Lab","description":"Gimnàstics, handstands, calisthenics","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running Club","description":"Tècnica de cursa i resistència","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid Club","description":"Combinació de CrossFit i endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"Abs & Cals","description":"Core i estabilitat","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"The Program","description":"Programació avançada per a competidors","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Entrena amb el teu Coach","description":"Atenció individualitzada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
       ]
     }
     </script>
@@ -36,6 +36,24 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "Puc fer el WOD si és el meu primer dia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El coach escala tots els moviments al teu nivell i t'acompanya durant tota la sessió."}},
+        {"@type": "Question", "name": "Quant dura un WOD?", "acceptedAnswer": {"@type": "Answer", "text": "La classe dura 60 minuts: escalfament, part tècnica o força, metcon i tornada a la calma."}},
+        {"@type": "Question", "name": "Necessito saber halterofília per apuntar-me a Weightlifting?", "acceptedAnswer": {"@type": "Answer", "text": "No. Comencem des de zero amb barra buida i construïm la tècnica a poc a poc."}},
+        {"@type": "Question", "name": "És perillós aixecar pes olímpic?", "acceptedAnswer": {"@type": "Answer", "text": "Amb tècnica correcta i progressió adequada, no. El coach supervisa cada repetició."}},
+        {"@type": "Question", "name": "Quin nivell es necessita per a Hybrid Club?", "acceptedAnswer": {"@type": "Answer", "text": "Intermedi. És ideal si ja tens una base de CrossFit i vols combinar força i resistència."}},
+        {"@type": "Question", "name": "Serveix Hybrid Club per preparar Hyrox?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, la programació segueix una estructura similar a la competició Hyrox."}},
+        {"@type": "Question", "name": "Quina diferència hi ha entre Bodyweight Lab Base i Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Base treballa fonaments com pull-up estricte i handstand hold. Advance treballa butterfly, muscle-ups i HSW."}},
+        {"@type": "Question", "name": "Puc passar de Bodyweight Base a Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, quan el coach vegi que domines els fonaments pots passar al nivell avançat."}},
+        {"@type": "Question", "name": "Puc combinar Strength Club amb el WOD?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Molts atletes fan Strength Club i després WOD el mateix dia."}},
+        {"@type": "Question", "name": "Quins moviments es treballen a Strength Club?", "acceptedAnswer": {"@type": "Answer", "text": "Sentadilla, pes mort, press i variants accessòries per estabilitat i core."}},
+        {"@type": "Question", "name": "Puc fer Abs & Cals sense fer cap altra classe?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, és una sessió independent de 30 minuts que pots fer sola o combinada amb altres classes."}},
+        {"@type": "Question", "name": "Abs & Cals consumeix crèdit de la quota?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, compta com una classe normal dins de la teva quota mensual."}},
+        {"@type": "Question", "name": "Qui pot fer The Program?", "acceptedAnswer": {"@type": "Answer", "text": "Atletes amb nivell avançat que volen competir o portar el rendiment al màxim nivell."}},
+        {"@type": "Question", "name": "És obligatori fer les 4 sessions de The Program?", "acceptedAnswer": {"@type": "Answer", "text": "No és obligatori, però la programació està dissenyada per seguir-se completa per obtenir millors resultats."}},
+        {"@type": "Question", "name": "En què es diferencia Entrena amb el teu Coach d'una classe grupal?", "acceptedAnswer": {"@type": "Answer", "text": "Entrenes la mateixa pissarra que el coach però amb atenció personalitzada i correccions individuals."}},
+        {"@type": "Question", "name": "Puc demanar un focus específic a Entrena amb el teu Coach?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, pots treballar tècnica, debilitats específiques o preparar una competició concreta."}},
+        {"@type": "Question", "name": "Necessito ser bon corredor per Running Club?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hi ha ritmes per a tots els nivells i sempre anem en grup, sense deixar ningú enrere."}},
+        {"@type": "Question", "name": "Running Club consumeix crèdit de la quota?", "acceptedAnswer": {"@type": "Answer", "text": "No, Running Club no consumeix crèdit de la teva quota mensual."}},
         {"@type": "Question", "name": "Quina classe és millor per començar CrossFit?", "acceptedAnswer": {"@type": "Answer", "text": "El WOD és la classe ideal per començar. És la classe diària de CrossFit que combina tots els elements i s'adapta a qualsevol nivell. El coach escala els moviments segons les teves capacitats."}},
         {"@type": "Question", "name": "Necessito experiència prèvia per fer halterofília?", "acceptedAnswer": {"@type": "Answer", "text": "No. Les classes d'halterofília estan dissenyades per aprendre des de zero. Comencem amb la tècnica bàsica i progressem a poc a poc."}},
         {"@type": "Question", "name": "Què és Hybrid Training?", "acceptedAnswer": {"@type": "Answer", "text": "Hybrid Training combina elements de CrossFit amb entrenament de resistència (running, bici, rem). Ideal per qui vol preparar-se per a competicions mixtes o millorar el fons."}},
@@ -84,86 +102,86 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
   <Nav currentPage="/classes" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/class-wod.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Classes</span></div>
-      <div class="kicker"><span>9 disciplines</span><span class="bar"></span><span>Una mateixa intencio</span></div>
+      <div class="kicker"><span>9 disciplines</span><span class="bar"></span><span>Una mateixa intenció</span></div>
       <h1>Troba el teu<br><em class="serif">moviment</em><span class="dot">.</span></h1>
-      <p class="sub">Entrenar no es repetir. Es construir amb tecnica, carrega i cap. Tenim una classe per a cada moment del teu cami.</p>
+      <p class="sub">Entrenar no és repetir, sinó construir amb tècnica, càrrega i cap. Cada sessió està pensada per fer-te avançar amb sentit, adaptant-se al teu moment i al teu nivell.</p>
     </div>
   </section>
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 --</span><span>Les 9 disciplines</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>Les 9 disciplines</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Nou maneres<br>d'entrar al <em class="serif">box</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Cada classe te la seva intencio: una per construir forca pura, una altra per trobar el ritme, una altra per pulir la tecnica. No cal triar-ne nomes una.</p>
+        <p class="lead reveal">Cada classe te la seva intenció: una per construir força pura, una altra per trobar el ritme, una altra per pulir la tècnica. No cal triar-ne només una.</p>
       </div>
 
       <div class="disc-list reveal-stagger">
         <article class="disc" style="--i:0">
           <span class="num">01</span>
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Classe estrella - 60 min</div></div>
-          <p>La classe central de CrossFit. Escalfament, part tecnica, WOD i tornada a la calma. Un coach guia el grup de principi a fi.</p>
+          <p>La classe central de CrossFit. Escalfament, part tècnica, WOD i tornada a la calma. Un coach guia el grup de principi a fi.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>Diari</strong></span></div>
         </article>
 
         <article class="disc" style="--i:1">
           <span class="num">02</span>
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
-          <p>Halterofilia olimpica. Treballem els dos aixecaments i les seves derivacions amb progressions adaptades a cada atleta.</p>
+          <p>Halterofília olímpica. Treballem els dos aixecaments i les seves derivacions amb progressions adaptades a cada atleta.</p>
           <div class="meta"><span>Nivell <strong>Intermedi+</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:2">
           <span class="num">03</span>
-          <div><h3>Hybrid Club</h3><div class="tagline">Forca + Cardio - 60 min</div></div>
-          <p>Per a qui vol les dues coses: forca de pes lliure i capacitat cardiovascular llarga. Inspirat en el format Hyrox.</p>
+          <div><h3>Hybrid Club</h3><div class="tagline">Força + Cardio - 60 min</div></div>
+          <p>Per a qui vol les dues coses: força de pes lliure i capacitat cardiovascular llarga. Inspirat en el format Hyrox.</p>
           <div class="meta"><span>Nivell <strong>Intermedi</strong></span><span>Frequencia <strong>3x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:3">
           <span class="num">04</span>
-          <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnastic - 45 min</div></div>
+          <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnàstic - 45 min</div></div>
           <p>Dos nivells: Base per aprendre els fonaments gimnàstics, i Advance per butterfly pull-ups, muscle-ups, HSW i HSPU.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:4">
           <span class="num">05</span>
-          <div><h3>Strength Club</h3><div class="tagline">Series i pesos - 60 min</div></div>
-          <p>Un cicle estructurat de forca: squat, bench, deadlift, press. Aqui es fa pesat, amb cap i descans.</p>
+          <div><h3>Strength Club</h3><div class="tagline">Sèries i pesos - 60 min</div></div>
+          <p>Un cicle estructurat de força: squat, bench, deadlift, press. Aquí es fa pesat, amb cap i descans.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>2x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:5">
           <span class="num">06</span>
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + capacitat - 30 min</div></div>
-          <p>Curt, intens, pensat per sumar-lo a un altre WOD o com a sessio independent. Calories al bike i treball de core.</p>
+          <p>Curt, intens, pensat per sumar-lo a un altre WOD o com a sessió independent. Calories al bike i treball de core.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>3x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:6">
           <span class="num">07</span>
-          <div><h3>The Program</h3><div class="tagline">Avancat i competidor - 90 min</div></div>
+          <div><h3>The Program</h3><div class="tagline">Avançat i competidor - 90 min</div></div>
           <p>Programa dirigit per a qui vol competir o portar el rendiment a un altre nivell. Inclou seguiment individualitzat.</p>
-          <div class="meta"><span>Nivell <strong>Avancat</strong></span><span>Frequencia <strong>4x/setmana</strong></span></div>
+          <div class="meta"><span>Nivell <strong>Avançat</strong></span><span>Frequencia <strong>4x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:7">
           <span class="num">08</span>
           <div><h3>Entrena amb el teu <em>Coach</em></h3><div class="tagline">1 a 1 - 60 min</div></div>
-          <p>Sessio privada amb el coach que triis. Per pulir tecnica, preparar una competicio o tornar despres d'una lesio.</p>
-          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>Sota demanda</strong></span></div>
+          <p>Sessió privada amb el coach que triïs. Per pulir tècnica, preparar una competició o tornar després d'una lesió.</p>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>3x/setmana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:8">
           <span class="num">09</span>
           <div><h3>Running Club</h3><div class="tagline">Aire lliure - 60 min</div></div>
-          <p>Sortim a correr pel Valles. Entrenament estructurat: fartleks, series, llargs. Fem pinya abans i cervesa despres, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix credit</em>.</p>
+          <p>Sortim a córrer pel Vallès. Entrenament estructurat: fartleks, sèries, llargs. Fem pinya abans i cervesa després, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix crèdit</em>.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Frequencia <strong>1x/setmana</strong></span></div>
         </article>
       </div>
@@ -173,18 +191,65 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   <section class="sec ink" style="padding-top:0;">
     <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
     <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
-      <div class="eyebrow reveal"><span class="num">02 --</span><span>La teva primera vegada</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>La teva primera vegada</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Mai has fet <em class="serif">CrossFit</em>?<br>Comencem pel principi<span class="dot">.</span></h2>
-        <p class="lead reveal">No cal estar en forma per comencar: cal comencar per estar-hi. El proces de benvinguda es el mateix per a tothom.</p>
+        <p class="lead reveal">No cal estar en forma per començar: cal començar per estar-hi. El procés de benvinguda és el mateix per a tothom.</p>
       </div>
 
       <div class="path reveal-stagger">
-        <div style="--i:0"><div class="when">Pas 1</div><h4>Contacta i agendem visita</h4><p>Ens expliques una mica de tu (objectius, condicio actual, experiencia) i preparem la primera classe adaptada. T'assessorem amb el que millor s'adapti.</p></div>
-        <div style="--i:1"><div class="when">Pas 2 - Primera classe gratuita</div><h4>Vines a una classe real</h4><p>Vine una mica abans i fes una ullada a les instal-lacions: portes obertes a tot. Entres a una classe amb el grup, el coach et dona alternatives adaptades i t'ensenya els moviments basics.</p></div>
-        <div style="--i:2"><div class="when">Pas 3</div><h4>Comentem la jugada</h4><p>Despres de la classe parlem: com t'has sentit, que cal reforcar, i planegem un cami optim de progres segons les teves necessitats.</p></div>
-        <div style="--i:3"><div class="when">A partir d'aqui</div><h4>Segueixes el teu ritme</h4><p>Tries la tarifa que t'encaixa, reserves per l'app i vens quan et va be. La resta la construim junts.</p></div>
+        <div style="--i:0"><div class="when">Pas 1</div><h4>Contacta i agendem visita</h4><p>Ens expliques una mica de tu (objectius, condició actual, experiència) i preparem la primera classe adaptada. T'assessorem amb el que millor s'adapti.</p></div>
+        <div style="--i:1"><div class="when">Pas 2 - Primera classe gratuïta</div><h4>Vens a una classe real</h4><p>Vine una mica abans i fes una ullada a les instal·lacions: portes obertes a tot. Entres a una classe amb el grup, el coach et dona alternatives adaptades i t'ensenya els moviments bàsics.</p></div>
+        <div style="--i:2"><div class="when">Pas 3</div><h4>Comentem la jugada</h4><p>Després de la classe parlem: com t'has sentit, què cal reforçar, i planegem un camí òptim de progrés segons les teves necessitats.</p></div>
+        <div style="--i:3"><div class="when">A partir d'aquí</div><h4>Segueixes el teu ritme</h4><p>Tries la tarifa que t'encaixa, reserves per l'app i vens quan et va bé. La resta la construïm junts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="faq-classes">
+    <div class="inner">
+      <div class="faq-head">
+        <div class="eyebrow reveal"><span class="num"></span><span>Preguntes freqüents</span></div>
+        <h2 class="h-xl reveal">Tot el que vols saber<br>sobre les <em class="serif">classes</em><span class="dot">.</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Quina classe és millor per començar CrossFit?<span class="sign"></span></summary>
+          <p class="a">El WOD és la classe ideal per començar. És la classe diària de CrossFit que combina tots els elements i s'adapta a qualsevol nivell. El coach escala els moviments segons les teves capacitats.</p>
+        </details>
+        <details>
+          <summary>Puc fer el WOD si és el meu primer dia?<span class="sign"></span></summary>
+          <p class="a">Sí. El coach escala tots els moviments al teu nivell i t'acompanya durant tota la sessió.</p>
+        </details>
+        <details>
+          <summary>Necessito experiència prèvia per fer halterofília?<span class="sign"></span></summary>
+          <p class="a">No. Les classes d'halterofília estan dissenyades per aprendre des de zero. Comencem amb la tècnica bàsica i progressem a poc a poc.</p>
+        </details>
+        <details>
+          <summary>Què és Hybrid Training?<span class="sign"></span></summary>
+          <p class="a">Hybrid Training combina elements de CrossFit amb entrenament de resistència (running, bici, rem). Ideal per qui vol preparar-se per a competicions mixtes o millorar el fons.</p>
+        </details>
+        <details>
+          <summary>Quina diferència hi ha entre Bodyweight Base i Advance?<span class="sign"></span></summary>
+          <p class="a">Base treballa fonaments com pull-up estricte i handstand hold. Advance treballa butterfly, muscle-ups i HSW.</p>
+        </details>
+        <details>
+          <summary>Puc combinar Strength Club amb el WOD?<span class="sign"></span></summary>
+          <p class="a">Sí. Molts atletes fan Strength Club i després WOD el mateix dia.</p>
+        </details>
+        <details>
+          <summary>Puc fer només una disciplina o he de fer-les totes?<span class="sign"></span></summary>
+          <p class="a">Pots triar les classes que més t'agradin. Totes les quotes inclouen accés a totes les disciplines, però no hi ha obligació de fer-les totes.</p>
+        </details>
+        <details>
+          <summary>Quants dies a la setmana hauria de venir?<span class="sign"></span></summary>
+          <p class="a">Recomanem 3-4 dies per setmana per veure resultats. Però cada persona és diferent: escoltem el teu cos i adaptem la freqüència.</p>
+        </details>
+        <details>
+          <summary>Running Club consumeix crèdit de la quota?<span class="sign"></span></summary>
+          <p class="a">No, Running Club no consumeix crèdit de la teva quota mensual.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -192,11 +257,11 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/class-weightlifting.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 --</span><span>Tria classe i reserva</span></div>
-      <h2 class="h-hero reveal">Veure <em class="serif">l'agenda</em><br>de la setmana<span class="dot">.</span></h2>
-      <p class="reveal">Consulta horaris i coaches en temps real. La primera classe es gratuita. Nomes cal reservar-la.</p>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)"></span><span>Consulta l'horari</span></div>
+      <h2 class="h-hero reveal">Veure <em class="serif">l'horari</em><br>de la setmana<span class="dot">.</span></h2>
+      <p class="reveal">Consulta horaris i coaches en temps real. La primera classe és gratuïta. Només cal reservar-la.</p>
       <div class="actions reveal">
-        <a class="btn-primary" href="/agenda">Obrir l'agenda<span class="arr"></span></a>
+        <a class="btn-primary" href="/horari">Obrir l'horari<span class="arr"></span></a>
         <a class="btn-ghost" href="/tarifes">Veure tarifes</a>
       </div>
     </div>

@@ -21,7 +21,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
 ---
 
 <Layout
-  title="CrossFit La Mola · Box in Terrassa"
+  title="CrossFit La Mola | CrossFit Box Terrassa - Functional Training"
   description="CrossFit box in Terrassa, Barcelona. Functional training for all levels with certified coaches. Free first class."
   canonical="https://crossfitlamola.com/en"
   bodyData={{ "data-hero": "full" }}
@@ -54,7 +54,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           "name": "Will I get injured doing CrossFit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "If you do things properly, no. We program to progress, not to break. The weights are yours to choose, technique comes first, and coaches correct in real time."
+            "text": "If things are done right, no. The program is designed to progress safely, not to force unnecessary limits. Weights adapt to each person, technique is always the priority and coaches correct in the moment so each movement is done with control and purpose."
           }
         },
         {
@@ -78,7 +78,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           "name": "What does the free first class include?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "One hour with a coach who does a brief assessment, walks you through the movement of the day, and gets you training with the group. Nothing more. No commitment afterwards."
+            "text": "One hour with a coach who does a brief initial assessment, explains the movement of the day and accompanies you so you train with the rest of the group at your pace. You don't need to know anything beforehand or come prepared in any specific way, just participate and understand how we work. And after that, there's no commitment, just the experience of having tried it."
           }
         },
         {
@@ -96,6 +96,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
 
   <Nav currentPage="/" />
 
+  <main id="main">
   <section class="hero" id="top">
     <div class="hero-grid">
       <div class="hero-media">
@@ -121,7 +122,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
             You bring the effort, consistency does the rest.
           </p>
           <a class="hero-cta" href="/en/contacte">
-            Book your first class
+            Book your trial class
             <span class="arr"></span>
           </a>
         </div>
@@ -170,9 +171,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           Same routine.<br>Every <em class="serif">single day</em><span class="dot">.</span>
         </h2>
         <div class="manifest-body reveal">
-          <p>The door opens. Bars hit the ground. Movement begins.</p>
-          <p>Strength comes with time. So does confidence.</p>
-          <p>Community starts on day one.</p>
+          <p>The door opens and, with the first contact of the bars with the floor, a process begins that repeats and evolves with each session: it's not just moving weight, but building a solid foundation with consistency. Over time, strength consolidates and confidence grows as you understand your body and what it's capable of.</p>
           <p class="sig">Sergi · Juse · Eli</p>
         </div>
       </div>
@@ -186,15 +185,15 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
         <div class="story-copy reveal">
           <div class="eyebrow"><span class="num">02</span><span>Respect the craft</span></div>
           <h2 class="h-xl">The name comes from a<br><em class="serif">mountain</em><span class="dot">.</span></h2>
-          <p>La Mola is a mountain overlooking Terrassa. Training is like climbing it: step by step, embracing the slope, keeping your pace.</p>
-          <p>We don't chase one-day peaks. We come back Tuesday, a little higher than before.</p>
+          <p>La Mola crowns Terrassa and represents a way of understanding effort: advancing step by step, accepting the incline and maintaining a constant rhythm. This same logic defines how we train at the box: it's not about reaching the highest point in a single day, but about coming back week after week and realizing that, almost without making noise, you're already a bit higher than before.</p>
           <a href="/en/el-box" class="story-link">Explore the box <span class="arr"></span></a>
         </div>
         <div class="story-images reveal-stagger">
-          <figure class="tall" style="--i:0"><img src="/assets/lamola-climb.jpg" alt="Athlete doing rope climb at CrossFit La Mola, like climbing La Mola step by step"></figure>
-          <figure style="--i:1"><img src="/assets/detail-chalk.webp" alt="Athlete's chalked hand preparing for a lift"></figure>
-          <figure style="--i:2"><img src="/assets/detail-dumbbells.webp" alt="Competition dumbbell rack in the box"></figure>
-          <figure style="--i:3"><img src="/assets/detail-rope.webp" alt="Battle rope coiled on the box floor"></figure>
+          <figure class="tall" style="--i:0"><img src="/assets/lamola-climb.jpg" alt="Athlete doing rope climb at CrossFit La Mola, like climbing La Mola step by step" loading="lazy"></figure>
+          <figure style="--i:1"><img src="/assets/detail-chalk.webp" alt="Athlete's chalked hand preparing for a lift" loading="lazy"></figure>
+          <figure style="--i:2"><img src="/assets/detail-dumbbells.webp" alt="Competition dumbbell rack in the box" loading="lazy"></figure>
+          <figure style="--i:3"><img src="/assets/class-weightlifting.webp" alt="Athlete doing weightlifting with barbell overhead at the box" loading="lazy"></figure>
+          <figure style="--i:4"><img src="/assets/detail-rope.webp" alt="Battle rope coiled on the box floor" loading="lazy"></figure>
         </div>
       </div>
     </div>
@@ -206,11 +205,11 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <div style="height: 24px"></div>
       <div class="disc-head">
         <h2 class="h-xl reveal">9 disciplines.<br><em class="serif">One philosophy</em><span class="dot">.</span></h2>
-        <p class="reveal">The WOD is the core. Weightlifting, gymnastics, and hybrid work in one hour. Specialty sessions for those who want more.</p>
+        <p class="reveal">The center is the WOD, where weightlifting, gymnastics and hybrid work combine to develop complete performance. From there, each discipline is also worked specifically to consolidate technique and progression, with powerlifting and Abs & Cals sessions as the foundation that sustains the whole.</p>
       </div>
       <div class="disc-grid reveal-stagger">
         <a href="/en/classes" class="disc-card" style="--i:0">
-          <div class="img"><img src="/assets/class-wod.webp" alt="WOD class at CrossFit La Mola with group of athletes and coach explaining the workout"></div>
+          <div class="img"><img src="/assets/class-wod.webp" alt="WOD class at CrossFit La Mola with group of athletes and coach explaining the workout" loading="lazy"></div>
           <div class="body">
             <div class="tag">Every day · Core</div>
             <h3>WOD</h3>
@@ -219,7 +218,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:1">
-          <div class="img"><img src="/assets/class-weightlifting.webp" alt="Athlete performing jerk with Olympic barbell during Weightlifting class"></div>
+          <div class="img"><img src="/assets/class-weightlifting.webp" alt="Athlete performing jerk with Olympic barbell during Weightlifting class" loading="lazy"></div>
           <div class="body">
             <div class="tag">Olympic lifting · Technique</div>
             <h3>Weightlifting</h3>
@@ -228,7 +227,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:2">
-          <div class="img"><img src="/assets/class-hybrid.webp" alt="Athletes training on Concept2 BikeERG during Hybrid Club class"></div>
+          <div class="img"><img src="/assets/class-hybrid.webp" alt="Athletes training on Concept2 BikeERG during Hybrid Club class" loading="lazy"></div>
           <div class="body">
             <div class="tag">Strength + Endurance</div>
             <h3>Hybrid Club</h3>
@@ -237,7 +236,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:3">
-          <div class="img"><img src="/assets/class-bodyweight.webp" alt="Athletes performing rope climb during Bodyweight Lab class"></div>
+          <div class="img"><img src="/assets/class-bodyweight.webp" alt="Athletes performing rope climb during Bodyweight Lab class" loading="lazy"></div>
           <div class="body">
             <div class="tag">Gymnastics · Base / Advance</div>
             <h3>Bodyweight Lab</h3>
@@ -246,7 +245,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:4">
-          <div class="img"><img src="/assets/class-strength.webp" alt="Group of athletes with Olympic barbells during Strength Club class"></div>
+          <div class="img"><img src="/assets/class-strength.webp" alt="Group of athletes with Olympic barbells during Strength Club class" loading="lazy"></div>
           <div class="body">
             <div class="tag">Pure strength · 2 days/week</div>
             <h3>Strength Club</h3>
@@ -255,7 +254,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:5">
-          <div class="img"><img src="/assets/class-abs.webp" alt="Athlete training on Concept2 rower during Abs and Cals class"></div>
+          <div class="img"><img src="/assets/class-abs.webp" alt="Athlete training on Concept2 rower during Abs and Cals class" style="object-position: center top;" loading="lazy"></div>
           <div class="body">
             <div class="tag">Machines · Core</div>
             <h3>Abs &amp; Cals</h3>
@@ -264,7 +263,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:6">
-          <div class="img"><img src="/assets/class-program.webp" alt="Coach explaining the WOD on the whiteboard with athletes listening"></div>
+          <div class="img"><img src="/assets/class-program.webp" alt="Coach explaining the WOD on the whiteboard with athletes listening" loading="lazy"></div>
           <div class="body">
             <div class="tag">Competition · RX · Cycles</div>
             <h3>The Program</h3>
@@ -273,7 +272,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:7">
-          <div class="img"><img src="/assets/class-coach.webp" alt="Coach wearing La Mola shirt supervising athlete training"></div>
+          <div class="img"><img src="/assets/class-coach.webp" alt="Coach wearing La Mola shirt supervising athlete training" loading="lazy"></div>
           <div class="body">
             <div class="tag">90 min · Shared programming</div>
             <h3>Train with your Coach</h3>
@@ -282,7 +281,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           </div>
         </a>
         <a href="/en/classes" class="disc-card" style="--i:8">
-          <div class="img"><img src="/assets/class-running.webp" alt="Two athletes smiling while training on Echo Bikes"></div>
+          <div class="img"><img src="/assets/class-running.webp" alt="Two athletes smiling while training on Echo Bikes" loading="lazy"></div>
           <div class="body">
             <div class="tag">Running · In community</div>
             <h3>Running Club</h3>
@@ -300,13 +299,13 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <div style="height: 24px"></div>
       <div class="coaches-head">
         <h2 class="h-xl reveal">3 people.<br>One way of<br>understanding <em class="serif">movement</em><span class="dot">.</span></h2>
-        <p class="reveal">They program, they correct, they're there for you. They remember your PR and the day you didn't think you could.</p>
+        <p class="reveal">Three people, one same way of understanding movement. They program with criteria and correct with precision to accompany you properly at each stage of the process.</p>
       </div>
       <div class="coaches-grid reveal-stagger">
         <article class="coach" style="--i:0">
           <div class="photo">
             <span class="tag">01 · Head Coach</span>
-            <img src="/assets/coach-sergi.jpg" alt="Sergi, head coach and co-founder of CrossFit La Mola, CF-L2 certified">
+            <img src="/assets/coach-sergi.jpg" alt="Sergi, head coach and co-founder of CrossFit La Mola, CF-L2 certified" loading="lazy">
           </div>
           <h3>Sergi</h3>
           <div class="coach-kvs">
@@ -319,20 +318,20 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
         <article class="coach" style="--i:1">
           <div class="photo">
             <span class="tag">02 · Coach</span>
-            <img src="/assets/coach-juse.jpg" alt="Juse, coach at CrossFit La Mola, CF-L1 certified">
+            <img src="/assets/coach-juse.jpg" alt="Juse, coach at CrossFit La Mola, CF-L1 certified" loading="lazy">
           </div>
           <h3>Juse</h3>
           <div class="coach-kvs">
             <span class="k">In love with</span> <span class="v">Squat clean</span>
             <span class="k">Kryptonite</span> <span class="v">Strict HSPU</span>
-            <span class="k">Work in progress</span> <span class="v">Heavy ramp</span>
+            <span class="k">Work in progress</span> <span class="v">HSW ramp</span>
           </div>
-          <p class="coach-quote">"The snatch and clean aren't tricks. They're hours. Come with patience: what you're looking for is already inside you."</p>
+          <p class="coach-quote">"The snatch and clean are not tricks, but the result of hours of practice and attention to detail. Come with patience: what you're looking for you already carry inside, and it's built through consistency, refining it day after day."</p>
         </article>
         <article class="coach" style="--i:2">
           <div class="photo">
             <span class="tag">03 · Coach</span>
-            <img src="/assets/coach-eli.jpg" alt="Eli, coach and co-founder of CrossFit La Mola, CF-L1 certified">
+            <img src="/assets/coach-eli.jpg" alt="Eli, coach and co-founder of CrossFit La Mola, CF-L1 certified" loading="lazy">
           </div>
           <h3>Eli</h3>
           <div class="coach-kvs">
@@ -352,7 +351,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <div style="height: 24px"></div>
       <div class="schedule-head">
         <h2 class="h-xl reveal">More than<br><em class="serif">training</em><span class="dot">.</span></h2>
-        <p class="reveal">Things happen outside the box: mountain trips, beach days, competitions, parties. The journey's easier together. Here are the next dates.</p>
+        <p class="reveal">Things happen outside the box. Mountain outings. Beach WODs, competitions, parties. The community is what sustains this box and makes it grow beyond each session. These are the upcoming dates.</p>
       </div>
       <div class="schedule-strip" id="filter-strip">
         <button class="chip is-active" data-filter="all">All</button>
@@ -382,26 +381,25 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <div style="height: 24px"></div>
       <div class="comm-head">
         <h2 class="h-xl reveal">The people <em class="serif">who make</em> the box<span class="dot">.</span></h2>
-        <p class="reveal">Some come for health. Some for performance. Some to compete. Some to disconnect. Some to connect. Different paths, one box. Everyone scales. Everyone moves forward.</p>
+        <p class="reveal">Some people seek health, others performance or competition. There are also those who come to disconnect, socialize or find a space where they feel comfortable and safe. Here everyone scales, everyone progresses and everyone has their space.</p>
       </div>
       <div class="comm-grid reveal-stagger">
-        <figure class="huge" style="--i:0"><img src="/assets/team.webp" alt="The full CrossFit La Mola team: coaches and athletes together at the box"></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/community-5.webp" alt="Athlete focused during a weightlifting training session"></figure>
-        <figure style="--i:2"><img src="/assets/detail-chalk.webp" alt="Athlete's chalked hand preparing for a lift"></figure>
+        <figure class="wide" style="--i:0"><img src="/assets/RAQ_7644.jpg" alt="The full CrossFit La Mola team: coaches and athletes together at the box" loading="lazy"></figure>
+        <figure style="--i:2"><img src="/assets/detail-chalk.webp" alt="Athlete's chalked hand preparing for a lift" loading="lazy"></figure>
         <div class="quote-card" style="--i:3">
           <blockquote>"Great atmosphere, excellent professionals, family-friendly with very good facilities."</blockquote>
           <cite>Marc · December 2025 · <a href="https://goo.gl/maps/v5yuvhn1jXABGmbY8?g_st=aw" target="_blank" rel="noopener">See review</a></cite>
         </div>
-        <figure class="tall" style="--i:4"><img src="/assets/community-7.webp" alt="Group of athletes cheering on a teammate during the WOD"></figure>
-        <figure style="--i:5"><img src="/assets/community-4.webp" alt="Two athletes smiling while training on Echo Bikes"></figure>
-        <figure style="--i:6"><img src="/assets/community-6.webp" alt="Athletes training together in CrossFit class"></figure>
+        <figure class="tall" style="--i:4"><img src="/assets/community-7.webp" alt="Group of athletes cheering on a teammate during the WOD" loading="lazy"></figure>
+        <figure style="--i:5"><img src="/assets/community-4.webp" alt="Two athletes smiling while training on Echo Bikes" loading="lazy"></figure>
+        <figure style="--i:6"><img src="/assets/community-6.webp" alt="Athletes training together in CrossFit class" loading="lazy"></figure>
         <div class="quote-card" style="--i:7">
           <blockquote>"Without a doubt the best box I've ever been to. They're very approachable, attentive, always looking out for you. Everything is organized, clean and impeccable. Plus, they never stop innovating and improving. A pleasure to train here!"</blockquote>
           <cite>Eva · April 2025 · <a href="https://goo.gl/maps/HP3B6uTDn8vEuixR6?g_st=aw" target="_blank" rel="noopener">See review</a></cite>
         </div>
-        <figure style="--i:8"><img src="/assets/community-4.2.webp" alt="Three athletes celebrating after an intense workout"></figure>
-        <figure class="wide" style="--i:9"><img src="/assets/community-2.webp" alt="Large group of athletes posing together at the box"></figure>
-        <figure class="tall" style="--i:10"><img src="/assets/community-8.webp" alt="Athlete performing ring muscle-ups during WOD"></figure>
+        <figure style="--i:8"><img src="/assets/community-4.2.webp" alt="Three athletes celebrating after an intense workout" loading="lazy"></figure>
+        <figure class="wide" style="--i:9"><img src="/assets/community-group.jpg" alt="Large group of athletes posing together at the box" loading="lazy"></figure>
+        <figure class="tall" style="--i:10"><img src="/assets/community-8.webp" alt="Athlete performing ring muscle-ups during WOD" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -423,7 +421,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
         </details>
         <details>
           <summary>Will I get injured?<span class="sign"></span></summary>
-          <p class="a">If you do things properly, no. We program to progress, not to break. The weights are yours to choose, technique comes first, and coaches correct in real time.</p>
+          <p class="a">If things are done right, no. The program is designed to progress safely, not to force unnecessary limits. Weights adapt to each person, technique is always the priority and coaches correct in the moment so each movement is done with control and purpose.</p>
         </details>
         <details>
           <summary>What if I don't know anyone?<span class="sign"></span></summary>
@@ -434,20 +432,12 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           <p class="a">The community includes people from 19 to over 60. Age isn't a barrier, it's a variable. We always scale the programming to your level.</p>
         </details>
         <details>
-          <summary>What if I look ridiculous?<span class="sign"></span></summary>
-          <p class="a">Nobody cares how you do it. We've all been there. There are no spectators at the box.</p>
-        </details>
-        <details>
-          <summary>What if I gas out on the first class?<span class="sign"></span></summary>
-          <p class="a">It happens. It's part of the story. Breathe, drink water, keep going. We never leave you behind.</p>
-        </details>
-        <details>
-          <summary>What if I can't keep the routine?<span class="sign"></span></summary>
-          <p class="a">No problem. The days come back. Miss a week? Message us. Come back after three months? We scale again. The door stays open.</p>
+          <summary>What if I make a fool of myself?<span class="sign"></span></summary>
+          <p class="a">Here no one is watching to judge how you do it. We've all been there at some point. At the box there are no spectators, just people training, each in their own process.</p>
         </details>
         <details>
           <summary>What does the free first class include?<span class="sign"></span></summary>
-          <p class="a">One hour with a coach who does a brief assessment, walks you through the movement of the day, and gets you training with the group. Nothing more. No commitment afterwards.</p>
+          <p class="a">One hour with a coach who does a brief initial assessment, explains the movement of the day and accompanies you so you train with the rest of the group at your pace. You don't need to know anything beforehand or come prepared in any specific way, just participate and understand how we work. And after that, there's no commitment, just the experience of having tried it.</p>
         </details>
         <details>
           <summary>How much does it cost and what does each plan include?<span class="sign"></span></summary>
@@ -462,7 +452,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <div class="contact-head">
         <div class="eyebrow reveal"><span class="num">08</span><span>Progress over perfection</span></div>
         <h2 class="h-xl reveal">First class free.<br><em class="serif">On us</em><span class="dot">.</span></h2>
-        <p class="reveal">Tell us a bit about yourself, we'll find a time that works, and we'll see you there. No pressure. Come back if you want to.</p>
+        <p class="reveal">You tell us a bit about yourself, we help you find the schedule that best fits you and we'll see you at the box to start. No pressure or expectations, you get to know how we work and decide calmly if you want to come back.</p>
       </div>
       <div class="contact-grid">
         <form class="contact-form reveal" id="home-form">
@@ -508,10 +498,12 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
               <textarea id="f-msg" name="message" placeholder="Tell us a bit about yourself"></textarea>
             </div>
           </div>
-          <button class="form-submit" type="submit" id="home-submit">
-            Send
-            <span class="arr"></span>
-          </button>
+          <div style="text-align:center;">
+            <button class="form-submit" type="submit" id="home-submit">
+              Send
+              <span class="arr"></span>
+            </button>
+          </div>
           <div class="form-note">By submitting you accept our privacy policy.</div>
           <div id="home-msg" style="display:none; padding:16px; border-radius:8px; margin-top:16px; font-family:var(--f-display);"></div>
         </form>
@@ -563,13 +555,14 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       <p class="offer reveal">The first class is on us. If you come back, it's because you liked it, not because of a promotion.</p>
       <div class="join-actions reveal">
         <a class="btn-primary" href="/en/contacte">
-          Book your first class
+          Book your trial class
           <span class="arr"></span>
         </a>
         <a class="btn-ghost" href="https://wa.me/34629066531" target="_blank" rel="noopener">or message us on WhatsApp</a>
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
 

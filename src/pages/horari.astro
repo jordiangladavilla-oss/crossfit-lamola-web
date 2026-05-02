@@ -13,20 +13,20 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   <Breadcrumb items={[{name: "Horari"}]} lang="ca" slot="head" />
   <Nav currentPage="/horari" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/community-5.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Horari</span></div>
       <div class="kicker"><span>Setmanal</span><span class="bar"></span><span>Reserva via Aimharder</span></div>
       <h1>L'horari<br>de la <em class="serif">setmana</em><span class="dot">.</span></h1>
-      <p class="sub">Dilluns a dijous de 07:00 a 21:30. Divendres de 07:00 a 20:30. Dissabte i diumenge de 09:30 a 11:30 amb activitats especials. Reserva per l'app. La primera classe sempre es gratis.</p>
+      <p class="sub">Dilluns a dijous de 7:00 a 21:30. Divendres de 7:00 a 20:30. Dissabte i diumenge de 9:30 a 11:30. Reserva per l'app.</p>
     </div>
   </section>
 
   <div class="status-strip">
     <div class="wrap">
       <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Obert ara</span></span>
-      <span>Av. del Valles 724C · Terrassa</span>
+      <span>Av. del Vallès 724C · Terrassa</span>
       <span>Dl-Dj 07:00-21:30 · Dv 07:00-20:30 · Ds-Dg 09:30-11:30</span>
       <span style="margin-left:auto;"><a href="https://wa.me/34629066531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
     </div>
@@ -38,7 +38,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       <div style="height:16px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Totes les<br>classes, <em class="serif">totes</em> les franges<span class="dot">.</span></h2>
-        <p class="lead reveal">Filtra per disciplina. Les classes amb coach tenen capacitat limitada. Reserva amb antelacio especialment a les franges de mati i de vespre.</p>
+        <p class="lead reveal">Filtra per disciplina. Les classes amb coach tenen capacitat limitada. Reserva amb antelació especialment a les franges de matí i de vespre.</p>
       </div>
 
       <div class="toggle-row reveal">
@@ -52,7 +52,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         <button class="filter" data-f="wl">Weightlifting <span class="count" id="c-wl"></span></button>
         <button class="filter" data-f="hy">Hybrid <span class="count" id="c-hy"></span></button>
         <button class="filter" data-f="bw">Bodyweight <span class="count" id="c-bw"></span></button>
-        <button class="filter" data-f="st">Strength <span class="count" id="c-st"></span></button>
+        <button class="filter" data-f="st">Strength Club <span class="count" id="c-st"></span></button>
         <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab"></span></button>
         <button class="filter" data-f="pr">The Program <span class="count" id="c-pr"></span></button>
         <button class="filter" data-f="rc">Running <span class="count" id="c-rc"></span></button>
@@ -99,19 +99,19 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     "@id": "https://crossfitlamola.com/#organization",
     "name": "CrossFit La Mola",
     "alternateName": "La Mola CrossFit",
-    "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofilia, gimnastic i cardio amb coaches certificats CF-L1 i CF-L2.",
+    "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2.",
     "url": "https://crossfitlamola.com/",
     "logo": "https://crossfitlamola.com/assets/logo-full.png",
     "image": "https://crossfitlamola.com/assets/hero-still.jpg",
     "telephone": "+34629066531",
     "email": "hola@crossfitlamola.com",
-    "priceRange": "EUR EUR",
+    "priceRange": "€€",
     "foundingDate": "2025",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Avinguda del Valles 724 C",
+      "streetAddress": "Avinguda del Vallès 724 C",
       "postalCode": "08227",
       "addressLocality": "Terrassa",
       "addressRegion": "Catalunya",
@@ -131,10 +131,27 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     "areaServed": [
       {"@type":"City","name":"Terrassa"},
       {"@type":"City","name":"Sabadell"},
-      {"@type":"City","name":"Sant Cugat del Valles"},
-      {"@type":"City","name":"Rubi"},
-      {"@type":"AdministrativeArea","name":"Valles Occidental"}
-    ]
+      {"@type":"City","name":"Sant Cugat del Vallès"},
+      {"@type":"City","name":"Rubí"},
+      {"@type":"City","name":"Matadepera"},
+      {"@type":"City","name":"Viladecavalls"},
+      {"@type":"City","name":"Sant Quirze del Vallès"},
+      {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Classes de CrossFit",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"WOD","description":"Workout of the Day - L'essència del CrossFit amb escalfament, força i METCON"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Weightlifting","description":"Halterofília olímpica: snatch, clean i jerk amb focus en tècnica"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hybrid Club","description":"Força i resistència combinades amb moviments simples"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bodyweight Lab","description":"Moviments gimnàstics: muscle-ups, handstand, rope climb"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Strength Club","description":"Powerlifting: sentadilla, pes mort i press"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Abs & Cals","description":"Cardio amb màquines i treball específic de core"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"The Program","description":"Programació RX per atletes de competició"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Running Club","description":"Entrenament de carrera en comunitat"}}
+      ]
+    }
   }
   </script>
 
@@ -394,7 +411,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
               });
             } else if (opens.length){
               // Open-only slot — hidden by default UNLESS this day has no coached classes at all
-              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open · Exterior':'Open Gym';}).join(' · ');
+              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open Exterior':'Open';}).join(' - ');
               var el=document.createElement('div');
               el.className='slot open-only' + (dayHasCoached ? '' : ' always-visible');
               el.setAttribute('data-disc', 'open');

@@ -7,7 +7,7 @@ import Schema from '../../components/Schema.astro'
 
 <Layout
   title="Clases · CrossFit La Mola Terrassa"
-  description="9 disciplinas en Terrassa: WOD, halterofilia, hybrid training, running club, strength y mas. Clases dirigidas para todos los niveles."
+  description="9 disciplinas en Terrassa: WOD, halterofilia, hybrid training, running club, strength y más. Clases dirigidas para todos los niveles."
 >
   <Schema type="classes" slot="head" />
   <Fragment slot="head">
@@ -18,14 +18,14 @@ import Schema from '../../components/Schema.astro'
       "name": "Disciplinas en CrossFit La Mola",
       "itemListElement": [
         {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Clase diaria variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofilia","description":"Tecnica olimpica: arrancada y dos tiempos","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofilia","description":"Técnica olímpica: arrancada y dos tiempos","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
         {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength","description":"Fuerza pura con barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
         {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Gymnastics / Bodyweight","description":"Dominadas, pino, calistenia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Tecnica de carrera y resistencia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"Combinacion de CrossFit y cardio largo","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Técnica de carrera y resistencia","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"Combinación de CrossFit y cardio largo","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
         {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"ABS","description":"Core y estabilidad","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Programacion propia","description":"Entrenamiento personalizado de los coaches","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Coach Box","description":"Atencion individualizada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"Programación propia","description":"Entrenamiento personalizado de los coaches","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
+        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Coach Box","description":"Atención individualizada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
       ]
     }
     </script>
@@ -34,6 +34,24 @@ import Schema from '../../components/Schema.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "¿Puedo hacer el WOD si es mi primer día?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El coach escala todos los movimientos a tu nivel y te acompaña durante toda la sesión."}},
+        {"@type": "Question", "name": "¿Cuánto dura un WOD?", "acceptedAnswer": {"@type": "Answer", "text": "La clase dura 60 minutos: calentamiento, parte técnica o fuerza, metcon y vuelta a la calma."}},
+        {"@type": "Question", "name": "¿Necesito saber halterofilia para apuntarme a Weightlifting?", "acceptedAnswer": {"@type": "Answer", "text": "No. Empezamos desde cero con barra vacía y construimos la técnica poco a poco."}},
+        {"@type": "Question", "name": "¿Es peligroso levantar peso olímpico?", "acceptedAnswer": {"@type": "Answer", "text": "Con técnica correcta y progresión adecuada, no. El coach supervisa cada repetición."}},
+        {"@type": "Question", "name": "¿Qué nivel se necesita para Hybrid Club?", "acceptedAnswer": {"@type": "Answer", "text": "Intermedio. Es ideal si ya tienes una base de CrossFit y quieres combinar fuerza y resistencia."}},
+        {"@type": "Question", "name": "¿Sirve Hybrid Club para preparar Hyrox?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, la programación sigue una estructura similar a la competición Hyrox."}},
+        {"@type": "Question", "name": "¿Qué diferencia hay entre Bodyweight Lab Base y Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Base trabaja fundamentos como pull-up estricto y handstand hold. Advance trabaja butterfly, muscle-ups y HSW."}},
+        {"@type": "Question", "name": "¿Puedo pasar de Bodyweight Base a Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, cuando el coach vea que dominas los fundamentos puedes pasar al nivel avanzado."}},
+        {"@type": "Question", "name": "¿Puedo combinar Strength Club con el WOD?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Muchos atletas hacen Strength Club y después WOD el mismo día."}},
+        {"@type": "Question", "name": "¿Qué movimientos se trabajan en Strength Club?", "acceptedAnswer": {"@type": "Answer", "text": "Sentadilla, peso muerto, press y variantes accesorias para estabilidad y core."}},
+        {"@type": "Question", "name": "¿Puedo hacer Abs & Cals sin hacer ninguna otra clase?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, es una sesión independiente de 30 minutos que puedes hacer sola o combinada con otras clases."}},
+        {"@type": "Question", "name": "¿Abs & Cals consume crédito de la cuota?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, cuenta como una clase normal dentro de tu cuota mensual."}},
+        {"@type": "Question", "name": "¿Quién puede hacer The Program?", "acceptedAnswer": {"@type": "Answer", "text": "Atletas con nivel avanzado que quieren competir o llevar el rendimiento al máximo nivel."}},
+        {"@type": "Question", "name": "¿Es obligatorio hacer las 4 sesiones de The Program?", "acceptedAnswer": {"@type": "Answer", "text": "No es obligatorio, pero la programación está diseñada para seguirse completa."}},
+        {"@type": "Question", "name": "¿En qué se diferencia Entrena con tu Coach de una clase grupal?", "acceptedAnswer": {"@type": "Answer", "text": "Entrenas la misma pizarra que el coach pero con atención personalizada y correcciones individuales."}},
+        {"@type": "Question", "name": "¿Puedo pedir un foco específico en Entrena con tu Coach?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, puedes trabajar técnica, debilidades específicas o preparar una competición concreta."}},
+        {"@type": "Question", "name": "¿Necesito ser buen corredor para Running Club?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hay ritmos para todos los niveles y siempre vamos en grupo."}},
+        {"@type": "Question", "name": "¿Running Club consume crédito de la cuota?", "acceptedAnswer": {"@type": "Answer", "text": "No, Running Club no consume crédito de tu cuota mensual."}},
         {"@type": "Question", "name": "¿Qué clase es mejor para empezar CrossFit?", "acceptedAnswer": {"@type": "Answer", "text": "El WOD es la clase ideal para empezar. Es la clase diaria de CrossFit que combina todos los elementos y se adapta a cualquier nivel. El coach escala los movimientos según tus capacidades."}},
         {"@type": "Question", "name": "¿Necesito experiencia previa para hacer halterofilia?", "acceptedAnswer": {"@type": "Answer", "text": "No. Las clases de halterofilia están diseñadas para aprender desde cero. Empezamos con la técnica básica y progresamos poco a poco."}},
         {"@type": "Question", "name": "¿Qué es Hybrid Training?", "acceptedAnswer": {"@type": "Answer", "text": "Hybrid Training combina elementos de CrossFit con entrenamiento de resistencia (running, bici, remo). Ideal para quien quiere prepararse para competiciones mixtas o mejorar el fondo."}},
@@ -82,65 +100,65 @@ import Schema from '../../components/Schema.astro'
 
   <Nav currentPage="/es/classes" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/class-wod.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Clases</span></div>
       <div class="kicker"><span>9 disciplinas</span><span class="bar"></span><span>Un mismo objetivo</span></div>
       <h1>Encuentra tu<br><em class="serif">ritmo</em><span class="dot">.</span></h1>
-      <p class="sub">Entrenar no es repetir. Es construir con tecnica, carga y cabeza. Tenemos una clase para cada momento de tu camino.</p>
+      <p class="sub">Entrenar no es repetir, sino construir con técnica, carga y cabeza. Cada sesión está pensada para hacerte avanzar con sentido, adaptándose a tu momento y a tu nivel.</p>
     </div>
   </section>
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 --</span><span>Las 9 disciplinas</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>Las 9 disciplinas</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Nueve formas<br>de entrar al <em class="serif">box</em><span class="dot">.</span></h2>
-        <p class="lead reveal">Cada clase tiene su proposito: una para construir fuerza bruta, otra para encontrar el ritmo, otra para pulir tecnica. No hace falta elegir solo una.</p>
+        <p class="lead reveal">Cada clase tiene su propósito: una para construir fuerza bruta, otra para encontrar el ritmo, otra para pulir técnica. No hace falta elegir solo una.</p>
       </div>
 
       <div class="disc-list reveal-stagger">
         <article class="disc" style="--i:0">
           <span class="num">01</span>
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Clase principal - 60 min</div></div>
-          <p>El corazon de CrossFit. Calentamiento, parte tecnica, WOD y vuelta a la calma. Un coach guia al grupo de principio a fin.</p>
+          <p>El corazón de CrossFit. Calentamiento, parte técnica, WOD y vuelta a la calma. Un coach guía al grupo de principio a fin.</p>
           <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>Diaria</strong></span></div>
         </article>
 
         <article class="disc" style="--i:1">
           <span class="num">02</span>
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
-          <p>Halterofilia olimpica. Trabajamos los dos levantamientos y sus variantes con progresiones adaptadas a cada atleta.</p>
+          <p>Halterofilia olímpica. Trabajamos los dos levantamientos y sus variantes con progresiones adaptadas a cada atleta.</p>
           <div class="meta"><span>Nivel <strong>Intermedio+</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:2">
           <span class="num">03</span>
           <div><h3>Hybrid Club</h3><div class="tagline">Fuerza + Cardio - 60 min</div></div>
-          <p>Para quien quiere las dos cosas: fuerza de peso libre y capacidad cardiovascular de larga duracion. Inspirado en el formato Hyrox.</p>
+          <p>Para quien quiere las dos cosas: fuerza de peso libre y capacidad cardiovascular de larga duración. Inspirado en el formato Hyrox.</p>
           <div class="meta"><span>Nivel <strong>Intermedio</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:3">
           <span class="num">04</span>
           <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnasia - 45 min</div></div>
-          <p>Dos niveles: Base para aprender los fundamentos gimnasticos, y Advance para butterfly pull-ups, muscle-ups, HSW y HSPU.</p>
+          <p>Dos niveles: Base para aprender los fundamentos gimnásticos, y Advance para butterfly pull-ups, muscle-ups, HSW y HSPU.</p>
           <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:4">
           <span class="num">05</span>
           <div><h3>Strength Club</h3><div class="tagline">Series y peso - 60 min</div></div>
-          <p>Ciclo estructurado de fuerza: squat, bench, deadlift, press. Aqui se va pesado, con cabeza y descanso.</p>
+          <p>Ciclo estructurado de fuerza: squat, bench, deadlift, press. Aquí se va pesado, con cabeza y descanso.</p>
           <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>2x/semana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:5">
           <span class="num">06</span>
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + cardio - 30 min</div></div>
-          <p>Corto, intenso, pensado para sumarlo a otro WOD o como sesion independiente. Calorias en la bike y trabajo de core.</p>
+          <p>Corto, intenso, pensado para sumarlo a otro WOD o como sesión independiente. Calorías en la bike y trabajo de core.</p>
           <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
         </article>
 
@@ -154,14 +172,14 @@ import Schema from '../../components/Schema.astro'
         <article class="disc" style="--i:7">
           <span class="num">08</span>
           <div><h3>Entrena con tu <em>Coach</em></h3><div class="tagline">1 a 1 - 60 min</div></div>
-          <p>Sesion privada con el coach que elijas. Para pulir tecnica, preparar una competicion o volver despues de una lesion.</p>
-          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>Bajo demanda</strong></span></div>
+          <p>Sesión privada con el coach que elijas. Para pulir técnica, preparar una competición o volver después de una lesión.</p>
+          <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
         </article>
 
         <article class="disc" style="--i:8">
           <span class="num">09</span>
           <div><h3>Running Club</h3><div class="tagline">Aire libre - 60 min</div></div>
-          <p>Salimos a correr por el Valles. Entrenamiento estructurado: fartleks, series, tiradas largas. Hacemos grupo antes y cerveza despues, a veces. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consume credito</em>.</p>
+          <p>Salimos a correr por el Vallès. Entrenamiento estructurado: fartleks, series, tiradas largas. Hacemos grupo antes y cerveza después, a veces. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consume crédito</em>.</p>
           <div class="meta"><span>Nivel <strong>Todos</strong></span><span>Frecuencia <strong>1x/semana</strong></span></div>
         </article>
       </div>
@@ -171,7 +189,7 @@ import Schema from '../../components/Schema.astro'
   <section class="sec ink" style="padding-top:0;">
     <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
     <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
-      <div class="eyebrow reveal"><span class="num">02 --</span><span>Tu primera vez</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>Tu primera vez</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Nunca has hecho <em class="serif">CrossFit</em>?<br>Empezamos desde cero<span class="dot">.</span></h2>
@@ -179,10 +197,57 @@ import Schema from '../../components/Schema.astro'
       </div>
 
       <div class="path reveal-stagger">
-        <div style="--i:0"><div class="when">Paso 1</div><h4>Contacta y agendamos visita</h4><p>Cuentanos un poco de ti (objetivos, estado actual, experiencia) y preparamos tu primera clase adaptada. Te asesoramos con lo que mejor te encaje.</p></div>
-        <div style="--i:1"><div class="when">Paso 2 - Primera clase gratis</div><h4>Ven a una clase real</h4><p>Llega un poco antes y echa un vistazo a las instalaciones: puertas abiertas a todo. Entras a una clase con el grupo, el coach te da alternativas adaptadas y te ensena los movimientos basicos.</p></div>
-        <div style="--i:2"><div class="when">Paso 3</div><h4>Hablamos del plan</h4><p>Despues de la clase charlamos: como te has sentido, que hay que reforzar, y planificamos un camino de progreso segun tus necesidades.</p></div>
-        <div style="--i:3"><div class="when">A partir de aqui</div><h4>Sigues a tu ritmo</h4><p>Eliges la tarifa que te encaje, reservas por la app y vienes cuando te va bien. El resto lo construimos juntos.</p></div>
+        <div style="--i:0"><div class="when">Paso 1</div><h4>Contacta y agendamos visita</h4><p>Cuéntanos un poco de ti (objetivos, estado actual, experiencia) y preparamos tu primera clase adaptada. Te asesoramos con lo que mejor te encaje.</p></div>
+        <div style="--i:1"><div class="when">Paso 2 - Primera clase gratis</div><h4>Vienes a una clase real</h4><p>Llega un poco antes y echa un vistazo a las instalaciones: puertas abiertas a todo. Entras a una clase con el grupo, el coach te da alternativas adaptadas y te enseña los movimientos básicos.</p></div>
+        <div style="--i:2"><div class="when">Paso 3</div><h4>Hablamos del plan</h4><p>Después de la clase charlamos: cómo te has sentido, qué hay que reforzar, y planificamos un camino de progreso según tus necesidades.</p></div>
+        <div style="--i:3"><div class="when">A partir de aquí</div><h4>Sigues a tu ritmo</h4><p>Eliges la tarifa que te encaje, reservas por la app y vienes cuando te va bien. El resto lo construimos juntos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="faq-classes">
+    <div class="inner">
+      <div class="faq-head">
+        <div class="eyebrow reveal"><span class="num"></span><span>Preguntas frecuentes</span></div>
+        <h2 class="h-xl reveal">Todo lo que quieres saber<br>sobre las <em class="serif">clases</em><span class="dot">.</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>¿Qué clase es mejor para empezar CrossFit?<span class="sign"></span></summary>
+          <p class="a">El WOD es la clase ideal para empezar. Es la clase diaria de CrossFit que combina todos los elementos y se adapta a cualquier nivel. El coach escala los movimientos según tus capacidades.</p>
+        </details>
+        <details>
+          <summary>¿Puedo hacer el WOD si es mi primer día?<span class="sign"></span></summary>
+          <p class="a">Sí. El coach escala todos los movimientos a tu nivel y te acompaña durante toda la sesión.</p>
+        </details>
+        <details>
+          <summary>¿Necesito experiencia previa para hacer halterofilia?<span class="sign"></span></summary>
+          <p class="a">No. Las clases de halterofilia están diseñadas para aprender desde cero. Empezamos con la técnica básica y progresamos poco a poco.</p>
+        </details>
+        <details>
+          <summary>¿Qué es Hybrid Training?<span class="sign"></span></summary>
+          <p class="a">Hybrid Training combina elementos de CrossFit con entrenamiento de resistencia (running, bici, remo). Ideal para quien quiere prepararse para competiciones mixtas o mejorar el fondo.</p>
+        </details>
+        <details>
+          <summary>¿Qué diferencia hay entre Bodyweight Base y Advance?<span class="sign"></span></summary>
+          <p class="a">Base trabaja fundamentos como pull-up estricto y handstand hold. Advance trabaja butterfly, muscle-ups y HSW.</p>
+        </details>
+        <details>
+          <summary>¿Puedo combinar Strength Club con el WOD?<span class="sign"></span></summary>
+          <p class="a">Sí. Muchos atletas hacen Strength Club y después WOD el mismo día.</p>
+        </details>
+        <details>
+          <summary>¿Puedo hacer solo una disciplina o tengo que hacerlas todas?<span class="sign"></span></summary>
+          <p class="a">Puedes elegir las clases que más te gusten. Todas las cuotas incluyen acceso a todas las disciplinas, pero no hay obligación de hacerlas todas.</p>
+        </details>
+        <details>
+          <summary>¿Cuántos días a la semana debería venir?<span class="sign"></span></summary>
+          <p class="a">Recomendamos 3-4 días por semana para ver resultados. Pero cada persona es diferente: escuchamos tu cuerpo y adaptamos la frecuencia.</p>
+        </details>
+        <details>
+          <summary>¿Running Club consume crédito de la cuota?<span class="sign"></span></summary>
+          <p class="a">No, Running Club no consume crédito de tu cuota mensual.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -190,11 +255,11 @@ import Schema from '../../components/Schema.astro'
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/class-weightlifting.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 --</span><span>Elige clase y reserva</span></div>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)"></span><span>Elige clase y reserva</span></div>
       <h2 class="h-hero reveal">Ver la <em class="serif">agenda</em><br>de la semana<span class="dot">.</span></h2>
       <p class="reveal">Consulta horarios y coaches en tiempo real. La primera clase es gratis. Solo tienes que reservarla.</p>
       <div class="actions reveal">
-        <a class="btn-primary" href="/es/agenda">Abrir la agenda<span class="arr"></span></a>
+        <a class="btn-primary" href="/es/horari">Ver horario<span class="arr"></span></a>
         <a class="btn-ghost" href="/es/tarifes">Ver tarifas</a>
       </div>
     </div>

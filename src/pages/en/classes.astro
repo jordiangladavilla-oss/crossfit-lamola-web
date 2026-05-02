@@ -34,10 +34,28 @@ import Schema from '../../components/Schema.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Which class is best to start CrossFit?", "acceptedAnswer": {"@type": "Answer", "text": "The WOD is the ideal class to start. It's the daily CrossFit class that combines all elements and adapts to any level. The coach scales movements according to your abilities."}},
+        {"@type": "Question", "name": "Can I do the WOD if it's my first day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The coach scales all movements to your level and accompanies you throughout the session."}},
+        {"@type": "Question", "name": "How long does a WOD last?", "acceptedAnswer": {"@type": "Answer", "text": "The class lasts 60 minutes: warm-up, technique or strength part, metcon and cool down."}},
+        {"@type": "Question", "name": "Do I need to know weightlifting to sign up for Weightlifting class?", "acceptedAnswer": {"@type": "Answer", "text": "No. We start from scratch with an empty bar and build technique gradually."}},
+        {"@type": "Question", "name": "Is lifting Olympic weight dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "With correct technique and proper progression, no. The coach supervises every rep."}},
+        {"@type": "Question", "name": "What level is needed for Hybrid Club?", "acceptedAnswer": {"@type": "Answer", "text": "Intermediate. It's ideal if you already have a CrossFit base and want to combine strength and endurance."}},
+        {"@type": "Question", "name": "Is Hybrid Club good for Hyrox preparation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the programming follows a structure similar to Hyrox competition."}},
+        {"@type": "Question", "name": "What's the difference between Bodyweight Lab Base and Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Base works fundamentals like strict pull-up and handstand hold. Advance works butterfly, muscle-ups and HSW."}},
+        {"@type": "Question", "name": "Can I move from Bodyweight Base to Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when the coach sees you've mastered the fundamentals you can move to advanced level."}},
+        {"@type": "Question", "name": "Can I combine Strength Club with the WOD?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Many athletes do Strength Club and then WOD on the same day."}},
+        {"@type": "Question", "name": "What movements are worked in Strength Club?", "acceptedAnswer": {"@type": "Answer", "text": "Squat, deadlift, press and accessory variations for stability and core."}},
+        {"@type": "Question", "name": "Can I do Abs & Cals without doing any other class?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it's an independent 30-minute session you can do alone or combined with other classes."}},
+        {"@type": "Question", "name": "Does Abs & Cals use credit from my plan?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it counts as a regular class within your monthly plan."}},
+        {"@type": "Question", "name": "Who can do The Program?", "acceptedAnswer": {"@type": "Answer", "text": "Advanced athletes who want to compete or take their performance to the highest level."}},
+        {"@type": "Question", "name": "Is it mandatory to do all 4 sessions of The Program?", "acceptedAnswer": {"@type": "Answer", "text": "Not mandatory, but the programming is designed to be followed completely."}},
+        {"@type": "Question", "name": "How is Train with your Coach different from a group class?", "acceptedAnswer": {"@type": "Answer", "text": "You train the same board as the coach but with personalized attention and individual corrections."}},
+        {"@type": "Question", "name": "Can I request a specific focus in Train with your Coach?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can work on technique, specific weaknesses or prepare for a competition."}},
+        {"@type": "Question", "name": "Do I need to be a good runner for Running Club?", "acceptedAnswer": {"@type": "Answer", "text": "No. There are paces for all levels and we always go as a group."}},
+        {"@type": "Question", "name": "Does Running Club use credit from my plan?", "acceptedAnswer": {"@type": "Answer", "text": "No, Running Club doesn't use credit from your monthly plan."}},
+        {"@type": "Question", "name": "What class is best to start CrossFit?", "acceptedAnswer": {"@type": "Answer", "text": "The WOD is the ideal class to start. It's the daily CrossFit class that combines all elements and adapts to any level. The coach scales movements according to your abilities."}},
         {"@type": "Question", "name": "Do I need previous experience for weightlifting?", "acceptedAnswer": {"@type": "Answer", "text": "No. Weightlifting classes are designed to learn from scratch. We start with basic technique and progress gradually."}},
-        {"@type": "Question", "name": "What is Hybrid Training?", "acceptedAnswer": {"@type": "Answer", "text": "Hybrid Training combines CrossFit elements with endurance training (running, cycling, rowing). Ideal for those preparing for mixed competitions or improving their aerobic base."}},
-        {"@type": "Question", "name": "Can I do just one discipline or do I have to do all of them?", "acceptedAnswer": {"@type": "Answer", "text": "You can choose the classes you like most. All memberships include access to all disciplines, but there's no obligation to do them all."}},
+        {"@type": "Question", "name": "What is Hybrid Training?", "acceptedAnswer": {"@type": "Answer", "text": "Hybrid Training combines CrossFit elements with endurance training (running, bike, rowing). Ideal for those who want to prepare for mixed competitions or improve their endurance."}},
+        {"@type": "Question", "name": "Can I do just one discipline or do I have to do them all?", "acceptedAnswer": {"@type": "Answer", "text": "You can choose the classes you like best. All plans include access to all disciplines, but there's no obligation to do them all."}},
         {"@type": "Question", "name": "How many days a week should I come?", "acceptedAnswer": {"@type": "Answer", "text": "We recommend 3-4 days per week to see results. But everyone is different: we listen to your body and adapt the frequency."}}
       ]
     }
@@ -82,19 +100,19 @@ import Schema from '../../components/Schema.astro'
 
   <Nav currentPage="/en/classes" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/class-wod.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Classes</span></div>
       <div class="kicker"><span>9 disciplines</span><span class="bar"></span><span>One purpose</span></div>
       <h1>Find your<br><em class="serif">flow</em><span class="dot">.</span></h1>
-      <p class="sub">Training isn't repetition. It's building with technique, load, and intent. We have a class for every stage of your journey.</p>
+      <p class="sub">Training is not repeating, but building with technique, load and head. Each session is designed to make you progress with purpose, adapting to your moment and your level.</p>
     </div>
   </section>
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 --</span><span>The 9 disciplines</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>The 9 disciplines</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Nine ways<br>to walk through the <em class="serif">door</em><span class="dot">.</span></h2>
@@ -155,13 +173,13 @@ import Schema from '../../components/Schema.astro'
           <span class="num">08</span>
           <div><h3>Train with your <em>Coach</em></h3><div class="tagline">1 on 1 - 60 min</div></div>
           <p>Private session with the coach of your choice. Perfect for refining technique, prepping for competition, or coming back from injury.</p>
-          <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>On demand</strong></span></div>
+          <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>3x/week</strong></span></div>
         </article>
 
         <article class="disc" style="--i:8">
           <span class="num">09</span>
           <div><h3>Running Club</h3><div class="tagline">Outdoors - 60 min</div></div>
-          <p>We hit the trails around Valles. Structured workouts: fartleks, intervals, long runs. We build community before and grab beers after, sometimes. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No credit required</em>.</p>
+          <p>We hit the trails around Vallès. Structured workouts: fartleks, intervals, long runs. We build community before and grab beers after, sometimes. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No credit required</em>.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>1x/week</strong></span></div>
         </article>
       </div>
@@ -171,7 +189,7 @@ import Schema from '../../components/Schema.astro'
   <section class="sec ink" style="padding-top:0;">
     <div style="height:1px; background:var(--line); margin:0 var(--page-pad);"></div>
     <div class="inner" style="padding-top:clamp(84px,11vw,180px)">
-      <div class="eyebrow reveal"><span class="num">02 --</span><span>Your first time</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>Your first time</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Never done <em class="serif">CrossFit</em>?<br>We start from scratch<span class="dot">.</span></h2>
@@ -187,14 +205,61 @@ import Schema from '../../components/Schema.astro'
     </div>
   </section>
 
+  <section class="sec bone" id="faq-classes">
+    <div class="inner">
+      <div class="faq-head">
+        <div class="eyebrow reveal"><span class="num"></span><span>Frequently asked questions</span></div>
+        <h2 class="h-xl reveal">Everything you want to know<br>about the <em class="serif">classes</em><span class="dot">.</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>What class is best to start CrossFit?<span class="sign"></span></summary>
+          <p class="a">The WOD is the ideal class to start. It's the daily CrossFit class that combines all elements and adapts to any level. The coach scales movements according to your abilities.</p>
+        </details>
+        <details>
+          <summary>Can I do the WOD if it's my first day?<span class="sign"></span></summary>
+          <p class="a">Yes. The coach scales all movements to your level and accompanies you throughout the session.</p>
+        </details>
+        <details>
+          <summary>Do I need previous experience for weightlifting?<span class="sign"></span></summary>
+          <p class="a">No. Weightlifting classes are designed to learn from scratch. We start with basic technique and progress gradually.</p>
+        </details>
+        <details>
+          <summary>What is Hybrid Training?<span class="sign"></span></summary>
+          <p class="a">Hybrid Training combines CrossFit elements with endurance training (running, bike, rowing). Ideal for those who want to prepare for mixed competitions or improve their endurance.</p>
+        </details>
+        <details>
+          <summary>What's the difference between Bodyweight Base and Advance?<span class="sign"></span></summary>
+          <p class="a">Base works fundamentals like strict pull-up and handstand hold. Advance works butterfly, muscle-ups and HSW.</p>
+        </details>
+        <details>
+          <summary>Can I combine Strength Club with the WOD?<span class="sign"></span></summary>
+          <p class="a">Yes. Many athletes do Strength Club and then WOD on the same day.</p>
+        </details>
+        <details>
+          <summary>Can I do just one discipline or do I have to do them all?<span class="sign"></span></summary>
+          <p class="a">You can choose the classes you like best. All plans include access to all disciplines, but there's no obligation to do them all.</p>
+        </details>
+        <details>
+          <summary>How many days a week should I come?<span class="sign"></span></summary>
+          <p class="a">We recommend 3-4 days per week to see results. But everyone is different: we listen to your body and adapt the frequency.</p>
+        </details>
+        <details>
+          <summary>Does Running Club use credit from my plan?<span class="sign"></span></summary>
+          <p class="a">No, Running Club doesn't use credit from your monthly plan.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/class-weightlifting.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">03 --</span><span>Pick a class and book</span></div>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)"></span><span>Pick a class and book</span></div>
       <h2 class="h-hero reveal">See the week's<br><em class="serif">schedule</em><span class="dot">.</span></h2>
       <p class="reveal">Check times and coaches in real time. First class is free. Just book it.</p>
       <div class="actions reveal">
-        <a class="btn-primary" href="/en/agenda">Open schedule<span class="arr"></span></a>
+        <a class="btn-primary" href="/en/horari">See timetable<span class="arr"></span></a>
         <a class="btn-ghost" href="/en/tarifes">See pricing</a>
       </div>
     </div>

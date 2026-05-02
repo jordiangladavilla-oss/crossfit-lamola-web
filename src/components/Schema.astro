@@ -72,11 +72,47 @@ const baseSchema = {
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
   ],
   "areaServed": [
-    {"@type":"City","name":"Terrassa"},
+    {"@type":"City","name":"Terrassa","sameAs":"https://www.wikidata.org/wiki/Q15616"},
     {"@type":"City","name":"Sabadell"},
     {"@type":"City","name":"Sant Cugat del Vallès"},
     {"@type":"City","name":"Rubí"},
-    {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+    {"@type":"City","name":"Matadepera"},
+    {"@type":"City","name":"Viladecavalls"},
+    {"@type":"City","name":"Ullastrell"},
+    {"@type":"City","name":"Vacarisses"},
+    {"@type":"City","name":"Sant Quirze del Vallès"},
+    {"@type":"City","name":"Castellbisbal"},
+    {"@type":"AdministrativeArea","name":"Vallès Occidental","sameAs":"https://www.wikidata.org/wiki/Q16566"}
+  ],
+  "containedInPlace": [
+    {"@type":"City","name":"Terrassa","sameAs":"https://www.wikidata.org/wiki/Q15616"},
+    {"@type":"AdministrativeArea","name":"Vallès Occidental"},
+    {"@type":"AdministrativeArea","name":"Barcelona","sameAs":"https://www.wikidata.org/wiki/Q81949"},
+    {"@type":"AdministrativeArea","name":"Catalunya","sameAs":"https://www.wikidata.org/wiki/Q5765"}
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {"@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955"},
+    "geoRadius": "20000"
+  },
+  "isAccessibleForFree": false,
+  "maximumAttendeeCapacity": 15,
+  "publicAccess": true,
+  "potentialAction": [
+    {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://crossfitlamola.com/contacte",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+      },
+      "result": {"@type": "Reservation", "name": "Reserva primera classe gratuïta"}
+    },
+    {
+      "@type": "ExerciseAction",
+      "name": "Classe de CrossFit",
+      "location": {"@id": "https://crossfitlamola.com/#organization"}
+    }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -87,7 +123,7 @@ const baseSchema = {
     ]
   },
   "knowsAbout": ["CrossFit", "Halterofília", "Entrenament funcional", "HIIT", "Gimnàstic", "Strength & Conditioning"],
-  "keywords": "CrossFit Terrassa, box CrossFit, entrenament funcional, halterofília, gimnàs Terrassa, fitness Terrassa"
+  "keywords": "CrossFit Terrassa, box CrossFit Terrassa, entrenament funcional Terrassa, halterofília Terrassa, gimnàs Terrassa, fitness Terrassa, CrossFit Vallès Occidental, CrossFit Sabadell, CrossFit Sant Cugat, CrossFit Rubí, CrossFit Matadepera, WOD Terrassa, halterofília olímpica, entrenament HIIT, gimnàstica CrossFit, strength training Terrassa"
 }
 
 const homeExtras = {

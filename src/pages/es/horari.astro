@@ -6,25 +6,25 @@ import Footer from '../../components/Footer.astro'
 
 <Layout
   title="Horario semanal · CrossFit La Mola Terrassa"
-  description="Horario semanal del box de CrossFit en Terrassa. Clases de lunes a domingo: WOD, halterofilia, hybrid, strength y mas. Reserva por la app Aimharder."
+  description="Horario semanal del box de CrossFit en Terrassa. Clases de lunes a domingo: WOD, halterofilia, hybrid, strength y más. Reserva por la app Aimharder."
   canonical="https://crossfitlamola.com/es/horari"
 >
   <Nav currentPage="/es/horari" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/community-5.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Horario</span></div>
       <div class="kicker"><span>Semanal</span><span class="bar"></span><span>Reserva via Aimharder</span></div>
       <h1>El horario<br>de la <em class="serif">semana</em><span class="dot">.</span></h1>
-      <p class="sub">Lunes a jueves de 07:00 a 21:30. Viernes de 07:00 a 20:30. Sabado y domingo de 09:30 a 11:30 con actividades especiales. Reserva por la app. La primera clase siempre es gratis.</p>
+      <p class="sub">Lunes a jueves de 7:00 a 21:30. Viernes de 7:00 a 20:30. Sábado y domingo de 9:30 a 11:30. Reserva por la app.</p>
     </div>
   </section>
 
   <div class="status-strip">
     <div class="wrap">
       <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Abierto ahora</span></span>
-      <span>Av. del Valles 724C · Terrassa</span>
+      <span>Av. del Vallès 724C · Terrassa</span>
       <span>Lu-Ju 07:00-21:30 · Vi 07:00-20:30 · Sa-Do 09:30-11:30</span>
       <span style="margin-left:auto;"><a href="https://wa.me/34629066531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
     </div>
@@ -36,7 +36,7 @@ import Footer from '../../components/Footer.astro'
       <div style="height:16px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">Todas las<br>clases, <em class="serif">todas</em> las franjas<span class="dot">.</span></h2>
-        <p class="lead reveal">Filtra por disciplina. Las clases con coach tienen capacidad limitada. Reserva con antelacion especialmente en las franjas de manana y tarde.</p>
+        <p class="lead reveal">Filtra por disciplina. Las clases con coach tienen capacidad limitada. Reserva con antelación especialmente en las franjas de mañana y tarde.</p>
       </div>
 
       <div class="toggle-row reveal">
@@ -50,7 +50,7 @@ import Footer from '../../components/Footer.astro'
         <button class="filter" data-f="wl">Weightlifting <span class="count" id="c-wl"></span></button>
         <button class="filter" data-f="hy">Hybrid <span class="count" id="c-hy"></span></button>
         <button class="filter" data-f="bw">Bodyweight <span class="count" id="c-bw"></span></button>
-        <button class="filter" data-f="st">Strength <span class="count" id="c-st"></span></button>
+        <button class="filter" data-f="st">Strength Club <span class="count" id="c-st"></span></button>
         <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab"></span></button>
         <button class="filter" data-f="pr">The Program <span class="count" id="c-pr"></span></button>
         <button class="filter" data-f="rc">Running <span class="count" id="c-rc"></span></button>
@@ -70,7 +70,7 @@ import Footer from '../../components/Footer.astro'
       </div>
 
       <div class="meta-card reveal">
-        <strong>Como reservar:</strong> Descarga la app <strong>Aimharder</strong> y registrate con tu codigo. Puedes reservar <strong>desde 24h antes</strong>. Si has consumido tu cuota mensual, puedes hacer <strong>clases extra a 6eur/clase</strong> o subir de tarifa.
+        <strong>Cómo reservar:</strong> Descarga la app <strong>Aimharder</strong> y regístrate con tu código. Puedes reservar <strong>desde 24h antes</strong>. Si has consumido tu cuota mensual, puedes hacer <strong>clases extra a 6€/clase</strong> o subir de tarifa.
       </div>
     </div>
   </section>
@@ -80,7 +80,7 @@ import Footer from '../../components/Footer.astro'
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">02 —</span><span>Primera vez?</span></div>
       <h2 class="h-hero reveal">Reserva<br>tu <em class="serif">primera</em><span class="dot">.</span></h2>
-      <p class="reveal">Si es tu primer dia, escribenos antes y te preparamos una bienvenida adaptada a tu nivel.</p>
+      <p class="reveal">Si es tu primer día, escríbenos antes y te preparamos una bienvenida adaptada a tu nivel.</p>
       <div class="actions reveal">
         <a class="btn-primary" href="/es/contacte">Reservar primera clase<span class="arr"></span></a>
         <a class="btn-ghost" href="/es/classes">Ver disciplinas</a>
@@ -97,22 +97,22 @@ import Footer from '../../components/Footer.astro'
     "@id": "https://crossfitlamola.com/#organization",
     "name": "CrossFit La Mola",
     "alternateName": "La Mola CrossFit",
-    "description": "Box de CrossFit en Terrassa desde 2025. Entrenamiento funcional, halterofilia, gimnastico y cardio con coaches certificados CF-L1 y CF-L2.",
+    "description": "Box de CrossFit en Terrassa desde 2025. Entrenamiento funcional, halterofilia, gimnástico y cardio con coaches certificados CF-L1 y CF-L2.",
     "url": "https://crossfitlamola.com/",
     "logo": "https://crossfitlamola.com/assets/logo-full.png",
     "image": "https://crossfitlamola.com/assets/hero-still.jpg",
     "telephone": "+34629066531",
     "email": "hola@crossfitlamola.com",
-    "priceRange": "EUR EUR",
+    "priceRange": "€€",
     "foundingDate": "2025",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Avenida del Valles 724 C",
+      "streetAddress": "Avenida del Vallès 724 C",
       "postalCode": "08227",
       "addressLocality": "Terrassa",
-      "addressRegion": "Cataluna",
+      "addressRegion": "Cataluña",
       "addressCountry": "ES"
     },
     "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
@@ -129,10 +129,27 @@ import Footer from '../../components/Footer.astro'
     "areaServed": [
       {"@type":"City","name":"Terrassa"},
       {"@type":"City","name":"Sabadell"},
-      {"@type":"City","name":"Sant Cugat del Valles"},
-      {"@type":"City","name":"Rubi"},
-      {"@type":"AdministrativeArea","name":"Valles Occidental"}
-    ]
+      {"@type":"City","name":"Sant Cugat del Vallès"},
+      {"@type":"City","name":"Rubí"},
+      {"@type":"City","name":"Matadepera"},
+      {"@type":"City","name":"Viladecavalls"},
+      {"@type":"City","name":"Sant Quirze del Vallès"},
+      {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Clases de CrossFit",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"WOD","description":"Workout of the Day - La esencia del CrossFit con calentamiento, fuerza y METCON"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Weightlifting","description":"Halterofilia olímpica: snatch, clean y jerk con foco en técnica"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hybrid Club","description":"Fuerza y resistencia combinadas con movimientos simples"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bodyweight Lab","description":"Movimientos gimnásticos: muscle-ups, handstand, rope climb"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Strength Club","description":"Powerlifting: sentadilla, peso muerto y press"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Abs & Cals","description":"Cardio con máquinas y trabajo específico de core"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"The Program","description":"Programación RX para atletas de competición"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Running Club","description":"Entrenamiento de carrera en comunidad"}}
+      ]
+    }
   }
   </script>
 
@@ -375,7 +392,7 @@ import Footer from '../../components/Footer.astro'
                 div.appendChild(el);
               });
             } else if (opens.length){
-              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open · Exterior':'Open Gym';}).join(' · ');
+              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open Exterior':'Open';}).join(' - ');
               var el=document.createElement('div');
               el.className='slot open-only' + (dayHasCoached ? '' : ' always-visible');
               el.setAttribute('data-disc', 'open');

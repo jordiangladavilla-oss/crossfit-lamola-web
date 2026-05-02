@@ -4,7 +4,7 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 
 const title = "Contacto · CrossFit La Mola Terrassa"
-const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp 629 06 65 31. Lu–Ju 07:00–21:30, Vi 07:00–20:30. Primera clase gratis."
+const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsApp 629 06 65 31. Lu–Ju 07:00–21:30, Vi 07:00–20:30. Primera clase gratis."
 ---
 
 <Layout title={title} description={description}>
@@ -41,7 +41,7 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
       "@id": "https://crossfitlamola.com/#organization",
       "name": "CrossFit La Mola",
       "alternateName": "La Mola CrossFit",
-      "description": "Box de CrossFit en Terrassa desde 2025. Entrenamiento funcional, halterofilia, gimnasticos y cardio con coaches certificados CF-L1 y CF-L2.",
+      "description": "Box de CrossFit en Terrassa desde 2025. Entrenamiento funcional, halterofilia, gimnástico y cardio con coaches certificados CF-L1 y CF-L2.",
       "url": "https://crossfitlamola.com/",
       "logo": "https://crossfitlamola.com/assets/logo-full.png",
       "image": "https://crossfitlamola.com/assets/hero-still.jpg",
@@ -53,10 +53,10 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
       "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Avenida del Valles 724 C",
+        "streetAddress": "Avenida del Vallès 724 C",
         "postalCode": "08227",
         "addressLocality": "Terrassa",
-        "addressRegion": "Cataluna",
+        "addressRegion": "Cataluña",
         "addressCountry": "ES"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
@@ -73,9 +73,12 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
       "areaServed": [
         {"@type":"City","name":"Terrassa"},
         {"@type":"City","name":"Sabadell"},
-        {"@type":"City","name":"Sant Cugat del Valles"},
-        {"@type":"City","name":"Rubi"},
-        {"@type":"AdministrativeArea","name":"Valles Occidental"}
+        {"@type":"City","name":"Sant Cugat del Vallès"},
+        {"@type":"City","name":"Rubí"},
+        {"@type":"City","name":"Matadepera"},
+        {"@type":"City","name":"Viladecavalls"},
+        {"@type":"City","name":"Sant Quirze del Vallès"},
+        {"@type":"AdministrativeArea","name":"Vallès Occidental"}
       ]
     }
     </script>
@@ -91,13 +94,13 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
 
   <Nav currentPage="/es/contacte" />
 
-  <section class="page-hero" style="min-height:50svh">
+  <section class="page-hero" id="main" style="min-height:50svh">
     <div class="bg" style="background-image:url('/assets/community-7.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Contacto</span></div>
-      <div class="kicker"><span>Escribenos</span><span class="bar"></span><span>Respuesta en 24h</span></div>
+      <div class="kicker"><span>Escríbenos</span><span class="bar"></span><span>Respuesta en 24h</span></div>
       <h1>Dinos<br><em class="serif">hola</em><span class="dot">.</span></h1>
-      <p class="sub">Por WhatsApp es lo mas rapido. Si prefieres vernos, pasate por el box: la puerta esta abierta.</p>
+      <p class="sub">Por WhatsApp es lo más rápido. Si prefieres vernos, pásate por el box: la puerta está abierta.</p>
     </div>
   </section>
 
@@ -109,29 +112,29 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
         <form id="contact-form" class="reveal" style="display:grid; gap:28px;">
           <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
           <h2 class="h-xl">Reserva una<br>primera <em class="serif">clase</em><span class="dot">.</span></h2>
-          <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Dejanos tus datos y te respondemos con dia y hora. Si ya sabes que disciplina quieres probar, nos lo cuentas.</p>
+          <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Déjanos tus datos y te respondemos con día y hora. Si ya sabes qué disciplina quieres probar, nos lo cuentas.</p>
 
           <div class="form-row two">
-            <div class="field"><label>Nombre y apellido</label><input type="text" name="name" required aria-required="true" placeholder="Como te llamas?"></div>
-            <div class="field"><label>Telefono</label><input type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
+            <div class="field"><label for="c-name">Nombre y apellido</label><input id="c-name" type="text" name="name" required aria-required="true" placeholder="¿Cómo te llamas?"></div>
+            <div class="field"><label for="c-phone">Teléfono</label><input id="c-phone" type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
           </div>
           <div class="form-row two">
-            <div class="field"><label>Email</label><input type="email" name="email" required aria-required="true" placeholder="tu@correo.com"></div>
-            <div class="field"><label>Disciplina que te interesa</label>
-              <select name="disc">
-                <option>Todavia no lo se</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>
+            <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" name="email" required aria-required="true" placeholder="tu@correo.com"></div>
+            <div class="field"><label for="c-disc">Disciplina que te interesa</label>
+              <select id="c-disc" name="disc">
+                <option>Todavía no lo sé</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>
               </select>
             </div>
           </div>
           <div class="form-row two">
-            <div class="field"><label>Has hecho CrossFit antes?</label>
-              <select name="level"><option>Nunca</option><option>Alguna clase suelta</option><option>Si, tengo experiencia</option><option>Compito</option></select>
+            <div class="field"><label for="c-level">¿Has hecho CrossFit antes?</label>
+              <select id="c-level" name="level"><option>Nunca</option><option>Alguna clase suelta</option><option>Sí, tengo experiencia</option><option>Compito</option></select>
             </div>
-            <div class="field"><label>Cuando quieres venir?</label>
-              <select name="when"><option>Esta semana</option><option>La semana que viene</option><option>Todavia no lo se</option></select>
+            <div class="field"><label for="c-when">¿Cuándo quieres venir?</label>
+              <select id="c-when" name="when"><option>Esta semana</option><option>La semana que viene</option><option>Todavía no lo sé</option></select>
             </div>
           </div>
-          <div class="field"><label>Algo mas que deberiamos saber?</label><textarea name="note" placeholder="Lesiones, objetivos, preguntas, dudas..."></textarea></div>
+          <div class="field"><label for="c-note">¿Algo más que deberíamos saber?</label><textarea id="c-note" name="note" placeholder="Lesiones, objetivos, preguntas, dudas..."></textarea></div>
           <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
             <button type="submit" class="form-submit" id="contact-submit">Enviar<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
             <span style="font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">o por WhatsApp al <a href="https://wa.me/34629066531" style="color:var(--accent-hi);">629 06 65 31</a></span>
@@ -144,9 +147,9 @@ const description = "CrossFit La Mola · Av. del Valles 724C, Terrassa. WhatsApp
           <div class="info-block">
             <div><div class="label">WhatsApp · Preferido</div><div class="value"><a href="https://wa.me/34629066531" style="display:inline-flex;align-items:center;gap:10px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Escríbenos</a></div><div class="note">Respuesta en minutos, de lunes a sábado.</div></div>
             <div><div class="label">Llamada</div><div class="value"><a href="tel:+34629066531">629 06 65 31</a></div><div class="note">Para hablar directamente, de lunes a sábado.</div></div>
-            <div><div class="label">Direccion</div><div class="value">Av. del Valles 724C<br>08227 Terrassa · Barcelona</div><div class="note"><a href="https://share.google/Pme73HGLekvRLepee" target="_blank" rel="noopener" style="color:var(--accent-hi);">Como llegar &#8594;</a></div></div>
+            <div><div class="label">Dirección</div><div class="value">Av. del Vallès 724C<br>08227 Terrassa · Barcelona</div><div class="note"><a href="https://share.google/Pme73HGLekvRLepee" target="_blank" rel="noopener" style="color:var(--accent-hi);">Cómo llegar &#8594;</a></div></div>
             <div><div class="label">Horario del box</div><div class="value" style="font-size:18px; line-height:1.5;">Lu–Ju · 07:00 – 21:30<br>Vi · 07:00 – 20:30<br>Sa–Do · 09:30 – 11:30</div></div>
-            <div><div class="label">Redes</div><div class="value"><a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a></div><div class="note">El dia a dia, fotos y la comunidad.</div></div>
+            <div><div class="label">Redes</div><div class="value"><a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a></div><div class="note">El día a día, fotos y la comunidad.</div></div>
           </div>
         </aside>
       </div>

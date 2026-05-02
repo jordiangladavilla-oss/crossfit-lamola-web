@@ -62,13 +62,13 @@ import Footer from '../../components/Footer.astro'
 
   <Nav currentPage="/en/el-box" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/team.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>The Box</span></div>
       <div class="kicker"><span>The space</span><span class="bar"></span><span>Terrassa</span></div>
       <h1>The name comes from the<br><em class="serif">mountain</em><span class="dot">.</span></h1>
-      <p class="sub">La Mola towers over Terrassa. It's a way of relating to effort: step by step, accepting the climb, holding the pace.</p>
+      <p class="sub">La Mola crowns Terrassa and represents a way of understanding effort: advancing step by step, accepting the incline and sustaining the rhythm with consistency.</p>
     </div>
   </section>
 
@@ -78,14 +78,14 @@ import Footer from '../../components/Footer.astro'
       <div style="height:24px"></div>
       <div class="sec-head">
         <h2 class="h-xl reveal">A space for<br><em class="serif">continuous improvement</em><span class="dot">.</span></h2>
-        <p class="lead reveal">We're a project with a name, a face, and our own philosophy. A box where the coaches remember your name and where you missed your last rep.</p>
+        <p class="lead reveal">We are a project with name, face and our own philosophy. A box where they know you by name and remember both your progress and that day when a rep didn't go as expected.</p>
       </div>
 
       <div class="why-grid reveal-stagger">
-        <div class="why-item" style="--i:0"><div class="n">01</div><h3>Official CrossFit Affiliate</h3><p>Affiliated with CrossFit, LLC. Coaches with official certifications and ongoing training according to methodology standards.</p></div>
-        <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programming and progression</h3><p>Structured cycles with clear goals. Every session has a purpose within the block, and every block prepares the next. You train to improve, not to burn out.</p></div>
-        <div class="why-item" style="--i:2"><div class="n">03</div><h3>517m² of premium equipment</h3><p>15-station rig, 9 rope climbs, 30+ Olympic barbells, 4 sled push zones and 12 cardio machines. Rogue, Concept2 and Ruster equipment. Official Velites and Picsil partners.</p></div>
-        <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusive, ego-free</h3><p>Welcoming community: beginners, competitors, families, older athletes. Respect for everyone's process, no comparisons, no pressure.</p></div>
+        <div class="why-item" style="--i:0"><div class="n">01</div><h3>Official CrossFit Affiliate</h3><p>Box affiliated to CrossFit, LLC, with certified coaches and continuous training following the methodology standards.</p></div>
+        <div class="why-item" style="--i:1"><div class="n">02</div><h3>Programming and progression</h3><p>Structured cycles with a clear objective. Each session has a role within the block and each block prepares the next. You train to improve sustainably, not to exhaust yourself.</p></div>
+        <div class="why-item" style="--i:2"><div class="n">03</div><h3>517m² of premium equipment</h3><p>15-station rig, 9 climbing ropes, over 30 Olympic bars, 4 sled push zones and 12 cardio machines. Rogue, Concept2 and Ruster equipment, with Velites and Picsil as official partners.</p></div>
+        <div class="why-item" style="--i:3"><div class="n">04</div><h3>Inclusive, ego-free</h3><p>An inclusive community with people who are starting, competition athletes, families and older people. Absolute respect for each person's process, without comparisons or pressure.</p></div>
       </div>
     </div>
   </section>
@@ -103,7 +103,7 @@ import Footer from '../../components/Footer.astro'
       <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="reveal-stagger">
         <div style="display:grid; grid-template-columns:1fr; gap:40px;" class="coach-layout">
           <article style="--i:0; display:grid; grid-template-columns:1fr; gap:24px;">
-            <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach and co-founder of CrossFit La Mola, CF-L2 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+            <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach and co-founder of CrossFit La Mola, CF-L2 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
             <div>
               <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">01 · Head Coach</div>
               <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Sergi</h3>
@@ -112,27 +112,27 @@ import Footer from '../../components/Footer.astro'
                 <span style="color:var(--muted);">Kryptonite</span><span style="color:var(--bone);">Wall climbs</span>
                 <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Free HSPU</span>
               </div>
-              <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit is the pillar of my daily life — it gives me discipline and a strength, both mental and physical, that I carry into every area of life. Being a coach at La Mola is about teaching, but above all it's about learning from everyone and walking alongside them: a shared journey between coach and athlete to find, every day, a slightly better version of ourselves."</p>
+              <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit is the pillar of my day to day, it gives me discipline and strength, both mental and physical, that I carry to all areas of life. Being a coach at La Mola is teaching, but above all it's learning from everyone and accompanying. It can also be a mutual journey between coach and athlete to find a slightly better version of ourselves."</p>
             </div>
           </article>
         </div>
         <!-- Juse -->
         <article style="--i:1; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach at CrossFit La Mola, CF-L1 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach at CrossFit La Mola, CF-L1 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">02 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Juse</h3>
             <div style="display:grid; grid-template-columns:130px 1fr; gap:8px 20px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--bone-2); margin-bottom:18px;">
               <span style="color:var(--muted);">In love with</span><span style="color:var(--bone);">Squat clean</span>
               <span style="color:var(--muted);">Kryptonite</span><span style="color:var(--bone);">Strict HSPU</span>
-              <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Heavy ramp</span>
+              <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">HSW ramp</span>
             </div>
-            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit is an escape: a space to leave problems outside for a while, clear my head, and reconnect with myself. As a coach, what I value most isn't just what people learn technically, but everything they take beyond the box: consistency, confidence, and the ability to celebrate every bit of progress, no matter how small. CrossFit is a tool — the real learning is mental. Seeing all of this apply outside is the most rewarding part."</p>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit is an escape route, a space to leave problems outside for a while, clear my head and reconnect with myself. As a coach, what I value most is not just what people learn at a technical level, but everything they take beyond the box: consistency, confidence and the ability to recognize and celebrate each progress, no matter how small. CrossFit is a tool, but learning is above all mental, and seeing how all this transfers to life outside the box is what really gives meaning to my work."</p>
           </div>
         </article>
         <!-- Eli -->
         <article style="--i:2; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach and co-founder of CrossFit La Mola, CF-L1 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach and co-founder of CrossFit La Mola, CF-L1 certified" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">03 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Eli</h3>
@@ -141,7 +141,7 @@ import Footer from '../../components/Footer.astro'
               <span style="color:var(--muted);">Kryptonite</span><span style="color:var(--bone);">HSPU</span>
               <span style="color:var(--muted);">Work in progress</span><span style="color:var(--bone);">Snatch</span>
             </div>
-            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit gave me mental peace and a new relationship with my body: one based on what it can do, not how it looks. It taught me to focus on what really matters — health, strength, functionality. As a coach, what excites me most is the moment someone makes the movements their own and the WODs stop being programming and become a personal challenge. My job is to adapt the process, provide tools, and walk alongside each person from where they are, knowing that progress has its own pace."</p>
+            <p style="font-family:var(--f-serif); font-style:italic; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--bone-2); margin:0;">"CrossFit has given me mental peace and a completely new relationship with my body, based on what it's capable of doing and not how it looks. It has helped me focus on what really matters, health, strength and functionality. As a coach, what I'm most passionate about is seeing the moment when each person makes the movements their own and WODs stop being a program to become a personal challenge. My job is to adapt the process, provide tools and accompany each person from their starting point, understanding that progress always has its own rhythm."</p>
           </div>
         </article>
       </div>
@@ -165,23 +165,23 @@ import Footer from '../../components/Footer.astro'
       </div>
 
       <div class="gallery reveal-stagger">
-        <figure class="huge" style="--i:0"><img src="/assets/elbox-zona-wod.webp" alt="Aerial view of CrossFit La Mola main WOD area with 15-station rig"><figcaption>Main WOD area</figcaption></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Athletes training at the box during a CrossFit class"><figcaption>Group training</figcaption></figure>
-        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Athlete performing a snatch wearing La Mola shirt"><figcaption>Weightlifting</figcaption></figure>
-        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Hand grabbing Ruster dumbell from equipment rack"><figcaption>Equipment</figcaption></figure>
-        <figure class="wide" style="--i:4"><img src="/assets/elbox-cardio.webp" alt="Cardio zone with Rogue Echo Bikes and Ski Ergs"><figcaption>Cardio zone</figcaption></figure>
-        <figure class="tall" style="--i:5"><img src="/assets/elbox-equipament-1.webp" alt="Equipment rack with Ruster dumbells, wallballs and sandbags"><figcaption>Equipment</figcaption></figure>
-        <figure style="--i:6"><img src="/assets/elbox-vestuaris.webp" alt="Locker room sinks with quality finishes"><figcaption>Locker rooms</figcaption></figure>
-        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Athlete wearing CrossFit La Mola shirt during class"><figcaption>Community</figcaption></figure>
+        <figure class="huge" style="--i:0"><img src="/assets/elbox-zona-wod.webp" alt="Aerial view of CrossFit La Mola main WOD area with 15-station rig" loading="lazy"><figcaption>Main WOD area</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Athletes training at the box during a CrossFit class" loading="lazy"><figcaption>Group training</figcaption></figure>
+        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Athlete performing a snatch wearing La Mola shirt" loading="lazy"><figcaption>Weightlifting</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Hand grabbing Ruster dumbell from equipment rack" loading="lazy"><figcaption>Equipment</figcaption></figure>
+        <figure class="wide" style="--i:4"><img src="/assets/elbox-cardio.webp" alt="Cardio zone with Rogue Echo Bikes and Ski Ergs" loading="lazy"><figcaption>Cardio zone</figcaption></figure>
+        <figure class="tall" style="--i:5"><img src="/assets/elbox-equipament-1.webp" alt="Equipment rack with Ruster dumbells, wallballs and sandbags" loading="lazy"><figcaption>Equipment</figcaption></figure>
+        <figure style="--i:6"><img src="/assets/elbox-vestuaris.webp" alt="Locker room sinks with quality finishes" loading="lazy"><figcaption>Locker rooms</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Athlete wearing CrossFit La Mola shirt during class" loading="lazy"><figcaption>Community</figcaption></figure>
         <figure class="wide video-hover" style="--i:8">
-          <img src="/assets/elbox-exterior-2.webp" alt="CrossFit La Mola exterior facade with signage" class="poster">
+          <img src="/assets/elbox-exterior-2.webp" alt="CrossFit La Mola exterior facade with signage" class="poster" loading="lazy">
           <video src="/assets/video-exterior.mp4" muted loop playsinline preload="metadata"></video>
           <figcaption>Outdoor area</figcaption>
         </figure>
-        <figure class="tall" style="--i:9"><img src="/assets/elbox-coffee-corner.webp" alt="Relaxation area with sofas and plants at the coffee corner"><figcaption>Coffee corner</figcaption></figure>
-        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Wooden rings and ropes detail on the gymnastics rig"><figcaption>Rig & rings</figcaption></figure>
-        <figure style="--i:11"><img src="/assets/elbox-exterior-1.webp" alt="Outdoor area with artificial turf and rig for outdoor training"><figcaption>Training outdoor</figcaption></figure>
-        <figure class="wide" style="--i:12"><img src="/assets/elbox-equipament-2.webp" alt="Ruster brand worms, sandbags and HSPU mats"><figcaption>Functional equipment</figcaption></figure>
+        <figure class="tall" style="--i:9"><img src="/assets/elbox-coffee-corner.webp" alt="Relaxation area with sofas and plants at the coffee corner" loading="lazy"><figcaption>Coffee corner</figcaption></figure>
+        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Wooden rings and ropes detail on the gymnastics rig" loading="lazy"><figcaption>Rig & rings</figcaption></figure>
+        <figure style="--i:11"><img src="/assets/elbox-exterior-1.webp" alt="Outdoor area with artificial turf and rig for outdoor training" loading="lazy"><figcaption>Training outdoor</figcaption></figure>
+        <figure class="wide" style="--i:12"><img src="/assets/elbox-equipament-2.webp" alt="Ruster brand worms, sandbags and HSPU mats" loading="lazy"><figcaption>Functional equipment</figcaption></figure>
       </div>
 
       <div class="equip reveal">

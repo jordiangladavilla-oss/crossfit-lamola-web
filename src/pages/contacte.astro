@@ -77,6 +77,9 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
         {"@type":"City","name":"Sabadell"},
         {"@type":"City","name":"Sant Cugat del Vallès"},
         {"@type":"City","name":"Rubí"},
+        {"@type":"City","name":"Matadepera"},
+        {"@type":"City","name":"Viladecavalls"},
+        {"@type":"City","name":"Sant Quirze del Vallès"},
         {"@type":"AdministrativeArea","name":"Vallès Occidental"}
       ]
     }
@@ -93,7 +96,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
 
   <Nav currentPage="/contacte" />
 
-  <section class="page-hero" style="min-height:50svh">
+  <section class="page-hero" id="main" style="min-height:50svh">
     <div class="bg" style="background-image:url('/assets/community-7.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Contacte</span></div>
@@ -114,26 +117,26 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
           <p style="font-family:var(--f-serif); font-size:18px; color:var(--bone-2); margin:0; max-width:44ch;">Escriu-nos les teves dades i et responem amb dia i hora. Si ja saps quina disciplina vols provar, ens ho dius.</p>
 
           <div class="form-row two">
-            <div class="field"><label>Nom i cognom</label><input type="text" name="name" required aria-required="true" placeholder="Com et dius?"></div>
-            <div class="field"><label>Telèfon</label><input type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
+            <div class="field"><label for="c-name">Nom i cognom</label><input id="c-name" type="text" name="name" required aria-required="true" placeholder="Com et dius?"></div>
+            <div class="field"><label for="c-phone">Telèfon</label><input id="c-phone" type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
           </div>
           <div class="form-row two">
-            <div class="field"><label>Email</label><input type="email" name="email" required aria-required="true" placeholder="tu@correu.com"></div>
-            <div class="field"><label>Disciplina que t'interessa</label>
-              <select name="disc">
+            <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" name="email" required aria-required="true" placeholder="tu@correu.com"></div>
+            <div class="field"><label for="c-disc">Disciplina que t'interessa</label>
+              <select id="c-disc" name="disc">
                 <option>No ho sé encara</option><option>WOD</option><option>Weightlifting</option><option>Hybrid Club</option><option>Bodyweight Lab</option><option>Strength Club</option><option>The Program</option><option>Running Club</option>
               </select>
             </div>
           </div>
           <div class="form-row two">
-            <div class="field"><label>Has fet CrossFit abans?</label>
-              <select name="level"><option>Mai</option><option>Alguna classe solta</option><option>Sí, tinc experiència</option><option>Competeixo</option></select>
+            <div class="field"><label for="c-level">Has fet CrossFit abans?</label>
+              <select id="c-level" name="level"><option>Mai</option><option>Alguna classe solta</option><option>Sí, tinc experiència</option><option>Competeixo</option></select>
             </div>
-            <div class="field"><label>Quan vols venir?</label>
-              <select name="when"><option>Aquesta setmana</option><option>La setmana vinent</option><option>Encara no ho sé</option></select>
+            <div class="field"><label for="c-when">Quan vols venir?</label>
+              <select id="c-when" name="when"><option>Aquesta setmana</option><option>La setmana vinent</option><option>Encara no ho sé</option></select>
             </div>
           </div>
-          <div class="field"><label>Alguna cosa més que ens hauríem de saber?</label><textarea name="note" placeholder="Lesions, objectius, preguntes, dubtes..."></textarea></div>
+          <div class="field"><label for="c-note">Alguna cosa més que ens hauríem de saber?</label><textarea id="c-note" name="note" placeholder="Lesions, objectius, preguntes, dubtes..."></textarea></div>
           <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
             <button type="submit" class="form-submit" id="contact-submit">Enviar<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
             <span style="font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">o per WhatsApp al <a href="https://wa.me/34629066531" style="color:var(--accent-hi);">629 06 65 31</a></span>

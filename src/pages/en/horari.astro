@@ -11,20 +11,20 @@ import Footer from '../../components/Footer.astro'
 >
   <Nav currentPage="/en/horari" />
 
-  <section class="page-hero">
+  <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/community-5.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Schedule</span></div>
       <div class="kicker"><span>Weekly</span><span class="bar"></span><span>Book via Aimharder</span></div>
       <h1>The week's<br><em class="serif">schedule</em><span class="dot">.</span></h1>
-      <p class="sub">Monday to Thursday 07:00–21:30. Friday 07:00–20:30. Saturday and Sunday 09:30–11:30 with special activities. Book through the app. First class is always free.</p>
+      <p class="sub">Monday to Thursday from 7:00 to 21:30. Friday from 7:00 to 20:30. Saturday and Sunday from 9:30 to 11:30. Book via the app.</p>
     </div>
   </section>
 
   <div class="status-strip">
     <div class="wrap">
       <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Open now</span></span>
-      <span>Av. del Valles 724C · Terrassa</span>
+      <span>Av. del Vallès 724C · Terrassa</span>
       <span>Mon-Thu 07:00-21:30 · Fri 07:00-20:30 · Sat-Sun 09:30-11:30</span>
       <span style="margin-left:auto;"><a href="https://wa.me/34629066531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
     </div>
@@ -50,7 +50,7 @@ import Footer from '../../components/Footer.astro'
         <button class="filter" data-f="wl">Weightlifting <span class="count" id="c-wl"></span></button>
         <button class="filter" data-f="hy">Hybrid <span class="count" id="c-hy"></span></button>
         <button class="filter" data-f="bw">Bodyweight <span class="count" id="c-bw"></span></button>
-        <button class="filter" data-f="st">Strength <span class="count" id="c-st"></span></button>
+        <button class="filter" data-f="st">Strength Club <span class="count" id="c-st"></span></button>
         <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab"></span></button>
         <button class="filter" data-f="pr">The Program <span class="count" id="c-pr"></span></button>
         <button class="filter" data-f="rc">Running <span class="count" id="c-rc"></span></button>
@@ -103,13 +103,13 @@ import Footer from '../../components/Footer.astro'
     "image": "https://crossfitlamola.com/assets/hero-still.jpg",
     "telephone": "+34629066531",
     "email": "hola@crossfitlamola.com",
-    "priceRange": "EUR EUR",
+    "priceRange": "€€",
     "foundingDate": "2025",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Avenida del Valles 724 C",
+      "streetAddress": "Avenida del Vallès 724 C",
       "postalCode": "08227",
       "addressLocality": "Terrassa",
       "addressRegion": "Catalonia",
@@ -129,10 +129,27 @@ import Footer from '../../components/Footer.astro'
     "areaServed": [
       {"@type":"City","name":"Terrassa"},
       {"@type":"City","name":"Sabadell"},
-      {"@type":"City","name":"Sant Cugat del Valles"},
-      {"@type":"City","name":"Rubi"},
-      {"@type":"AdministrativeArea","name":"Valles Occidental"}
-    ]
+      {"@type":"City","name":"Sant Cugat del Vallès"},
+      {"@type":"City","name":"Rubí"},
+      {"@type":"City","name":"Matadepera"},
+      {"@type":"City","name":"Viladecavalls"},
+      {"@type":"City","name":"Sant Quirze del Vallès"},
+      {"@type":"AdministrativeArea","name":"Vallès Occidental"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "CrossFit Classes",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"WOD","description":"Workout of the Day - The essence of CrossFit with warm-up, strength and METCON"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Weightlifting","description":"Olympic weightlifting: snatch, clean and jerk with focus on technique"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hybrid Club","description":"Strength and endurance combined with simple movements"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bodyweight Lab","description":"Gymnastic movements: muscle-ups, handstand, rope climb"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Strength Club","description":"Powerlifting: squat, deadlift and press"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Abs & Cals","description":"Cardio with machines and specific core work"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"The Program","description":"RX programming for competitive athletes"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Running Club","description":"Community running training"}}
+      ]
+    }
   }
   </script>
 
@@ -375,7 +392,7 @@ import Footer from '../../components/Footer.astro'
                 div.appendChild(el);
               });
             } else if (opens.length){
-              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open · Outdoor':'Open Gym';}).join(' · ');
+              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open Exterior':'Open';}).join(' - ');
               var el=document.createElement('div');
               el.className='slot open-only' + (dayHasCoached ? '' : ' always-visible');
               el.setAttribute('data-disc', 'open');
