@@ -576,7 +576,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       let open = false;
       if (day >= 1 && day <= 5) open = hm >= 6.5 && hm < 21.5;
       else if (day === 6 || day === 0) open = hm >= 9 && hm < 12;
-      liveStatus.textContent = open ? 'Obert ara · Atletes al box' : 'Tancat ara · Torna demà';
+      liveStatus.textContent = open ? 'Obert ara · Classe en curs' : 'Tancat ara · Torna demà';
     }
 
     const filterStrip = document.getElementById('filter-strip');
