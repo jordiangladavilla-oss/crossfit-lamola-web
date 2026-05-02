@@ -1,0 +1,50 @@
+{
+  "name": "CrossFit La Mola",
+  "short_name": "La Mola",
+  "description": "Box de CrossFit a Terrassa. Entrenament funcional per a tots els nivells.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#100e0b",
+  "theme_color": "#100e0b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ca",
+  "categories": ["fitness", "health", "sports"],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/hero-still.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "CrossFit La Mola - Box de CrossFit a Terrassa"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Horari",
+      "short_name": "Horari",
+      "url": "/horari",
+      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contacte",
+      "short_name": "Contacte",
+      "url": "/contacte",
+      "icons": [{ "src": "/assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

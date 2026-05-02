@@ -26,8 +26,10 @@ Allow: /
 User-agent: Cohere-AI
 Allow: /
 
-# LLMs.txt per context estructurat
-# https://crossfitlamola.com/llms.txt
+# LLMs.txt per context estructurat (multilingüe)
+# https://crossfitlamola.com/llms.txt (català)
+# https://crossfitlamola.com/llms-es.txt (español)
+# https://crossfitlamola.com/llms-en.txt (english)
 
 # Sitemap
 Sitemap: https://crossfitlamola.com/sitemap.xml
