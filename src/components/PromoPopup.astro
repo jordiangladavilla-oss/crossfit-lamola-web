@@ -96,13 +96,23 @@
     var langPrefix = '';
     if (path.startsWith('/es/') || path === '/es') langPrefix = '/es';
     else if (path.startsWith('/en/') || path === '/en') langPrefix = '/en';
-    var ctaLink = document.getElementById('promo-cta-link');
-    if (ctaLink) ctaLink.href = langPrefix + '/contacte';
 
     var qs = new URLSearchParams(location.search);
+    var utmSource = qs.get('utm_source');
+
+    // Preservar utm_source al CTA del popup
+    var ctaLink = document.getElementById('promo-cta-link');
+    if (ctaLink) {
+      var ctaHref = langPrefix + '/contacte';
+      if (utmSource) ctaHref += '?utm_source=' + utmSource;
+      ctaLink.href = ctaHref;
+    }
     var force = qs.get('promo');
     if (force === '0') return;
     if (document.body.getAttribute('data-promo-active') === 'off') return;
+
+    // No mostrar popup si ja estem a /contacte (el CTA ja hi porta)
+    if (path.endsWith('/contacte')) return;
 
     function inRange() {
       var now = new Date();
