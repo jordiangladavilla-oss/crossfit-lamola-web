@@ -72,9 +72,9 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
   <!-- LLMs.txt per assistents IA -->
   <link rel="author" href="/llms.txt" type="text/plain" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19HS7P4XHP"></script>
-  <script is:inline>
+  <!-- Google Analytics (via Partytown - runs in web worker) -->
+  <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-19HS7P4XHP"></script>
+  <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
