@@ -75,9 +75,9 @@ em.serif{font-family:var(--f-serif);font-style:italic;font-weight:300;color:var(
 .nav ul a.is-active{color:var(--accent-hi);opacity:1}
 .nav.on-bone ul a.is-active{color:var(--accent-ink)}
 .nav .cta-mini{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px 9px;border:1px solid currentColor;border-radius:999px;opacity:.9;transition:background .2s,color .2s,opacity .2s}
-.nav .cta-mini:hover{opacity:1;background:currentColor}
-.nav.on-bone .cta-mini:hover{color:var(--bone)}
-.nav:not(.on-bone) .cta-mini:hover{color:var(--ink)}
+.nav .cta-mini:hover{opacity:1}
+.nav.on-bone .cta-mini:hover{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.nav:not(.on-bone) .cta-mini:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
 .nav-right{display:flex;align-items:center;gap:16px}
 .nav-right .cta-mini{display:none}
 @media(min-width:980px){.nav ul{display:flex}.nav-right .cta-mini{display:inline-flex}}
