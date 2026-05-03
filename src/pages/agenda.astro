@@ -22,15 +22,6 @@ const lang = 'ca'
 const eventsByMonth = getEventsByMonth(lang)
 const featuredEvent = getFeaturedEvent()
 
-// Per al schema JSON
-const AGENDA_EVENTS_2026 = agendaEvents.map(e => ({
-  name: e.name,
-  start: e.start,
-  end: e.end,
-  place: e.place,
-  cat: e.cat
-}))
-
 // Helper per obtenir el número del mes
 function getMonthNumber(event: AgendaEvent): string {
   const date = new Date(event.start)
@@ -138,11 +129,12 @@ function getBadgeText(event: AgendaEvent): string {
       .std-poster .stars{ position:absolute; top:24px; right:24px; font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-hi);}
       .std-poster .desc{ font-family:var(--f-serif); font-size:18px; line-height:1.4; color:var(--bone-2); margin:0; max-width:44ch;}
     </style>
-    <script type="application/ld+json" set:html={JSON.stringify(AGENDA_EVENTS_2026.map(e => ({
+    <script type="application/ld+json" set:html={JSON.stringify(agendaEvents.map(e => ({
       "@context":"https://schema.org",
       "@type":"SportsEvent",
       "name": e.name,
-      "description": e.desc,
+      "description": e.desc || `${e.name} · ${e.place}`,
+      "image": "https://crossfitlamola.com/assets/hero-still.jpg",
       "startDate": e.start,
       "endDate": e.end,
       "eventStatus":"https://schema.org/EventScheduled",
@@ -151,7 +143,15 @@ function getBadgeText(event: AgendaEvent): string {
       "location":{
         "@type":"Place",
         "name": e.place.split('·')[0].trim(),
-        "address":{"@type":"PostalAddress","addressLocality":"Terrassa","addressRegion":"Catalunya","addressCountry":"ES"}
+        "address":{"@type":"PostalAddress","addressLocality": e.place.split('·')[0].trim(),"addressRegion":"Catalunya","addressCountry":"ES"}
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://crossfitlamola.com/agenda",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": e.start
       },
       "organizer":{"@id":"https://crossfitlamola.com/#organization"},
       "performer":{"@id":"https://crossfitlamola.com/#organization"}
