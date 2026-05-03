@@ -11,7 +11,7 @@ import Footer from '../../components/Footer.astro'
 >
   <Fragment slot="head">
     <script type="application/ld+json" data-schema="offercatalog">
-    {JSON.stringify({
+    {
       "@context": "https://schema.org",
       "@type": "OfferCatalog",
       "name": "CrossFit La Mola Memberships",
@@ -24,7 +24,7 @@ import Footer from '../../components/Footer.astro'
         {"@type":"Offer","name":"Drop-in","description":"One class and facility access for the day","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
         {"@type":"Offer","name":"10 Session Pack","description":"10 classes with no expiration","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"}
       ]
-    })}
+    }
     </script>
     <script type="application/ld+json">
     {

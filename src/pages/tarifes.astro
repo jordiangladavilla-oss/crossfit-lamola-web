@@ -13,7 +13,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   <Fragment slot="head">
     <Breadcrumb items={[{name: "Tarifes"}]} lang="ca" />
     <script type="application/ld+json" data-schema="offercatalog">
-    {JSON.stringify({
+    {
       "@context": "https://schema.org",
       "@type": "OfferCatalog",
       "name": "Quotes CrossFit La Mola",
@@ -26,7 +26,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         {"@type":"Offer","name":"Drop-in","description":"Una classe i accés a les instal·lacions aquell dia","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
         {"@type":"Offer","name":"Bono 10 sessions","description":"10 classes sense data límit","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"}
       ]
-    })}
+    }
     </script>
     <script type="application/ld+json">
     {
