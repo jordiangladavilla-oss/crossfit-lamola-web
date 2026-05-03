@@ -46,7 +46,8 @@ export const ui = {
     'footer.legal': 'Avís legal',
     'footer.privacy': 'Privacitat',
     'footer.cookies': 'Cookies',
-    'footer.madein': 'Fet a casa',
+    'footer.madein': 'Fet a Terrassa',
+    'footer.photoCredit': 'Fotos:',
 
     // Home
     'home.title': 'CrossFit La Mola · Box a Terrassa',
@@ -185,7 +186,8 @@ export const ui = {
     'footer.legal': 'Aviso legal',
     'footer.privacy': 'Privacidad',
     'footer.cookies': 'Cookies',
-    'footer.madein': 'Hecho en casa',
+    'footer.madein': 'Hecho en Terrassa',
+    'footer.photoCredit': 'Fotos:',
 
     // Home
     'home.title': 'CrossFit La Mola · Box en Terrassa',
@@ -324,7 +326,8 @@ export const ui = {
     'footer.legal': 'Legal notice',
     'footer.privacy': 'Privacy',
     'footer.cookies': 'Cookies',
-    'footer.madein': 'Made at home',
+    'footer.madein': 'Made in Terrassa',
+    'footer.photoCredit': 'Photos:',
 
     // Home
     'home.title': 'CrossFit La Mola · Box in Terrassa',
