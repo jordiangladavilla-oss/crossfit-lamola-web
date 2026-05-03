@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Català (default) -->
+  <!-- ========== Català (default) ========== -->
   <url>
     <loc>https://crossfitlamola.com/</loc>
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/"/>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -16,7 +16,8 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/classes"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/classes"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/classes"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/classes"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25,7 +26,8 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/horari"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/horari"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/horari"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/horari"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -34,7 +36,8 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/tarifes"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/tarifes"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/tarifes"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/tarifes"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -43,7 +46,8 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/el-box"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/el-box"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/el-box"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/el-box"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,7 +56,8 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/agenda"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/agenda"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/agenda"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/agenda"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -61,138 +66,243 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/contacte"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/contacte"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/contacte"/>
-    <lastmod>2026-05-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/contacte"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- Español -->
-  <url>
-    <loc>https://crossfitlamola.com/es/</loc>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/"/>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/classes</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/horari</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/tarifes</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/el-box</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/agenda</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/es/contacte</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- English -->
-  <url>
-    <loc>https://crossfitlamola.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/"/>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/classes</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/horari</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/tarifes</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/el-box</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/agenda</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://crossfitlamola.com/en/contacte</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- Pàgines legals -->
   <url>
     <loc>https://crossfitlamola.com/avis-legal</loc>
-    <lastmod>2026-05-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/avis-legal"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://crossfitlamola.com/privacitat</loc>
-    <lastmod>2026-05-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/privacitat"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://crossfitlamola.com/cookies</loc>
-    <lastmod>2026-05-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/cookies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/cookies"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- Recursos IA -->
+
+  <!-- ========== Español ========== -->
   <url>
-    <loc>https://crossfitlamola.com/llms.txt</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://crossfitlamola.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://crossfitlamola.com/llms-es.txt</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://crossfitlamola.com/es/classes</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/classes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/classes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/classes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/classes"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://crossfitlamola.com/llms-en.txt</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://crossfitlamola.com/es/horari</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/horari"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/horari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/horari"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/horari"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/tarifes</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/tarifes"/>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/el-box</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/el-box"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/el-box"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/el-box"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/el-box"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/agenda</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/agenda"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/agenda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/agenda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/agenda"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/contacte</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/contacte"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/contacte"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/contacte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/contacte"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/avis-legal</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/avis-legal"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/privacitat</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/privacitat"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/es/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/cookies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/cookies"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- ========== English ========== -->
+  <url>
+    <loc>https://crossfitlamola.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/classes</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/classes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/classes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/classes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/classes"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/horari</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/horari"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/horari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/horari"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/horari"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/tarifes</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/tarifes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/tarifes"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/el-box</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/el-box"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/el-box"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/el-box"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/el-box"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/agenda</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/agenda"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/agenda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/agenda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/agenda"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/contacte</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/contacte"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/contacte"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/contacte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/contacte"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/avis-legal</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/avis-legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/avis-legal"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/privacitat</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/privacitat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/privacitat"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/cookies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/cookies"/>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

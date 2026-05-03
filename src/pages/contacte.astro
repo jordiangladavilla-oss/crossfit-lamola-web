@@ -3,12 +3,14 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
+import Schema from '../components/Schema.astro'
 
 const title = "Contacte · CrossFit La Mola Terrassa"
 const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsApp 629 06 65 31. Dl–Dj 07:00–21:30, Dv 07:00–20:30. Primera classe gratuïta."
 ---
 
 <Layout title={title} description={description}>
+  <Schema type="contacte" slot="head" />
   <Breadcrumb items={[{name: "Contacte"}]} lang="ca" slot="head" />
   <Fragment slot="head">
     <style>
@@ -36,62 +38,6 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
       .foot-col--thin a, .foot-col--thin p{ font-weight:300 !important; letter-spacing:.002em; }
       @media(min-width: 760px){ .foot-top{ grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important; } }
     </style>
-    <script type="application/ld+json" data-schema="base">
-    {
-      "@context": "https://schema.org",
-      "@type": "ExerciseGym",
-      "@id": "https://crossfitlamola.com/#organization",
-      "name": "CrossFit La Mola",
-      "alternateName": "La Mola CrossFit",
-      "description": "Box de CrossFit a Terrassa des de 2025. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2.",
-      "url": "https://crossfitlamola.com/",
-      "logo": "https://crossfitlamola.com/assets/logo-full.png",
-      "image": "https://crossfitlamola.com/assets/hero-still.jpg",
-      "telephone": "+34629066531",
-      "email": "hola@crossfitlamola.com",
-      "priceRange": "€€",
-      "foundingDate": "2025",
-      "currenciesAccepted": "EUR",
-      "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avinguda del Vallès 724 C",
-        "postalCode": "08227",
-        "addressLocality": "Terrassa",
-        "addressRegion": "Catalunya",
-        "addressCountry": "ES"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
-      "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
-      "sameAs": [
-        "https://www.instagram.com/lamolacrossfit/",
-        "https://share.google/pTO0bMKcTnShi6oAO"
-      ],
-      "openingHoursSpecification": [
-        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:30"},
-        {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"20:30"},
-        {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
-      ],
-      "areaServed": [
-        {"@type":"City","name":"Terrassa"},
-        {"@type":"City","name":"Sabadell"},
-        {"@type":"City","name":"Sant Cugat del Vallès"},
-        {"@type":"City","name":"Rubí"},
-        {"@type":"City","name":"Matadepera"},
-        {"@type":"City","name":"Viladecavalls"},
-        {"@type":"City","name":"Sant Quirze del Vallès"},
-        {"@type":"AdministrativeArea","name":"Vallès Occidental"}
-      ]
-    }
-    </script>
-    <script type="application/ld+json" data-schema="contactpage">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contacta amb CrossFit La Mola",
-      "mainEntity": {"@id":"https://crossfitlamola.com/#organization"}
-    }
-    </script>
   </Fragment>
 
   <Nav currentPage="/contacte" />

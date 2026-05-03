@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
 ---
 
 <Layout
@@ -9,6 +10,7 @@ import Footer from '../../components/Footer.astro'
   description="Weekly schedule at CrossFit Terrassa. Classes Monday to Sunday: WOD, weightlifting, hybrid, strength and more. Book via the Aimharder app."
   canonical="https://crossfitlamola.com/en/horari"
 >
+  <Schema type="horari" slot="head" />
   <Nav currentPage="/en/horari" />
 
   <section class="page-hero" id="main">
@@ -89,69 +91,6 @@ import Footer from '../../components/Footer.astro'
   </section>
 
   <Footer />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ExerciseGym",
-    "@id": "https://crossfitlamola.com/#organization",
-    "name": "CrossFit La Mola",
-    "alternateName": "La Mola CrossFit",
-    "description": "CrossFit box in Terrassa since 2025. Functional training, weightlifting, gymnastics and cardio with CF-L1 and CF-L2 certified coaches.",
-    "url": "https://crossfitlamola.com/",
-    "logo": "https://crossfitlamola.com/assets/logo-full.png",
-    "image": "https://crossfitlamola.com/assets/hero-still.jpg",
-    "telephone": "+34629066531",
-    "email": "hola@crossfitlamola.com",
-    "priceRange": "€€",
-    "foundingDate": "2025",
-    "currenciesAccepted": "EUR",
-    "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Avenida del Vallès 724 C",
-      "postalCode": "08227",
-      "addressLocality": "Terrassa",
-      "addressRegion": "Catalonia",
-      "addressCountry": "ES"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
-    "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
-    "sameAs": [
-      "https://www.instagram.com/lamolacrossfit/",
-      "https://share.google/pTO0bMKcTnShi6oAO"
-    ],
-    "openingHoursSpecification": [
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"20:30"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
-    ],
-    "areaServed": [
-      {"@type":"City","name":"Terrassa"},
-      {"@type":"City","name":"Sabadell"},
-      {"@type":"City","name":"Sant Cugat del Vallès"},
-      {"@type":"City","name":"Rubí"},
-      {"@type":"City","name":"Matadepera"},
-      {"@type":"City","name":"Viladecavalls"},
-      {"@type":"City","name":"Sant Quirze del Vallès"},
-      {"@type":"AdministrativeArea","name":"Vallès Occidental"}
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "CrossFit Classes",
-      "itemListElement": [
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"WOD","description":"Workout of the Day - The essence of CrossFit with warm-up, strength and METCON"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Weightlifting","description":"Olympic weightlifting: snatch, clean and jerk with focus on technique"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hybrid Club","description":"Strength and endurance combined with simple movements"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Bodyweight Lab","description":"Gymnastic movements: muscle-ups, handstand, rope climb"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Strength Club","description":"Powerlifting: squat, deadlift and press"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Abs & Cals","description":"Cardio with machines and specific core work"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"The Program","description":"RX programming for competitive athletes"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Running Club","description":"Community running training"}}
-      ]
-    }
-  }
-  </script>
 
   <style is:global>
     .status-strip{ padding:18px var(--page-pad); background:var(--bone-soft); color:var(--bone-ink); border-bottom:1px solid var(--line-ink);}

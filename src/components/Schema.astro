@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte'
+  type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte' | 'el-box' | 'horari' | 'agenda'
 }
 
 const { type = 'base' } = Astro.props
@@ -207,8 +207,27 @@ const heroVideo = {
     "name": "CrossFit La Mola"
   }
 }
+
+const contactPage = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacte CrossFit La Mola",
+  "description": "Pàgina de contacte de CrossFit La Mola: WhatsApp, email, telèfon i adreça del box a Terrassa.",
+  "mainEntity": { "@id": "https://crossfitlamola.com/#organization" }
+}
+
+const aboutPage = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "El box · CrossFit La Mola",
+  "description": "Sobre les instal·lacions i l'equip de CrossFit La Mola a Terrassa.",
+  "mainEntity": { "@id": "https://crossfitlamola.com/#organization" }
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
 {type === 'home' && <script type="application/ld+json" set:html={JSON.stringify(homeExtras)} />}
 {type === 'home' && <script type="application/ld+json" set:html={JSON.stringify(heroVideo)} />}
+{type === 'contacte' && <script type="application/ld+json" set:html={JSON.stringify(contactPage)} />}
+{type === 'el-box' && <script type="application/ld+json" set:html={JSON.stringify(aboutPage)} />}
+{type === 'el-box' && <script type="application/ld+json" set:html={JSON.stringify(homeExtras)} />}

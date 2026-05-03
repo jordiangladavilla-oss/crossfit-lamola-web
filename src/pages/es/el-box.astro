@@ -2,63 +2,14 @@
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
 ---
 
 <Layout
   title="El box · CrossFit La Mola Terrassa"
   description="517m² de instalaciones CrossFit en Terrassa. Rig de 15 plazas, 9 rope climbs, +30 barras, 12 máquinas cardio. Equipamiento Rogue, Concept2 y Ruster. Coaches certificados CF-L1 y CF-L2."
 >
-  <Fragment slot="head">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ExerciseGym",
-      "@id": "https://crossfitlamola.com/#organization",
-      "name": "CrossFit La Mola",
-      "description": "Box de CrossFit afiliado en Terrassa con 400m² de instalaciones, rig de 15 plazas, zona de halterofilia y equipo de cardio Concept2 y Rogue.",
-      "url": "https://crossfitlamola.com/es/el-box",
-      "image": "https://crossfitlamola.com/assets/team.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avinguda del Vallès 724 C",
-        "postalCode": "08227",
-        "addressLocality": "Terrassa",
-        "addressRegion": "Cataluña",
-        "addressCountry": "ES"
-      },
-      "employee": [
-        {
-          "@type": "Person",
-          "name": "Sergi",
-          "jobTitle": "Head Coach",
-          "description": "Co-fundador de CrossFit La Mola, certificado CF-L2",
-          "image": "https://crossfitlamola.com/assets/coach-sergi.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Juse",
-          "jobTitle": "Coach",
-          "description": "Coach de CrossFit La Mola, certificado CF-L1",
-          "image": "https://crossfitlamola.com/assets/coach-juse.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Eli",
-          "jobTitle": "Coach",
-          "description": "Co-fundadora de CrossFit La Mola, certificada CF-L1",
-          "image": "https://crossfitlamola.com/assets/coach-eli.jpg"
-        }
-      ],
-      "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Rig de competición (15 plazas)", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Zona halterofilia", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Equipo cardio Concept2 y Rogue", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Vestuarios y duchas", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Parking gratuito", "value": true}
-      ]
-    }
-    </script>
-  </Fragment>
+  <Schema type="el-box" slot="head" />
 
   <Nav currentPage="/es/el-box" />
 

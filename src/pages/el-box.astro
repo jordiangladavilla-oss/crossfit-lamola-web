@@ -3,69 +3,16 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
+import Schema from '../components/Schema.astro'
 ---
 
 <Layout
   title="El box · CrossFit La Mola Terrassa"
   description="517m² d'instal·lacions CrossFit a Terrassa. Rig de 15 places, 9 rope climbs, +30 barres, 12 màquines cardio. Equipament Rogue, Concept2 i Ruster. Coaches certificats CF-L1 i CF-L2."
 >
+  <Schema type="el-box" slot="head" />
   <Fragment slot="head">
     <Breadcrumb items={[{name: "El Box"}]} lang="ca" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ExerciseGym",
-      "@id": "https://crossfitlamola.com/#organization",
-      "name": "CrossFit La Mola",
-      "foundingDate": "2025-01-13",
-      "description": "Box de CrossFit afiliat a Terrassa fundat el 13 de gener de 2025. 517m² d'instal·lacions amb rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones sled push i 12 màquines cardio Concept2 i Rogue.",
-      "floorSize": {"@type": "QuantitativeValue", "value": 517, "unitCode": "MTK"},
-      "url": "https://crossfitlamola.com/el-box",
-      "image": "https://crossfitlamola.com/assets/team.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avinguda del Vallès 724 C",
-        "postalCode": "08227",
-        "addressLocality": "Terrassa",
-        "addressRegion": "Catalunya",
-        "addressCountry": "ES"
-      },
-      "employee": [
-        {
-          "@type": "Person",
-          "name": "Sergi",
-          "jobTitle": "Head Coach",
-          "description": "Co-fundador de CrossFit La Mola, certificat CF-L2",
-          "image": "https://crossfitlamola.com/assets/coach-sergi.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Juse",
-          "jobTitle": "Coach",
-          "description": "Coach de CrossFit La Mola, certificat CF-L1",
-          "image": "https://crossfitlamola.com/assets/coach-juse.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Eli",
-          "jobTitle": "Coach",
-          "description": "Co-fundadora de CrossFit La Mola, certificada CF-L1",
-          "image": "https://crossfitlamola.com/assets/coach-eli.jpg"
-        }
-      ],
-      "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Rig Rogue de 15 places", "value": "15 estacions"},
-        {"@type": "LocationFeatureSpecification", "name": "Rope climbs", "value": "9 cordes"},
-        {"@type": "LocationFeatureSpecification", "name": "Barres olímpiques", "value": "+30"},
-        {"@type": "LocationFeatureSpecification", "name": "Zones sled push", "value": "4"},
-        {"@type": "LocationFeatureSpecification", "name": "Màquines cardio Concept2 i Rogue", "value": "12 estacions"},
-        {"@type": "LocationFeatureSpecification", "name": "Zona exterior", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Coffee Corner", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Vestuaris i dutxes", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Pàrquing gratuït", "value": true}
-      ]
-    }
-    </script>
   </Fragment>
 
   <Nav currentPage="/el-box" />

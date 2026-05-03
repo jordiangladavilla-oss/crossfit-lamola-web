@@ -2,63 +2,14 @@
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
 ---
 
 <Layout
   title="The Box · CrossFit La Mola Terrassa"
   description="517m² CrossFit facility in Terrassa. 15-station rig, 9 rope climbs, 30+ barbells, 12 cardio machines. Rogue, Concept2 and Ruster equipment. CF-L1 and CF-L2 certified coaches."
 >
-  <Fragment slot="head">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ExerciseGym",
-      "@id": "https://crossfitlamola.com/#organization",
-      "name": "CrossFit La Mola",
-      "description": "Affiliated CrossFit box in Terrassa with 400m² facilities, 15-station rig, weightlifting area and Concept2 and Rogue cardio equipment.",
-      "url": "https://crossfitlamola.com/en/el-box",
-      "image": "https://crossfitlamola.com/assets/team.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avinguda del Vallès 724 C",
-        "postalCode": "08227",
-        "addressLocality": "Terrassa",
-        "addressRegion": "Catalonia",
-        "addressCountry": "ES"
-      },
-      "employee": [
-        {
-          "@type": "Person",
-          "name": "Sergi",
-          "jobTitle": "Head Coach",
-          "description": "Co-founder of CrossFit La Mola, CF-L2 certified",
-          "image": "https://crossfitlamola.com/assets/coach-sergi.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Juse",
-          "jobTitle": "Coach",
-          "description": "CrossFit La Mola coach, CF-L1 certified",
-          "image": "https://crossfitlamola.com/assets/coach-juse.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Eli",
-          "jobTitle": "Coach",
-          "description": "Co-founder of CrossFit La Mola, CF-L1 certified",
-          "image": "https://crossfitlamola.com/assets/coach-eli.jpg"
-        }
-      ],
-      "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Competition rig (15 stations)", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Weightlifting area", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Concept2 and Rogue cardio equipment", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Locker rooms and showers", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Free parking", "value": true}
-      ]
-    }
-    </script>
-  </Fragment>
+  <Schema type="el-box" slot="head" />
 
   <Nav currentPage="/en/el-box" />
 
