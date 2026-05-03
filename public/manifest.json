@@ -26,9 +26,9 @@
   ],
   "screenshots": [
     {
-      "src": "/assets/hero-still.jpg",
+      "src": "/assets/hero-still.webp",
       "sizes": "1920x1080",
-      "type": "image/jpeg",
+      "type": "image/webp",
       "form_factor": "wide",
       "label": "CrossFit La Mola - Box de CrossFit a Terrassa"
     }
