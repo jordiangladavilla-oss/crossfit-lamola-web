@@ -7,7 +7,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
 <Layout
   title="Horari setmanal · CrossFit La Mola Terrassa"
-  description="Horari setmanal del box de CrossFit a Terrassa. Classes de dilluns a diumenge: WOD, halterofilia, hybrid, strength i mes. Reserva per l'app Aimharder."
+  description="Horari setmanal del box de CrossFit a Terrassa. Classes de dilluns a diumenge: WOD, halterofília, hybrid, strength i més. Reserva per l'app Aimharder."
   canonical="https://crossfitlamola.com/horari"
 >
   <Breadcrumb items={[{name: "Horari"}]} lang="ca" slot="head" />
@@ -43,7 +43,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
       <div class="toggle-row reveal">
         <label><input type="checkbox" id="showOpen"> Mostrar Open Gym i Open Exterior</label>
-        <span style="opacity:.7;">Per defecte nomes veus classes amb coach</span>
+        <span style="opacity:.7;">Per defecte només veus classes amb coach</span>
       </div>
 
       <div class="filters reveal" id="filters">
@@ -72,7 +72,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       </div>
 
       <div class="meta-card reveal">
-        <strong>Com reservar:</strong> Descarrega l'app <strong>Aimharder</strong> i registra't amb el teu codi. Pots reservar <strong>des de 24h abans</strong>. Si has consumit la teva quota mensual, pots fer <strong>classes extres a 6eur/classe</strong> o pujar de tarifa.
+        <strong>Com reservar:</strong> Descarrega l'app <strong>Aimharder</strong> i registra't amb el teu codi. Pots reservar <strong>des de 24h abans</strong>. Si has consumit la teva quota mensual, pots fer <strong>classes extres a 8€/classe</strong> o pujar de tarifa.
       </div>
     </div>
   </section>
@@ -82,7 +82,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">02 —</span><span>Primera vegada?</span></div>
       <h2 class="h-hero reveal">Reserva<br>la teva <em class="serif">primera</em><span class="dot">.</span></h2>
-      <p class="reveal">Si es el teu primer cop, escriu-nos abans i et preparem una benvinguda adaptada al teu nivell.</p>
+      <p class="reveal">Si és el teu primer cop, escriu-nos abans i et preparem una benvinguda adaptada al teu nivell.</p>
       <div class="actions reveal">
         <a class="btn-primary" href="/contacte">Reservar primera classe<span class="arr"></span></a>
         <a class="btn-ghost" href="/classes">Veure disciplines</a>
@@ -191,7 +191,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     .day .date{ display:none; }
     .day.today h4{ color:var(--accent-ink);}
     .day.today h4::after{ content:"· avui"; font-family:var(--f-serif); font-style:italic; font-size:14px; font-weight:400; margin-left:4px; letter-spacing:normal; text-transform:none; color:var(--accent-ink);}
-    @media(min-width:1100px){ .day.today{ background:var(--bone-soft);} .day.today h4::after{ content:"· hoy"; display:inline;} }
+    @media(min-width:1100px){ .day.today{ background:var(--bone-soft);} .day.today h4::after{ content:"· avui"; display:inline;} }
 
     /* slot inside day */
     .slot{ padding:10px 0; border-top:1px solid var(--line-ink); transition:background .15s; cursor:default; position:relative;}
@@ -360,7 +360,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       if (n.indexOf('ABS')>=0) return {k:'ab', l:'Abs & Cals'};
       if (n.indexOf('RUNNING')>=0 || n.indexOf('RUN BY')>=0) return {k:'rc', l:n.indexOf('BEACH')>=0?'Run + Brunch + Beach':'Running Club'};
       if (n.indexOf('WOD IN PAIRS')>=0) return {k:'wod', l:'WOD in Pairs'};
-      if (n.indexOf('WOD')>=0) return {k:'wod', l: n.indexOf('INICIACI')>=0?'WOD · Iniciacio':'WOD'};
+      if (n.indexOf('WOD')>=0) return {k:'wod', l: n.indexOf('INICIACI')>=0?'WOD · Iniciació':'WOD'};
       return {k:'wod', l:name};
     }
 
