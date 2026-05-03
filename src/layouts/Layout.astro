@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string
   bodyClass?: string
   bodyData?: Record<string, string>
+  showPromo?: boolean
 }
 
 const {
@@ -18,7 +19,8 @@ const {
   canonical,
   ogImage = '/assets/hero-still.jpg',
   bodyClass = '',
-  bodyData = {}
+  bodyData = {},
+  showPromo = false
 } = Astro.props
 
 const currentLang = getLangFromUrl(Astro.url)
@@ -158,6 +160,6 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
       });
     }
   </script>
-  <PromoPopup />
+  {showPromo && <PromoPopup />}
 </body>
 </html>

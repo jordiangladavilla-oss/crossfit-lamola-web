@@ -272,7 +272,7 @@ import Footer from '../../components/Footer.astro'
         ["19:30-20:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
         ["20:30-21:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]]
       ],
-      "Miercoles": [
+      "Miércoles": [
         ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
         ["09:30-10:30", ["LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
@@ -323,7 +323,7 @@ import Footer from '../../components/Footer.astro'
         ["18:30-20:30", ["THE PROGRAM"]],
         ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
       ],
-      "Sabado": [
+      "Sábado": [
         ["09:30-10:30", ["WOD IN PAIRS", "OPEN"]],
         ["10:30-11:30", ["WOD IN PAIRS", "OPEN"]]
       ],
@@ -345,11 +345,11 @@ import Footer from '../../components/Footer.astro'
       if (n.indexOf('ABS')>=0) return {k:'ab', l:'Abs & Cals'};
       if (n.indexOf('RUNNING')>=0 || n.indexOf('RUN BY')>=0) return {k:'rc', l:n.indexOf('BEACH')>=0?'Run + Brunch + Beach':'Running Club'};
       if (n.indexOf('WOD IN PAIRS')>=0) return {k:'wod', l:'WOD en Parejas'};
-      if (n.indexOf('WOD')>=0) return {k:'wod', l: n.indexOf('INICIACI')>=0?'WOD · Iniciacion':'WOD'};
+      if (n.indexOf('WOD')>=0) return {k:'wod', l: n.indexOf('INICIACI')>=0?'WOD · Iniciación':'WOD'};
       return {k:'wod', l:name};
     }
 
-    var days=['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'];
+    var days=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     var abbr=['Lu','Ma','Mi','Ju','Vi','Sa','Do'];
     var monday=new Date(); var day=monday.getDay(); var diff=(day===0?-6:1-day); monday.setDate(monday.getDate()+diff);
     var today=new Date(); today.setHours(0,0,0,0);
