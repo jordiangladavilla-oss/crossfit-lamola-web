@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import Schema from '../../components/Schema.astro'
   description="9 disciplinas en Terrassa: WOD, halterofilia, hybrid training, running club, strength y más. Clases dirigidas para todos los niveles."
 >
   <Schema type="classes" slot="head" />
+  <Breadcrumb items={[{name: "Clases"}]} lang="es" slot="head" />
   <Fragment slot="head">
     <script type="application/ld+json" data-schema="itemlist-disciplines">
     {

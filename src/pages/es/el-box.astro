@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import Schema from '../../components/Schema.astro'
   description="517m² de instalaciones CrossFit en Terrassa. Rig de 15 plazas, 9 rope climbs, +30 barras, 12 máquinas cardio. Equipamiento Rogue, Concept2 y Ruster. Coaches certificados CF-L1 y CF-L2."
 >
   <Schema type="el-box" slot="head" />
+  <Breadcrumb items={[{name: "El box"}]} lang="es" slot="head" />
 
   <Nav currentPage="/es/el-box" />
 

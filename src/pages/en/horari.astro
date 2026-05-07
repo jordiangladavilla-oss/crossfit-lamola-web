@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -11,6 +12,7 @@ import Schema from '../../components/Schema.astro'
   canonical="https://crossfitlamola.com/en/horari"
 >
   <Schema type="horari" slot="head" />
+  <Breadcrumb items={[{name: "Schedule"}]} lang="en" slot="head" />
   <Nav currentPage="/en/horari" />
 
   <section class="page-hero" id="main">

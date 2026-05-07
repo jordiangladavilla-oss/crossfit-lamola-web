@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
+import Schema from '../components/Schema.astro'
 ---
 
 <Layout
@@ -10,8 +11,9 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   description="Tarifes del box. Sense permanència. Primera classe gratuïta. Quotes il·limitades, 10 classes/mes i open gym."
   showPromo={true}
 >
+  <Schema type="tarifes" slot="head" />
+  <Breadcrumb items={[{name: "Tarifes"}]} lang="ca" slot="head" />
   <Fragment slot="head">
-    <Breadcrumb items={[{name: "Tarifes"}]} lang="ca" />
     <script type="application/ld+json" data-schema="offercatalog">
     {
       "@context": "https://schema.org",

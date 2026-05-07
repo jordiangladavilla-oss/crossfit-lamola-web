@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import Schema from '../../components/Schema.astro'
   description="517m² CrossFit facility in Terrassa. 15-station rig, 9 rope climbs, 30+ barbells, 12 cardio machines. Rogue, Concept2 and Ruster equipment. CF-L1 and CF-L2 certified coaches."
 >
   <Schema type="el-box" slot="head" />
+  <Breadcrumb items={[{name: "The Box"}]} lang="en" slot="head" />
 
   <Nav currentPage="/en/el-box" />
 

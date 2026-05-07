@@ -3,6 +3,19 @@
   "outputDirectory": "dist",
   "framework": "astro",
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "header", "key": "x-forwarded-proto", "value": "http" }],
+      "destination": "https://crossfitlamola.com/:path*",
+      "permanent": true
+    },
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/es/index.html", "destination": "/es", "permanent": true },
+    { "source": "/en/index.html", "destination": "/en", "permanent": true },
+    { "source": "/ai", "destination": "/contacte?utm_source=ai", "permanent": true },
+    { "source": "/ig", "destination": "/contacte?utm_source=instagram", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

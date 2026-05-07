@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import Schema from '../../components/Schema.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 import {
   agendaEvents,
   getEventsByMonth,
@@ -47,6 +49,8 @@ function getBadgeText(event: AgendaEvent): string {
   title="Calendar 2026 · CrossFit La Mola Terrassa"
   description="2026 calendar of CrossFit competitions and events in Catalonia. Wodcelona, Basque Txapelketa, Summer Fest and more."
 >
+  <Schema type="agenda" slot="head" />
+  <Breadcrumb items={[{name: "Calendar"}]} lang="en" slot="head" />
   <Fragment slot="head">
     <style>
       .cat-filters{ display:flex; flex-wrap:wrap; gap:8px; margin:44px 0 44px;}
