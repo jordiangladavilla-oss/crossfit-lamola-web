@@ -1,32 +1,86 @@
 import sharp from 'sharp';
+import { writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const assetsDir = join(__dirname, '..', 'public', 'assets');
-const sourceIcon = join(assetsDir, 'icon-source.png');
+const publicDir = join(__dirname, '..', 'public');
+const assetsDir = join(publicDir, 'assets');
+
+// PWA / apple-touch icons use icon-source.png (existing design)
+const pwaSource = join(assetsDir, 'icon-source.png');
+
+// Favicons use the brand-supplied logo (transparent corners + tangent black circle)
+const faviconSource = join(assetsDir, 'favicon-source.png');
+
+// Minimal multi-size ICO encoder (PNG-encoded ICO).
+function buildIco(pngEntries) {
+  const headerSize = 6;
+  const entrySize = 16;
+  let dataOffset = headerSize + entrySize * pngEntries.length;
+
+  const header = Buffer.alloc(headerSize);
+  header.writeUInt16LE(0, 0);
+  header.writeUInt16LE(1, 2);
+  header.writeUInt16LE(pngEntries.length, 4);
+
+  const dirEntries = [];
+  for (const { size, data } of pngEntries) {
+    const e = Buffer.alloc(entrySize);
+    e.writeUInt8(size >= 256 ? 0 : size, 0);
+    e.writeUInt8(size >= 256 ? 0 : size, 1);
+    e.writeUInt8(0, 2);
+    e.writeUInt8(0, 3);
+    e.writeUInt16LE(1, 4);
+    e.writeUInt16LE(32, 6);
+    e.writeUInt32LE(data.length, 8);
+    e.writeUInt32LE(dataOffset, 12);
+    dirEntries.push(e);
+    dataOffset += data.length;
+  }
+
+  return Buffer.concat([header, ...dirEntries, ...pngEntries.map(p => p.data)]);
+}
 
 async function generateIcons() {
-  const sizes = [192, 512];
-
-  for (const size of sizes) {
+  // PWA / apple-touch icons (unchanged design)
+  for (const size of [192, 512]) {
     const outputPath = join(assetsDir, `icon-${size}.png`);
-
-    await sharp(sourceIcon)
+    await sharp(pwaSource)
       .resize(size, size)
       .png()
       .toFile(outputPath);
-
-    console.log(`Created: icon-${size}.png`);
+    console.log(`Created: assets/icon-${size}.png`);
   }
 
-  // Create favicon (32x32 for best browser compatibility)
-  const faviconPath = join(__dirname, '..', 'public', 'favicon.png');
-  await sharp(sourceIcon)
-    .resize(32, 32)
+  // Favicons from brand logo (already RGBA with transparent corners).
+  // Pre-render a sharp 256px master, then downscale per size with lanczos3 for crisp edges.
+  const masterBuffer = await sharp(faviconSource)
+    .resize(256, 256, { kernel: 'lanczos3' })
     .png()
-    .toFile(faviconPath);
-  console.log('Created: favicon.png');
+    .toBuffer();
+
+  const faviconSizes = [16, 32, 48];
+  const pngEntries = [];
+
+  for (const size of faviconSizes) {
+    const outputPath = join(publicDir, `favicon-${size}.png`);
+    const data = await sharp(masterBuffer)
+      .resize(size, size, { kernel: 'lanczos3' })
+      .png()
+      .toBuffer();
+    writeFileSync(outputPath, data);
+    pngEntries.push({ size, data });
+    console.log(`Created: favicon-${size}.png`);
+  }
+
+  // Multi-size favicon.ico (16, 32, 48)
+  const icoBuffer = buildIco(pngEntries);
+  writeFileSync(join(publicDir, 'favicon.ico'), icoBuffer);
+  console.log('Created: favicon.ico (16, 32, 48)');
 }
 
-generateIcons().catch(console.error);
+generateIcons().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
