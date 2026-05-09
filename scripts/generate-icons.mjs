@@ -7,10 +7,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, '..', 'public');
 const assetsDir = join(publicDir, 'assets');
 
-// PWA / apple-touch icons use icon-source.png (existing design)
-const pwaSource = join(assetsDir, 'icon-source.png');
-
-// Favicons use the brand-supplied logo (transparent corners + tangent black circle)
+// All icons (PWA + favicon) come from the brand logo with transparent corners.
+// Do NOT use icon-source.png as a source — it has a white background, which
+// regenerates icon-192/512 with white corners and breaks the manifest.
 const faviconSource = join(assetsDir, 'favicon-source.png');
 
 // Minimal multi-size ICO encoder (PNG-encoded ICO).
@@ -43,11 +42,11 @@ function buildIco(pngEntries) {
 }
 
 async function generateIcons() {
-  // PWA / apple-touch icons (unchanged design)
+  // PWA / apple-touch icons (transparent corners from brand logo)
   for (const size of [192, 512]) {
     const outputPath = join(assetsDir, `icon-${size}.png`);
-    await sharp(pwaSource)
-      .resize(size, size)
+    await sharp(faviconSource)
+      .resize(size, size, { kernel: 'lanczos3' })
       .png()
       .toFile(outputPath);
     console.log(`Created: assets/icon-${size}.png`);
