@@ -31,7 +31,7 @@ export const disciplines: Discipline[] = [
     image: '/assets/class-hybrid.jpg',
     duration: '60 min',
     level: 'intermediate',
-    frequency: '3x/week'
+    frequency: '4x/week'
   },
   {
     id: 'bodyweight',
@@ -55,7 +55,7 @@ export const disciplines: Discipline[] = [
     image: '/assets/class-abscals.jpg',
     duration: '30 min',
     level: 'all',
-    frequency: '3x/week'
+    frequency: '2x/week'
   },
   {
     id: 'theprogram',
@@ -63,19 +63,11 @@ export const disciplines: Discipline[] = [
     image: '/assets/class-program.jpg',
     duration: '90 min',
     level: 'advanced',
-    frequency: '4x/week'
-  },
-  {
-    id: 'personal',
-    num: '08',
-    image: '/assets/class-personal.jpg',
-    duration: '60 min',
-    level: 'all',
-    frequency: 'on-demand'
+    frequency: '5x/week'
   },
   {
     id: 'running',
-    num: '09',
+    num: '08',
     image: '/assets/class-running.jpg',
     duration: '60 min',
     level: 'all',
