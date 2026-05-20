@@ -13,23 +13,90 @@ import Breadcrumb from '../components/Breadcrumb.astro'
   <Schema type="classes" slot="head" />
   <Breadcrumb items={[{name: "Classes"}]} lang="ca" slot="head" />
   <Fragment slot="head">
-    <script type="application/ld+json" data-schema="itemlist-disciplines">
-    {
+    <script type="application/ld+json" data-schema="itemlist-disciplines" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Disciplines a CrossFit La Mola",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Classe diària variada de CrossFit","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Halterofília","description":"Tècnica olímpica: arrencada i dos temps","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength Club","description":"Força pura amb barra","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Bodyweight Lab","description":"Gimnàstics, handstands, calisthenics","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running Club","description":"Tècnica de cursa i resistència","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid Club","description":"Combinació de CrossFit i endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"Abs & Cals","description":"Core i estabilitat","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"The Program","description":"Programació avançada per a competidors","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+        {"@type":"ListItem","position":1,"item":{
+          "@type":"Course","name":"WOD (Workout of the Day)","description":"Classe diària dirigida que combina força, halterofília bàsica, gimnàstica i condicionament cardiovascular d'alta intensitat. Adaptable a tots els nivells.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"Beginner to Advanced","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen millorar la seva condició física global, des de principiants fins a atletes avançats"},
+          "teaches":["Moviments funcionals","Halterofília bàsica","Gimnàstica bàsica","Condicionament cardiovascular","EMOM, AMRAP i FOR TIME"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"First class free","price":"0","priceCurrency":"EUR"}
+        }},
+        {"@type":"ListItem","position":2,"item":{
+          "@type":"Course","name":"La Mola Weightlifting","description":"Halterofília olímpica: tècnica de snatch (arrencada) i clean & jerk (dos temps) amb càrregues progressives i mobilitat específica.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen millorar la tècnica d'halterofília olímpica"},
+          "teaches":["Snatch (arrencada)","Clean & jerk (dos temps)","Posicions i mobilitat olímpica","Eficiència tècnica"],
+          "coursePrerequisites":"Cap (recomanable experiència prèvia)",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":3,"item":{
+          "@type":"Course","name":"Strength Club - Powerlifting","description":"Cicles estructurats de força amb barra: squat, bench press, deadlift i press, amb accessoris per corregir desequilibris i guanyar estabilitat sota càrrega.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen augmentar la força màxima amb barra"},
+          "teaches":["Back squat","Bench press","Deadlift","Press","Tècnica de barra","Cicles de força progressius"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":4,"item":{
+          "@type":"Course","name":"Bodyweight Lab - Base","description":"Iniciació a la gimnàstica: fonaments com pull-up estricte, handstand hold i progressions de moviments gimnàstics.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"Beginner","timeRequired":"PT45M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que comencen amb la gimnàstica"},
+          "teaches":["Pull-up estricte","Handstand hold","Control corporal","Progressions gimnàstiques"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":5,"item":{
+          "@type":"Course","name":"Bodyweight Lab - Advanced","description":"Gimnàstic avançat: butterfly pull-ups, muscle-ups, handstand walk (HSW) i handstand push-ups (HSPU).",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"Advanced","timeRequired":"PT45M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Atletes amb experiència en gimnàstica"},
+          "teaches":["Butterfly pull-ups","Muscle-ups","Handstand walk","HSPU","Força relativa avançada"],
+          "coursePrerequisites":"Domini de pull-up estricte i handstand hold",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":6,"item":{
+          "@type":"Course","name":"Hybrid Club","description":"Entrenament híbrid amb sled push/pull, ergòmetres (rower, ski erg), wall balls, kettlebells i intervals de carrera. Format inspirat en competicions estil HYROX.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen combinar resistència i força funcional amb formats híbrids tipus competicions com HYROX"},
+          "teaches":["Sled push","Sled pull","Ski erg","Concept2 row","Wall balls","Kettlebells","Format híbrid estil HYROX"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":7,"item":{
+          "@type":"Course","name":"Abs & Cals","description":"Treball específic d'abdominals i intervals amb ergòmetres (rower, bike erg, ski erg) per millorar core i capacitat cardiovascular.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen millorar core i capacitat cardiovascular"},
+          "teaches":["Treball de core","Intervals amb ergòmetres","Estabilitat","Resistència cardiovascular"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":8,"item":{
+          "@type":"Course","name":"The Program","description":"Programació estructurada per cicles per a atletes avançats: estratègia competitiva, mètodes avançats i preparació RX.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"Advanced","timeRequired":"PT90M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Atletes amb experiència que volen entrenament estructurat d'alt rendiment"},
+          "teaches":["Programació per cicles","Estratègia competitiva","Mètodes avançats RX","Preparació per competició"],
+          "coursePrerequisites":"Experiència mínima d'1 any de CrossFit i domini de moviments bàsics",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":9,"item":{
+          "@type":"Course","name":"Running Club","description":"Entrenament de carrera en grup: fartlek, sèries, tirades llargues i tècnica de cursa. No consumeix crèdit de la quota.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones que volen córrer en grup, millorar rendiment i gaudir de la comunitat"},
+          "teaches":["Fartlek","Sèries","Tirades llargues","Tècnica de carrera"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"Free with membership","price":"0","priceCurrency":"EUR","description":"No consumeix crèdit de la quota mensual"}
+        }}
       ]
-    }
-    </script>
+    })} />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,6 +150,11 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
       .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
       .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
+      .disc-details{ grid-column:1/-1; margin-top:22px; padding-top:20px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
+      @media(min-width:900px){ .disc-details{ grid-template-columns:repeat(2,1fr); gap:16px 40px;} }
+      .disc-details dt{ font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); font-weight:500; margin:0 0 5px;}
+      .disc-details dd{ margin:0; font-family:var(--f-serif); font-size:14.5px; line-height:1.5; color:var(--bone-ink); opacity:.85;}
+      .disc-details dd strong{ color:var(--bone-ink); font-weight:500; opacity:1;}
       .disc .thumb{ display:none;}
       @media(min-width:900px){
         .disc .thumb{ display:block; aspect-ratio:3/2; overflow:hidden; background:var(--ink-2);}
@@ -130,13 +202,27 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Classe estrella - 60 min</div></div>
           <p>La classe central de CrossFit. Escalfament, part tècnica, WOD i tornada a la calma. Un coach guia el grup de principi a fi.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>Diari</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen millorar la seva condició física global, des de principiants fins a atletes avançats. Totalment adaptable.</dd></div>
+            <div><dt>Estructura de la classe</dt><dd>Explicació inicial i opcions d'escalat → escalfament guiat (5-10 min) → bloc de força o tècnica (15-20 min) → entrenament principal d'alta intensitat (8-15 min) amb format EMOM, AMRAP o FOR TIME → tornada a la calma i estiraments.</dd></div>
+            <div><dt>Què aprens</dt><dd>Moviments funcionals, base d'halterofília, gimnàstica i condicionament cardiovascular.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Millora global de la forma física, més energia, prevenció de lesions, coordinació i benestar general.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles i aigua. <strong>Prerequisits:</strong> Cap.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:1">
           <span class="num">02</span>
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
           <p>Halterofília olímpica. Treballem els dos aixecaments i les seves derivacions amb progressions adaptades a cada atleta.</p>
-          <div class="meta"><span>Nivell <strong>Intermedi</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen millorar la tècnica d'halterofília olímpica.</dd></div>
+            <div><dt>Estructura</dt><dd>Treball tècnic amb càrregues lleugeres a moderades i progressió específica de moviment.</dd></div>
+            <div><dt>Què aprens</dt><dd>Snatch (arrencada), clean &amp; jerk (dos temps), posicions i mobilitat específica olímpica.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Millor tècnica, més eficiència i transferència al rendiment esportiu.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles d'halterofília (recomanat). <strong>Prerequisits:</strong> Cap (recomanable experiència prèvia).</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:2">
@@ -144,20 +230,39 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Hybrid Club</h3><div class="tagline">Força + Cardio - 60 min</div></div>
           <p>Força funcional i resistència cardiovascular llarga amb moviments simples: sled push/pull, row, ski erg, kettlebells i wall balls. Format inspirat en HYROX, sense moviments tècnics complexos.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>4x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen combinar resistència i força funcional amb formats híbrids tipus competicions com HYROX.</dd></div>
+            <div><dt>Què aprens</dt><dd>Treball amb sled push/pull, ergòmetres (row, ski erg), wall balls, kettlebells i carrera en intervals.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Alta resistència cardiovascular, força sostinguda i preparació per esforços llargs.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles amb bona amortiment. <strong>Prerequisits:</strong> Cap.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:3">
           <span class="num">04</span>
           <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnàstic - 45 min</div></div>
-          <p>Dos nivells: Base per aprendre els fonaments gimnàstics, i Advance per butterfly pull-ups, muscle-ups, HSW i HSPU.</p>
-          <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <p>Dos nivells: Base per aprendre els fonaments gimnàstics, i Advanced per butterfly pull-ups, muscle-ups, HSW i HSPU.</p>
+          <div class="meta"><span>Nivell <strong>Base / Advanced</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd><strong>Base:</strong> iniciació a la gimnàstica (pull-up, handstand hold). <strong>Advanced:</strong> atletes amb experiència (muscle-up, HSPU, handstand walk).</dd></div>
+            <div><dt>Què aprens</dt><dd>Control corporal, tècnica gimnàstica i progressions adaptades a cada nivell.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Força relativa, coordinació i domini corporal.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva, magnesi (opcional).</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:4">
           <span class="num">05</span>
-          <div><h3>Strength Club</h3><div class="tagline">Sèries i pesos - 60 min</div></div>
-          <p>Un cicle estructurat de força: squat, bench, deadlift, press. Aquí es fa pesat, amb cap i descans.</p>
+          <div><h3>Strength Club</h3><div class="tagline">Powerlifting - 60 min</div></div>
+          <p>Cicle estructurat de força amb barra: squat, bench, deadlift i press. Aquí es fa pesat, amb cap i descans.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen augmentar la força màxima amb barra.</dd></div>
+            <div><dt>Estructura</dt><dd>Cicles de força amb accessoris per corregir desequilibris.</dd></div>
+            <div><dt>Què aprens</dt><dd>Squat, bench press, deadlift i press, amb tècnica i progressió estructurada.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Força pura, estabilitat i control sota càrrega.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva, cinturó (opcional). <strong>Prerequisits:</strong> Cap.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:5">
@@ -165,6 +270,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + capacitat - 60 min</div></div>
           <p>Curt, intens, pensat per sumar-lo a un altre WOD o com a sessió independent. Calories al bike i treball de core.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen millorar core i capacitat cardiovascular.</dd></div>
+            <div><dt>Què aprens</dt><dd>Treball específic d'abdominals i entrenament per intervals amb ergòmetres (rower, bike erg, ski erg).</dd></div>
+            <div><dt>Què guanyes</dt><dd>Estabilitat, resistència i millor control corporal.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba esportiva.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:6">
@@ -172,6 +283,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>The Program</h3><div class="tagline">Avançat i competidor - 90 min</div></div>
           <p>Programa dirigit per a qui vol competir o portar el rendiment a un altre nivell. Inclou seguiment individualitzat.</p>
           <div class="meta"><span>Nivell <strong>Avançat</strong></span><span>Freqüència <strong>5x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Atletes amb experiència que volen entrenament estructurat d'alt rendiment.</dd></div>
+            <div><dt>Què aprens</dt><dd>Programació per cicles, estratègia competitiva i mètodes avançats.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Millora del rendiment i preparació per competició RX.</dd></div>
+            <div><dt>Prerequisits</dt><dd>Experiència mínima d'1 any de CrossFit i domini de moviments bàsics.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:7">
@@ -179,6 +296,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Running Club</h3><div class="tagline">Aire lliure - 60 min</div></div>
           <p>Sortim a córrer pel Vallès. Entrenament estructurat: fartleks, sèries, llargs. Fem pinya abans i cervesa després, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix crèdit</em>.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>1x/setmana</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones que volen córrer en grup, millorar rendiment i gaudir de la comunitat.</dd></div>
+            <div><dt>Què aprens</dt><dd>Fartlek, sèries, tirades llargues i tècnica de carrera.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Millora cardiovascular, constància i motivació social.</dd></div>
+            <div><dt>Què portar</dt><dd>Sabatilles de running i roba transpirable. <strong>⭐ No consumeix crèdit</strong> de la quota mensual.</dd></div>
+          </dl>
         </article>
       </div>
     </div>

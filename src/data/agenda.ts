@@ -18,7 +18,11 @@ export interface AgendaEvent {
   desc?: string;
   descEs?: string;
   descEn?: string;
+  // Imatge per Event schema (URL absoluta)
+  image?: string;
 }
+
+const AGENDA_REPO_RAW = 'https://raw.githubusercontent.com/jordiangladavilla-oss/lamola-tv-agenda2026/main/assets';
 
 // =============================================================================
 // FONT ÚNICA D'EVENTS
@@ -39,7 +43,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Wecamp Camping · Summit 2,506 m',
     desc: "L'expedició de l'any. Dos dies a la muntanya, campament al peu del Pedraforca i ascensió fins al cim.",
     descEs: 'La expedición del año. Dos días en la montaña, campamento al pie del Pedraforca y ascensión hasta la cima.',
-    descEn: 'The expedition of the year. Two days in the mountains, base camp and summit ascent.'
+    descEn: 'The expedition of the year. Two days in the mountains, base camp and summit ascent.',
+    image: `${AGENDA_REPO_RAW}/camping-repos-del-pedraforca.jpg`
   },
   {
     id: 'run-badalona',
@@ -54,7 +59,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Badalona · ~12 km · Run + Brunch',
     desc: 'Run Club a primera línia de mar. Sortida matinal i brunch comunitari.',
     descEs: 'Run Club en primera línea de mar. Salida matinal y brunch comunitario.',
-    descEn: 'Run Club by the sea. Morning run and community brunch.'
+    descEn: 'Run Club by the sea. Morning run and community brunch.',
+    image: `${AGENDA_REPO_RAW}/run%20by%20the%20beach.jpeg`
   },
   {
     id: 'beach-wod',
@@ -69,7 +75,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Beach · 09:00–16:00h',
     desc: "Jornada completa a la platja en col·laboració amb Ikaika Training Masnou.",
     descEs: 'Jornada completa en la playa en colaboración con Ikaika Training Masnou.',
-    descEn: 'Full day at the beach in collaboration with Ikaika Training Masnou.'
+    descEn: 'Full day at the beach in collaboration with Ikaika Training Masnou.',
+    image: `${AGENDA_REPO_RAW}/BeachWod_5.jpg`
   },
   {
     id: 'fcl-games',
@@ -99,7 +106,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'La Mola · Alfonso · €50',
     desc: "Seminari intensiu amb Alfonso. Millora la tècnica d'arrancada i dos temps amb un dels millors coaches.",
     descEs: 'Seminario intensivo con Alfonso. Mejora la técnica de arrancada y dos tiempos con uno de los mejores coaches.',
-    descEn: 'Intensive seminar with Alfonso. Improve your snatch and clean & jerk technique with one of the best coaches.'
+    descEn: 'Intensive seminar with Alfonso. Improve your snatch and clean & jerk technique with one of the best coaches.',
+    image: `${AGENDA_REPO_RAW}/Halteroseminari.jpg`
   },
   {
     id: 'consuegra',
@@ -114,7 +122,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Toledo · Pairs',
     desc: 'Competició de referència nacional. Tres dies de CrossFit per parelles a Toledo.',
     descEs: 'Competición de referencia nacional. Tres días de CrossFit por parejas en Toledo.',
-    descEn: 'National reference competition. Three days of CrossFit pairs in Toledo.'
+    descEn: 'National reference competition. Three days of CrossFit pairs in Toledo.',
+    image: `${AGENDA_REPO_RAW}/throwdown2026.jpeg`
   },
   {
     id: 'summer-fest',
@@ -145,7 +154,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Barcelona · Indiv + Teams',
     desc: 'La gran cita final de temporada. Wodcelona és la competició internacional de referència a Barcelona.',
     descEs: 'La gran cita final de temporada. Wodcelona es la competición internacional de referencia en Barcelona.',
-    descEn: 'The big season finale. Wodcelona is the international reference competition in Barcelona.'
+    descEn: 'The big season finale. Wodcelona is the international reference competition in Barcelona.',
+    image: `${AGENDA_REPO_RAW}/WODCELONA.JPG`
   },
   {
     id: 'fcl-costa-brava',
@@ -160,7 +170,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'La Ballena Alegre Camping',
     desc: "Competició exterior de tardor. Dos dies d'esport i comunitat.",
     descEs: 'Competición exterior de otoño. Dos días de deporte y comunidad.',
-    descEn: 'Autumn outdoor competition. Two days of sport and community.'
+    descEn: 'Autumn outdoor competition. Two days of sport and community.',
+    image: `${AGENDA_REPO_RAW}/evento-costa-brava-fitness-01.jpg`
   },
   {
     id: 'basque-txapelketa',
@@ -175,7 +186,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Bilbao · Oct 30-31 + Nov 1',
     desc: "Tres dies de competició al País Basc. Una de les cites més importants del calendari de tardor.",
     descEs: 'Tres días de competición en el País Vasco. Una de las citas más importantes del calendario de otoño.',
-    descEn: 'Three days of competition in the Basque Country. One of the most important dates on the autumn calendar.'
+    descEn: 'Three days of competition in the Basque Country. One of the most important dates on the autumn calendar.',
+    image: `${AGENDA_REPO_RAW}/BASQUE-TXAPELKETA.jpg`
   }
 ];
 

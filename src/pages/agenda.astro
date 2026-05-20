@@ -129,33 +129,48 @@ function getBadgeText(event: AgendaEvent): string {
       .std-poster .stars{ position:absolute; top:24px; right:24px; font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-hi);}
       .std-poster .desc{ font-family:var(--f-serif); font-size:18px; line-height:1.4; color:var(--bone-2); margin:0; max-width:44ch;}
     </style>
-    <script type="application/ld+json" set:html={JSON.stringify(agendaEvents.map(e => ({
-      "@context":"https://schema.org",
-      "@type":"SportsEvent",
-      "name": e.name,
-      "description": e.desc || `${e.name} · ${e.place}`,
-      "image": "https://crossfitlamola.com/assets/hero-still.webp",
-      "startDate": e.start,
-      "endDate": e.end,
-      "eventStatus":"https://schema.org/EventScheduled",
-      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
-      "sport": "CrossFit",
-      "location":{
-        "@type":"Place",
-        "name": e.place.split('·')[0].trim(),
-        "address":{"@type":"PostalAddress","addressLocality": e.place.split('·')[0].trim(),"addressRegion":"Catalunya","addressCountry":"ES"}
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://crossfitlamola.com/agenda",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "validFrom": e.start
-      },
-      "organizer":{"@id":"https://crossfitlamola.com/#organization"},
-      "performer":{"@id":"https://crossfitlamola.com/#organization"}
-    })))} />
+    <script type="application/ld+json" set:html={JSON.stringify(agendaEvents.map(e => {
+      const isExternal = e.cat === 'comp-ext';
+      const placeName = e.place.split('·')[0].trim();
+      const keywords = {
+        'activitat': 'CrossFit activitat, comunitat, La Mola',
+        'comp-ext': 'CrossFit competició, throwdown, esport',
+        'seminari': 'CrossFit seminari, formació, halterofília',
+        'festa': 'CrossFit festa, comunitat, WOD',
+        'masterclass': 'CrossFit masterclass, formació'
+      }[e.cat] || 'CrossFit';
+      return {
+        "@context":"https://schema.org",
+        "@type":"SportsEvent",
+        "name": e.name,
+        "description": e.desc || `${e.name} · ${e.place}`,
+        "image": e.image || "https://crossfitlamola.com/assets/hero-still.webp",
+        "startDate": e.start,
+        "endDate": e.end,
+        "eventStatus":"https://schema.org/EventScheduled",
+        "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+        "sport": "CrossFit",
+        "inLanguage": ["ca", "es"],
+        "keywords": keywords,
+        "location":{
+          "@type":"Place",
+          "name": placeName,
+          "address":{"@type":"PostalAddress","addressLocality": placeName,"addressRegion":"Catalunya","addressCountry":"ES"}
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": `https://crossfitlamola.com/agenda#${e.id}`,
+          "price": "0",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "validFrom": e.start
+        },
+        "organizer": isExternal
+          ? {"@type": "Organization", "name": placeName}
+          : {"@id":"https://crossfitlamola.com/#organization"},
+        "performer":{"@id":"https://crossfitlamola.com/#organization"}
+      };
+    }))} />
   </Fragment>
 
   <Nav currentPage="/agenda" />

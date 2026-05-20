@@ -13,23 +13,90 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
   <Schema type="classes" slot="head" />
   <Breadcrumb items={[{name: "Classes"}]} lang="en" slot="head" />
   <Fragment slot="head">
-    <script type="application/ld+json" data-schema="itemlist-disciplines">
-    {
+    <script type="application/ld+json" data-schema="itemlist-disciplines" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Disciplines at CrossFit La Mola",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"item":{"@type":"Course","name":"WOD","description":"Daily varied CrossFit class","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":2,"item":{"@type":"Course","name":"Weightlifting","description":"Olympic technique: snatch and clean & jerk","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":3,"item":{"@type":"Course","name":"Strength","description":"Pure barbell strength","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":4,"item":{"@type":"Course","name":"Gymnastics / Bodyweight","description":"Pull-ups, handstands, calisthenics","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running","description":"Running technique and endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid training","description":"CrossFit meets long cardio","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"ABS","description":"Core and stability","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"The Program","description":"Advanced athlete programming","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+        {"@type":"ListItem","position":1,"item":{
+          "@type":"Course","name":"WOD (Workout of the Day)","description":"Daily coached class combining strength, basic weightlifting, gymnastics and high-intensity cardiovascular conditioning. Scalable to all levels.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"Beginner to Advanced","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to improve overall fitness, from beginners to advanced athletes"},
+          "teaches":["Functional movements","Basic weightlifting","Basic gymnastics","Cardiovascular conditioning","EMOM, AMRAP and FOR TIME"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"First class free","price":"0","priceCurrency":"EUR"}
+        }},
+        {"@type":"ListItem","position":2,"item":{
+          "@type":"Course","name":"La Mola Weightlifting","description":"Olympic weightlifting: snatch and clean & jerk technique with progressive loads and specific mobility.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to improve Olympic weightlifting technique"},
+          "teaches":["Snatch","Clean & jerk","Olympic positions and mobility","Technical efficiency"],
+          "coursePrerequisites":"None (previous experience recommended)",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":3,"item":{
+          "@type":"Course","name":"Strength Club - Powerlifting","description":"Structured strength cycles with barbell: squat, bench press, deadlift and press, with accessories.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to increase maximum strength with barbell"},
+          "teaches":["Back squat","Bench press","Deadlift","Press","Bar technique","Progressive strength cycles"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":4,"item":{
+          "@type":"Course","name":"Bodyweight Lab - Base","description":"Gymnastics fundamentals: strict pull-up, handstand hold and gymnastics progressions.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"Beginner","timeRequired":"PT45M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People starting gymnastics"},
+          "teaches":["Strict pull-up","Handstand hold","Body control","Gymnastic progressions"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":5,"item":{
+          "@type":"Course","name":"Bodyweight Lab - Advanced","description":"Advanced gymnastics: butterfly pull-ups, muscle-ups, handstand walk (HSW) and HSPU.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"Advanced","timeRequired":"PT45M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Athletes with gymnastics experience"},
+          "teaches":["Butterfly pull-ups","Muscle-ups","Handstand walk","HSPU","Advanced relative strength"],
+          "coursePrerequisites":"Mastery of strict pull-up and handstand hold",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":6,"item":{
+          "@type":"Course","name":"Hybrid Club","description":"Hybrid training with sled push/pull, ergometers (rower, ski erg), wall balls, kettlebells and running intervals. Format inspired by HYROX-style competitions.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to combine endurance and functional strength with hybrid formats like HYROX competitions"},
+          "teaches":["Sled push","Sled pull","Ski erg","Concept2 row","Wall balls","Kettlebells","HYROX-style hybrid format"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":7,"item":{
+          "@type":"Course","name":"Abs & Cals","description":"Specific abdominal work and ergometer interval training (rower, bike erg, ski erg) to improve core and cardiovascular capacity.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to improve core and cardiovascular capacity"},
+          "teaches":["Core work","Ergometer intervals","Stability","Cardiovascular endurance"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":8,"item":{
+          "@type":"Course","name":"The Program","description":"Cycle-based structured programming for advanced athletes: competitive strategy, advanced methods and RX preparation.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"Advanced","timeRequired":"PT90M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Experienced athletes who want high-performance structured training"},
+          "teaches":["Cycle-based programming","Competitive strategy","Advanced RX methods","Competition preparation"],
+          "coursePrerequisites":"Minimum 1 year of CrossFit experience and mastery of basic movements",
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }},
+        {"@type":"ListItem","position":9,"item":{
+          "@type":"Course","name":"Running Club","description":"Group running training: fartlek, intervals, long runs and running technique. Does not consume membership credit.",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to run in a group, improve performance and enjoy community"},
+          "teaches":["Fartlek","Intervals","Long runs","Running technique"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"Free with membership","price":"0","priceCurrency":"EUR","description":"Does not consume membership credit"}
+        }}
       ]
-    }
-    </script>
+    })} />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -77,6 +144,11 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
       .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
       .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
       .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
+      .disc-details{ grid-column:1/-1; margin-top:22px; padding-top:20px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
+      @media(min-width:900px){ .disc-details{ grid-template-columns:repeat(2,1fr); gap:16px 40px;} }
+      .disc-details dt{ font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); font-weight:500; margin:0 0 5px;}
+      .disc-details dd{ margin:0; font-family:var(--f-serif); font-size:14.5px; line-height:1.5; color:var(--bone-ink); opacity:.85;}
+      .disc-details dd strong{ color:var(--bone-ink); font-weight:500; opacity:1;}
       .disc .thumb{ display:none;}
       @media(min-width:900px){
         .disc .thumb{ display:block; aspect-ratio:3/2; overflow:hidden; background:var(--ink-2);}
@@ -124,34 +196,67 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Main class - 60 min</div></div>
           <p>The heart of CrossFit. Warm-up, skill work, WOD, and cool-down. A coach guides the group from start to finish.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>Daily</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to improve overall fitness, from beginners to advanced athletes. Fully scalable.</dd></div>
+            <div><dt>Class structure</dt><dd>Initial briefing and scaling options → guided warm-up (5-10 min) → strength or technique block (15-20 min) → main high-intensity workout (8-15 min) with EMOM, AMRAP or FOR TIME format → cool-down and stretching.</dd></div>
+            <div><dt>What you learn</dt><dd>Functional movements, basic weightlifting, gymnastics and cardiovascular conditioning.</dd></div>
+            <div><dt>What you gain</dt><dd>Overall fitness improvement, more energy, injury prevention, coordination and general wellbeing.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear, training shoes and water. <strong>Prerequisites:</strong> None.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:1">
           <span class="num">02</span>
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
           <p>Olympic lifting. We work both lifts and their variations with progressions tailored to each athlete.</p>
-          <div class="meta"><span>Level <strong>Intermediate</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to improve Olympic weightlifting technique.</dd></div>
+            <div><dt>Structure</dt><dd>Technical work with light to moderate loads and specific movement progressions.</dd></div>
+            <div><dt>What you learn</dt><dd>Snatch, clean &amp; jerk, positions and Olympic-specific mobility.</dd></div>
+            <div><dt>What you gain</dt><dd>Better technique, more efficiency and transfer to sports performance.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear, weightlifting shoes (recommended). <strong>Prerequisites:</strong> None (previous experience recommended).</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:2">
           <span class="num">03</span>
           <div><h3>Hybrid Club</h3><div class="tagline">Strength + Cardio - 60 min</div></div>
-          <p>For those who want both: free weight strength and long-distance cardio capacity. Inspired by the Hyrox format.</p>
+          <p>Functional strength and long-distance cardiovascular endurance with simple movements: sled push/pull, row, ski erg, kettlebells and wall balls. Format inspired by HYROX, without complex technical movements.</p>
           <div class="meta"><span>Level <strong>All levels</strong></span><span>Frequency <strong>4x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to combine endurance and functional strength with hybrid formats like HYROX competitions.</dd></div>
+            <div><dt>What you learn</dt><dd>Sled push/pull work, ergometers (row, ski erg), wall balls, kettlebells and running intervals.</dd></div>
+            <div><dt>What you gain</dt><dd>High cardiovascular endurance, sustained strength and preparation for long efforts.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear, well-cushioned shoes. <strong>Prerequisites:</strong> None.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:3">
           <span class="num">04</span>
           <div><h3>Bodyweight Lab</h3><div class="tagline">Gymnastics - 45 min</div></div>
-          <p>Two tracks: Base for learning gymnastics fundamentals, and Advance for butterfly pull-ups, muscle-ups, HSW and HSPU.</p>
-          <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <p>Two tracks: Base for learning gymnastics fundamentals, and Advanced for butterfly pull-ups, muscle-ups, HSW and HSPU.</p>
+          <div class="meta"><span>Level <strong>Base / Advanced</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd><strong>Base:</strong> gymnastics fundamentals (pull-up, handstand hold). <strong>Advanced:</strong> experienced athletes (muscle-up, HSPU, handstand walk).</dd></div>
+            <div><dt>What you learn</dt><dd>Body control, gymnastic technique and progressions tailored to each level.</dd></div>
+            <div><dt>What you gain</dt><dd>Relative strength, coordination and body mastery.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear, chalk (optional).</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:4">
           <span class="num">05</span>
-          <div><h3>Strength Club</h3><div class="tagline">Sets and weight - 60 min</div></div>
-          <p>Structured strength cycle: squat, bench, deadlift, press. Heavy lifting, smart programming, proper rest.</p>
+          <div><h3>Strength Club</h3><div class="tagline">Powerlifting - 60 min</div></div>
+          <p>Structured barbell strength cycle: squat, bench, deadlift, press. Heavy lifting, smart programming, proper rest.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to increase maximum strength with barbell.</dd></div>
+            <div><dt>Structure</dt><dd>Strength cycles with accessories to correct imbalances.</dd></div>
+            <div><dt>What you learn</dt><dd>Squat, bench press, deadlift and press, with technique and structured progression.</dd></div>
+            <div><dt>What you gain</dt><dd>Pure strength, stability and control under load.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear, lifting belt (optional). <strong>Prerequisites:</strong> None.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:5">
@@ -159,6 +264,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + cardio - 60 min</div></div>
           <p>Short, intense, designed to stack with another WOD or stand alone. Calories on the bike and core work.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to improve core and cardiovascular capacity.</dd></div>
+            <div><dt>What you learn</dt><dd>Specific abdominal work and interval training with ergometers (rower, bike erg, ski erg).</dd></div>
+            <div><dt>What you gain</dt><dd>Stability, endurance and better body control.</dd></div>
+            <div><dt>What to bring</dt><dd>Sportswear.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:6">
@@ -166,6 +277,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>The Program</h3><div class="tagline">Advanced & competitor - 90 min</div></div>
           <p>Structured programming for those who want to compete or push performance to another level. Includes individual tracking.</p>
           <div class="meta"><span>Level <strong>Advanced</strong></span><span>Frequency <strong>5x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>Experienced athletes who want high-performance structured training.</dd></div>
+            <div><dt>What you learn</dt><dd>Cycle-based programming, competitive strategy and advanced methods.</dd></div>
+            <div><dt>What you gain</dt><dd>Performance improvement and RX competition preparation.</dd></div>
+            <div><dt>Prerequisites</dt><dd>Minimum 1 year of CrossFit experience and mastery of basic movements.</dd></div>
+          </dl>
         </article>
 
         <article class="disc" style="--i:7">
@@ -173,6 +290,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Running Club</h3><div class="tagline">Outdoors - 60 min</div></div>
           <p>We hit the trails around Vallès. Structured workouts: fartleks, intervals, long runs. We build community before and grab beers after, sometimes. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No credit required</em>.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>1x/week</strong></span></div>
+          <dl class="disc-details">
+            <div><dt>Who it's for</dt><dd>People who want to run in a group, improve performance and enjoy community.</dd></div>
+            <div><dt>What you learn</dt><dd>Fartlek, intervals, long runs and running technique.</dd></div>
+            <div><dt>What you gain</dt><dd>Cardiovascular improvement, consistency and social motivation.</dd></div>
+            <div><dt>What to bring</dt><dd>Running shoes and breathable clothing. <strong>⭐ Does not consume credit</strong> from monthly membership.</dd></div>
+          </dl>
         </article>
       </div>
     </div>
