@@ -114,7 +114,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
             <span>Terrassa · CrossFit Affiliate</span>
           </div>
           <h1 class="visually-hidden">CrossFit La Mola · Box de CrossFit a Terrassa.</h1>
-          <img class="hero-logo" src="/assets/logo-full.png" alt="CrossFit La Mola. Build strength together.">
+          <img class="hero-logo" src="/assets/logo-full.png" alt="CrossFit La Mola. Build strength together." width="1280" height="199" fetchpriority="high">
         </div>
 
         <div class="hero-bottom-row">
@@ -188,7 +188,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
           <a href="/el-box" class="story-link">Veure tot el box <span class="arr"></span></a>
         </div>
         <div class="story-images reveal-stagger">
-          <figure class="tall" style="--i:0"><img src="/assets/lamola-climb.jpg" alt="Atleta fent rope climb a CrossFit La Mola, com pujar La Mola pas a pas" loading="lazy"></figure>
+          <figure class="tall" style="--i:0"><img src="/assets/lamola-climb.webp" alt="Atleta fent rope climb a CrossFit La Mola, com pujar La Mola pas a pas" width="520" height="780" loading="lazy"></figure>
           <figure style="--i:1"><img src="/assets/detail-chalk.webp" alt="Mà d'atleta amb magnesi preparant-se per aixecar" loading="lazy"></figure>
           <figure style="--i:2"><img src="/assets/detail-dumbbells.webp" alt="Rack de manuelles de competició al box" loading="lazy"></figure>
           <figure style="--i:3"><img src="/assets/class-weightlifting.webp" alt="Atleta fent halterofília amb barra per sobre el cap al box" loading="lazy"></figure>
@@ -446,7 +446,7 @@ const AGENDA = agendaEvents.slice(0, 6).map(e => {
       </div>
       <div class="contact-grid">
         <form class="contact-form reveal" id="home-form">
-          <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+          <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
           <div class="form-row two">
             <div class="field">
               <label for="f-name">Nom</label>
