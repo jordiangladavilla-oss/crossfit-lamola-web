@@ -53,11 +53,11 @@ export const ui = {
     'home.title': 'CrossFit La Mola · Box a Terrassa',
     'home.description': 'Box de CrossFit a Terrassa. Entrenament funcional per a tots els nivells amb coaches certificats. Primera classe gratuïta.',
     'home.heroTagline': 'Build strength together',
-    'home.heroSubtitle': 'Tres coaches. Nou disciplines. Una sala amb llum pròpia. La resta, la constància, la paciència, la poses tu.',
+    'home.heroSubtitle': 'Tres coaches. Vuit disciplines. Una sala amb llum pròpia. La resta, la constància, la paciència, la poses tu.',
 
     // Classes
     'classes.title': 'Classes · CrossFit La Mola Terrassa',
-    'classes.description': 'Les 9 disciplines del box: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club i més.',
+    'classes.description': 'Les 8 disciplines del box: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club i més.',
     'classes.heroTitle': 'Troba el teu moviment.',
     'classes.level': 'Nivell',
     'classes.frequency': 'Freqüència',
@@ -193,11 +193,11 @@ export const ui = {
     'home.title': 'CrossFit La Mola · Box en Terrassa',
     'home.description': 'Box de CrossFit en Terrassa. Entrenamiento funcional para todos los niveles con coaches certificados. Primera clase gratis.',
     'home.heroTagline': 'Build strength together',
-    'home.heroSubtitle': 'Tres coaches. Nueve disciplinas. Una sala con luz propia. El resto, la constancia, la paciencia, la pones tú.',
+    'home.heroSubtitle': 'Tres coaches. Ocho disciplinas. Una sala con luz propia. El resto, la constancia, la paciencia, la pones tú.',
 
     // Classes
     'classes.title': 'Clases · CrossFit La Mola Terrassa',
-    'classes.description': 'Las 9 disciplinas del box: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club y más.',
+    'classes.description': 'Las 8 disciplinas del box: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club y más.',
     'classes.heroTitle': 'Encuentra tu movimiento.',
     'classes.level': 'Nivel',
     'classes.frequency': 'Frecuencia',
@@ -333,11 +333,11 @@ export const ui = {
     'home.title': 'CrossFit La Mola · Box in Terrassa',
     'home.description': 'CrossFit box in Terrassa, Barcelona. Functional training for all levels with certified coaches. Free first class.',
     'home.heroTagline': 'Build strength together',
-    'home.heroSubtitle': 'Three coaches. Nine disciplines. A space with its own light. The rest—consistency, patience—is on you.',
+    'home.heroSubtitle': 'Three coaches. Eight disciplines. A space with its own light. The rest—consistency, patience—is on you.',
 
     // Classes
     'classes.title': 'Classes · CrossFit La Mola Terrassa',
-    'classes.description': 'The 9 disciplines: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club and more.',
+    'classes.description': 'The 8 disciplines: WOD, Weightlifting, Hybrid Club, Bodyweight Lab, Strength Club and more.',
     'classes.heroTitle': 'Find your movement.',
     'classes.level': 'Level',
     'classes.frequency': 'Frequency',

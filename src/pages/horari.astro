@@ -58,7 +58,6 @@ import Schema from '../components/Schema.astro'
         <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab"></span></button>
         <button class="filter" data-f="pr">The Program <span class="count" id="c-pr"></span></button>
         <button class="filter" data-f="rc">Running <span class="count" id="c-rc"></span></button>
-        <button class="filter" data-f="etc">Entrena con tu coach <span class="count" id="c-etc"></span></button>
       </div>
 
       <div class="week reveal" id="week"></div>
@@ -180,7 +179,7 @@ import Schema from '../components/Schema.astro'
     // Status
     function updateStatus(){
       var now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
-      var open = (d>=1&&d<=5 && h>=7 && h<21.5) || (d===6 && h>=9.5 && h<11.5) || (d===0 && h>=9.5 && h<11.5);
+      var open = (d>=1&&d<=4 && h>=7 && h<21.5) || (d===5 && h>=7 && h<20.5) || (d===6 && h>=9.5 && h<11.5) || (d===0 && h>=9.5 && h<11.5);
       var dot=document.getElementById('statusDot'), t=document.getElementById('statusText');
       if (dot && t) {
         if (open){ dot.classList.remove('closed'); t.textContent='Obert ara'; }
@@ -193,87 +192,86 @@ import Schema from '../components/Schema.astro'
     var SCHEDULE = {
       "Dilluns": [
         ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
+        ["08:30-09:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
         ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
+        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
         ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
         ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
         ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
+        ["14:30-15:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
+        ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
+        ["16:00-17:30", ["THE PROGRAM"]],
         ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
         ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
+        ["18:30-19:30", ["HYBRID CLUB", "LA MOLA WEIGHTLIFTING", "OPEN EXTERIOR"]],
         ["19:30-20:30", ["WOD", "OPEN EXTERIOR"]],
         ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
       ],
       "Dimarts": [
         ["07:00-08:00", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
+        ["08:30-09:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
+        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
         ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
         ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
         ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
         ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
+        ["16:00-17:30", ["THE PROGRAM"]],
         ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
         ["17:30-18:30", ["WOD", "BODYWEIGHT LAB - ADVANCE", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "OPEN EXTERIOR"]],
+        ["18:30-19:30", ["WOD", "STRENGTH CLUB - POWERLIFTING", "OPEN EXTERIOR"]],
         ["19:30-20:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
         ["20:30-21:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]]
       ],
       "Dimecres": [
         ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
+        ["08:30-09:30", ["LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
+        ["09:30-10:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
+        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
         ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
         ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
         ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
         ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
+        ["16:00-17:30", ["THE PROGRAM"]],
         ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
         ["17:30-18:30", ["WOD", "LA MOLA WEIGHTLIFTING", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "BODYWEIGHT LAB - BASE", "RUNNING CLUB", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
-        ["19:30-20:30", ["WOD", "ABS & CALS", "OPEN EXTERIOR"]],
+        ["18:30-19:30", ["BODYWEIGHT LAB - BASE", "RUNNING CLUB", "OPEN EXTERIOR"]],
+        ["19:30-20:30", ["WOD", "ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
         ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
       ],
       "Dijous": [
         ["07:00-08:00", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
+        ["08:30-09:30", ["ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
         ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
+        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
         ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
         ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
         ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["15:30-16:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["ENTRENA CON TU COACH"]],
+        ["14:30-15:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
+        ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
+        ["16:00-17:30", ["THE PROGRAM"]],
         ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
         ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["18:30-19:30", ["HYBRID CLUB", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "OPEN EXTERIOR"]],
+        ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
       ],
       "Divendres": [
         ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
+        ["08:30-09:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["09:30-10:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
+        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
         ["11:30-12:30", ["OPEN", "OPEN EXTERIOR"]],
         ["12:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
         ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
         ["14:30-15:30", ["OPEN", "OPEN EXTERIOR"]],
         ["15:30-16:30", ["OPEN", "OPEN EXTERIOR"]],
+        ["16:00-17:30", ["THE PROGRAM"]],
         ["16:30-17:30", ["OPEN", "OPEN EXTERIOR"]],
         ["17:30-18:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
         ["18:30-19:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-20:30", ["THE PROGRAM"]],
         ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
       ],
       "Dissabte": [
@@ -290,7 +288,6 @@ import Schema from '../components/Schema.astro'
     function classify(name){
       var n=name.toUpperCase();
       if (n==='OPEN' || n==='OPEN EXTERIOR') return {k:'open', l:n, interior:n==='OPEN'};
-      if (n==='ENTRENA CON TU COACH') return {k:'etc', l:'Entrena con tu coach'};
       if (n.indexOf('THE PROGRAM')>=0) return {k:'pr', l:'The Program'};
       if (n.indexOf('WEIGHTLIFTING')>=0) return {k:'wl', l:'Weightlifting'};
       if (n.indexOf('HYBRID')>=0) return {k:'hy', l:'Hybrid Club'};
@@ -311,7 +308,7 @@ import Schema from '../components/Schema.astro'
     var fmt=function(d){ return d.getDate()+' '+['gen','feb','mar','abr','mai','jun','jul','ago','set','oct','nov','des'][d.getMonth()];};
     document.querySelectorAll('.js-week-range').forEach(function(el){ var s=new Date(monday); var e=new Date(monday); e.setDate(e.getDate()+6); el.textContent = fmt(s)+' - '+fmt(e); });
 
-    var counts={all:0,wod:0,wl:0,hy:0,bw:0,st:0,ab:0,pr:0,rc:0,etc:0};
+    var counts={all:0,wod:0,wl:0,hy:0,bw:0,st:0,ab:0,pr:0,rc:0};
     var week=document.getElementById('week');
 
     if (week) {

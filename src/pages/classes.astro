@@ -8,7 +8,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
 <Layout
   title="Classes · CrossFit La Mola Terrassa"
-  description="9 disciplines a Terrassa: WOD, halterofília, hybrid training, running club, strength i més. Classes dirigides per a tots els nivells."
+  description="8 disciplines a Terrassa: WOD, halterofília, hybrid training, running club, strength i més. Classes dirigides per a tots els nivells."
 >
   <Schema type="classes" slot="head" />
   <Breadcrumb items={[{name: "Classes"}]} lang="ca" slot="head" />
@@ -26,8 +26,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         {"@type":"ListItem","position":5,"item":{"@type":"Course","name":"Running Club","description":"Tècnica de cursa i resistència","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
         {"@type":"ListItem","position":6,"item":{"@type":"Course","name":"Hybrid Club","description":"Combinació de CrossFit i endurance","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
         {"@type":"ListItem","position":7,"item":{"@type":"Course","name":"Abs & Cals","description":"Core i estabilitat","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"The Program","description":"Programació avançada per a competidors","provider":{"@id":"https://crossfitlamola.com/#organization"}}},
-        {"@type":"ListItem","position":9,"item":{"@type":"Course","name":"Entrena con tu Coach","description":"Atenció individualitzada","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
+        {"@type":"ListItem","position":8,"item":{"@type":"Course","name":"The Program","description":"Programació avançada per a competidors","provider":{"@id":"https://crossfitlamola.com/#organization"}}}
       ]
     }
     </script>
@@ -50,8 +49,6 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         {"@type": "Question", "name": "Abs & Cals consumeix crèdit de la quota?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, compta com una classe normal dins de la teva quota mensual."}},
         {"@type": "Question", "name": "Qui pot fer The Program?", "acceptedAnswer": {"@type": "Answer", "text": "Atletes amb nivell avançat que volen competir o portar el rendiment al màxim nivell."}},
         {"@type": "Question", "name": "És obligatori fer les 4 sessions de The Program?", "acceptedAnswer": {"@type": "Answer", "text": "No és obligatori, però la programació està dissenyada per seguir-se completa per obtenir millors resultats."}},
-        {"@type": "Question", "name": "En què es diferencia Entrena con tu Coach d'una classe grupal?", "acceptedAnswer": {"@type": "Answer", "text": "Entrenes la mateixa pissarra que el coach però amb atenció personalitzada i correccions individuals."}},
-        {"@type": "Question", "name": "Puc demanar un focus específic a Entrena con tu Coach?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, pots treballar tècnica, debilitats específiques o preparar una competició concreta."}},
         {"@type": "Question", "name": "Necessito ser bon corredor per Running Club?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hi ha ritmes per a tots els nivells i sempre anem en grup, sense deixar ningú enrere."}},
         {"@type": "Question", "name": "Running Club consumeix crèdit de la quota?", "acceptedAnswer": {"@type": "Answer", "text": "No, Running Club no consumeix crèdit de la teva quota mensual."}},
         {"@type": "Question", "name": "Quina classe és millor per començar CrossFit?", "acceptedAnswer": {"@type": "Answer", "text": "El WOD és la classe ideal per començar. És la classe diària de CrossFit que combina tots els elements i s'adapta a qualsevol nivell. El coach escala els moviments segons les teves capacitats."}},
@@ -106,7 +103,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     <div class="bg" style="background-image:url('/assets/detail-rope.jpg')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Classes</span></div>
-      <div class="kicker"><span>9 disciplines</span><span class="bar"></span><span>Una mateixa intenció</span></div>
+      <div class="kicker"><span>8 disciplines</span><span class="bar"></span><span>Una mateixa intenció</span></div>
       <h1>Troba el teu<br><em class="serif">moviment</em><span class="dot">.</span></h1>
       <p class="sub">Entrenar no és repetir, sinó construir amb tècnica, càrrega i cap. Cada sessió està pensada per fer-te avançar amb sentit, adaptant-se al teu moment i al teu nivell.</p>
     </div>
@@ -114,10 +111,10 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num"></span><span>Les 9 disciplines</span></div>
+      <div class="eyebrow reveal"><span class="num"></span><span>Les 8 disciplines</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Nou maneres<br>d'entrar al <em class="serif">box</em><span class="dot">.</span></h2>
+        <h2 class="h-xl reveal">Vuit maneres<br>d'entrar al <em class="serif">box</em><span class="dot">.</span></h2>
         <p class="lead reveal">Cada classe té la seva intenció: una per construir força pura, una altra per trobar el ritme, una altra per pulir la tècnica. No cal triar-ne només una.</p>
       </div>
 
@@ -173,13 +170,6 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
         <article class="disc" style="--i:7">
           <span class="num">08</span>
-          <div><h3>Entrena con tu <em>Coach</em></h3><div class="tagline">1 a 1 - 60 min</div></div>
-          <p>Sessió privada amb el coach que triïs. Per pulir tècnica, preparar una competició o tornar després d'una lesió.</p>
-          <div class="meta"><span>Nivell <strong>Intermedi</strong></span><span>Freqüència <strong>3x/setmana</strong></span></div>
-        </article>
-
-        <article class="disc" style="--i:8">
-          <span class="num">09</span>
           <div><h3>Running Club</h3><div class="tagline">Aire lliure - 60 min</div></div>
           <p>Sortim a córrer pel Vallès. Entrenament estructurat: fartleks, sèries, llargs. Fem pinya abans i cervesa després, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix crèdit</em>.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>1x/setmana</strong></span></div>
