@@ -144,7 +144,19 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
       .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
       .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
       .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
-      .disc-details{ grid-column:1/-1; margin-top:22px; padding-top:20px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
+      .disc-more{ grid-column:1/-1; margin-top:18px;}
+      .disc-more summary{ list-style:none; cursor:pointer; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); display:inline-flex; align-items:center; gap:10px; padding:6px 0; user-select:none; transition:opacity .2s;}
+      .disc-more summary::-webkit-details-marker{ display:none;}
+      .disc-more summary:hover{ opacity:.7;}
+      .disc-more summary:focus-visible{ outline:1px dashed var(--accent-ink); outline-offset:4px; border-radius:2px;}
+      .disc-more-label::before{ content:"View ";}
+      .disc-more[open] .disc-more-label::before{ content:"Hide ";}
+      .disc-more-icon{ width:12px; height:12px; position:relative; display:inline-block;}
+      .disc-more-icon::before,.disc-more-icon::after{ content:""; position:absolute; background:currentColor; transition:transform .25s ease;}
+      .disc-more-icon::before{ left:0; right:0; top:50%; height:1.5px; transform:translateY(-50%);}
+      .disc-more-icon::after{ top:0; bottom:0; left:50%; width:1.5px; transform:translateX(-50%);}
+      .disc-more[open] .disc-more-icon::after{ transform:translateX(-50%) scaleY(0);}
+      .disc-details{ margin:20px 0 0; padding-top:18px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
       @media(min-width:900px){ .disc-details{ grid-template-columns:repeat(2,1fr); gap:16px 40px;} }
       .disc-details dt{ font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); font-weight:500; margin:0 0 5px;}
       .disc-details dd{ margin:0; font-family:var(--f-serif); font-size:14.5px; line-height:1.5; color:var(--bone-ink); opacity:.85;}
@@ -196,13 +208,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Main class - 60 min</div></div>
           <p>The heart of CrossFit. Warm-up, skill work, WOD, and cool-down. A coach guides the group from start to finish.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>Daily</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to improve overall fitness, from beginners to advanced athletes. Fully scalable.</dd></div>
             <div><dt>Class structure</dt><dd>Initial briefing and scaling options → guided warm-up (5-10 min) → strength or technique block (15-20 min) → main high-intensity workout (8-15 min) with EMOM, AMRAP or FOR TIME format → cool-down and stretching.</dd></div>
             <div><dt>What you learn</dt><dd>Functional movements, basic weightlifting, gymnastics and cardiovascular conditioning.</dd></div>
             <div><dt>What you gain</dt><dd>Overall fitness improvement, more energy, injury prevention, coordination and general wellbeing.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear, training shoes and water. <strong>Prerequisites:</strong> None.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="weightlifting" style="--i:1">
@@ -210,13 +222,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
           <p>Olympic lifting. We work both lifts and their variations with progressions tailored to each athlete.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to improve Olympic weightlifting technique.</dd></div>
             <div><dt>Structure</dt><dd>Technical work with light to moderate loads and specific movement progressions.</dd></div>
             <div><dt>What you learn</dt><dd>Snatch, clean &amp; jerk, positions and Olympic-specific mobility.</dd></div>
             <div><dt>What you gain</dt><dd>Better technique, more efficiency and transfer to sports performance.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear, weightlifting shoes (recommended). <strong>Prerequisites:</strong> None (previous experience recommended).</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="hybrid" style="--i:2">
@@ -224,12 +236,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Hybrid Club</h3><div class="tagline">Strength + Cardio - 60 min</div></div>
           <p>Functional strength and long-distance cardiovascular endurance with simple movements: sled push/pull, row, ski erg, kettlebells and wall balls. Format inspired by HYROX, without complex technical movements.</p>
           <div class="meta"><span>Level <strong>All levels</strong></span><span>Frequency <strong>4x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to combine endurance and functional strength with hybrid formats like HYROX competitions.</dd></div>
             <div><dt>What you learn</dt><dd>Sled push/pull work, ergometers (row, ski erg), wall balls, kettlebells and running intervals.</dd></div>
             <div><dt>What you gain</dt><dd>High cardiovascular endurance, sustained strength and preparation for long efforts.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear, well-cushioned shoes. <strong>Prerequisites:</strong> None.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="bodyweight" style="--i:3">
@@ -237,12 +249,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Bodyweight Lab</h3><div class="tagline">Gymnastics - 45 min</div></div>
           <p>Two tracks: Base for learning gymnastics fundamentals, and Advanced for butterfly pull-ups, muscle-ups, HSW and HSPU.</p>
           <div class="meta"><span>Level <strong>Base / Advanced</strong></span><span>Frequency <strong>2x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd><strong>Base:</strong> gymnastics fundamentals (pull-up, handstand hold). <strong>Advanced:</strong> experienced athletes (muscle-up, HSPU, handstand walk).</dd></div>
             <div><dt>What you learn</dt><dd>Body control, gymnastic technique and progressions tailored to each level.</dd></div>
             <div><dt>What you gain</dt><dd>Relative strength, coordination and body mastery.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear, chalk (optional).</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="strength" style="--i:4">
@@ -250,13 +262,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Strength Club</h3><div class="tagline">Powerlifting - 60 min</div></div>
           <p>Structured barbell strength cycle: squat, bench, deadlift, press. Heavy lifting, smart programming, proper rest.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to increase maximum strength with barbell.</dd></div>
             <div><dt>Structure</dt><dd>Strength cycles with accessories to correct imbalances.</dd></div>
             <div><dt>What you learn</dt><dd>Squat, bench press, deadlift and press, with technique and structured progression.</dd></div>
             <div><dt>What you gain</dt><dd>Pure strength, stability and control under load.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear, lifting belt (optional). <strong>Prerequisites:</strong> None.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="abs-cals" style="--i:5">
@@ -264,12 +276,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + cardio - 60 min</div></div>
           <p>Short, intense, designed to stack with another WOD or stand alone. Calories on the bike and core work.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>2x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to improve core and cardiovascular capacity.</dd></div>
             <div><dt>What you learn</dt><dd>Specific abdominal work and interval training with ergometers (rower, bike erg, ski erg).</dd></div>
             <div><dt>What you gain</dt><dd>Stability, endurance and better body control.</dd></div>
             <div><dt>What to bring</dt><dd>Sportswear.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="the-program" style="--i:6">
@@ -277,12 +289,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>The Program</h3><div class="tagline">Advanced & competitor - 90 min</div></div>
           <p>Structured programming for those who want to compete or push performance to another level. Includes individual tracking.</p>
           <div class="meta"><span>Level <strong>Advanced</strong></span><span>Frequency <strong>5x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>Experienced athletes who want high-performance structured training.</dd></div>
             <div><dt>What you learn</dt><dd>Cycle-based programming, competitive strategy and advanced methods.</dd></div>
             <div><dt>What you gain</dt><dd>Performance improvement and RX competition preparation.</dd></div>
             <div><dt>Prerequisites</dt><dd>Minimum 1 year of CrossFit experience and mastery of basic movements.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="running" style="--i:7">
@@ -290,12 +302,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           <div><h3>Running Club</h3><div class="tagline">Outdoors - 60 min</div></div>
           <p>We hit the trails around Vallès. Structured workouts: fartleks, intervals, long runs. We build community before and grab beers after, sometimes. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No credit required</em>.</p>
           <div class="meta"><span>Level <strong>All</strong></span><span>Frequency <strong>1x/week</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">details</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Who it's for</dt><dd>People who want to run in a group, improve performance and enjoy community.</dd></div>
             <div><dt>What you learn</dt><dd>Fartlek, intervals, long runs and running technique.</dd></div>
             <div><dt>What you gain</dt><dd>Cardiovascular improvement, consistency and social motivation.</dd></div>
             <div><dt>What to bring</dt><dd>Running shoes and breathable clothing. <strong>⭐ Does not consume credit</strong> from monthly membership.</dd></div>
-          </dl>
+          </dl></details>
         </article>
       </div>
     </div>

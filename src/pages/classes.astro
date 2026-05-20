@@ -150,7 +150,19 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       .disc p{ font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink); opacity:.78; margin:0; max-width:42ch;}
       .disc .meta{ display:grid; gap:6px; font-family:var(--f-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted-ink);}
       .disc .meta strong{ color:var(--bone-ink); font-weight:500; letter-spacing:.14em;}
-      .disc-details{ grid-column:1/-1; margin-top:22px; padding-top:20px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
+      .disc-more{ grid-column:1/-1; margin-top:18px;}
+      .disc-more summary{ list-style:none; cursor:pointer; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); display:inline-flex; align-items:center; gap:10px; padding:6px 0; user-select:none; transition:opacity .2s;}
+      .disc-more summary::-webkit-details-marker{ display:none;}
+      .disc-more summary:hover{ opacity:.7;}
+      .disc-more summary:focus-visible{ outline:1px dashed var(--accent-ink); outline-offset:4px; border-radius:2px;}
+      .disc-more-label::before{ content:"Veure ";}
+      .disc-more[open] .disc-more-label::before{ content:"Tancar ";}
+      .disc-more-icon{ width:12px; height:12px; position:relative; display:inline-block;}
+      .disc-more-icon::before,.disc-more-icon::after{ content:""; position:absolute; background:currentColor; transition:transform .25s ease;}
+      .disc-more-icon::before{ left:0; right:0; top:50%; height:1.5px; transform:translateY(-50%);}
+      .disc-more-icon::after{ top:0; bottom:0; left:50%; width:1.5px; transform:translateX(-50%);}
+      .disc-more[open] .disc-more-icon::after{ transform:translateX(-50%) scaleY(0);}
+      .disc-details{ margin:20px 0 0; padding-top:18px; border-top:1px dashed var(--line-ink-s); display:grid; gap:16px;}
       @media(min-width:900px){ .disc-details{ grid-template-columns:repeat(2,1fr); gap:16px 40px;} }
       .disc-details dt{ font-family:var(--f-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink); font-weight:500; margin:0 0 5px;}
       .disc-details dd{ margin:0; font-family:var(--f-serif); font-size:14.5px; line-height:1.5; color:var(--bone-ink); opacity:.85;}
@@ -202,13 +214,13 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>WOD <em>(Workout of the Day)</em></h3><div class="tagline">Classe estrella - 60 min</div></div>
           <p>La classe central de CrossFit. Escalfament, part tècnica, WOD i tornada a la calma. Un coach guia el grup de principi a fi.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>Diari</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen millorar la seva condició física global, des de principiants fins a atletes avançats. Totalment adaptable.</dd></div>
             <div><dt>Estructura de la classe</dt><dd>Explicació inicial i opcions d'escalat → escalfament guiat (5-10 min) → bloc de força o tècnica (15-20 min) → entrenament principal d'alta intensitat (8-15 min) amb format EMOM, AMRAP o FOR TIME → tornada a la calma i estiraments.</dd></div>
             <div><dt>Què aprens</dt><dd>Moviments funcionals, base d'halterofília, gimnàstica i condicionament cardiovascular.</dd></div>
             <div><dt>Què guanyes</dt><dd>Millora global de la forma física, més energia, prevenció de lesions, coordinació i benestar general.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles i aigua. <strong>Prerequisits:</strong> Cap.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="weightlifting" style="--i:1">
@@ -216,13 +228,13 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Weightlifting</h3><div class="tagline">Snatch - Clean - Jerk - 60 min</div></div>
           <p>Halterofília olímpica. Treballem els dos aixecaments i les seves derivacions amb progressions adaptades a cada atleta.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen millorar la tècnica d'halterofília olímpica.</dd></div>
             <div><dt>Estructura</dt><dd>Treball tècnic amb càrregues lleugeres a moderades i progressió específica de moviment.</dd></div>
             <div><dt>Què aprens</dt><dd>Snatch (arrencada), clean &amp; jerk (dos temps), posicions i mobilitat específica olímpica.</dd></div>
             <div><dt>Què guanyes</dt><dd>Millor tècnica, més eficiència i transferència al rendiment esportiu.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles d'halterofília (recomanat). <strong>Prerequisits:</strong> Cap (recomanable experiència prèvia).</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="hybrid" style="--i:2">
@@ -230,12 +242,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Hybrid Club</h3><div class="tagline">Força + Cardio - 60 min</div></div>
           <p>Força funcional i resistència cardiovascular llarga amb moviments simples: sled push/pull, row, ski erg, kettlebells i wall balls. Format inspirat en HYROX, sense moviments tècnics complexos.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>4x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen combinar resistència i força funcional amb formats híbrids tipus competicions com HYROX.</dd></div>
             <div><dt>Què aprens</dt><dd>Treball amb sled push/pull, ergòmetres (row, ski erg), wall balls, kettlebells i carrera en intervals.</dd></div>
             <div><dt>Què guanyes</dt><dd>Alta resistència cardiovascular, força sostinguda i preparació per esforços llargs.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva, sabatilles amb bona amortiment. <strong>Prerequisits:</strong> Cap.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="bodyweight" style="--i:3">
@@ -243,12 +255,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Bodyweight Lab</h3><div class="tagline">Gimnàstic - 45 min</div></div>
           <p>Dos nivells: Base per aprendre els fonaments gimnàstics, i Advanced per butterfly pull-ups, muscle-ups, HSW i HSPU.</p>
           <div class="meta"><span>Nivell <strong>Base / Advanced</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd><strong>Base:</strong> iniciació a la gimnàstica (pull-up, handstand hold). <strong>Advanced:</strong> atletes amb experiència (muscle-up, HSPU, handstand walk).</dd></div>
             <div><dt>Què aprens</dt><dd>Control corporal, tècnica gimnàstica i progressions adaptades a cada nivell.</dd></div>
             <div><dt>Què guanyes</dt><dd>Força relativa, coordinació i domini corporal.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva, magnesi (opcional).</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="strength" style="--i:4">
@@ -256,13 +268,13 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Strength Club</h3><div class="tagline">Powerlifting - 60 min</div></div>
           <p>Cicle estructurat de força amb barra: squat, bench, deadlift i press. Aquí es fa pesat, amb cap i descans.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen augmentar la força màxima amb barra.</dd></div>
             <div><dt>Estructura</dt><dd>Cicles de força amb accessoris per corregir desequilibris.</dd></div>
             <div><dt>Què aprens</dt><dd>Squat, bench press, deadlift i press, amb tècnica i progressió estructurada.</dd></div>
             <div><dt>Què guanyes</dt><dd>Força pura, estabilitat i control sota càrrega.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva, cinturó (opcional). <strong>Prerequisits:</strong> Cap.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="abs-cals" style="--i:5">
@@ -270,12 +282,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Abs <em>&amp;</em> Cals</h3><div class="tagline">Core + capacitat - 60 min</div></div>
           <p>Curt, intens, pensat per sumar-lo a un altre WOD o com a sessió independent. Calories al bike i treball de core.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>2x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen millorar core i capacitat cardiovascular.</dd></div>
             <div><dt>Què aprens</dt><dd>Treball específic d'abdominals i entrenament per intervals amb ergòmetres (rower, bike erg, ski erg).</dd></div>
             <div><dt>Què guanyes</dt><dd>Estabilitat, resistència i millor control corporal.</dd></div>
             <div><dt>Què portar</dt><dd>Roba esportiva.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="the-program" style="--i:6">
@@ -283,12 +295,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>The Program</h3><div class="tagline">Avançat i competidor - 90 min</div></div>
           <p>Programa dirigit per a qui vol competir o portar el rendiment a un altre nivell. Inclou seguiment individualitzat.</p>
           <div class="meta"><span>Nivell <strong>Avançat</strong></span><span>Freqüència <strong>5x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Atletes amb experiència que volen entrenament estructurat d'alt rendiment.</dd></div>
             <div><dt>Què aprens</dt><dd>Programació per cicles, estratègia competitiva i mètodes avançats.</dd></div>
             <div><dt>Què guanyes</dt><dd>Millora del rendiment i preparació per competició RX.</dd></div>
             <div><dt>Prerequisits</dt><dd>Experiència mínima d'1 any de CrossFit i domini de moviments bàsics.</dd></div>
-          </dl>
+          </dl></details>
         </article>
 
         <article class="disc" id="running" style="--i:7">
@@ -296,12 +308,12 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           <div><h3>Running Club</h3><div class="tagline">Aire lliure - 60 min</div></div>
           <p>Sortim a córrer pel Vallès. Entrenament estructurat: fartleks, sèries, llargs. Fem pinya abans i cervesa després, de vegades. <em style="font-style:normal; color:var(--accent-ink); font-weight:500;">No consumeix crèdit</em>.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>1x/setmana</strong></span></div>
-          <dl class="disc-details">
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
             <div><dt>Per a qui és</dt><dd>Persones que volen córrer en grup, millorar rendiment i gaudir de la comunitat.</dd></div>
             <div><dt>Què aprens</dt><dd>Fartlek, sèries, tirades llargues i tècnica de carrera.</dd></div>
             <div><dt>Què guanyes</dt><dd>Millora cardiovascular, constància i motivació social.</dd></div>
             <div><dt>Què portar</dt><dd>Sabatilles de running i roba transpirable. <strong>⭐ No consumeix crèdit</strong> de la quota mensual.</dd></div>
-          </dl>
+          </dl></details>
         </article>
       </div>
     </div>
