@@ -44,24 +44,16 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           "teaches":["Back squat","Bench press","Deadlift","Press","Bar technique","Progressive strength cycles"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
         }},
-        {"@type":"ListItem","position":4,"item":{"@id":"https://crossfitlamola.com/en/classes#bodyweight-base","url":"https://crossfitlamola.com/en/classes#bodyweight","image":"https://crossfitlamola.com/assets/class-bodyweight.webp",
-          "@type":"Course","name":"Bodyweight Lab - Base","description":"Gymnastics fundamentals: strict pull-up, handstand hold and gymnastics progressions.",
+        {"@type":"ListItem","position":4,"item":{"@id":"https://crossfitlamola.com/en/classes#bodyweight","url":"https://crossfitlamola.com/en/classes#bodyweight","image":"https://crossfitlamola.com/assets/class-bodyweight.webp",
+          "@type":"Course","name":"Bodyweight Lab (Base and Advanced)","description":"Gymnastics in two tracks. Base: fundamentals like strict pull-up, handstand hold and beginner progressions. Advanced: butterfly pull-ups, muscle-ups, handstand walk (HSW) and handstand push-ups (HSPU).",
           "provider":{"@id":"https://crossfitlamola.com/#organization"},
-          "inLanguage":"en","educationalLevel":"Beginner","timeRequired":"PT45M",
-          "audience":{"@type":"EducationalAudience","audienceType":"People starting gymnastics"},
-          "teaches":["Strict pull-up","Handstand hold","Body control","Gymnastic progressions"],
+          "inLanguage":"en","educationalLevel":"Beginner to Advanced","timeRequired":"PT45M",
+          "audience":{"@type":"EducationalAudience","audienceType":"People who want to learn gymnastics from scratch (Base) or master advanced movements (Advanced)"},
+          "teaches":["Strict pull-up","Handstand hold","Butterfly pull-ups","Muscle-ups","Handstand walk","HSPU","Body control","Relative strength"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
+        }}
         }},
-        {"@type":"ListItem","position":5,"item":{"@id":"https://crossfitlamola.com/en/classes#bodyweight-advanced","url":"https://crossfitlamola.com/en/classes#bodyweight","image":"https://crossfitlamola.com/assets/class-bodyweight.webp",
-          "@type":"Course","name":"Bodyweight Lab - Advanced","description":"Advanced gymnastics: butterfly pull-ups, muscle-ups, handstand walk (HSW) and HSPU.",
-          "provider":{"@id":"https://crossfitlamola.com/#organization"},
-          "inLanguage":"en","educationalLevel":"Advanced","timeRequired":"PT45M",
-          "audience":{"@type":"EducationalAudience","audienceType":"Athletes with gymnastics experience"},
-          "teaches":["Butterfly pull-ups","Muscle-ups","Handstand walk","HSPU","Advanced relative strength"],
-          "coursePrerequisites":"Mastery of strict pull-up and handstand hold",
-          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
-        }},
-        {"@type":"ListItem","position":6,"item":{"@id":"https://crossfitlamola.com/en/classes#hybrid","url":"https://crossfitlamola.com/en/classes#hybrid","image":"https://crossfitlamola.com/assets/class-hybrid.webp",
+        {"@type":"ListItem","position":5,"item":{"@id":"https://crossfitlamola.com/en/classes#hybrid","url":"https://crossfitlamola.com/en/classes#hybrid","image":"https://crossfitlamola.com/assets/class-hybrid.webp",
           "@type":"Course","name":"Hybrid Club","description":"Hybrid training with sled push/pull, ergometers (rower, ski erg), wall balls, kettlebells and running intervals. Format inspired by HYROX-style competitions.",
           "provider":{"@id":"https://crossfitlamola.com/#organization"},
           "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
@@ -69,7 +61,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           "teaches":["Sled push","Sled pull","Ski erg","Concept2 row","Wall balls","Kettlebells","HYROX-style hybrid format"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
         }},
-        {"@type":"ListItem","position":7,"item":{"@id":"https://crossfitlamola.com/en/classes#abs-cals","url":"https://crossfitlamola.com/en/classes#abs-cals","image":"https://crossfitlamola.com/assets/class-abs.webp",
+        {"@type":"ListItem","position":6,"item":{"@id":"https://crossfitlamola.com/en/classes#abs-cals","url":"https://crossfitlamola.com/en/classes#abs-cals","image":"https://crossfitlamola.com/assets/class-abs.webp",
           "@type":"Course","name":"Abs & Cals","description":"Specific abdominal work and ergometer interval training (rower, bike erg, ski erg) to improve core and cardiovascular capacity.",
           "provider":{"@id":"https://crossfitlamola.com/#organization"},
           "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
@@ -77,7 +69,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           "teaches":["Core work","Ergometer intervals","Stability","Cardiovascular endurance"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
         }},
-        {"@type":"ListItem","position":8,"item":{"@id":"https://crossfitlamola.com/en/classes#the-program","url":"https://crossfitlamola.com/en/classes#the-program","image":"https://crossfitlamola.com/assets/class-program.webp",
+        {"@type":"ListItem","position":7,"item":{"@id":"https://crossfitlamola.com/en/classes#the-program","url":"https://crossfitlamola.com/en/classes#the-program","image":"https://crossfitlamola.com/assets/class-program.webp",
           "@type":"Course","name":"The Program","description":"Cycle-based structured programming for advanced athletes: competitive strategy, advanced methods and RX preparation.",
           "provider":{"@id":"https://crossfitlamola.com/#organization"},
           "inLanguage":"en","educationalLevel":"Advanced","timeRequired":"PT90M",
@@ -86,7 +78,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           "coursePrerequisites":"Minimum 1 year of CrossFit experience and mastery of basic movements",
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}}
         }},
-        {"@type":"ListItem","position":9,"item":{"@id":"https://crossfitlamola.com/en/classes#running","url":"https://crossfitlamola.com/en/classes#running","image":"https://crossfitlamola.com/assets/class-running.webp",
+        {"@type":"ListItem","position":8,"item":{"@id":"https://crossfitlamola.com/en/classes#running","url":"https://crossfitlamola.com/en/classes#running","image":"https://crossfitlamola.com/assets/class-running.webp",
           "@type":"Course","name":"Running Club","description":"Group running training: fartlek, intervals, long runs and running technique. Does not consume membership credit.",
           "provider":{"@id":"https://crossfitlamola.com/#organization"},
           "inLanguage":"en","educationalLevel":"All Levels","timeRequired":"PT60M",
