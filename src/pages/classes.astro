@@ -39,8 +39,14 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         {"@type": "Question", "name": "Quant dura un WOD?", "acceptedAnswer": {"@type": "Answer", "text": "La classe dura 60 minuts: escalfament, part tècnica o força, metcon i tornada a la calma."}},
         {"@type": "Question", "name": "Necessito saber halterofília per apuntar-me a Weightlifting?", "acceptedAnswer": {"@type": "Answer", "text": "No. Comencem des de zero amb barra buida i construïm la tècnica a poc a poc."}},
         {"@type": "Question", "name": "És perillós aixecar pes olímpic?", "acceptedAnswer": {"@type": "Answer", "text": "Amb tècnica correcta i progressió adequada, no. El coach supervisa cada repetició."}},
-        {"@type": "Question", "name": "Quin nivell es necessita per a Hybrid Club?", "acceptedAnswer": {"@type": "Answer", "text": "Intermedi. És ideal si ja tens una base de CrossFit i vols combinar força i resistència."}},
-        {"@type": "Question", "name": "Serveix Hybrid Club per preparar Hyrox?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, la programació segueix una estructura similar a la competició Hyrox."}},
+        {"@type": "Question", "name": "Quin nivell es necessita per a Hybrid Club?", "acceptedAnswer": {"@type": "Answer", "text": "Tots els nivells. Els moviments són simples (sled push/pull, row, ski erg, burpees, wall balls, kettlebells) i s'escalen segons cada atleta. No cal experiència prèvia."}},
+        {"@type": "Question", "name": "Què és HYROX i com es prepara?", "acceptedAnswer": {"@type": "Answer", "text": "HYROX és una competició de fitness funcional que combina 8 km de cursa amb 8 estacions: ski erg, sled push, sled pull, burpees broad jump, row, farmer carry, sandbag lunges i wall balls. Al Hybrid Club entrenem aquesta combinació de força i resistència amb format similar."}},
+        {"@type": "Question", "name": "Es pot preparar una competició HYROX a Terrassa?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. A CrossFit La Mola (Terrassa) tenim Hybrid Club quatre dies per setmana amb tot l'equipament necessari: trineus per sled push i pull, Concept2 rower i ski erg, kettlebells, manuelles, sandbags i wall balls."}},
+        {"@type": "Question", "name": "Quina diferència hi ha entre CrossFit i Hybrid Training?", "acceptedAnswer": {"@type": "Answer", "text": "El CrossFit incorpora moviments tècnics com halterofília i gimnàstic (butterfly, muscle-ups, HSW). El Hybrid Training es centra en exercicis simples que es fan al màxim ritme durant períodes llargs, com a una competició estil HYROX."}},
+        {"@type": "Question", "name": "Quants dies a la setmana per preparar una competició tipus HYROX?", "acceptedAnswer": {"@type": "Answer", "text": "Recomanem 3-4 dies setmanals combinant Hybrid Club, WOD i Running Club. Així es treballa força funcional, capacitat cardiovascular llarga i tècnica de cursa."}},
+        {"@type": "Question", "name": "On puc fer entrenament híbrid al Vallès?", "acceptedAnswer": {"@type": "Answer", "text": "A CrossFit La Mola, a Terrassa (Vallès Occidental). Tenim Hybrid Club com a disciplina pròpia, 4 dies per setmana, amb zona exterior i tot l'equipament necessari per a entrenament híbrid."}},
+        {"@type": "Question", "name": "Què és un sled push i en quines classes el fem?", "acceptedAnswer": {"@type": "Answer", "text": "El sled push és empenyer un trineu amb pes, un exercici clau de HYROX i del Hybrid Club. Al box tenim 4 zones específiques per fer-lo, integrades en classes Hybrid Club, WOD i Open Gym."}},
+        {"@type": "Question", "name": "Serveix Hybrid Club per preparar Hyrox?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La programació segueix l'estructura del format HYROX: combinació de cardio (running, row, ski erg, bike) i estacions de força funcional (sled push/pull, sandbag, kettlebell, wall balls)."}},
         {"@type": "Question", "name": "Quina diferència hi ha entre Bodyweight Lab Base i Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Base treballa fonaments com pull-up estricte i handstand hold. Advance treballa butterfly, muscle-ups i HSW."}},
         {"@type": "Question", "name": "Puc passar de Bodyweight Base a Advance?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, quan el coach vegi que domines els fonaments pots passar al nivell avançat."}},
         {"@type": "Question", "name": "Puc combinar Strength Club amb el WOD?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Molts atletes fan Strength Club i després WOD el mateix dia."}},
@@ -136,7 +142,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         <article class="disc" style="--i:2">
           <span class="num">03</span>
           <div><h3>Hybrid Club</h3><div class="tagline">Força + Cardio - 60 min</div></div>
-          <p>Per a qui vol les dues coses: força de pes lliure i capacitat cardiovascular llarga. Inspirat en el format Hyrox.</p>
+          <p>Força funcional i resistència cardiovascular llarga amb moviments simples: sled push/pull, row, ski erg, kettlebells i wall balls. Format inspirat en HYROX, sense moviments tècnics complexos.</p>
           <div class="meta"><span>Nivell <strong>Tots</strong></span><span>Freqüència <strong>4x/setmana</strong></span></div>
         </article>
 
@@ -218,7 +224,31 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         </details>
         <details>
           <summary>Què és Hybrid Training?<span class="sign"></span></summary>
-          <p class="a">Hybrid Training combina elements de CrossFit amb entrenament de resistència (running, bici, rem). Ideal per qui vol preparar-se per a competicions mixtes o millorar el fons.</p>
+          <p class="a">Hybrid Training combina força funcional i resistència cardiovascular llarga amb moviments simples (sled push/pull, row, ski erg, kettlebells, wall balls). Ideal per a entrenar al màxim ritme durant períodes llargs, similar al format de competicions estil HYROX.</p>
+        </details>
+        <details>
+          <summary>Què és HYROX i com es prepara?<span class="sign"></span></summary>
+          <p class="a">HYROX és una competició de fitness funcional que combina 8 km de cursa amb 8 estacions: ski erg, sled push, sled pull, burpees broad jump, row, farmer carry, sandbag lunges i wall balls. Al Hybrid Club entrenem aquesta combinació de força i resistència amb format similar.</p>
+        </details>
+        <details>
+          <summary>Es pot preparar una competició HYROX a Terrassa?<span class="sign"></span></summary>
+          <p class="a">Sí. A CrossFit La Mola (Terrassa) tenim Hybrid Club quatre dies per setmana amb tot l'equipament necessari: trineus per sled push i pull, Concept2 rower i ski erg, kettlebells, manuelles, sandbags i wall balls.</p>
+        </details>
+        <details>
+          <summary>Quina diferència hi ha entre CrossFit i Hybrid Training?<span class="sign"></span></summary>
+          <p class="a">El CrossFit incorpora moviments tècnics com halterofília i gimnàstic (butterfly, muscle-ups, HSW). El Hybrid Training es centra en exercicis simples que es fan al màxim ritme durant períodes llargs, com a una competició estil HYROX.</p>
+        </details>
+        <details>
+          <summary>Quants dies a la setmana per preparar HYROX?<span class="sign"></span></summary>
+          <p class="a">Recomanem 3-4 dies setmanals combinant Hybrid Club, WOD i Running Club. Així es treballa força funcional, capacitat cardiovascular llarga i tècnica de cursa.</p>
+        </details>
+        <details>
+          <summary>On puc fer entrenament híbrid al Vallès?<span class="sign"></span></summary>
+          <p class="a">A CrossFit La Mola, a Terrassa (Vallès Occidental). Tenim Hybrid Club com a disciplina pròpia, 4 dies per setmana, amb zona exterior i tot l'equipament necessari per a entrenament híbrid.</p>
+        </details>
+        <details>
+          <summary>Què és un sled push?<span class="sign"></span></summary>
+          <p class="a">El sled push és empenyer un trineu amb pes, un exercici clau de HYROX i del Hybrid Club. Al box tenim 4 zones específiques per fer-lo, integrades en classes Hybrid Club, WOD i Open Gym.</p>
         </details>
         <details>
           <summary>Quina diferència hi ha entre Bodyweight Base i Advance?<span class="sign"></span></summary>
