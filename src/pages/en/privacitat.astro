@@ -33,16 +33,20 @@ import Footer from '../../components/Footer.astro'
 
   <section class="sec ink">
     <div class="inner legal-content">
-      <p><strong>Last updated:</strong> April 2025</p>
+      <p><strong>Last updated:</strong> 20 May 2026</p>
 
       <h2>1. Data controller</h2>
       <p>The data controller responsible for your personal data is:</p>
       <ul>
-        <li><strong>Name:</strong> CrossFit La Mola</li>
+        <li><strong>Legal name:</strong> TERRAWOD FITNESS, S.L.</li>
+        <li><strong>Trade name:</strong> CrossFit La Mola</li>
+        <li><strong>Spanish VAT (CIF):</strong> ESB55446280</li>
+        <li><strong>Commercial Register:</strong> Barcelona, Folio 1, Sheet B 617456, Entry 1</li>
         <li><strong>Address:</strong> Av. del Vallès 724C, 08227 Terrassa, Barcelona, Spain</li>
-        <li><strong>Email:</strong> hola@crossfitlamola.com</li>
+        <li><strong>Email:</strong> <a href="mailto:info@crossfitlamola.com">info@crossfitlamola.com</a></li>
         <li><strong>Phone:</strong> +34 629 06 65 31</li>
       </ul>
+      <p>No Data Protection Officer (DPO) has been designated, as this is not a legal obligation in our case. For any questions regarding your data, you can contact us directly at the address indicated.</p>
 
       <h2>2. Purpose of processing</h2>
       <p>We collect and process your personal data for the following purposes:</p>
@@ -51,16 +55,18 @@ import Footer from '../../components/Footer.astro'
         <li>Responding to your inquiries and information requests</li>
         <li>Sending communications related to our services (schedules, changes, events)</li>
         <li>Managing fee collection and billing</li>
+        <li>Anonymously measuring website audience (Google Analytics, with your consent)</li>
         <li>Complying with applicable legal obligations</li>
       </ul>
 
       <h2>3. Legal basis</h2>
       <p>The legal basis for processing your data is:</p>
       <ul>
-        <li><strong>Contract performance:</strong> when you sign up as a member</li>
-        <li><strong>Consent:</strong> when you send us an inquiry or request</li>
-        <li><strong>Legitimate interest:</strong> to send you information about our services</li>
-        <li><strong>Legal obligation:</strong> to comply with tax and accounting regulations</li>
+        <li><strong>Contract performance (art. 6.1.b GDPR):</strong> when you sign up as a member</li>
+        <li><strong>Consent (art. 6.1.a GDPR):</strong> when you send us an inquiry, subscribe to newsletter, consent to image use, or accept analytics cookies</li>
+        <li><strong>Explicit consent (art. 9.2.a GDPR):</strong> for processing health data relevant to sports practice</li>
+        <li><strong>Legitimate interest (art. 6.1.f GDPR):</strong> to send you information about our services</li>
+        <li><strong>Legal obligation (art. 6.1.c GDPR):</strong> to comply with tax and accounting regulations</li>
       </ul>
 
       <h2>4. Data we collect</h2>
@@ -68,45 +74,50 @@ import Footer from '../../components/Footer.astro'
       <ul>
         <li>Identification data: name, surname, ID number</li>
         <li>Contact data: phone, email, address</li>
-        <li>Health data relevant to sports practice (injuries, medical conditions)</li>
-        <li>Images and videos during activities (with your consent)</li>
-        <li>Bank details for payment management</li>
+        <li><strong>Special categories (art. 9 GDPR):</strong> health data relevant to sports practice (injuries, medical conditions). Processed with explicit consent, exclusively to ensure your safety during training.</li>
+        <li>Images and videos during activities, only with your explicit consent</li>
+        <li>Bank details for payment management (we never store full card numbers; managed by our bank or payment gateway)</li>
+        <li>Anonymous browsing data via Google Analytics (only with consent)</li>
       </ul>
 
       <h2>5. Data retention</h2>
       <p>We will keep your data while you maintain your relationship with us. Once terminated, data will be kept for the legally established periods:</p>
       <ul>
-        <li>Tax data: 4 years</li>
+        <li>Tax and accounting data: 6 years (Spanish Commercial Code art. 30)</li>
         <li>Contractual data: 5 years</li>
-        <li>Health data: will be deleted when you cease to be a member</li>
+        <li>Health data: deleted when you cease to be a member, unless longer legal term applies</li>
+        <li>Anonymous browsing data (Google Analytics): 14 months</li>
       </ul>
 
-      <h2>6. Recipients</h2>
+      <h2>6. Recipients and international transfers</h2>
       <p>Your data will not be shared with third parties, except:</p>
       <ul>
         <li>Banking entities for payment management</li>
-        <li>Public administrations when legally required</li>
-        <li>Service providers (hosting, email) with whom we have confidentiality agreements</li>
+        <li>Public administrations when legally required (Tax Agency, Social Security)</li>
+        <li>Technology service providers (Vercel hosting, Formspree email, Aimharder booking) with data processing agreements</li>
       </ul>
+      <p><strong>International transfer:</strong> If you consent to analytics cookies, Google Analytics (Google LLC, California, USA) may transfer data to the United States. Google adheres to the EU-U.S. Data Privacy Framework, considered by the European Commission as providing an adequate level of protection (Decision 2023/1795). You can revoke this consent at any time from the "Manage cookies" link in the footer.</p>
 
       <h2>7. Your rights</h2>
-      <p>You have the right to:</p>
+      <p>Under the GDPR (EU Regulation 2016/679) and Spanish LOPDGDD (Organic Law 3/2018), you have the right to:</p>
       <ul>
         <li><strong>Access:</strong> know what data we hold about you</li>
         <li><strong>Rectification:</strong> correct inaccurate data</li>
-        <li><strong>Erasure:</strong> request the deletion of your data</li>
+        <li><strong>Erasure ("right to be forgotten"):</strong> request the deletion of your data</li>
         <li><strong>Objection:</strong> object to certain processing</li>
         <li><strong>Restriction:</strong> restrict processing in certain cases</li>
-        <li><strong>Portability:</strong> receive your data in electronic format</li>
+        <li><strong>Portability:</strong> receive your data in a structured electronic format</li>
+        <li><strong>Withdraw consent:</strong> at any time, without retroactive effects</li>
+        <li><strong>Not be subject to automated decisions:</strong> not applicable, we do not perform automated profiling</li>
       </ul>
-      <p>To exercise these rights, contact us at <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
-      <p>You can also file a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+      <p>To exercise these rights, contact us at <a href="mailto:info@crossfitlamola.com">info@crossfitlamola.com</a> indicating the right you wish to exercise and attaching a copy of your ID or equivalent document to verify your identity.</p>
+      <p>You can also file a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) if you consider that the processing does not comply with regulations.</p>
 
       <h2>8. Security</h2>
-      <p>We apply appropriate technical and organizational measures to protect your data against unauthorized access, loss, or destruction.</p>
+      <p>We apply appropriate technical and organizational measures to protect your data against unauthorized access, loss, or destruction (HTTPS encryption, access control, backups).</p>
 
       <h2>9. Changes to this policy</h2>
-      <p>We may update this privacy policy. Any significant changes will be communicated through our website or by email.</p>
+      <p>We may update this privacy policy. The date of the last update appears at the beginning of the document. Any significant changes will be communicated through our website or by email.</p>
     </div>
   </section>
 

@@ -33,16 +33,20 @@ import Footer from '../components/Footer.astro'
 
   <section class="sec ink">
     <div class="inner legal-content">
-      <p><strong>Última actualització:</strong> Abril 2025</p>
+      <p><strong>Última actualització:</strong> 20 de maig de 2026</p>
 
       <h2>1. Responsable del tractament</h2>
       <p>El responsable del tractament de les teves dades personals és:</p>
       <ul>
-        <li><strong>Denominació:</strong> CrossFit La Mola</li>
+        <li><strong>Denominació social:</strong> TERRAWOD FITNESS, S.L.</li>
+        <li><strong>Nom comercial:</strong> CrossFit La Mola</li>
+        <li><strong>CIF:</strong> ESB55446280</li>
+        <li><strong>Registre Mercantil:</strong> Barcelona, Foli 1, Full B 617456, Inscripció 1</li>
         <li><strong>Adreça:</strong> Av. del Vallès 724C, 08227 Terrassa, Barcelona</li>
-        <li><strong>Correu electrònic:</strong> hola@crossfitlamola.com</li>
+        <li><strong>Correu electrònic:</strong> <a href="mailto:info@crossfitlamola.com">info@crossfitlamola.com</a></li>
         <li><strong>Telèfon:</strong> 629 06 65 31</li>
       </ul>
+      <p>No s'ha designat un Delegat de Protecció de Dades (DPD), per no ser una obligació legal en el nostre cas. Per a qualsevol qüestió relacionada amb les teves dades, pots contactar-nos directament a l'adreça indicada.</p>
 
       <h2>2. Finalitat del tractament</h2>
       <p>Recollim i tractem les teves dades personals per a les següents finalitats:</p>
@@ -51,16 +55,18 @@ import Footer from '../components/Footer.astro'
         <li>Respondre a les teves consultes i sol·licituds d'informació</li>
         <li>Enviar comunicacions relacionades amb els nostres serveis (horaris, canvis, events)</li>
         <li>Gestionar el cobrament de les quotes i facturació</li>
+        <li>Mesurar de manera anònima l'audiència del web (Google Analytics, amb el teu consentiment)</li>
         <li>Complir amb les obligacions legals aplicables</li>
       </ul>
 
-      <h2>3. Legitimació</h2>
+      <h2>3. Legitimació (bases jurídiques)</h2>
       <p>La base legal per al tractament de les teves dades és:</p>
       <ul>
-        <li><strong>Execució d'un contracte:</strong> quan et dones d'alta com a soci/a</li>
-        <li><strong>Consentiment:</strong> quan ens envies una consulta o sol·licituds</li>
-        <li><strong>Interès legítim:</strong> per enviar-te informació sobre els nostres serveis</li>
-        <li><strong>Obligació legal:</strong> per complir amb normatives fiscals i comptables</li>
+        <li><strong>Execució d'un contracte (art. 6.1.b RGPD):</strong> quan et dones d'alta com a soci/a</li>
+        <li><strong>Consentiment (art. 6.1.a RGPD):</strong> quan ens envies una consulta, t'apuntes al newsletter, dones consentiment per a l'ús d'imatges o acceptes cookies analítiques</li>
+        <li><strong>Consentiment exprés (art. 9.2.a RGPD):</strong> per al tractament de dades de salut rellevants per a la pràctica esportiva</li>
+        <li><strong>Interès legítim (art. 6.1.f RGPD):</strong> per enviar-te informació puntual sobre els nostres serveis</li>
+        <li><strong>Obligació legal (art. 6.1.c RGPD):</strong> per complir amb normatives fiscals i comptables</li>
       </ul>
 
       <h2>4. Dades que recollim</h2>
@@ -68,45 +74,50 @@ import Footer from '../components/Footer.astro'
       <ul>
         <li>Dades identificatives: nom, cognoms, DNI/NIE</li>
         <li>Dades de contacte: telèfon, email, adreça</li>
-        <li>Dades de salut rellevants per a la pràctica esportiva (lesions, condicions mèdiques)</li>
-        <li>Imatges i vídeos durant les activitats (amb el teu consentiment)</li>
-        <li>Dades bancàries per a la gestió de pagaments</li>
+        <li><strong>Categories especials (art. 9 RGPD):</strong> dades de salut rellevants per a la pràctica esportiva (lesions, condicions mèdiques). Es tracten amb consentiment exprés i la finalitat exclusiva de garantir la teva seguretat durant els entrenaments.</li>
+        <li>Imatges i vídeos durant les activitats, només amb el teu consentiment exprés</li>
+        <li>Dades bancàries per a la gestió de pagaments (mai conservem el número complet de targeta; ho gestiona la nostra entitat bancària o passarel·la de pagament)</li>
+        <li>Dades de navegació anònimes via Google Analytics (només amb consentiment)</li>
       </ul>
 
       <h2>5. Conservació de les dades</h2>
       <p>Conservarem les teves dades mentre mantinguis la teva relació amb nosaltres. Un cop finalitzada, les dades es conservaran durant els terminis legalment establerts:</p>
       <ul>
-        <li>Dades fiscals: 4 anys</li>
+        <li>Dades fiscals i comptables: 6 anys (art. 30 Codi de Comerç)</li>
         <li>Dades contractuals: 5 anys</li>
-        <li>Dades de salut: es suprimiran quan deixis de ser soci/a</li>
+        <li>Dades de salut: es suprimeixen quan deixes de ser soci/a, llevat de termini legal superior</li>
+        <li>Dades de navegació anònimes (Google Analytics): 14 mesos</li>
       </ul>
 
-      <h2>6. Destinataris</h2>
+      <h2>6. Destinataris i transferències internacionals</h2>
       <p>Les teves dades no es cediran a tercers, excepte:</p>
       <ul>
         <li>Entitats bancàries per a la gestió de pagaments</li>
-        <li>Administracions públiques quan sigui legalment requerit</li>
-        <li>Proveïdors de serveis (hosting, email) amb els quals tenim contractes de confidencialitat</li>
+        <li>Administracions públiques quan sigui legalment requerit (Hisenda, Seguretat Social)</li>
+        <li>Proveïdors de serveis tecnològics (hosting Vercel, email Formspree, gestió de reserves Aimharder) amb contractes d'encarregat de tractament</li>
       </ul>
+      <p><strong>Transferència internacional:</strong> Si dones consentiment per a cookies analítiques, Google Analytics (Google LLC, Califòrnia, EUA) pot transferir dades als Estats Units. Google s'adhereix al marc EU-U.S. Data Privacy Framework, considerat per la Comissió Europea com un nivell de protecció adequat (Decisió 2023/1795). Pots revocar aquest consentiment en qualsevol moment des de l'enllaç "Gestionar cookies" al peu de pàgina.</p>
 
       <h2>7. Els teus drets</h2>
-      <p>Tens dret a:</p>
+      <p>D'acord amb el RGPD (Reglament UE 2016/679) i la LOPDGDD (Llei Orgànica 3/2018), tens dret a:</p>
       <ul>
         <li><strong>Accés:</strong> saber quines dades tenim sobre tu</li>
         <li><strong>Rectificació:</strong> corregir dades incorrectes</li>
-        <li><strong>Supressió:</strong> sol·licitar l'eliminació de les teves dades</li>
+        <li><strong>Supressió ("dret a l'oblit"):</strong> sol·licitar l'eliminació de les teves dades</li>
         <li><strong>Oposició:</strong> oposar-te a determinats tractaments</li>
         <li><strong>Limitació:</strong> restringir el tractament en certs casos</li>
-        <li><strong>Portabilitat:</strong> rebre les teves dades en format electrònic</li>
+        <li><strong>Portabilitat:</strong> rebre les teves dades en format electrònic estructurat</li>
+        <li><strong>Retirar el consentiment:</strong> en qualsevol moment, sense efectes retroactius</li>
+        <li><strong>No ser objecte de decisions automatitzades:</strong> no aplicable, no fem perfilat automatitzat</li>
       </ul>
-      <p>Per exercir aquests drets, contacta'ns a <a href="mailto:hola@crossfitlamola.com">hola@crossfitlamola.com</a>.</p>
-      <p>També pots presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+      <p>Per exercir aquests drets, contacta'ns a <a href="mailto:info@crossfitlamola.com">info@crossfitlamola.com</a> indicant el dret que vols exercir i adjuntant còpia del DNI o document equivalent per acreditar la teva identitat.</p>
+      <p>També pots presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) si consideres que el tractament no s'ajusta a la normativa.</p>
 
       <h2>8. Seguretat</h2>
-      <p>Apliquem mesures tècniques i organitzatives adequades per protegir les teves dades contra accessos no autoritzats, pèrdua o destrucció.</p>
+      <p>Apliquem mesures tècniques i organitzatives adequades per protegir les teves dades contra accessos no autoritzats, pèrdua o destrucció (xifratge HTTPS, control d'accés, còpies de seguretat).</p>
 
       <h2>9. Canvis en aquesta política</h2>
-      <p>Podem actualitzar aquesta política de privacitat. Qualsevol canvi significatiu serà comunicat a través del nostre web o per correu electrònic.</p>
+      <p>Podem actualitzar aquesta política de privacitat. La data d'última actualització consta a l'inici del document. Qualsevol canvi significatiu serà comunicat a través del nostre web o per correu electrònic.</p>
     </div>
   </section>
 
