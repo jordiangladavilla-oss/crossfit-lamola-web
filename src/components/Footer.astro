@@ -8,6 +8,7 @@ const prefix = lang === 'ca' ? '' : `/${lang}`
 const currentYear = new Date().getFullYear()
 
 const langLabel = { ca: 'Català', es: 'Español', en: 'English' }[lang]
+const manageCookiesLabel = { ca: 'Gestionar cookies', es: 'Gestionar cookies', en: 'Manage cookies' }[lang]
 ---
 
 <footer>
@@ -40,7 +41,7 @@ const langLabel = { ca: 'Català', es: 'Español', en: 'English' }[lang]
   </div>
   <div class="foot-bottom">
     <span>© {currentYear} CrossFit La Mola.</span>
-    <span><a href={`${prefix}/avis-legal`}>{t('footer.legal')}</a> · <a href={`${prefix}/privacitat`}>{t('footer.privacy')}</a> · <a href={`${prefix}/cookies`}>{t('footer.cookies')}</a></span>
+    <span><a href={`${prefix}/avis-legal`}>{t('footer.legal')}</a> · <a href={`${prefix}/privacitat`}>{t('footer.privacy')}</a> · <a href={`${prefix}/cookies`}>{t('footer.cookies')}</a> · <a href="#" data-cookie-manage>{manageCookiesLabel}</a></span>
     <span>{t('footer.photoCredit')} <a href="https://www.pinyacolada.studio/" target="_blank" rel="noopener">Piña Colada Studio</a> · {t('footer.madein')} · {langLabel}</span>
   </div>
 </footer>
