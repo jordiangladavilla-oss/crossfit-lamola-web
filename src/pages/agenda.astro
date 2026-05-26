@@ -146,9 +146,12 @@ function getBadgeText(event: AgendaEvent): string {
       .past-section .event .desc{ display:none;}
       .past-section .event .badge{ background:var(--muted-ink);}
     </style>
-    <script type="application/ld+json" set:html={JSON.stringify(agendaEvents.map(e => {
+    <script type="application/ld+json" set:html={JSON.stringify((() => {
+      const today = new Date().toISOString().split('T')[0];
+      return agendaEvents.map(e => {
       const isExternal = e.cat === 'comp-ext';
       const placeName = e.place.split('·')[0].trim();
+      const isPast = e.end < today;
       const keywords = {
         'activitat': 'CrossFit activitat, comunitat, La Mola',
         'comp-ext': 'CrossFit competició, throwdown, esport',
@@ -164,7 +167,7 @@ function getBadgeText(event: AgendaEvent): string {
         "image": e.image || "https://crossfitlamola.com/assets/hero-still.webp",
         "startDate": e.start,
         "endDate": e.end,
-        "eventStatus":"https://schema.org/EventScheduled",
+        "eventStatus": isPast ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
         "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
         "sport": "CrossFit",
         "inLanguage": ["ca", "es"],
@@ -187,7 +190,8 @@ function getBadgeText(event: AgendaEvent): string {
           : {"@id":"https://crossfitlamola.com/#organization"},
         "performer":{"@id":"https://crossfitlamola.com/#organization"}
       };
-    }))} />
+    });
+    })())} />
   </Fragment>
 
   <Nav currentPage="/agenda" />
