@@ -134,12 +134,12 @@ export const agendaEvents: AgendaEvent[] = [
     name: 'La Mola Summer Fest',
     nameEs: 'La Mola Summer Fest',
     nameEn: 'La Mola Summer Fest',
-    place: 'La Mola · 09:00–16:00h',
-    placeEs: 'La Mola · 09:00–16:00h',
-    placeEn: 'La Mola · 09:00–16:00h',
-    desc: "La festa de l'estiu ha tornat. WOD, còctels, música i welcome pack per a tothom.",
-    descEs: 'La fiesta del verano ha vuelto. WOD, cócteles, música y welcome pack para todos.',
-    descEn: 'The summer party is back. WOD, cocktails, music and welcome pack for everyone.'
+    place: 'La Mola · 17:00–22:00h',
+    placeEs: 'La Mola · 17:00–22:00h',
+    placeEn: 'La Mola · 17:00–22:00h',
+    desc: "La festa de l'estiu ha tornat. WOD, pizza, música, gresca i xerinola.",
+    descEs: 'La fiesta del verano ha vuelto. WOD, pizza, música y mucha fiesta.',
+    descEn: 'The summer party is back. WOD, pizza, music and a great vibe.'
   },
   {
     id: 'wodcelona',
@@ -156,6 +156,22 @@ export const agendaEvents: AgendaEvent[] = [
     descEs: 'La gran cita final de temporada. Wodcelona es la competición internacional de referencia en Barcelona.',
     descEn: 'The big season finale. Wodcelona is the international reference competition in Barcelona.',
     image: `${AGENDA_REPO_RAW}/WODCELONA.JPG`
+  },
+  {
+    id: 'hyrox-bcn',
+    start: '2026-11-11',
+    end: '2026-11-15',
+    cat: 'comp-ext',
+    name: 'Hyrox · Barcelona',
+    nameEs: 'Hyrox · Barcelona',
+    nameEn: 'Hyrox · Barcelona',
+    place: 'Fira Gran Via Barcelona · Indiv + Equips',
+    placeEs: 'Fira Gran Via Barcelona · Indiv + Equipos',
+    placeEn: 'Fira Gran Via Barcelona · Indiv + Teams',
+    desc: "Leapmotor HYROX Barcelona arriba del 12 al 15 de novembre amb quatre dies d'adrenalina i competició intensa.",
+    descEs: 'Leapmotor HYROX Barcelona llega del 12 al 15 de noviembre con cuatro días de adrenalina y competición intensa.',
+    descEn: 'Leapmotor HYROX Barcelona arrives from November 12 to 15 with four days of adrenaline and intense competition.',
+    image: `${AGENDA_REPO_RAW}/hyrox-bcn.jpg`
   },
   {
     id: 'fcl-costa-brava',
@@ -285,6 +301,36 @@ export function getUpcomingEvents(count: number = 6): AgendaEvent[] {
     .filter(e => e.end >= today)
     .sort((a, b) => a.start.localeCompare(b.start))
     .slice(0, count);
+}
+
+export function getUpcomingEventsByMonth(lang: Lang = 'ca'): Map<string, AgendaEvent[]> {
+  const today = new Date().toISOString().split('T')[0];
+  const months = new Map<string, AgendaEvent[]>();
+  const sortedEvents = [...agendaEvents]
+    .filter(e => e.end >= today)
+    .sort((a, b) => a.start.localeCompare(b.start));
+  for (const event of sortedEvents) {
+    const date = new Date(event.start);
+    const monthLabel = `${monthNames[lang][date.getMonth()]} ${date.getFullYear()}`;
+    if (!months.has(monthLabel)) months.set(monthLabel, []);
+    months.get(monthLabel)!.push(event);
+  }
+  return months;
+}
+
+export function getPastEventsByMonth(lang: Lang = 'ca'): Map<string, AgendaEvent[]> {
+  const today = new Date().toISOString().split('T')[0];
+  const months = new Map<string, AgendaEvent[]>();
+  const sortedEvents = [...agendaEvents]
+    .filter(e => e.end < today)
+    .sort((a, b) => b.start.localeCompare(a.start));
+  for (const event of sortedEvents) {
+    const date = new Date(event.start);
+    const monthLabel = `${monthNames[lang][date.getMonth()]} ${date.getFullYear()}`;
+    if (!months.has(monthLabel)) months.set(monthLabel, []);
+    months.get(monthLabel)!.push(event);
+  }
+  return months;
 }
 
 export function getFeaturedEvent(): AgendaEvent | undefined {

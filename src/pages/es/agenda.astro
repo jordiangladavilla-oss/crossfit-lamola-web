@@ -6,7 +6,8 @@ import Schema from '../../components/Schema.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import {
   agendaEvents,
-  getEventsByMonth,
+  getUpcomingEventsByMonth,
+  getPastEventsByMonth,
   getFeaturedEvent,
   formatEventDays,
   getEventDayName,
@@ -19,7 +20,8 @@ import {
 } from '../../data/agenda'
 
 const lang = 'es'
-const eventsByMonth = getEventsByMonth(lang)
+const eventsByMonth = getUpcomingEventsByMonth(lang)
+const pastEventsByMonth = getPastEventsByMonth(lang)
 const featuredEvent = getFeaturedEvent()
 
 const AGENDA_EVENTS_2026 = agendaEvents.map(e => ({
@@ -103,6 +105,18 @@ function getBadgeText(event: AgendaEvent): string {
       .std-poster .when-big small{ display:block; font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--bone-3); margin-top:10px;}
       .std-poster .stars{ position:absolute; top:24px; right:24px; font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; color:var(--accent-hi);}
       .std-poster .desc{ font-family:var(--f-serif); font-size:18px; line-height:1.4; color:var(--bone-2); margin:0; max-width:44ch;}
+
+      .past-section{ margin-top:80px; padding-top:48px; border-top:1px solid var(--line-ink);}
+      .past-section .past-head{ display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; margin-bottom:8px;}
+      .past-section .past-head h2{ font-family:var(--f-display); font-weight:500; font-size:clamp(28px,3.4vw,44px); letter-spacing:-0.03em; line-height:1; margin:0; color:var(--bone-ink);}
+      .past-section .past-head h2 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink);}
+      .past-section .past-sub{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-ink);}
+      .past-section .month-band{ opacity:.62;}
+      .past-section .month-band .month-label{ font-size:clamp(28px,3.2vw,44px); color:var(--muted-ink);}
+      .past-section .event{ opacity:.85;}
+      .past-section .event:hover{ opacity:1;}
+      .past-section .event .desc{ display:none;}
+      .past-section .event .badge{ background:var(--muted-ink);}
     </style>
     <script type="application/ld+json" set:html={JSON.stringify(AGENDA_EVENTS_2026.map(e => {
       const isExternal = e.cat === 'comp-ext';
@@ -217,6 +231,40 @@ function getBadgeText(event: AgendaEvent): string {
           </div>
         </div>
       ))}
+
+      {pastEventsByMonth.size > 0 && (
+        <div class="past-section reveal">
+          <div class="past-head">
+            <h2>Eventos <em>pasados</em><span class="dot">.</span></h2>
+            <span class="past-sub">Historial · {[...pastEventsByMonth.values()].reduce((n, arr) => n + arr.length, 0)} eventos</span>
+          </div>
+          {[...pastEventsByMonth.entries()].map(([monthLabel, events]) => (
+            <div class="month-band">
+              <h3 class="month-label">
+                {monthLabel.split(' ')[0]}
+                <em>· {(new Date(events[0].start).getMonth() + 1).toString().padStart(2, '0')}</em>
+              </h3>
+              <div class="event-list">
+                {events.map(event => (
+                  <div class="event" data-cat={event.cat}>
+                    <div class="when">
+                      {formatEventDays(event)}
+                      <small>{isDateRange(event) ? `– ${new Date(event.end).getDate().toString().padStart(2, '0')}` : getEventDayName(event, lang)}</small>
+                    </div>
+                    <div class="meta">
+                      <span class="cat">{catLabels[lang][event.cat]}</span>
+                      <h3 set:html={getEventName(event, lang).replace('·', '<em>·</em>')} />
+                      <p class="desc">{getEventDesc(event, lang)}</p>
+                    </div>
+                    <div class="place" set:html={getEventPlace(event, lang).split('·').slice(0, 2).join('<br>')} />
+                    <span class={`badge ${event.cat === 'masterclass' ? 'secondary' : ''}`}>{getBadgeText(event)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 

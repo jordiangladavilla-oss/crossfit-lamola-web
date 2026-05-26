@@ -3,10 +3,10 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
-import { agendaEvents, formatEventDays, getEventMonthShort, getEventName, getEventPlace } from '../../data/agenda'
+import { getUpcomingEvents, formatEventDays, getEventMonthShort, getEventName, getEventPlace } from '../../data/agenda'
 
 // Transform events for the index agenda section format
-const AGENDA = agendaEvents.slice(0, 6).map(e => {
+const AGENDA = getUpcomingEvents(6).map(e => {
   const placeParts = getEventPlace(e, 'en').split(' · ')
   return {
     d: formatEventDays(e),
