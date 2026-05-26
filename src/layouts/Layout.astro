@@ -153,6 +153,41 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
       });
     }
   </script>
+  <script is:inline>
+    // Lead tracking — delegated listeners fire GA4 events for the key actions.
+    // Events fire only if the user accepted analytics (gtag exists). No-op otherwise.
+    (function(){
+      function fire(name, params){
+        if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+        if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params || {}));
+      }
+      document.addEventListener('click', function(e){
+        var a = e.target && e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        var label = (a.textContent || '').trim().slice(0, 80);
+        if (/wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com/.test(href)) {
+          fire('whatsapp_click', { link_url: href, link_text: label, page_path: location.pathname });
+        } else if (href.indexOf('tel:') === 0) {
+          fire('tel_click', { link_url: href, page_path: location.pathname });
+        } else if (href.indexOf('mailto:') === 0) {
+          fire('email_click', { link_url: href, page_path: location.pathname });
+        } else if (/maps\.app\.goo\.gl|maps\.google|share\.google/.test(href)) {
+          fire('maps_click', { link_url: href, page_path: location.pathname });
+        } else if (/instagram\.com/.test(href)) {
+          fire('instagram_click', { link_url: href, page_path: location.pathname });
+        }
+      }, true);
+      document.addEventListener('submit', function(e){
+        var form = e.target;
+        if (!form || form.tagName !== 'FORM') return;
+        var id = form.id || form.getAttribute('name') || 'unknown';
+        if (id === 'contact-form' || id === 'home-form') {
+          fire('lead_form_submit', { form_id: id, page_path: location.pathname });
+        }
+      }, true);
+    })();
+  </script>
   {showPromo && <PromoPopup />}
   <CookieBanner />
 </body>
