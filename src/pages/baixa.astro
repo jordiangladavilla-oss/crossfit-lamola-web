@@ -285,12 +285,24 @@
     }
 
     /* Sub-scale */
-    .sub-scale-list { display: flex; flex-direction: column; gap: 16px; }
+    .sub-scale-list { display: flex; flex-direction: column; gap: 22px; }
 
-    .sub-scale-label {
-      font-size: 13px;
+    .sub-scale-label { margin-bottom: 10px; }
+
+    .sub-scale-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .sub-scale-desc {
+      font-size: 12px;
+      font-weight: 400;
       color: var(--text-muted);
-      margin-bottom: 7px;
+      margin-top: 3px;
+      line-height: 1.45;
     }
 
     .sub-scale-wrap {
@@ -582,38 +594,58 @@
         <div class="sub-scale-list">
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Qualitat dels entrenaments (programació, varietat, dinamisme)</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Qualitat</div>
+              <div class="sub-scale-desc">Entrenaments: programació, varietat, dinamisme</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-entrena"></div>
           </div>
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Seguiment i atenció dels coaches a les classes</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Classes</div>
+              <div class="sub-scale-desc">Seguiment i atenció dels coaches a les classes</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-coaches"></div>
           </div>
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Sensació de comunitat i inclusivitat al box</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Comunitat</div>
+              <div class="sub-scale-desc">Sensació de comunitat i inclusivitat al box</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-comunitat"></div>
           </div>
 
-          <!-- Instal·lacions separades en 3 -->
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Estat de les instal·lacions</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Instal·lacions</div>
+              <div class="sub-scale-desc">Estat general de les instal·lacions</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-instal"></div>
           </div>
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Estat del material (barres, kettlebells, màquines...)</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Material</div>
+              <div class="sub-scale-desc">Barres, kettlebells, màquines...</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-material"></div>
           </div>
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Neteja i manteniment del box</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Neteja</div>
+              <div class="sub-scale-desc">Neteja i manteniment del box</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-neteja"></div>
           </div>
 
           <div class="sub-scale-item">
-            <div class="sub-scale-label">Relació qualitat-preu</div>
+            <div class="sub-scale-label">
+              <div class="sub-scale-title">Preu</div>
+              <div class="sub-scale-desc">Relació qualitat-preu</div>
+            </div>
             <div class="sub-scale-wrap" id="scale-preu"></div>
           </div>
 
@@ -663,9 +695,9 @@
       </div>
     </div>
 
-    <!-- ───────── PAS 4: NPS + Recovery ───────── -->
+    <!-- ───────── PAS 4: Recomanació (NPS) ───────── -->
     <div class="step" id="step-4">
-      <p class="step-label">Pas 4 de 5 &nbsp;·&nbsp; Recomanació i Recovery</p>
+      <p class="step-label">Pas 4 de 5 &nbsp;·&nbsp; Recomanació</p>
 
       <div class="q-block">
         <label>Recomanaries La Mola<span style="color:var(--marron)">.</span> a algú del teu entorn?
@@ -673,32 +705,6 @@
         </label>
         <div class="scale-wrap" id="scale-nps"></div>
         <div class="scale-labels"><span>0 · Mai</span><span>10 · Sens dubte</span></div>
-      </div>
-
-      <hr class="divider">
-
-      <div class="q-block">
-        <label>Coneixes la nostra <strong style="color:var(--olive)">Zona Recovery</strong>?
-          <span class="sublabel">Sauna d'infraroigs · Bany de gel · Compressió pneumàtica</span>
-        </label>
-        <div class="opt-grid">
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','si'); showTeal(true)">Sí, la conec</button>
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','no'); showTeal(true)">No, no ho sabia</button>
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','si-usada'); showTeal(false)">Sí, i l'he fet servir</button>
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','no-interes'); showTeal(false)">Sí, però no m'interessa</button>
-        </div>
-        <div class="teal-note" id="teal-recovery">
-          <strong>La Mola Recovery</strong> estarà disponible pròximament com a servei independent, sense necessitat de ser membre del box. Si t'interessa, pots deixar el teu correu al pas final.
-        </div>
-      </div>
-
-      <div class="q-block">
-        <label>Si La Mola Recovery estigués disponible com a servei independent (sense quota de CrossFit), t'hi hauries apuntat?</label>
-        <div class="opt-grid">
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','si')">Sí, probablement</button>
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','potser')">Potser, dependria del preu</button>
-          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','no')">No m'interessa</button>
-        </div>
       </div>
 
       <div class="btn-row">
@@ -717,8 +723,8 @@
       </div>
 
       <div class="q-block">
-        <label>T'agradaria que et contactéssim si les circumstàncies canvien?
-          <span class="sublabel">Per exemple, si millora la situació econòmica, canvies d'horari, etc.</span>
+        <label>Vols que t'avisem de futures promocions i events?
+          <span class="sublabel">Et guardem el contacte només per enviar-te novetats, promocions i events.</span>
         </label>
         <div class="opt-grid">
           <button class="opt-btn" onclick="selectOpt(this,'contact','si'); showContact(true)">✅ &nbsp; Sí, m'interessa</button>
@@ -770,7 +776,7 @@
         <p>Les teves respostes ens ajuden a millorar cada dia.<br>
         Esperem tornar-te a veure aviat a La Mola<span style="color:var(--marron)">.</span></p>
         <div class="ty-footer">
-          Segueix-nos a Instagram <strong style="color:var(--black)">@crossfitlamola</strong> per estar al dia de novetats, events i el llançament de la Zona Recovery.
+          Segueix-nos a Instagram <strong style="color:var(--black)">@lamolacrossfit</strong> per estar al dia de novetats, events i promocions.
         </div>
       </div>
     </div>
@@ -890,10 +896,6 @@
     document.getElementById('cond-contact').classList.toggle('visible', show);
   }
 
-  function showTeal(show) {
-    document.getElementById('teal-recovery').style.display = show ? 'block' : 'none';
-  }
-
   /* ── Comptador ── */
   function updateCounter(el, cntId) {
     document.getElementById(cntId).textContent = el.value.length + ' / 500';
@@ -936,8 +938,6 @@
       milloresSeleccionades: (answers.millora || []).join(', '),
       milloresAltres:        txt('text-millora-altres'),
       comentariMillora:      txt('text-millora'),
-      recoveryInfo:          answers['recovery-info'] || '',
-      recoveryIntent:        answers['recovery-intent'] || '',
       volContacte:           answers.contact || '',
       nom:                   txt('input-nom'),
       email:                 txt('input-email'),
