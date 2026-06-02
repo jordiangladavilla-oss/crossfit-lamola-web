@@ -3,6 +3,8 @@
 
 User-agent: *
 Allow: /
+# Pàgina privada (formulari de baixes) — enllaç directe, no indexar
+Disallow: /baixa
 
 # AI Crawlers — benvinguts per indexar contingut
 User-agent: GPTBot

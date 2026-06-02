@@ -1,0 +1,968 @@
+---
+// Formulari de baixes — pàgina autònoma (sense Nav/Footer de la web principal).
+// Privada: no indexable (meta noindex + Disallow a robots.txt). S'envia via enllaç directe.
+// Les dades s'envien a un Google Apps Script propi que escriu al Sheet "La Mola · Baixes"
+// (independent del de reserves). Enganxa la URL del Web App a SCRIPT_URL dins submitForm().
+---
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrossFit La Mola · Formulari de Baixa</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style is:global>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F9F9F4;
+      --beige: #E5DFD3;
+      --olive: #7A7048;
+      --olive-dark: #5C5436;
+      --black: #141212;
+      --marron: #3D2E1E;
+      --teal: #A0C9CB;
+      --teal-light: rgba(160,201,203,0.18);
+      --white: #ffffff;
+      --text-muted: #6B6560;
+      --border: rgba(20,18,18,0.13);
+      --input-bg: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--beige);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem 4rem;
+      color: var(--black);
+    }
+
+    .page-wrap {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* ── Header: ara beige amb text negre ── */
+    .form-header {
+      background: var(--beige);
+      color: var(--black);
+      padding: 2.25rem 2.5rem 2rem;
+      border-radius: 18px 18px 0 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(20,18,18,0.1);
+      border-bottom: none;
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(122,112,72,0.08);
+      pointer-events: none;
+    }
+
+    .brand-line {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-line .dot { color: var(--black); }
+
+    .form-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--black);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0.7rem;
+    }
+
+    .form-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Progress */
+    .progress-wrap {
+      background: rgba(20,18,18,0.12);
+      height: 3px;
+    }
+
+    .progress-fill {
+      height: 3px;
+      background: var(--olive);
+      transition: width 0.45s cubic-bezier(0.4,0,0.2,1);
+      width: 20%;
+    }
+
+    /* Body */
+    .form-body {
+      background: var(--cream);
+      padding: 2rem 2.5rem 2.25rem;
+      border-radius: 0 0 18px 18px;
+      border: 1px solid rgba(20,18,18,0.08);
+      border-top: none;
+    }
+
+    /* Steps */
+    .step { display: none; animation: fadeIn 0.25s ease; }
+    .step.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--beige);
+    }
+
+    /* Questions */
+    .q-block { margin-bottom: 1.75rem; }
+
+    .q-block label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 0.65rem;
+      line-height: 1.55;
+    }
+
+    .sublabel {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* max-select hint */
+    .max-hint {
+      font-size: 11px;
+      color: var(--olive);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    /* Option grid */
+    .opt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .opt-grid.cols-1 { grid-template-columns: 1fr; }
+
+    .opt-btn {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--black);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.15s, background 0.15s;
+      line-height: 1.45;
+    }
+
+    .opt-btn:hover { border-color: var(--olive); background: #F5F2EA; }
+
+    .opt-btn.selected {
+      border-color: var(--olive);
+      background: #EAE4D3;
+      font-weight: 500;
+    }
+
+    .opt-btn.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .opt-icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+      line-height: 1;
+    }
+
+    /* Tags */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag-btn {
+      padding: 7px 15px;
+      border-radius: 24px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      color: var(--black);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tag-btn:hover { border-color: var(--olive); background: #F5F2EA; }
+    .tag-btn.selected { border-color: var(--olive); background: #EAE4D3; font-weight: 500; }
+
+    /* Scale */
+    .scale-wrap {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .scale-btn {
+      width: 42px; height: 42px;
+      border-radius: 9px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scale-btn:hover { border-color: var(--olive); background: #F5F2EA; }
+    .scale-btn.selected { background: var(--olive); border-color: var(--olive); color: var(--white); }
+
+    .scale-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Sub-scale */
+    .sub-scale-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .sub-scale-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .sub-scale-wrap {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .sub-scale-btn {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sub-scale-btn:hover { border-color: var(--olive); background: #F5F2EA; }
+    .sub-scale-btn.selected { background: var(--olive); border-color: var(--olive); color: var(--white); }
+
+    /* Textarea & inputs */
+    textarea,
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--input-bg);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.15s;
+      resize: vertical;
+    }
+
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="email"]:focus { border-color: var(--olive); }
+
+    .counter {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--beige);
+      margin: 1.75rem 0;
+    }
+
+    /* Notes */
+    .anon-note {
+      background: #F0EBE0;
+      border-radius: 10px;
+      padding: 11px 15px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .teal-note {
+      background: var(--teal-light);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    /* Conditional */
+    .cond-block { display: none; margin-top: 12px; }
+    .cond-block.visible { display: block; }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .btn-back {
+      flex: 0 0 auto;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-back:hover { border-color: var(--olive); color: var(--black); }
+
+    .btn-next {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: 10px;
+      border: none;
+      background: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.15s;
+    }
+
+    .btn-next:hover { background: #2C2A2A; }
+
+    .btn-submit {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: 10px;
+      border: none;
+      background: var(--olive);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.15s;
+    }
+
+    .btn-submit:hover { background: var(--olive-dark); }
+    .btn-submit:disabled, .btn-next:disabled { opacity: 0.6; cursor: wait; }
+
+    /* Thank you */
+    .thank-you { text-align: center; padding: 1.5rem 0 0.5rem; }
+
+    .ty-icon { font-size: 52px; margin-bottom: 1.25rem; display: block; }
+
+    .thank-you h2 { font-size: 22px; font-weight: 700; margin-bottom: 0.75rem; color: var(--black); }
+
+    .thank-you p { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .ty-footer {
+      background: #F0EBE0;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .form-header, .form-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .opt-grid { grid-template-columns: 1fr; }
+      .scale-btn { width: 36px; height: 36px; font-size: 13px; }
+      .sub-scale-btn { width: 30px; height: 30px; font-size: 12px; }
+      body { padding: 1rem 0.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- HEADER: fons beige, text negre, punt marró/negre -->
+  <div class="form-header">
+    <p class="brand-line">CrossFit La Mola<span class="dot">.</span></p>
+    <h1>Que te'n vagis, per nosaltres va més enllà de la baixa.</h1>
+    <p>Aquest feedback ens ajudarà a millorar i a créixer gràcies a la teva experiència al box.<br>
+    5 minuts · Respostes totalment anònimes · Formulari voluntari</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="form-body">
+
+    <!-- ───────── PAS 1: Motivació ───────── -->
+    <div class="step active" id="step-1">
+      <p class="step-label">Pas 1 de 5 &nbsp;·&nbsp; Motivació de la baixa</p>
+
+      <div class="q-block">
+        <label>Quin és el motiu de la teva baixa?
+          <span class="sublabel">Pots seleccionar fins a 3 opcions</span>
+        </label>
+        <p class="max-hint" id="hint-motiu"></p>
+        <div class="opt-grid" id="grid-motiu">
+          <button class="opt-btn" onclick="toggleMotiu(this,'economic')">
+            <span class="opt-icon">💸</span>Cost econòmic
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'horari')">
+            <span class="opt-icon">🕐</span>Horaris / disponibilitat
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'progres')">
+            <span class="opt-icon">📉</span>No veig progressos
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'salut')">
+            <span class="opt-icon">🩺</span>Lesió o salut
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'canvi')">
+            <span class="opt-icon">📦</span>Canvi de residència / feina
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'motivacio')">
+            <span class="opt-icon">😓</span>Pèrdua de motivació
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'alternativa')">
+            <span class="opt-icon">🔄</span>He trobat una alternativa
+          </button>
+          <button class="opt-btn" onclick="toggleMotiu(this,'altre')">
+            <span class="opt-icon">✏️</span>Altre motiu
+          </button>
+        </div>
+
+        <!-- Condicional: alternativa -->
+        <div class="cond-block" id="cond-alternativa">
+          <label style="font-size:13px;margin-bottom:8px;margin-top:4px">Quin tipus d'alternativa?</label>
+          <div class="tag-row">
+            <button class="tag-btn" onclick="toggleTag(this,'alt','altre-box')">Altre box CrossFit</button>
+            <button class="tag-btn" onclick="toggleTag(this,'alt','gym')">Gimnàs convencional</button>
+            <button class="tag-btn" onclick="toggleTag(this,'alt','online')">Entrenament a casa / online</button>
+            <button class="tag-btn" onclick="toggleTag(this,'alt','sport')">Esport a l'aire lliure</button>
+            <button class="tag-btn" onclick="toggleTag(this,'alt','pausa')">Pausa temporal sense alternativa</button>
+          </div>
+        </div>
+
+        <!-- Condicional: altre motiu -->
+        <div class="cond-block" id="cond-altre-motiu">
+          <textarea id="text-altre-motiu" rows="2" placeholder="Explica'ns breument el motiu..."></textarea>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <label>Com valores aquesta baixa?</label>
+        <div class="opt-grid cols-1">
+          <button class="opt-btn" onclick="selectOpt(this,'tipusbaixa','definitiva')">
+            🚪 &nbsp; Definitiva
+          </button>
+          <button class="opt-btn" onclick="selectOpt(this,'tipusbaixa','temporal')">
+            ⏸️ &nbsp; Temporal — espero tornar en un futur
+          </button>
+          <button class="opt-btn" onclick="selectOpt(this,'tipusbaixa','dubte')">
+            🤔 &nbsp; Encara no ho sé
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-next" onclick="goStep(2)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ───────── PAS 2: Experiència ───────── -->
+    <div class="step" id="step-2">
+      <p class="step-label">Pas 2 de 5 &nbsp;·&nbsp; La teva experiència</p>
+
+      <div class="q-block">
+        <label>Com valores la teva experiència global al box?
+          <span class="sublabel">1 = Molt dolenta &nbsp;·&nbsp; 10 = Excel·lent</span>
+        </label>
+        <div class="scale-wrap" id="scale-global"></div>
+        <div class="scale-labels"><span>Molt dolenta</span><span>Excel·lent</span></div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="q-block">
+        <label>Valora els aspectes clau:
+          <span class="sublabel">Puntua del 1 al 10 els que siguin rellevants per a tu</span>
+        </label>
+        <div class="sub-scale-list">
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Qualitat dels entrenaments (programació, varietat, dinamisme)</div>
+            <div class="sub-scale-wrap" id="scale-entrena"></div>
+          </div>
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Seguiment i atenció dels coaches a les classes</div>
+            <div class="sub-scale-wrap" id="scale-coaches"></div>
+          </div>
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Sensació de comunitat i inclusivitat al box</div>
+            <div class="sub-scale-wrap" id="scale-comunitat"></div>
+          </div>
+
+          <!-- Instal·lacions separades en 3 -->
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Estat de les instal·lacions</div>
+            <div class="sub-scale-wrap" id="scale-instal"></div>
+          </div>
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Estat del material (barres, kettlebells, màquines...)</div>
+            <div class="sub-scale-wrap" id="scale-material"></div>
+          </div>
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Neteja i manteniment del box</div>
+            <div class="sub-scale-wrap" id="scale-neteja"></div>
+          </div>
+
+          <div class="sub-scale-item">
+            <div class="sub-scale-label">Relació qualitat-preu</div>
+            <div class="sub-scale-wrap" id="scale-preu"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(1)">← Tornar</button>
+        <button class="btn-next" onclick="goStep(3)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ───────── PAS 3: Millores ───────── -->
+    <div class="step" id="step-3">
+      <p class="step-label">Pas 3 de 5 &nbsp;·&nbsp; Punts de millora</p>
+
+      <div class="q-block">
+        <label>Hi ha alguna cosa que podríem haver fet diferent per evitar la teva baixa?
+          <span class="sublabel">Selecciona tot el que s'apliqui</span>
+        </label>
+        <div class="opt-grid">
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','horaris')">Més opcions d'horaris</button>
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','seguiment')">Més seguiment personalitzat</button>
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','classes')">Noves modalitats de classe</button>
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','objectius')">Acompanyament d'objectius (nutrició, progressos)</button>
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','res')">Cap — la decisió és estrictament personal</button>
+          <button class="opt-btn" onclick="toggleMultiOpt(this,'millora','altres')">Altres</button>
+        </div>
+        <!-- cond: altres millores -->
+        <div class="cond-block" id="cond-millora-altres">
+          <textarea id="text-millora-altres" rows="2" placeholder="Explica'ns el que podríem millorar..."></textarea>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <label>Vols afegir algun comentari lliure?
+          <span class="sublabel">Qualsevol detall ens és molt valuós</span>
+        </label>
+        <textarea id="text-millora" rows="3" maxlength="500"
+          placeholder="Explica'ns el que vulguis..." oninput="updateCounter(this,'cnt-millora')"></textarea>
+        <div class="counter" id="cnt-millora">0 / 500</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(2)">← Tornar</button>
+        <button class="btn-next" onclick="goStep(4)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ───────── PAS 4: NPS + Recovery ───────── -->
+    <div class="step" id="step-4">
+      <p class="step-label">Pas 4 de 5 &nbsp;·&nbsp; Recomanació i Recovery</p>
+
+      <div class="q-block">
+        <label>Recomanaries La Mola<span style="color:var(--marron)">.</span> a algú del teu entorn?
+          <span class="sublabel">0 = Mai &nbsp;·&nbsp; 10 = Sens dubte</span>
+        </label>
+        <div class="scale-wrap" id="scale-nps"></div>
+        <div class="scale-labels"><span>0 · Mai</span><span>10 · Sens dubte</span></div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="q-block">
+        <label>Coneixes la nostra <strong style="color:var(--olive)">Zona Recovery</strong>?
+          <span class="sublabel">Sauna d'infraroigs · Bany de gel · Compressió pneumàtica</span>
+        </label>
+        <div class="opt-grid">
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','si'); showTeal(true)">Sí, la conec</button>
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','no'); showTeal(true)">No, no ho sabia</button>
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','si-usada'); showTeal(false)">Sí, i l'he fet servir</button>
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-info','no-interes'); showTeal(false)">Sí, però no m'interessa</button>
+        </div>
+        <div class="teal-note" id="teal-recovery">
+          <strong>La Mola Recovery</strong> estarà disponible pròximament com a servei independent, sense necessitat de ser membre del box. Si t'interessa, pots deixar el teu correu al pas final.
+        </div>
+      </div>
+
+      <div class="q-block">
+        <label>Si La Mola Recovery estigués disponible com a servei independent (sense quota de CrossFit), t'hi hauries apuntat?</label>
+        <div class="opt-grid">
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','si')">Sí, probablement</button>
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','potser')">Potser, dependria del preu</button>
+          <button class="opt-btn" onclick="selectOpt(this,'recovery-intent','no')">No m'interessa</button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(3)">← Tornar</button>
+        <button class="btn-next" onclick="goStep(5)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ───────── PAS 5: Follow-up ───────── -->
+    <div class="step" id="step-5">
+      <p class="step-label">Pas 5 de 5 &nbsp;·&nbsp; Follow-up opcional</p>
+
+      <div class="anon-note">
+        <span>🔒</span>
+        <span>Totes les respostes anteriors són completament anònimes. El que segueix és totalment opcional i voluntari, només si vols que et contactem.</span>
+      </div>
+
+      <div class="q-block">
+        <label>T'agradaria que et contactéssim si les circumstàncies canvien?
+          <span class="sublabel">Per exemple, si millora la situació econòmica, canvies d'horari, etc.</span>
+        </label>
+        <div class="opt-grid">
+          <button class="opt-btn" onclick="selectOpt(this,'contact','si'); showContact(true)">✅ &nbsp; Sí, m'interessa</button>
+          <button class="opt-btn" onclick="selectOpt(this,'contact','no'); showContact(false)">❌ &nbsp; No, gràcies</button>
+        </div>
+      </div>
+
+      <div class="cond-block" id="cond-contact">
+        <div class="q-block">
+          <label>Nom (opcional)</label>
+          <input type="text" id="input-nom" placeholder="El teu nom">
+        </div>
+        <div class="q-block">
+          <label>Correu electrònic</label>
+          <input type="email" id="input-email" placeholder="correu@exemple.com">
+        </div>
+        <div class="q-block">
+          <label>Quan creus que podries plantejar-te tornar?</label>
+          <div class="opt-grid">
+            <button class="opt-btn" onclick="selectOpt(this,'quan','1-3m')">1 – 3 mesos</button>
+            <button class="opt-btn" onclick="selectOpt(this,'quan','3-6m')">3 – 6 mesos</button>
+            <button class="opt-btn" onclick="selectOpt(this,'quan','6m+')">Més de 6 mesos</button>
+            <button class="opt-btn" onclick="selectOpt(this,'quan','nosabe')">No ho sé</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <label>Vols afegir alguna cosa final?
+          <span class="sublabel">Qualsevol pensament és benvingut.</span>
+        </label>
+        <textarea id="text-final" rows="3" maxlength="500"
+          placeholder="Gràcies per tot el que vulguis compartir..."
+          oninput="updateCounter(this,'cnt-final')"></textarea>
+        <div class="counter" id="cnt-final">0 / 500</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(4)">← Tornar</button>
+        <button class="btn-submit" id="btn-submit" onclick="submitForm()">Enviar respostes ✓</button>
+      </div>
+    </div>
+
+    <!-- ───────── GRÀCIES ───────── -->
+    <div class="step" id="step-thanks">
+      <div class="thank-you">
+        <span class="ty-icon">🤍</span>
+        <h2>Gràcies de tot cor.</h2>
+        <p>Les teves respostes ens ajuden a millorar cada dia.<br>
+        Esperem tornar-te a veure aviat a La Mola<span style="color:var(--marron)">.</span></p>
+        <div class="ty-footer">
+          Segueix-nos a Instagram <strong style="color:var(--black)">@crossfitlamola</strong> per estar al dia de novetats, events i el llançament de la Zona Recovery.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /form-body -->
+</div><!-- /page-wrap -->
+
+<script is:inline>
+  /* ── Estat global ── */
+  const answers = {
+    motius: []   /* multiselecció fins a 3 */
+  };
+
+  /* ── Escales ── */
+  function buildScale(id, min, max, small) {
+    const wrap = document.getElementById(id);
+    if (!wrap) return;
+    for (let i = min; i <= max; i++) {
+      const btn = document.createElement('button');
+      btn.className = small ? 'sub-scale-btn' : 'scale-btn';
+      btn.textContent = i;
+      btn.setAttribute('aria-label', 'Puntuació ' + i);
+      btn.addEventListener('click', () => {
+        wrap.querySelectorAll(small ? '.sub-scale-btn' : '.scale-btn')
+          .forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        answers[id] = i;
+      });
+      wrap.appendChild(btn);
+    }
+  }
+
+  buildScale('scale-global',    1, 10, false);
+  buildScale('scale-nps',       0, 10, false);
+  buildScale('scale-entrena',   1, 10, true);
+  buildScale('scale-coaches',   1, 10, true);
+  buildScale('scale-comunitat', 1, 10, true);
+  buildScale('scale-instal',    1, 10, true);
+  buildScale('scale-material',  1, 10, true);
+  buildScale('scale-neteja',    1, 10, true);
+  buildScale('scale-preu',      1, 10, true);
+
+  /* ── Motiu: multiselecció fins a 3 ── */
+  const MAX_MOTIUS = 3;
+
+  function toggleMotiu(btn, val) {
+    const isSelected = btn.classList.contains('selected');
+    const grid = document.getElementById('grid-motiu');
+    const allBtns = grid.querySelectorAll('.opt-btn');
+
+    if (isSelected) {
+      btn.classList.remove('selected');
+      answers.motius = answers.motius.filter(v => v !== val);
+    } else {
+      if (answers.motius.length >= MAX_MOTIUS) return;
+      btn.classList.add('selected');
+      answers.motius.push(val);
+    }
+
+    /* Bloquejar els no seleccionats si ja tenim 3 */
+    const atMax = answers.motius.length >= MAX_MOTIUS;
+    allBtns.forEach(b => {
+      if (!b.classList.contains('selected')) {
+        b.classList.toggle('disabled', atMax);
+      }
+    });
+
+    /* Hint */
+    const hint = document.getElementById('hint-motiu');
+    if (answers.motius.length === 0) {
+      hint.textContent = '';
+    } else if (atMax) {
+      hint.textContent = '✓ Màxim de 3 opcions seleccionades';
+    } else {
+      hint.textContent = answers.motius.length + ' / ' + MAX_MOTIUS + ' seleccionades';
+    }
+
+    /* Condicionals */
+    document.getElementById('cond-alternativa').classList.toggle('visible', answers.motius.includes('alternativa'));
+    document.getElementById('cond-altre-motiu').classList.toggle('visible', answers.motius.includes('altre'));
+  }
+
+  /* ── Selecció única ── */
+  function selectOpt(btn, key, val) {
+    const grid = btn.closest('.opt-grid');
+    if (grid) grid.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[key] = val;
+  }
+
+  /* ── Multiselecció genèrica ── */
+  function toggleMultiOpt(btn, key, val) {
+    btn.classList.toggle('selected');
+    if (!answers[key]) answers[key] = [];
+    const idx = answers[key].indexOf(val);
+    if (idx === -1) answers[key].push(val);
+    else answers[key].splice(idx, 1);
+
+    /* Condicional "altres" al pas 3 */
+    if (key === 'millora') {
+      const showAltres = answers.millora && answers.millora.includes('altres');
+      document.getElementById('cond-millora-altres').classList.toggle('visible', showAltres);
+    }
+  }
+
+  /* ── Tags toggle ── */
+  function toggleTag(btn, key, val) {
+    btn.classList.toggle('selected');
+    if (!answers[key]) answers[key] = [];
+    const idx = answers[key].indexOf(val);
+    if (idx === -1) answers[key].push(val);
+    else answers[key].splice(idx, 1);
+  }
+
+  /* ── Condicionals ── */
+  function showContact(show) {
+    document.getElementById('cond-contact').classList.toggle('visible', show);
+  }
+
+  function showTeal(show) {
+    document.getElementById('teal-recovery').style.display = show ? 'block' : 'none';
+  }
+
+  /* ── Comptador ── */
+  function updateCounter(el, cntId) {
+    document.getElementById(cntId).textContent = el.value.length + ' / 500';
+  }
+
+  /* ── Navegació ── */
+  function goStep(n) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + n).classList.add('active');
+    const pct = n <= 5 ? n * 20 : 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Enviament ── */
+  // ⬇️⬇️⬇️  ENGANXA AQUÍ LA URL DEL WEB APP DE GOOGLE APPS SCRIPT (acaba en /exec)  ⬇️⬇️⬇️
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwOZoKV3tdYiYZ7cJwZ4u7pR7eo6IjB4pL7kUc_BsA1LojjuTCVvw9kPAEC5WiKQ4g/exec';
+  // ⬆️⬆️⬆️  ─────────────────────────────────────────────────────────────────────  ⬆️⬆️⬆️
+
+  async function submitForm() {
+    /* Recollir camps de text */
+    const txt = (id) => (document.getElementById(id)?.value || '').trim();
+
+    /* Payload net amb claus estables — l'ordre de columnes el fixa l'Apps Script */
+    const payload = {
+      data:                  new Date().toISOString(),
+      motius:                answers.motius.join(', '),
+      altreMotiu:            txt('text-altre-motiu'),
+      tipusBaixa:            answers.tipusbaixa || '',
+      alternativa:           (answers.alt || []).join(', '),
+      scoreGlobal:           answers['scale-global'] ?? '',
+      scoreEntrenaments:     answers['scale-entrena'] ?? '',
+      scoreCoaches:          answers['scale-coaches'] ?? '',
+      scoreComunitat:        answers['scale-comunitat'] ?? '',
+      scoreInstalacions:     answers['scale-instal'] ?? '',
+      scoreMaterial:         answers['scale-material'] ?? '',
+      scoreNeteja:           answers['scale-neteja'] ?? '',
+      scorePreu:             answers['scale-preu'] ?? '',
+      nps:                   answers['scale-nps'] ?? '',
+      milloresSeleccionades: (answers.millora || []).join(', '),
+      milloresAltres:        txt('text-millora-altres'),
+      comentariMillora:      txt('text-millora'),
+      recoveryInfo:          answers['recovery-info'] || '',
+      recoveryIntent:        answers['recovery-intent'] || '',
+      volContacte:           answers.contact || '',
+      nom:                   txt('input-nom'),
+      email:                 txt('input-email'),
+      horitzoTornada:        answers.quan || '',
+      comentariFinal:        txt('text-final')
+    };
+
+    const btn = document.getElementById('btn-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviant…'; }
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      /* mode no-cors: la resposta és opaca; les dades arriben igualment al Sheet */
+      console.error('Error enviant el formulari de baixa:', err);
+    }
+
+    goStep('thanks');
+  }
+</script>
+
+</body>
+</html>
