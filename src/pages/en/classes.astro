@@ -93,6 +93,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "What is functional training?", "acceptedAnswer": {"@type": "Answer", "text": "Functional training works natural movements (pushing, pulling, lifting, carrying and running) to improve your overall fitness and everyday life. At CrossFit La Mola, in Terrassa, it's the foundation of every class: the WOD, weightlifting, hybrid work and gymnastics combine functional strength and conditioning for all levels."}},
         {"@type": "Question", "name": "Can I do the WOD if it's my first day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The coach scales all movements to your level and accompanies you throughout the session."}},
         {"@type": "Question", "name": "How long does a WOD last?", "acceptedAnswer": {"@type": "Answer", "text": "The class lasts 60 minutes: warm-up, technique or strength part, metcon and cool down."}},
         {"@type": "Question", "name": "Do I need to know weightlifting to sign up for Weightlifting class?", "acceptedAnswer": {"@type": "Answer", "text": "No. We start from scratch with an empty bar and build technique gradually."}},
@@ -329,6 +330,10 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
         <h2 class="h-xl reveal">Everything you want to know<br>about the <em class="serif">classes</em><span class="dot">.</span></h2>
       </div>
       <div class="faq reveal">
+        <details>
+          <summary>What is functional training?<span class="sign"></span></summary>
+          <p class="a">Functional training works natural movements —pushing, pulling, lifting, carrying and running— to improve your overall fitness and everyday life. At CrossFit La Mola, in Terrassa, it's the foundation of every class: the WOD, weightlifting, hybrid work and gymnastics combine functional strength and conditioning for all levels.</p>
+        </details>
         <details>
           <summary>What class is best to start CrossFit?<span class="sign"></span></summary>
           <p class="a">The WOD is the ideal class to start. It's the daily CrossFit class that combines all elements and adapts to any level. The coach scales movements according to your abilities.</p>

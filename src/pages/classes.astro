@@ -93,6 +93,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "Què és l'entrenament funcional?", "acceptedAnswer": {"@type": "Answer", "text": "L'entrenament funcional treballa moviments naturals (empènyer, tirar, aixecar, transportar i córrer) per millorar la teva forma física global i el dia a dia. A CrossFit La Mola, a Terrassa, és la base de totes les classes: el WOD, l'halterofília, el treball híbrid i el gimnàstic combinen força funcional i condicionament per a tots els nivells."}},
         {"@type": "Question", "name": "Puc fer el WOD si és el meu primer dia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El coach escala tots els moviments al teu nivell i t'acompanya durant tota la sessió."}},
         {"@type": "Question", "name": "Quant dura un WOD?", "acceptedAnswer": {"@type": "Answer", "text": "La classe dura 60 minuts: escalfament, part tècnica o força, metcon i tornada a la calma."}},
         {"@type": "Question", "name": "Necessito saber halterofília per apuntar-me a Weightlifting?", "acceptedAnswer": {"@type": "Answer", "text": "No. Comencem des de zero amb barra buida i construïm la tècnica a poc a poc."}},
@@ -335,6 +336,10 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         <h2 class="h-xl reveal">Tot el que vols saber<br>sobre les <em class="serif">classes</em><span class="dot">.</span></h2>
       </div>
       <div class="faq reveal">
+        <details>
+          <summary>Què és l'entrenament funcional?<span class="sign"></span></summary>
+          <p class="a">L'entrenament funcional treballa moviments naturals —empènyer, tirar, aixecar, transportar i córrer— per millorar la teva forma física global i el dia a dia. A CrossFit La Mola, a Terrassa, és la base de totes les classes: el WOD, l'halterofília, el treball híbrid i el gimnàstic combinen força funcional i condicionament per a tots els nivells.</p>
+        </details>
         <details>
           <summary>Quina classe és millor per començar CrossFit?<span class="sign"></span></summary>
           <p class="a">El WOD és la classe ideal per començar. És la classe diària de CrossFit que combina tots els elements i s'adapta a qualsevol nivell. El coach escala els moviments segons les teves capacitats.</p>
