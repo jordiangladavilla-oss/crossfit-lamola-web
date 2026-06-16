@@ -30,3 +30,6 @@ tests/*-snapshots/
 
 # playwright debug temporary files
 .playwright-*
+
+# SEO/GEO data privada (informes GSC + GA + memòria de progrés) — MAI commit
+seo-data/

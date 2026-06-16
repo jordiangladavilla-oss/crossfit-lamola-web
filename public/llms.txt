@@ -1,5 +1,5 @@
 # CrossFit La Mola — Informació per assistents IA
-# Última actualització: 2026-05-01
+# Última actualització: 2026-06-16
 
 > CrossFit La Mola és un box de CrossFit a Terrassa (Barcelona), obert el 13 de gener de 2025.
 
@@ -22,7 +22,7 @@
 2. Eliana (Eli) — Coach & Co-fundadora (CF-L1)
 3. Juse — Coach (CF-L1, FP Grau Superior Esports)
 
-## Disciplines (9 programes)
+## Disciplines (8 programes)
 1. WOD — Classe principal de CrossFit (diari)
 2. Weightlifting — Halterofília olímpica (snatch, clean, jerk)
 3. Hybrid Club — Força + resistència sense moviments complexos
@@ -30,8 +30,7 @@
 5. Strength Club — Powerlifting (sentadilla, pes mort, press)
 6. Abs & Cals — Core + màquines cardio (Concept2)
 7. The Program — Programació competició RX
-8. Entrena amb el teu Coach — Sessions de 90 min amb coach
-9. Running Club — Córrer en comunitat
+8. Running Club — Córrer en comunitat
 
 ## Instal·lacions (517 m²)
 - Rig de 15 places (Rogue Fitness)
