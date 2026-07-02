@@ -158,20 +158,20 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/pool-party.jpg`
   },
   {
-    id: 'sim-hyrox-1',
+    id: 'sim-hybrid-1',
     start: '2026-09-03',
     end: '2026-09-03',
     cat: 'activitat',
-    name: 'Simulacre Hyrox · 1r',
-    nameEs: 'Simulacro Hyrox · 1º',
-    nameEn: 'Hyrox Simulation · 1st',
-    place: 'La Mola · Hyrox · Gratuït',
-    placeEs: 'La Mola · Hyrox · Gratis',
-    placeEn: 'La Mola · Hyrox · Free',
-    desc: "Primer simulacre de cara a l'Hyrox Barcelona. Format cursa + estacions.",
-    descEs: 'Primer simulacro de cara al Hyrox Barcelona. Formato carrera + estaciones.',
-    descEn: 'First simulation ahead of Hyrox Barcelona. Race + stations format.',
-    image: `${AGENDA_REPO_RAW}/hyrox-bcn.jpg`
+    name: 'Simulacre Hybrid Race · 1r',
+    nameEs: 'Simulacro Hybrid Race · 1º',
+    nameEn: 'Hybrid Race Simulation · 1st',
+    place: 'La Mola · Cursa + estacions · Gratuït',
+    placeEs: 'La Mola · Carrera + estaciones · Gratis',
+    placeEn: 'La Mola · Race + stations · Free',
+    desc: 'Primer simulacre de resistència: cursa combinada amb estacions funcionals. Posa\'t a prova al box.',
+    descEs: 'Primer simulacro de resistencia: carrera combinada con estaciones funcionales. Ponte a prueba en el box.',
+    descEn: 'First endurance simulation: running combined with functional stations. Test yourself at the box.',
+    image: `${AGENDA_REPO_RAW}/class-wod.jpg`
   },
   {
     id: 'sim-wodcelona',
@@ -205,20 +205,20 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/WODCELONA.JPG`
   },
   {
-    id: 'sim-hyrox-2',
+    id: 'sim-hybrid-2',
     start: '2026-09-26',
     end: '2026-09-26',
     cat: 'activitat',
-    name: 'Simulacre Hyrox · 2n',
-    nameEs: 'Simulacro Hyrox · 2º',
-    nameEn: 'Hyrox Simulation · 2nd',
-    place: 'La Mola · Hyrox · Gratuït',
-    placeEs: 'La Mola · Hyrox · Gratis',
-    placeEn: 'La Mola · Hyrox · Free',
-    desc: 'Segon simulacre Hyrox abans de la gran cita a Barcelona.',
-    descEs: 'Segundo simulacro Hyrox antes de la gran cita en Barcelona.',
-    descEn: 'Second Hyrox simulation before the big event in Barcelona.',
-    image: `${AGENDA_REPO_RAW}/hyrox-bcn.jpg`
+    name: 'Simulacre Hybrid Race · 2n',
+    nameEs: 'Simulacro Hybrid Race · 2º',
+    nameEn: 'Hybrid Race Simulation · 2nd',
+    place: 'La Mola · Cursa + estacions · Gratuït',
+    placeEs: 'La Mola · Carrera + estaciones · Gratis',
+    placeEn: 'La Mola · Race + stations · Free',
+    desc: 'Segon simulacre de resistència amb cursa i estacions funcionals. Afina el ritme i les transicions.',
+    descEs: 'Segundo simulacro de resistencia con carrera y estaciones funcionales. Afina el ritmo y las transiciones.',
+    descEn: 'Second endurance simulation with running and functional stations. Fine-tune pace and transitions.',
+    image: `${AGENDA_REPO_RAW}/class-wod.jpg`
   },
   {
     id: 'sim-costabrava-1',
