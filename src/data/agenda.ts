@@ -168,9 +168,9 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'La Mola · Cursa + estacions · Gratuït',
     placeEs: 'La Mola · Carrera + estaciones · Gratis',
     placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Primer simulacre de resistència: cursa combinada amb estacions funcionals. Posa\'t a prova al box.',
-    descEs: 'Primer simulacro de resistencia: carrera combinada con estaciones funcionales. Ponte a prueba en el box.',
-    descEn: 'First endurance simulation: running combined with functional stations. Test yourself at the box.',
+    desc: 'Primer simulacre de resistència (cursa + estacions funcionals) com a preparació per la gran competició Hyrox de Barcelona.',
+    descEs: 'Primer simulacro de resistencia (carrera + estaciones funcionales) como preparación para la gran competición Hyrox de Barcelona.',
+    descEn: 'First endurance simulation (running + functional stations) to prepare for the big Hyrox competition in Barcelona.',
     image: `${AGENDA_REPO_RAW}/class-wod.jpg`
   },
   {
@@ -215,9 +215,9 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'La Mola · Cursa + estacions · Gratuït',
     placeEs: 'La Mola · Carrera + estaciones · Gratis',
     placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Segon simulacre de resistència amb cursa i estacions funcionals. Afina el ritme i les transicions.',
-    descEs: 'Segundo simulacro de resistencia con carrera y estaciones funcionales. Afina el ritmo y las transiciones.',
-    descEn: 'Second endurance simulation with running and functional stations. Fine-tune pace and transitions.',
+    desc: 'Segon simulacre de resistència (cursa + estacions funcionals) preparant la gran competició Hyrox de Barcelona. Afina el ritme i les transicions.',
+    descEs: 'Segundo simulacro de resistencia (carrera + estaciones funcionales) preparando la gran competición Hyrox de Barcelona. Afina el ritmo y las transiciones.',
+    descEn: 'Second endurance simulation (running + functional stations) preparing for the big Hyrox competition in Barcelona. Fine-tune pace and transitions.',
     image: `${AGENDA_REPO_RAW}/class-wod.jpg`
   },
   {
