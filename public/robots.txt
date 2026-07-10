@@ -3,8 +3,9 @@
 
 User-agent: *
 Allow: /
-# Pàgina privada (formulari de baixes) — enllaç directe, no indexar
-Disallow: /baixa
+# /baixa (formulari privat) NO porta Disallow expressament: Google ha de poder
+# rastrejar-la per veure el noindex (meta + X-Robots-Tag). Amb Disallow, el
+# noindex no es veu mai i la URL pot acabar indexada "sense descripció".
 
 # AI Crawlers — benvinguts per indexar contingut
 User-agent: GPTBot

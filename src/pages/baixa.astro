@@ -30,10 +30,15 @@
   <meta name="twitter:title" content="CrossFit La Mola · Formulari de Baixa" />
   <meta name="twitter:description" content="El teu feedback ens ajuda a millorar. 5 minuts · Respostes anònimes." />
   <meta name="twitter:image" content="https://crossfitlamola.com/assets/og/og-default.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <style is:global>
+    /* Poppins self-host (regla del projecte: cap font des de Google Fonts — rendiment + RGPD) */
+    @font-face { font-family:'Poppins'; font-style:normal; font-weight:300; font-display:swap; src:url('/fonts/poppins-latin-300-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Poppins'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/poppins-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Poppins'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/poppins-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Poppins'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/poppins-latin-600-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Poppins'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/poppins-latin-700-normal.woff2') format('woff2'); }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {

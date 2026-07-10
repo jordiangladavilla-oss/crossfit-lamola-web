@@ -562,8 +562,9 @@ const AGENDA = getUpcomingEvents(6).map(e => {
       const day = d.getDay();
       const hm = d.getHours() + d.getMinutes() / 60;
       let open = false;
-      if (day >= 1 && day <= 5) open = hm >= 6.5 && hm < 21.5;
-      else if (day === 6 || day === 0) open = hm >= 9 && hm < 12;
+      if (day >= 1 && day <= 4) open = hm >= 7 && hm < 21.5;
+      else if (day === 5) open = hm >= 7 && hm < 20.5;
+      else open = hm >= 9.5 && hm < 11.5;
       liveStatus.textContent = open ? 'Clase en curso · Consulta el horario' : 'Cerrado · Vuelve mañana';
     }
 
