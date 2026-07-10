@@ -23,6 +23,8 @@ const lang = 'es'
 const eventsByMonth = getUpcomingEventsByMonth(lang)
 const pastEventsByMonth = getPastEventsByMonth(lang)
 const featuredEvent = getFeaturedEvent()
+// Títol del pòster destacat: "La Mola." + nom de l'event amb l'últim mot en cursiva
+const featuredNameWords = featuredEvent ? getEventName(featuredEvent, lang).replace(/^La Mola\s+/, '').split(' ') : []
 
 const AGENDA_EVENTS_2026 = agendaEvents.map(e => ({
   id: e.id,
@@ -197,7 +199,7 @@ function getBadgeText(event: AgendaEvent): string {
         <div class="std-poster reveal">
           <div>
             <span class="label">{catLabels[lang][featuredEvent.cat]} · La Mola</span>
-            <h2>La Mola.<br>Summer <em>Fest</em><span class="dot">.</span></h2>
+            <h2>La Mola.<br>{featuredNameWords.length > 1 ? featuredNameWords.slice(0, -1).join(' ') + ' ' : ''}<em>{featuredNameWords.at(-1)}</em><span class="dot">.</span></h2>
             <p class="desc">{getEventDesc(featuredEvent, lang)}</p>
           </div>
           <div>

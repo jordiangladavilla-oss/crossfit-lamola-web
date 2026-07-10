@@ -445,5 +445,6 @@ export function getPastEventsByMonth(lang: Lang = 'ca'): Map<string, AgendaEvent
 }
 
 export function getFeaturedEvent(): AgendaEvent | undefined {
-  return agendaEvents.find(e => e.featured && e.cat === 'festa');
+  const today = new Date().toISOString().split('T')[0];
+  return agendaEvents.find(e => e.featured && e.cat === 'festa' && e.end >= today);
 }
