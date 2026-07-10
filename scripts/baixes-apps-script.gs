@@ -49,15 +49,39 @@ var FIELDS = [
   ['comentariFinal',        'Comentari final']
 ];
 
+// Límit de mida per camp i per payload sencer (anti-spam).
+var MAX_FIELD_LEN = 500;
+var MAX_PAYLOAD_LEN = 20000;
+
+// Neteja cada valor abans d'escriure'l al Sheet:
+//  - trunca a MAX_FIELD_LEN
+//  - prefixa amb ' els valors que comencen per = + - @ (anti formula injection:
+//    sense això, un camp com "=IMPORTRANGE(...)" s'executaria en obrir el Sheet)
+function clean_(v) {
+  if (Array.isArray(v)) v = v.join(', ');
+  if (v === undefined || v === null) return '';
+  var s = String(v).slice(0, MAX_FIELD_LEN);
+  if (/^[=+\-@]/.test(s)) s = "'" + s;
+  return s;
+}
+
 function doPost(e) {
   try {
+    if (!e.postData || e.postData.contents.length > MAX_PAYLOAD_LEN) {
+      return json_({ result: 'ok' });
+    }
     var data = JSON.parse(e.postData.contents);
+
+    // Honeypot: el camp "website" és invisible al formulari; si arriba ple, és un bot.
+    // Es respon 'ok' igualment perquè el bot no sàpiga que s'ha descartat.
+    if (data.website) {
+      return json_({ result: 'ok' });
+    }
+
     var sheet = getSheet_();
 
     var row = FIELDS.map(function (f) {
-      var v = data[f[0]];
-      if (Array.isArray(v)) return v.join(', ');
-      return (v === undefined || v === null) ? '' : v;
+      return clean_(data[f[0]]);
     });
 
     sheet.appendRow(row);
