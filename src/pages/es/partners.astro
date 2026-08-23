@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import Schema from '../../components/Schema.astro'
+
+const partners = [
+  {
+    tag: '01 · Acceso corporativo',
+    name: 'Wellhub',
+    desc: "Plataforma de bienestar para empresas. Si tu compañía trabaja con Wellhub, puedes entrenar en La Mola con tu plan corporativo.",
+    url: 'https://wellhub.com/es-es/'
+  },
+  {
+    tag: '02 · Acceso corporativo',
+    name: 'Urban Sports Club',
+    desc: "Una suscripción, cientos de espacios deportivos. Accede al box con tu membresía de Urban Sports Club.",
+    url: 'https://urbansportsclub.com/es/'
+  },
+  {
+    tag: '03 · Material de atleta',
+    name: 'Velites',
+    desc: "Cuerdas de saltar, grips y accesorios de training. Partner oficial con ventajas para la comunidad de La Mola.",
+    url: 'https://www.velitessport.com/'
+  },
+  {
+    tag: '04 · Material de atleta',
+    name: 'Picsil',
+    desc: "Grips, magnesio y accesorios de CrossFit hechos en España. Partner oficial con descuentos para atletas del box.",
+    url: 'https://picsilsport.com/'
+  },
+  {
+    tag: '05 · Equipamiento',
+    name: 'Ruster Fitness',
+    desc: "Discos, barras y material funcional. Buena parte del hierro que levantas cada día en el box lleva su sello.",
+    url: 'https://rusterfitness.com/'
+  },
+  {
+    tag: '06 · Equipamiento',
+    name: 'Rogue Fitness',
+    desc: "El estándar mundial en equipamiento de fuerza. El rig de 15 plazas y parte del equipamiento de La Mola es Rogue.",
+    url: 'https://www.rogueeurope.eu/'
+  }
+]
+---
+
+<Layout
+  title="Partners · CrossFit La Mola Terrassa"
+  description="Los partners de CrossFit La Mola: Wellhub, Urban Sports Club, Velites, Picsil, Ruster Fitness y Rogue. Las marcas y plataformas con las que construimos el box de Terrassa."
+  ogImage="/assets/detail-dumbbells.webp"
+>
+  <Schema type="base" slot="head" />
+  <Breadcrumb items={[{name: "Partners"}]} lang="es" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Partners de CrossFit La Mola",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"Wellhub","url":"https://wellhub.com/es-es/"}},
+        {"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"Urban Sports Club","url":"https://urbansportsclub.com/es/"}},
+        {"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Velites","url":"https://www.velitessport.com/"}},
+        {"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Picsil","url":"https://picsilsport.com/"}},
+        {"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Ruster Fitness","url":"https://rusterfitness.com/"}},
+        {"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"Rogue Fitness","url":"https://www.rogueeurope.eu/"}}
+      ]
+    }
+    </script>
+  </Fragment>
+
+  <style>
+    .partner-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
+    @media(min-width:700px){ .partner-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1100px){ .partner-grid{ grid-template-columns:repeat(3,1fr);} }
+    .partner{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+    .partner:hover{ transform:translateY(-3px);}
+    .partner .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .partner h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(24px,2.6vw,34px); letter-spacing:-0.03em; line-height:1; margin:0; color:var(--bone);}
+    .partner p{ font-family:var(--f-serif); font-size:16.5px; line-height:1.55; color:var(--bone-2); margin:0; flex:1;}
+    .partner a{ display:inline-flex; align-items:center; gap:10px; width:max-content;
+      font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--bone); border-bottom:1px solid var(--accent-hi); padding-bottom:4px; transition:color .2s;}
+    .partner a:hover{ color:var(--accent-hi);}
+  </style>
+
+  <Nav currentPage="/es/partners" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/detail-chalk.jpg')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Partners</span></div>
+      <div class="kicker"><span>Marcas</span><span class="bar"></span><span>Plataformas</span></div>
+      <h1>Mejor<br><em class="serif">acompañados</em><span class="dot">.</span></h1>
+      <p class="sub">Del hierro que levantas a la plataforma con la que entras por tu plan de empresa: estas son las marcas y plataformas con las que construimos La Mola.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Nuestros partners</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Seis nombres<br>de confianza<span class="dot">.</span></h2>
+        <p class="lead reveal">Elegimos los partners como elegimos el material: porque aguantan. Acceso corporativo, equipamiento y material de atleta, todo de primera línea.</p>
+      </div>
+
+      <div class="partner-grid reveal-stagger">
+        {partners.map((p, i) => (
+          <div class="partner" style={`--i:${i}`}>
+            <span class="tag">{p.tag}</span>
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+            <a href={p.url} target="_blank" rel="noopener">Visitar web →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">02 —</span><span>¿Colaboramos?</span></div>
+      <h2 class="h-hero reveal">¿Quieres ser<br><em class="serif">partner</em><span class="dot">?</span></h2>
+      <p class="reveal">Si tu marca encaja con la comunidad de La Mola, hablemos.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/es/contacte">Contactar<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import Schema from '../../components/Schema.astro'
+---
+
+<Layout
+  title="Civil Service Exam Prep · Firefighters & Mossos · CrossFit La Mola Terrassa"
+  description="Train for the physical tests of Catalonia's firefighter (Bombers) and police (Mossos d'Esquadra) civil service exams in Terrassa. Exclusive weekday slot 11:30–15:30 plus Sunday mornings. €55/month VAT included."
+  ogImage="/assets/elbox-zona-wod.webp"
+>
+  <Schema type="base" slot="head" />
+  <Breadcrumb items={[{name: "Exam prep"}]} lang="en" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Physical exam preparation · CrossFit La Mola",
+      "serviceType": "Training for civil service physical tests",
+      "provider": { "@id": "https://crossfitlamola.com/#organization" },
+      "areaServed": {"@type": "City", "name": "Terrassa"},
+      "audience": {"@type": "Audience", "audienceType": "Candidates for Catalonia's firefighter services (Bombers de la Generalitat, Bombers de Barcelona) and police force (Mossos d'Esquadra)"},
+      "description": "Exclusive training slot for exam candidates, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30, with equipment for physical preparation: ropes, strength, loaded carries, sled work, drags and aerobic capacity.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Exam candidate membership",
+        "description": "Unlimited use of the facilities within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
+        "priceCurrency": "EUR",
+        "price": "55.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://crossfitlamola.com/en/opositors"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Who can join the exam candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone registered for a civil service exam with physical tests: Bombers de la Generalitat de Catalunya, Bombers de Barcelona (SPEIS) or Mossos d'Esquadra. Proof of registration is required to sign up."}},
+        {"@type": "Question", "name": "What are the training hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30. Within this slot, use of the facilities and equipment is unlimited."}},
+        {"@type": "Question", "name": "What do the new firefighter tests look like?", "acceptedAnswer": {"@type": "Answer", "text": "Each exam call sets its own official tests and they can change: always check the current official announcement. As a reference, INEFC has proposed (2025-2 report) intervention simulations: carrying 10 kg plates and 12 kg kettlebells up stairs, pulling and pushing a sled with a rope, crawling courses, dragging a 60 kg rescue mannequin and 20 m shuttle blocks with slam balls. These are functional training patterns routinely trained at a CrossFit box."}},
+        {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "€55 per month, VAT included, with unlimited use within the 11:30–15:30 weekday slot."}},
+        {"@type": "Question", "name": "What equipment is available?", "acceptedAnswer": {"@type": "Answer", "text": "517m² with 9 climbing ropes, a 15-station rig, over 30 Olympic barbells, benches, 4 sled push lanes, 12 cardio stations (Concept2 and Rogue) and an outdoor area for aerobic work."}},
+        {"@type": "Question", "name": "Can I train outside the slot?", "acceptedAnswer": {"@type": "Answer", "text": "The exam candidate membership covers the 11:30–15:30 slot. If you also want classes or other hours, message us and we'll explain how to combine it with our regular memberships."}}
+      ]
+    }
+    </script>
+  </Fragment>
+
+  <style>
+    .cossos{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
+    @media(min-width:900px){ .cossos{ grid-template-columns:repeat(3,1fr);} }
+    .cos{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
+    .cos .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .cos h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.2vw,28px); letter-spacing:-0.025em; line-height:1.02; margin:0; color:var(--bone);}
+    .cos h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
+    .cos p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
+
+    .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
+    .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
+    @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
+    .conds .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink);}
+    .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
+    .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
+    .conds .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone-ink);}
+
+    .gear{ list-style:none; padding:0; margin:48px 0 0; display:grid; gap:12px; font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2);}
+    @media(min-width:760px){ .gear{ grid-template-columns:repeat(2,1fr);} }
+    .gear li{ display:flex; gap:14px; align-items:baseline;}
+    .gear li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(-2px);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em; color:var(--bone);}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-hi); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-2); margin:14px 0 0; max-width:60ch;}
+  </style>
+
+  <Nav currentPage="/en/opositors" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/elbox-zona-wod.webp')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
+      <div class="kicker"><span>Firefighters</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
+      <h1>Physical tests<br>are won <em class="serif">early</em><span class="dot">.</span></h1>
+      <p class="sub">An <strong>exclusive training slot for exam candidates</strong> in Terrassa: specific equipment to prepare the physical tests for Catalonia's firefighter and police forces, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Who it's for</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Every exam,<br>its own training<span class="dot">.</span></h2>
+        <p class="lead reveal">Exam calls change and the tests evolve — always check your call's official announcement. What doesn't change is the physical base they demand: strength, loaded carries, pulling, agility and aerobic capacity. Here you have the space and the equipment to build it every day.</p>
+      </div>
+
+      <div class="cossos reveal-stagger">
+        <div class="cos" style="--i:0">
+          <span class="tag">01 · Generalitat</span>
+          <h3>Bombers de la <em>Generalitat</em></h3>
+          <p>INEFC has proposed for the force (2025-2 report) intervention simulations: carrying 10 kg plates and 12 kg kettlebells up stairs, rope-sled pulls and pushes, dragging a 60 kg mannequin and 20 m shuttles with slam balls. Patterns trained here every day.</p>
+        </div>
+        <div class="cos" style="--i:1">
+          <span class="tag">02 · Barcelona</span>
+          <h3>Bombers de <em>Barcelona</em></h3>
+          <p>Build the physical base the Barcelona city firefighter (SPEIS) entry demands: strength, power and endurance with Olympic barbells, sled push and loaded carry zones. Check the current official announcement.</p>
+        </div>
+        <div class="cos" style="--i:2">
+          <span class="tag">03 · Mossos</span>
+          <h3>Mossos <em>d'Esquadra</em></h3>
+          <p>Build the all-round conditioning the entry process demands: strength, agility and aerobic capacity, combining loaded work with 12 cardio stations and an outdoor area. Check the current official announcement.</p>
+        </div>
+      </div>
+
+      <ul class="gear reveal">
+        <li>9 climbing ropes and a 15-station rig</li>
+        <li>30+ Olympic barbells and benches</li>
+        <li>4 sled push and carry lanes</li>
+        <li>12 Concept2 and Rogue cardio stations</li>
+        <li>Kettlebells, plates and slam balls for the simulations</li>
+        <li>Outdoor area for aerobic work</li>
+        <li>517m² with exclusive equipment during the slot</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Conditions</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">A membership built<br>for candidates<span class="dot">.</span></h2>
+
+      <div class="conds reveal">
+        <div><span class="label">01 · Price</span><div><h4>€55/month · VAT included</h4><p>Unlimited use of the facilities and equipment within the candidate slot.</p></div><span class="p">€55<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
+        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>Four hours of weekday access with equipment reserved exclusively for exam training. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
+        <div><span class="label">03 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>FAQ</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal" style="color:var(--bone)">Common<br>questions<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong> or <strong>Mossos d'Esquadra</strong>. Proof of registration is required to sign up.</p></details>
+        <details><summary>Can I come every day?</summary><p>Yes. Use within the slot is <strong>unlimited</strong>: Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30.</p></details>
+        <details><summary>What do the new firefighter tests look like?</summary><p>Tests are set by <strong>each call's official announcement</strong> and can change — always check the current one. As a reference, INEFC has proposed (2025-2 report) <strong>intervention simulations</strong>: carrying 10 kg plates and 12 kg kettlebells up stairs, rope-sled pulls and pushes, crawling courses, dragging a 60 kg mannequin and 20 m shuttles with slam balls. Exactly the functional patterns we train at the box.</p></details>
+        <details><summary>Can I train outside the slot?</summary><p>This membership covers the 11:30–15:30 slot. If you also want classes or other hours, message us and we'll explain how to combine it.</p></details>
+        <details><summary>Is there coached training?</summary><p>The slot is open training with exclusive equipment. The box coaches are around and can point you in the right direction; if you're after specific programming for your exam, ask us.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Let's start</span></div>
+      <h2 class="h-hero reveal">Your spot is<br>earned <em class="serif">today</em><span class="dot">.</span></h2>
+      <p class="reveal">Come see the box, bring your registration proof and start training.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/en/contacte">Get info<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">or via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

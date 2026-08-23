@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import Schema from '../../components/Schema.astro'
+---
+
+<Layout
+  title="Oposiciones · Preparación física Bomberos y Mossos · CrossFit La Mola Terrassa"
+  description="Prepara las pruebas físicas de oposiciones a Bomberos de la Generalitat, Bomberos de Barcelona y Mossos d'Esquadra en Terrassa. Franja exclusiva entre semana de 11:30 a 15:30 y domingos por la mañana. 55€/mes IVA incluido."
+  ogImage="/assets/elbox-zona-wod.webp"
+>
+  <Schema type="base" slot="head" />
+  <Breadcrumb items={[{name: "Oposiciones"}]} lang="es" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Preparación física para oposiciones · CrossFit La Mola",
+      "serviceType": "Entrenamiento para pruebas físicas de oposiciones",
+      "provider": { "@id": "https://crossfitlamola.com/#organization" },
+      "areaServed": {"@type": "City", "name": "Terrassa"},
+      "audience": {"@type": "Audience", "audienceType": "Opositores a Bomberos de la Generalitat de Catalunya, Bomberos del Ayuntamiento de Barcelona y Mossos d'Esquadra"},
+      "description": "Franja de entrenamiento exclusiva para opositores de lunes a viernes de 11:30 a 15:30 y domingos de 9:30 a 11:30, con material para la preparación física: cuerdas, fuerza, carga, trineo, arrastres y capacidad aeróbica.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Cuota opositores",
+        "description": "Uso ilimitado de las instalaciones dentro de la franja: de lunes a viernes de 11:30 a 15:30 y domingos de 9:30 a 11:30. Hay que acreditar la inscripción a la convocatoria.",
+        "priceCurrency": "EUR",
+        "price": "55.00",
+        "availability": "https://schema.org/InStock",
+        "url": "https://crossfitlamola.com/es/opositors"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Quién puede acceder a la cuota de opositores?", "acceptedAnswer": {"@type": "Answer", "text": "Cualquier persona inscrita en una convocatoria de oposiciones con pruebas físicas: Bomberos de la Generalitat de Catalunya, Bomberos del Ayuntamiento de Barcelona (SPEIS) o Mossos d'Esquadra. Hay que acreditar la inscripción a la convocatoria para darse de alta."}},
+        {"@type": "Question", "name": "¿Qué horario tiene la franja de opositores?", "acceptedAnswer": {"@type": "Answer", "text": "De lunes a viernes de 11:30 a 15:30, y domingos de 9:30 a 11:30. Dentro de esta franja el uso de las instalaciones y el material es ilimitado."}},
+        {"@type": "Question", "name": "¿Cómo son las nuevas pruebas físicas de Bomberos?", "acceptedAnswer": {"@type": "Answer", "text": "Las pruebas de cada convocatoria las fijan las bases oficiales y pueden cambiar: consulta siempre la convocatoria vigente. Como referencia, el INEFC ha propuesto (informe 2025-2) simulaciones de intervención: transporte de discos de 10 kg y kettlebells de 12 kg con subida de escaleras, tirar y empujar un trineo con cuerda, recorridos en cuadrupedia, arrastre de un maniquí de 60 kg y bloques de rectas de 20 m con slam balls. Son patrones de entrenamiento funcional que se trabajan habitualmente en un box de CrossFit."}},
+        {"@type": "Question", "name": "¿Cuánto cuesta la cuota de opositores?", "acceptedAnswer": {"@type": "Answer", "text": "55€ al mes, IVA incluido, con uso ilimitado dentro de la franja de 11:30 a 15:30 de lunes a viernes."}},
+        {"@type": "Question", "name": "¿Qué material hay para preparar las pruebas?", "acceptedAnswer": {"@type": "Answer", "text": "517m² con 9 cuerdas de subida, rig de 15 plazas, más de 30 barras olímpicas, bancos de fuerza, 4 zonas de sled push, 12 estaciones de cardio (Concept2 y Rogue) y zona exterior para trabajar la capacidad aeróbica."}},
+        {"@type": "Question", "name": "¿Puedo entrenar fuera de la franja de opositores?", "acceptedAnswer": {"@type": "Answer", "text": "La cuota de opositores da acceso a la franja de 11:30 a 15:30. Si quieres venir a clases o entrenar en otros horarios, escríbenos y te explicamos cómo combinarlo con las tarifas generales."}}
+      ]
+    }
+    </script>
+  </Fragment>
+
+  <style>
+    .cossos{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
+    @media(min-width:900px){ .cossos{ grid-template-columns:repeat(3,1fr);} }
+    .cos{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
+    .cos .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .cos h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.2vw,28px); letter-spacing:-0.025em; line-height:1.02; margin:0; color:var(--bone);}
+    .cos h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
+    .cos p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
+
+    .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
+    .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
+    @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
+    .conds .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink);}
+    .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
+    .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
+    .conds .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone-ink);}
+
+    .gear{ list-style:none; padding:0; margin:48px 0 0; display:grid; gap:12px; font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2);}
+    @media(min-width:760px){ .gear{ grid-template-columns:repeat(2,1fr);} }
+    .gear li{ display:flex; gap:14px; align-items:baseline;}
+    .gear li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(-2px);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em; color:var(--bone);}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-hi); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-2); margin:14px 0 0; max-width:60ch;}
+  </style>
+
+  <Nav currentPage="/es/opositors" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/elbox-zona-wod.webp')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Oposiciones</span></div>
+      <div class="kicker"><span>Bomberos</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
+      <h1>Las pruebas físicas<br>se ganan <em class="serif">antes</em><span class="dot">.</span></h1>
+      <p class="sub">Franja de entrenamiento <strong>exclusiva para opositores</strong> en Terrassa: material específico para preparar las pruebas físicas de Bomberos y Mossos d'Esquadra, de lunes a viernes de 11:30 a 15:30 y domingos de 9:30 a 11:30.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Para quién</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Cada convocatoria,<br>su entrenamiento<span class="dot">.</span></h2>
+        <p class="lead reveal">Las convocatorias cambian y las pruebas evolucionan — consulta siempre las bases oficiales de tu convocatoria. Lo que no cambia es la base física que exigen: fuerza, carga, tracción, agilidad y capacidad aeróbica. Aquí tienes el espacio y el material para trabajarla cada día.</p>
+      </div>
+
+      <div class="cossos reveal-stagger">
+        <div class="cos" style="--i:0">
+          <span class="tag">01 · Generalitat</span>
+          <h3>Bomberos de la <em>Generalitat</em></h3>
+          <p>El INEFC ha propuesto para el cuerpo (informe 2025-2) simulaciones de intervención: transporte de discos de 10 kg y kettlebells de 12 kg con escaleras, trineo con cuerda, arrastre de maniquí de 60 kg y rectas de 20 m con slam balls. Patrones que aquí se entrenan cada día.</p>
+        </div>
+        <div class="cos" style="--i:1">
+          <span class="tag">02 · Barcelona</span>
+          <h3>Bomberos de <em>Barcelona</em></h3>
+          <p>Construye la base física que pide el acceso al cuerpo de Bomberos del Ayuntamiento de Barcelona (SPEIS): fuerza, potencia y resistencia con barras olímpicas, sled push y zonas de carga. Consulta las bases de la convocatoria vigente.</p>
+        </div>
+        <div class="cos" style="--i:2">
+          <span class="tag">03 · Mossos</span>
+          <h3>Mossos <em>d'Esquadra</em></h3>
+          <p>Trabaja la condición física general que exige el acceso: fuerza, agilidad y capacidad aeróbica, combinando trabajo de carga con 12 estaciones de cardio y zona exterior. Consulta las bases de la convocatoria vigente.</p>
+        </div>
+      </div>
+
+      <ul class="gear reveal">
+        <li>9 cuerdas de subida y rig de 15 plazas</li>
+        <li>+30 barras olímpicas y bancos de fuerza</li>
+        <li>4 zonas de sled push y carga</li>
+        <li>12 estaciones de cardio Concept2 y Rogue</li>
+        <li>Kettlebells, discos y slam balls para las simulaciones</li>
+        <li>Zona exterior para trabajo aeróbico</li>
+        <li>517m² con material exclusivo dentro de la franja</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Condiciones</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Una cuota pensada<br>para opositores<span class="dot">.</span></h2>
+
+      <div class="conds reveal">
+        <div><span class="label">01 · Cuota</span><div><h4>55€/mes · IVA incluido</h4><p>Uso ilimitado de las instalaciones y el material dentro de la franja de opositores.</p></div><span class="p">55€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/mes</span></span></div>
+        <div><span class="label">02 · Franja</span><div><h4>Lunes a viernes · 11:30–15:30</h4><p>Cuatro horas diarias entre semana con material disponible en exclusiva para el entrenamiento de oposiciones. Y también los <strong>domingos de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">días/sem.</span></span></div>
+        <div><span class="label">03 · Acreditación</span><div><h4>Justificante de inscripción</h4><p>Para acceder a esta tarifa hay que acreditar la inscripción a la convocatoria de oposiciones (justificante o resguardo de inscripción).</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>Preguntas frecuentes</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal" style="color:var(--bone)">Dudas<br>habituales<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>¿Quién puede acceder a la cuota de opositores?</summary><p>Cualquier persona inscrita en una convocatoria con pruebas físicas: <strong>Bomberos de la Generalitat</strong>, <strong>Bomberos de Barcelona (SPEIS)</strong> o <strong>Mossos d'Esquadra</strong>. Hay que acreditar la inscripción para darse de alta.</p></details>
+        <details><summary>¿Puedo venir cada día?</summary><p>Sí. El uso dentro de la franja es <strong>ilimitado</strong>: de lunes a viernes de 11:30 a 15:30, y domingos de 9:30 a 11:30.</p></details>
+        <details><summary>¿Cómo son las nuevas pruebas de Bomberos?</summary><p>Las pruebas las fijan las <strong>bases oficiales de cada convocatoria</strong> y pueden cambiar — consulta siempre la convocatoria vigente. Como referencia, el INEFC ha propuesto (informe 2025-2) <strong>simulaciones de intervención</strong>: transporte de discos de 10 kg y kettlebells de 12 kg con escaleras, trineo con cuerda, cuadrupedia, arrastre de maniquí de 60 kg y rectas de 20 m con slam balls. Exactamente los patrones funcionales que trabajamos en el box.</p></details>
+        <details><summary>¿Puedo entrenar fuera de la franja?</summary><p>La cuota de opositores cubre la franja de 11:30 a 15:30. Si también quieres venir a clases o en otros horarios, escríbenos y te explicamos cómo combinarlo.</p></details>
+        <details><summary>¿Hay entrenamiento dirigido?</summary><p>La franja es de entrenamiento libre con material exclusivo. Los coaches del box están en la sala y te pueden orientar; si buscas una programación específica para tu convocatoria, pregúntanos.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Empezamos</span></div>
+      <h2 class="h-hero reveal">La plaza se<br>prepara <em class="serif">hoy</em><span class="dot">.</span></h2>
+      <p class="reveal">Ven a ver el box, trae el justificante de inscripción y empieza a entrenar.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/es/contacte">Quiero información<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

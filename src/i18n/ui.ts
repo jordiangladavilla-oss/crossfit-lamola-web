@@ -17,6 +17,9 @@ export const ui = {
     'nav.elbox': 'El box',
     'nav.agenda': 'Agenda',
     'nav.contacte': 'Contacte',
+    'nav.recovery': 'Recovery',
+    'nav.opositors': 'Oposicions',
+    'nav.partners': 'Partners',
     'nav.cta': 'Primera classe gratuïta',
 
     // Common
@@ -157,6 +160,9 @@ export const ui = {
     'nav.elbox': 'El box',
     'nav.agenda': 'Agenda',
     'nav.contacte': 'Contacto',
+    'nav.recovery': 'Recovery',
+    'nav.opositors': 'Oposiciones',
+    'nav.partners': 'Partners',
     'nav.cta': 'Primera clase gratis',
 
     // Common
@@ -297,6 +303,9 @@ export const ui = {
     'nav.elbox': 'The box',
     'nav.agenda': 'Events',
     'nav.contacte': 'Contact',
+    'nav.recovery': 'Recovery',
+    'nav.opositors': 'Exam prep',
+    'nav.partners': 'Partners',
     'nav.cta': 'Free first class',
 
     // Common
