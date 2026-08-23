@@ -158,20 +158,20 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/pool-party.jpg`
   },
   {
-    id: 'sim-hybrid-1',
+    id: 'sim-fitrace-1',
     start: '2026-10-06',
     end: '2026-10-06',
     cat: 'activitat',
-    name: 'Simulacre Hybrid Race · 1r',
-    nameEs: 'Simulacro Hybrid Race · 1º',
-    nameEn: 'Hybrid Race Simulation · 1st',
+    name: 'Simulacre Fit Race FCL · 1r',
+    nameEs: 'Simulacro Fit Race FCL · 1º',
+    nameEn: 'Fit Race FCL Simulation · 1st',
     place: 'La Mola · Cursa + estacions · Gratuït',
     placeEs: 'La Mola · Carrera + estaciones · Gratis',
     placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Primer simulacre de resistència (cursa + estacions funcionals) com a preparació per la gran competició Hyrox de Barcelona.',
-    descEs: 'Primer simulacro de resistencia (carrera + estaciones funcionales) como preparación para la gran competición Hyrox de Barcelona.',
-    descEn: 'First endurance simulation (running + functional stations) to prepare for the big Hyrox competition in Barcelona.',
-    image: `${AGENDA_REPO_RAW}/class-wod.jpg`
+    desc: 'Primer simulacre de preparació per la Fit Race FCL Costa Brava. Afina el ritme de cursa i les transicions.',
+    descEs: 'Primer simulacro de preparación para la Fit Race FCL Costa Brava. Afina el ritmo de carrera y las transiciones.',
+    descEn: 'First preparation simulation for the Fit Race FCL Costa Brava. Fine-tune race pace and transitions.',
+    image: `${AGENDA_REPO_RAW}/fitrace.png`
   },
   {
     id: 'mountain-btt',
@@ -186,7 +186,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Outdoors · Group ride',
     desc: 'Sortida en bicicleta de muntanya amb el Mountain Club. Ruta en grup, ritme adaptat al grup.',
     descEs: 'Salida en bicicleta de montaña con el Mountain Club. Ruta en grupo, ritmo adaptado al grupo.',
-    descEn: 'Mountain bike ride with the Mountain Club. Group route, pace adapted to the group.'
+    descEn: 'Mountain bike ride with the Mountain Club. Group route, pace adapted to the group.',
+    image: `${AGENDA_REPO_RAW}/btt.jpg`
   },
   {
     id: 'mountain-bastiments',
@@ -201,7 +202,8 @@ export const agendaEvents: AgendaEvent[] = [
     placeEn: 'Ripollès · Summit 2,881 m',
     desc: 'Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.',
     descEs: 'Ascensión al Pic de Bastiments (2.881 m), en el Ripollès. Salida de montaña con el Mountain Club.',
-    descEn: 'Ascent of Bastiments Peak (2,881 m) in the Ripollès. Mountain outing with the Mountain Club.'
+    descEn: 'Ascent of Bastiments Peak (2,881 m) in the Ripollès. Mountain outing with the Mountain Club.',
+    image: `${AGENDA_REPO_RAW}/pic-bastiments.webp`
   },
   {
     id: 'sim-wodcelona',
@@ -235,20 +237,36 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/WODCELONA.JPG`
   },
   {
-    id: 'sim-hybrid-2',
+    id: 'sim-fitrace-2',
     start: '2026-10-13',
     end: '2026-10-13',
     cat: 'activitat',
-    name: 'Simulacre Hybrid Race · 2n',
-    nameEs: 'Simulacro Hybrid Race · 2º',
-    nameEn: 'Hybrid Race Simulation · 2nd',
+    name: 'Simulacre Fit Race FCL · 2n',
+    nameEs: 'Simulacro Fit Race FCL · 2º',
+    nameEn: 'Fit Race FCL Simulation · 2nd',
     place: 'La Mola · Cursa + estacions · Gratuït',
     placeEs: 'La Mola · Carrera + estaciones · Gratis',
     placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Segon simulacre de resistència (cursa + estacions funcionals) preparant la gran competició Hyrox de Barcelona. Afina el ritme i les transicions.',
-    descEs: 'Segundo simulacro de resistencia (carrera + estaciones funcionales) preparando la gran competición Hyrox de Barcelona. Afina el ritmo y las transiciones.',
-    descEn: 'Second endurance simulation (running + functional stations) preparing for the big Hyrox competition in Barcelona. Fine-tune pace and transitions.',
-    image: `${AGENDA_REPO_RAW}/class-wod.jpg`
+    desc: 'Segon simulacre abans de la Fit Race FCL Costa Brava. Últim assaig de ritme i transicions.',
+    descEs: 'Segundo simulacro antes de la Fit Race FCL Costa Brava. Último ensayo de ritmo y transiciones.',
+    descEn: 'Second simulation before the Fit Race FCL Costa Brava. Final rehearsal of pace and transitions.',
+    image: `${AGENDA_REPO_RAW}/fitrace.png`
+  },
+  {
+    id: 'sim-hybrid',
+    start: '2026-11-07',
+    end: '2026-11-07',
+    cat: 'activitat',
+    name: 'Simulacre Hybrid Race',
+    nameEs: 'Simulacro Hybrid Race',
+    nameEn: 'Hybrid Race Simulation',
+    place: 'La Mola · Cursa + estacions · Gratuït',
+    placeEs: 'La Mola · Carrera + estaciones · Gratis',
+    placeEn: 'La Mola · Race + stations · Free',
+    desc: 'Simulacre de resistència (cursa + estacions funcionals) com a preparació per la gran competició Hyrox de Barcelona.',
+    descEs: 'Simulacro de resistencia (carrera + estaciones funcionales) como preparación para la gran competición Hyrox de Barcelona.',
+    descEn: 'Endurance simulation (running + functional stations) to prepare for the big Hyrox competition in Barcelona.',
+    image: `${AGENDA_REPO_RAW}/hyrox-bcn.jpg`
   },
   {
     id: 'sim-costabrava-1',
