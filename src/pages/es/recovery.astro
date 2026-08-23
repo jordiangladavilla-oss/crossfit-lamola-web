@@ -1,0 +1,248 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import Schema from '../../components/Schema.astro'
+---
+
+<Layout
+  title="La Mola Recovery · Sauna infrarroja en Terrassa · CrossFit La Mola"
+  description="El único box de CrossFit en Terrassa con sauna infrarroja. Recuperación muscular post-entrenamiento en sesiones de 15 minutos. Incluida para socios, drop-in desde 5€ o ilimitada por 9,90€/mes."
+  ogImage="/assets/elbox-vestuaris.webp"
+>
+  <Schema type="base" slot="head" />
+  <Breadcrumb items={[{name: "Recovery"}]} lang="es" slot="head" />
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "La Mola Recovery · Sauna infrarroja",
+      "serviceType": "Sauna infrarroja y recuperación muscular",
+      "provider": { "@id": "https://crossfitlamola.com/#organization" },
+      "areaServed": {"@type": "City", "name": "Terrassa"},
+      "description": "Sauna infrarroja para la recuperación muscular post-entrenamiento en Terrassa. Sesiones de 15 minutos con reserva por la app Aimharder y aforo limitado a 6 personas.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tarifas La Mola Recovery",
+        "itemListElement": [
+          {"@type":"Offer","name":"Sesión mensual para socios","description":"1 sesión de sauna al mes incluida en cualquier cuota de socio","priceCurrency":"EUR","price":"0.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"},
+          {"@type":"Offer","name":"Drop-in socio","description":"Sesión extra de sauna para socios","priceCurrency":"EUR","price":"5.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"},
+          {"@type":"Offer","name":"Add-on La Mola Recovery · Ilimitada","description":"Sauna ilimitada para socios, cuota mensual adicional","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"},
+          {"@type":"Offer","name":"Drop-in no socio (entrenamiento + sauna)","description":"Drop-in de entrenamiento (15€) + suplemento de sauna (10€) para no socios","priceCurrency":"EUR","price":"25.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"}
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Qué es una sauna infrarroja?", "acceptedAnswer": {"@type": "Answer", "text": "A diferencia de la sauna tradicional, que calienta el aire, la sauna infrarroja calienta el cuerpo directamente por radiación. Trabaja a temperaturas más moderadas y es más tolerable, manteniendo los efectos del calor sobre la musculatura."}},
+        {"@type": "Question", "name": "¿Cuándo es mejor hacer la sesión de sauna?", "acceptedAnswer": {"@type": "Answer", "text": "El momento ideal es justo después de entrenar, como parte de la rutina post-entrenamiento, o en días de descanso activo. Recomendamos acabar con una ducha de agua fría para hacer contraste térmico."}},
+        {"@type": "Question", "name": "¿Cómo se reserva la sauna?", "acceptedAnswer": {"@type": "Answer", "text": "Desde la app Aimharder, igual que una clase. Las sesiones son de 15 minutos y el aforo está limitado a 6 personas."}},
+        {"@type": "Question", "name": "¿Puedo usar la sauna si no soy socio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, como suplemento del drop-in de entrenamiento: drop-in de 15€ + 10€ la sesión de sauna, 25€ en total. Entrenas en el box y acabas con la sauna."}},
+        {"@type": "Question", "name": "¿Qué tengo que llevar a la sauna?", "acceptedAnswer": {"@type": "Answer", "text": "Toalla y chanclas son obligatorias por higiene. Lleva también agua para hidratarte."}},
+        {"@type": "Question", "name": "¿Qué incluye la cuota de socio?", "acceptedAnswer": {"@type": "Answer", "text": "Cualquier socio de La Mola tiene 1 sesión de sauna al mes incluida. A partir de ahí puede hacer drop-ins a 5€ o contratar el add-on La Mola Recovery con sauna ilimitada por 9,90€ al mes."}}
+      ]
+    }
+    </script>
+  </Fragment>
+
+  <style>
+    .ben-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
+    @media(min-width:700px){ .ben-grid{ grid-template-columns:repeat(2,1fr);} }
+    .ben{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
+    .ben .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .ben h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.025em; line-height:1; margin:0; color:var(--bone);}
+    .ben h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
+    .ben p{ font-family:var(--f-serif); font-size:16.5px; line-height:1.55; color:var(--bone-2); margin:0;}
+
+    .steps{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
+    .steps > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
+    @media(min-width:760px){ .steps > div{ grid-template-columns:180px 1fr;} }
+    .steps .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink);}
+    .steps h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
+    .steps p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
+
+    .price-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line-ink); }
+    @media(min-width:700px){ .price-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1100px){ .price-grid{ grid-template-columns:repeat(4,1fr);} }
+    .price{ background:var(--bone-soft); padding:clamp(28px,3vw,38px); display:flex; flex-direction:column; gap:18px; position:relative; color:var(--bone-ink);}
+    .price *{ color: inherit; }
+    .price.featured{ background:var(--ink); color:var(--bone);}
+    .price .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-ink);}
+    .price.featured .tag{ color:var(--accent-hi);}
+    .price h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(24px,2.6vw,32px); letter-spacing:-0.03em; line-height:.98; margin:0;}
+    .price h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink);}
+    .price.featured h3 em{ color:var(--accent-hi);}
+    .price .num{ font-family:var(--f-display); font-weight:500; font-size:clamp(42px,5vw,60px); letter-spacing:-0.04em; line-height:1;}
+    .price .num sup{ font-size:.4em; font-weight:500; vertical-align:.5em; margin-left:4px;}
+    .price .per{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-ink); margin-left:8px;}
+    .price.featured .per{ color:var(--muted);}
+    .price ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:16px; line-height:1.55; display:grid; gap:8px; flex:1;}
+    .price ul li{ display:flex; gap:12px; align-items:baseline;}
+    .price ul li::before{ content:""; width:6px; height:6px; background:var(--accent-ink); border-radius:50%; flex:none; transform:translateY(2px);}
+    .price.featured ul li::before{ background:var(--accent-hi);}
+
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line-ink); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line-ink); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em;}
+    .faq summary::-webkit-details-marker{ display:none;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-ink); transition:transform .3s;}
+    .faq details[open] summary::after{ transform:rotate(45deg);}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:14px 0 0; max-width:60ch;}
+  </style>
+
+  <Nav currentPage="/es/recovery" />
+
+  <section class="page-hero">
+    <div class="bg" style="background-image:url('/assets/elbox-vestuaris.webp')"></div>
+    <div class="inner">
+      <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Recovery</span></div>
+      <div class="kicker"><span>Nuevo · Octubre 2026</span><span class="bar"></span><span>Sauna infrarroja</span></div>
+      <h1>Entrena fuerte.<br><em class="serif">Recupera</em> mejor<span class="dot">.</span></h1>
+      <p class="sub"><strong>La Mola Recovery</strong> — el único box de CrossFit en Terrassa con sauna infrarroja. Porque el progreso no se construye solo entrenando: se consolida cuando el cuerpo recupera.</p>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Por qué recovery</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">La mejora llega<br>cuando recuperas<span class="dot">.</span></h2>
+        <p class="lead reveal">El entrenamiento es el estímulo. La adaptación — la fuerza, la resistencia, el músculo — llega durante la recuperación. La sauna infrarroja es la herramienta para cerrar el círculo después de cada WOD.</p>
+      </div>
+
+      <div class="ben-grid reveal-stagger">
+        <div class="ben" style="--i:0">
+          <span class="tag">01 · Recuperación muscular</span>
+          <h3>Menos agujetas, <em>más flujo</em></h3>
+          <p>El calor infrarrojo penetra directamente en el tejido y aumenta el flujo sanguíneo en la musculatura. Esto ayuda a aliviar las agujetas (DOMS) y la tensión acumulada después de entrenar.</p>
+        </div>
+        <div class="ben" style="--i:1">
+          <span class="tag">02 · Rendimiento</span>
+          <h3>Constancia <em>sostenida</em></h3>
+          <p>Recuperar bien te permite mantener la intensidad sesión tras sesión. Menos rigidez, más movilidad y más calidad en el próximo entrenamiento. Para atletas que compiten y para quien entrena cada semana.</p>
+        </div>
+        <div class="ben" style="--i:2">
+          <span class="tag">03 · Descanso</span>
+          <h3>Sistema nervioso <em>en su sitio</em></h3>
+          <p>La sesión de calor favorece la relajación profunda y puede ayudar a mejorar la calidad del sueño — el momento en que el cuerpo se reconstruye de verdad.</p>
+        </div>
+        <div class="ben" style="--i:3">
+          <span class="tag">04 · Contraste frío–calor</span>
+          <h3>Acaba con <em>agua fría</em></h3>
+          <p>Nuestro consejo: después de la sauna, ducha de agua fría en los vestuarios del box. El contraste térmico activa la circulación y deja el cuerpo despierto y ligero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Cómo funciona</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Quince minutos<br>bien invertidos<span class="dot">.</span></h2>
+
+      <div class="steps reveal">
+        <div><span class="label">01 · Reserva</span><div><h4>Reserva por la app Aimharder</h4><p>Igual que una clase: abre la app, elige el horario de sauna y reserva tu plaza.</p></div></div>
+        <div><span class="label">02 · Sesión</span><div><h4>15 minutos de sauna infrarroja</h4><p>La sauna infrarroja trabaja a temperaturas más moderadas que la tradicional: calienta el cuerpo directamente, no el aire, y la sesión es más tolerable con los mismos efectos sobre la musculatura. <strong>Toalla y chanclas obligatorias.</strong></p></div></div>
+        <div><span class="label">03 · Aforo</span><div><h4>Máximo 6 personas</h4><p>Espacio tranquilo, sin esperas y con la calma que pide una buena recuperación.</p></div></div>
+        <div><span class="label">04 · Contraste</span><div><h4>Ducha fría para cerrar</h4><p>Acaba la sesión con agua fría en los vestuarios. El contraste frío–calor es el ritual de recuperación completo.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>Tarifas Recovery</span></div>
+      <div style="height:24px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Para socios<br>y para todos<span class="dot">.</span></h2>
+        <p class="lead reveal">Si eres socio de La Mola, ya tienes una sesión al mes incluida. Si quieres más, tú eliges: sesiones sueltas o el add-on <em class="serif">Recovery</em> ilimitado.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price" style="--i:0">
+          <span class="tag">01 · Socios</span>
+          <h3>1 sesión <em>/</em> mes</h3>
+          <div><span class="num">0<sup>€</sup></span><span class="per">incluida</span></div>
+          <ul>
+            <li>Incluida en cualquier cuota de socio</li>
+            <li>Sesión de 15 minutos</li>
+            <li>Reserva por app Aimharder</li>
+          </ul>
+        </div>
+
+        <div class="price" style="--i:1">
+          <span class="tag">02 · Socios · Drop-in</span>
+          <h3>Sesión <em>extra</em></h3>
+          <div><span class="num">5<sup>€</sup></span><span class="per">/sesión</span></div>
+          <ul>
+            <li>Cuando quieras, sin compromiso</li>
+            <li>Sesión de 15 minutos</li>
+            <li>Reserva por app Aimharder</li>
+          </ul>
+        </div>
+
+        <div class="price featured" style="--i:2">
+          <span class="tag">03 · Add-on · Recomendado</span>
+          <h3>La Mola <em>Recovery</em></h3>
+          <div><span class="num">9,90<sup>€</sup></span><span class="per">/mes</span></div>
+          <ul>
+            <li><strong style="color:var(--accent-hi); font-weight:500;">Sauna ilimitada</strong></li>
+            <li>Add-on sobre tu cuota de socio</li>
+            <li>Ideal para rutina post-entreno</li>
+          </ul>
+        </div>
+
+        <div class="price" style="--i:3">
+          <span class="tag">04 · No socios</span>
+          <h3>Entreno <em>+ sauna</em></h3>
+          <div><span class="num">25<sup>€</sup></span><span class="per">/día</span></div>
+          <ul>
+            <li>Drop-in de entrenamiento (15€) + suplemento sauna (10€)</li>
+            <li>Sesión de sauna de 15 minutos</li>
+            <li>Escríbenos para reservar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">04 —</span><span>Preguntas frecuentes</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Dudas<br>habituales<span class="dot">.</span></h2>
+
+      <div class="faq reveal" style="margin-top:52px;">
+        <details><summary>¿Qué es una sauna infrarroja?</summary><p>A diferencia de la sauna tradicional, que calienta el aire, la infrarroja calienta el cuerpo <strong>directamente por radiación</strong>. Trabaja a temperaturas más moderadas y la sesión es más tolerable, manteniendo los efectos del calor sobre la musculatura.</p></details>
+        <details><summary>¿Cuándo es mejor hacer la sesión?</summary><p>Justo <strong>después de entrenar</strong>, como parte del post-entreno, o en días de descanso activo. Y siempre que puedas, acaba con una <strong>ducha de agua fría</strong> para hacer contraste térmico.</p></details>
+        <details><summary>¿Cómo se reserva?</summary><p>Desde la app <strong>Aimharder</strong>, igual que una clase. Sesiones de <strong>15 minutos</strong> y aforo limitado a <strong>6 personas</strong>.</p></details>
+        <details><summary>¿Puedo venir si no soy socio?</summary><p>Sí, como suplemento del drop-in de entrenamiento: <strong>drop-in de 15€ + 10€ la sesión de sauna (25€ en total)</strong>. Entrenas en el box y acabas el día con la sauna. Escríbenos por WhatsApp y te lo dejamos listo.</p></details>
+        <details><summary>¿Qué tengo que llevar?</summary><p><strong>Toalla y chanclas, obligatorias</strong> por higiene. Lleva también agua para hidratarte. En los vestuarios del box tienes duchas para hacer el contraste de agua fría al acabar.</p></details>
+        <details><summary>¿Hay contraindicaciones?</summary><p>Si estás embarazada, tienes problemas cardiovasculares, hipotensión o cualquier condición médica relevante, consulta antes con tu médico.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
+    <div class="inner">
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">05 —</span><span>Empezamos</span></div>
+      <h2 class="h-hero reveal">Recupera como<br>un <em class="serif">atleta</em><span class="dot">.</span></h2>
+      <p class="reveal">A partir de octubre, reserva tu sesión de sauna en la app o escríbenos.</p>
+      <div class="actions reveal">
+        <a class="btn-primary" href="/es/contacte">Quiero más información<span class="arr"></span></a>
+        <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

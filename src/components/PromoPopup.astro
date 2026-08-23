@@ -1,8 +1,8 @@
 ---
 // src/components/PromoPopup.astro
 //
-// CAMPANYA: "Longer days. Better energy." — Maig 2026
-// Activa: 2026-05-01 → 2026-05-31 (incl.)
+// CAMPANYA: "Turn the page. Get stronger." — Tornada a la rutina · Agost 2026
+// Activa: 2026-08-23 → 2026-08-31 (incl.)
 // Per la pròxima campanya: només cal canviar PROMO_START/END i el contingut
 // dels nodes marcats amb [EDITAR-CAMPANYA].
 ---
@@ -29,52 +29,55 @@
 
     <!-- [EDITAR-CAMPANYA] imatge de fons -->
     <div class="promo-media">
-      <span class="promo-eyebrow"><span class="dot"></span>Promo · Maig</span>
+      <span class="promo-eyebrow"><span class="dot"></span>Promo · Agost</span>
       <picture>
-        <source srcset="/assets/promo-may-bg.webp" type="image/webp" />
-        <img src="/assets/promo-may-bg-opt.jpg" alt="Promoció maig - Quota il·limitada amb descompte" loading="lazy" />
+        <source srcset="/assets/promo-aug-bg.webp" type="image/webp" />
+        <img src="/assets/promo-aug-bg-opt.jpg" alt="Promoció agost - Setmana gratis i -20% a la quota de setembre" loading="lazy" />
       </picture>
     </div>
 
     <div class="promo-body">
       <!-- [EDITAR-CAMPANYA] eyebrow + títol -->
-      <p class="promo-lede"><span class="bar"></span>Quota il·limitada</p>
+      <p class="promo-lede"><span class="bar"></span>Torna a la rutina</p>
       <h2 class="promo-title" id="promo-title">
-        Longer days.<br /><em>Better energy.</em>
+        Turn the page.<br /><em>Get stronger.</em>
       </h2>
+
+      <!-- [EDITAR-CAMPANYA] subtítol -->
+      <p class="promo-sub">
+        Entrena <strong>gratis</strong> del 24 al 31 d'agost — una classe o un open al dia —
+        i estrena el setembre amb un <strong>−20%</strong> de descompte.
+      </p>
 
       <!-- [EDITAR-CAMPANYA] taula de preus -->
       <div class="promo-table" role="table" aria-label="Tarifes promoció">
         <div class="col" role="cell">
-          <span class="label">Preu sense dte.</span>
-          <span class="price"><s>105€</s></span>
-          <span class="per">/ mes</span>
-        </div>
-        <div class="col" role="cell">
-          <span class="label">Juny · 15%</span>
-          <span class="price">89€</span>
-          <span class="save">estalvies 16€</span>
+          <span class="label">15 sessions/mes</span>
+          <span class="price"><s>84€</s> 67€</span>
+          <span class="per">setembre</span>
+          <span class="save">estalvies 17€</span>
         </div>
         <div class="col is-best" role="cell">
-          <span class="label">Juny+Juliol · 30%</span>
-          <span class="price">148€</span>
-          <span class="per">73,50€/mes</span>
-          <span class="save">estalvies 63€</span>
+          <span class="label">Il·limitada</span>
+          <span class="price"><s>105€</s> 84€</span>
+          <span class="per">setembre</span>
+          <span class="save">estalvies 21€</span>
         </div>
       </div>
 
       <!-- [EDITAR-CAMPANYA] lletra petita -->
       <p class="promo-fine">
-        Promo vàlida per a noves persones sòcies. Aplicable només en tarifa il·limitada.
-        Les sessions gratuïtes seran 10 dies consecutius (una classe o open per dia).
-        Alta a abonar el dia que es formalitza.
+        Promo exclusiva per a noves persones sòcies, en altes fetes fins al 31 d'agost.
+        Sessions gratuïtes del 24 al 31 d'agost (una classe o un open per dia).
+        El −20% s'aplica només a aquestes dues tarifes i és vàlid per a la quota de setembre.
+        La quota s'abona el mateix dia de l'alta. Matrícula gratuïta.
       </p>
 
       <div class="promo-cta-row">
         <a href="/contacte" class="promo-cta" data-promo-cta id="promo-cta-link">
           Reservar plaça <span class="arr"></span>
         </a>
-        <span class="promo-deadline">Altes fins al 31 maig</span>
+        <span class="promo-deadline">Altes fins al 31 d'agost</span>
       </div>
     </div>
   </div>
@@ -84,9 +87,9 @@
   (function () {
     // ============== CONFIGURACIÓ DE LA CAMPANYA ==========================
     // Format dates: 'YYYY-MM-DD' (inclusius, hora local)
-    var PROMO_START    = '2026-05-01';
-    var PROMO_END      = '2026-05-31';
-    var PROMO_KEY      = 'promo:may2026';
+    var PROMO_START    = '2026-08-23';
+    var PROMO_END      = '2026-08-31';
+    var PROMO_KEY      = 'promo:aug2026';
     var DELAY_MS       = 5000;
     var SUPPRESS_HOURS = 24;
     // =====================================================================
@@ -261,8 +264,14 @@
   }
   .promo-lede .bar { width: 28px; height: 1px; background: var(--accent-ink); opacity: .6; }
 
+  .promo-sub {
+    font-family: var(--f-serif); font-size: 15.5px; line-height: 1.5;
+    color: var(--bone-ink); margin: 0; text-wrap: pretty;
+  }
+  .promo-sub strong { font-weight: 600; color: var(--accent-ink); }
+
   .promo-table {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(2, 1fr);
     border: 1px solid var(--line-ink-s);
     border-radius: 2px; overflow: hidden; margin-top: 4px;
   }

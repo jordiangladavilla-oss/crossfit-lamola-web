@@ -9,6 +9,7 @@ import Schema from '../components/Schema.astro'
 <Layout
   title="Tarifes · CrossFit La Mola Terrassa"
   description="Tarifes del box de CrossFit a Terrassa. Matrícula gratuïta i sense permanència, amb primera classe de prova gratuïta. Quotes il·limitades, 10 sessions/mes i open gym."
+  showPromo={true}
 >
   <Schema type="tarifes" slot="head" />
   <Breadcrumb items={[{name: "Tarifes"}]} lang="ca" slot="head" />
@@ -25,7 +26,8 @@ import Schema from '../components/Schema.astro'
         {"@type":"Offer","name":"Màster · Il·limitat sènior (+60)","description":"Reserves il·limitades, quota especial per a +60 anys","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
         {"@type":"Offer","name":"Unlimited Access","description":"Reserves il·limitades, accés a totes les disciplines, inclou The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
         {"@type":"Offer","name":"Drop-in","description":"Una classe i accés a les instal·lacions aquell dia","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
-        {"@type":"Offer","name":"Bono 10 sessions","description":"10 classes sense data límit","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"}
+        {"@type":"Offer","name":"Bono 10 sessions","description":"10 classes sense data límit","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/tarifes"},
+        {"@type":"Offer","name":"Add-on La Mola Recovery","description":"Sauna infraroja il·limitada per a socis. Totes les quotes inclouen 1 sessió/mes","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/recovery"}
       ]
     }
     </script>
@@ -153,6 +155,7 @@ import Schema from '../components/Schema.astro'
           <ul>
             <li>5 reserves mensuals</li>
             <li>Accés a totes les disciplines</li>
+            <li>Inclou La Mola Recovery · 1 sessió de sauna/mes</li>
             <li>Sense permanència</li>
             <li>Reserva per app Aimharder</li>
           </ul>
@@ -166,6 +169,7 @@ import Schema from '../components/Schema.astro'
           <ul>
             <li>10 reserves mensuals</li>
             <li>Accés a totes les disciplines</li>
+            <li>Inclou La Mola Recovery · 1 sessió de sauna/mes</li>
             <li>Sense permanència</li>
             <li>Reserva per app Aimharder</li>
           </ul>
@@ -179,6 +183,7 @@ import Schema from '../components/Schema.astro'
           <ul>
             <li>15 reserves mensuals</li>
             <li>Accés a totes les disciplines</li>
+            <li>Inclou La Mola Recovery · 1 sessió de sauna/mes</li>
             <li>Sense permanència</li>
             <li>Reserva per app Aimharder</li>
           </ul>
@@ -192,6 +197,7 @@ import Schema from '../components/Schema.astro'
           <ul>
             <li>Reserves il·limitades</li>
             <li>Accés a totes les disciplines</li>
+            <li>Inclou La Mola Recovery · 1 sessió de sauna/mes</li>
             <li>Quota especial per a +60 anys</li>
             <li>Sense permanència</li>
           </ul>
@@ -205,6 +211,7 @@ import Schema from '../components/Schema.astro'
           <ul>
             <li>Reserves il·limitades</li>
             <li>Accés a totes les disciplines</li>
+            <li>Inclou La Mola Recovery · 1 sessió de sauna/mes</li>
             <li><strong style="color:var(--accent-hi); font-weight:500;">Inclou The Program</strong></li>
             <li>Sense permanència</li>
           </ul>
@@ -218,6 +225,7 @@ import Schema from '../components/Schema.astro'
         <div><span class="label">Extra · 03</span><div><h4>Classe extra <em class="serif">(si has consumit la quota)</em></h4><p>Si has fet totes les reserves del mes i en vols una més. L'alternativa és pujar de tarifa.</p></div><span class="p">8€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/classe</span></span></div>
         <div><span class="label">Extra · 04</span><div><h4>Quota de manteniment <em class="serif">(màx. 2 mesos/any)</em></h4><p>Si marxes de vacances pots mantenir la plaça sense perdre-la. Reactiva quan tornis.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
         <div><span class="label">Extra · 05</span><div><h4>Matrícula <em class="serif">(només si tornes)</em></h4><p>La primera inscripció no té cost. Si deixes la quota i tornes més endavant, s'abona la matrícula.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/única</span></span></div>
+        <div><span class="label">Extra · 06</span><div><h4>La Mola Recovery <em class="serif">(sauna infraroja)</em></h4><p>Una sessió mensual inclosa a totes les quotes. Sessions extres a 5€ o add-on il·limitat. <a href="/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Descobreix La Mola Recovery →</a></p></div><span class="p">9,90€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes il·limitat</span></span></div>
       </div>
     </div>
   </section>

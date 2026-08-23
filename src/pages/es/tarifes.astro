@@ -9,6 +9,7 @@ import Schema from '../../components/Schema.astro'
 <Layout
   title="Tarifas · CrossFit La Mola Terrassa"
   description="Tarifas del box de CrossFit en Terrassa. Matrícula gratuita y sin permanencia, con primera clase de prueba gratis. Cuotas ilimitadas, 10 sesiones/mes y open gym."
+  showPromo={true}
 >
   <Schema type="tarifes" slot="head" />
   <Breadcrumb items={[{name: "Tarifas"}]} lang="es" slot="head" />
@@ -25,7 +26,8 @@ import Schema from '../../components/Schema.astro'
         {"@type":"Offer","name":"Master · Ilimitado senior (+60)","description":"Reservas ilimitadas, cuota especial para +60 años","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
         {"@type":"Offer","name":"Unlimited Access","description":"Reservas ilimitadas, acceso a todas las disciplinas, incluye The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
         {"@type":"Offer","name":"Drop-in","description":"Una clase y acceso a las instalaciones ese día","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Bono 10 sesiones","description":"10 clases sin fecha límite","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"}
+        {"@type":"Offer","name":"Bono 10 sesiones","description":"10 clases sin fecha límite","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
+        {"@type":"Offer","name":"Add-on La Mola Recovery","description":"Sauna infrarroja ilimitada para socios. Todas las cuotas incluyen 1 sesión/mes","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"}
       ]
     }
     </script>
@@ -153,6 +155,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>5 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
+            <li>Incluye La Mola Recovery · 1 sesión de sauna/mes</li>
             <li>Sin permanencia</li>
             <li>Reserva por app Aimharder</li>
           </ul>
@@ -166,6 +169,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>10 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
+            <li>Incluye La Mola Recovery · 1 sesión de sauna/mes</li>
             <li>Sin permanencia</li>
             <li>Reserva por app Aimharder</li>
           </ul>
@@ -179,6 +183,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>15 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
+            <li>Incluye La Mola Recovery · 1 sesión de sauna/mes</li>
             <li>Sin permanencia</li>
             <li>Reserva por app Aimharder</li>
           </ul>
@@ -192,6 +197,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>Reservas ilimitadas</li>
             <li>Acceso a todas las disciplinas</li>
+            <li>Incluye La Mola Recovery · 1 sesión de sauna/mes</li>
             <li>Cuota especial para +60 años</li>
             <li>Sin permanencia</li>
           </ul>
@@ -205,6 +211,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>Reservas ilimitadas</li>
             <li>Acceso a todas las disciplinas</li>
+            <li>Incluye La Mola Recovery · 1 sesión de sauna/mes</li>
             <li><strong style="color:var(--accent-hi); font-weight:500;">Incluye The Program</strong></li>
             <li>Sin permanencia</li>
           </ul>
@@ -218,6 +225,7 @@ import Schema from '../../components/Schema.astro'
         <div><span class="label">Extra · 03</span><div><h4>Clase extra <em class="serif">(si has consumido la cuota)</em></h4><p>Si has hecho todas las reservas del mes y quieres una más. La alternativa es subir de tarifa.</p></div><span class="p">8€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/clase</span></span></div>
         <div><span class="label">Extra · 04</span><div><h4>Cuota de mantenimiento <em class="serif">(máx. 2 meses/año)</em></h4><p>Si te vas de vacaciones puedes mantener la plaza sin perderla. Reactiva cuando vuelvas.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
         <div><span class="label">Extra · 05</span><div><h4>Matrícula <em class="serif">(solo si vuelves)</em></h4><p>La primera inscripción no tiene coste. Si dejas la cuota y vuelves más adelante, se abona la matrícula.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/única</span></span></div>
+        <div><span class="label">Extra · 06</span><div><h4>La Mola Recovery <em class="serif">(sauna infrarroja)</em></h4><p>Una sesión mensual incluida en todas las cuotas. Sesiones extra a 5€ o add-on ilimitado. <a href="/es/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Descubre La Mola Recovery →</a></p></div><span class="p">9,90€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes ilimitado</span></span></div>
       </div>
     </div>
   </section>

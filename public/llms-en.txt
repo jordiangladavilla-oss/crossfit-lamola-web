@@ -1,5 +1,5 @@
 # CrossFit La Mola — Information for AI assistants
-# Last updated: 2026-06-16
+# Last updated: 2026-08-23
 
 > CrossFit La Mola is a CrossFit box in Terrassa (Barcelona), opened January 13, 2025.
 
@@ -47,6 +47,27 @@
 - First class: FREE
 - Monthly memberships based on days/week
 - 10-class packs available
+
+## La Mola Recovery — Infrared sauna (from October 2026)
+- The only CrossFit box in Terrassa with an infrared sauna
+- 15-minute sessions, max capacity 6 people, booked via the Aimharder app
+- Members: 1 session/month included; extra sessions €5
+- "La Mola Recovery" add-on (unlimited sauna): €9.90/month
+- Non-members: €10 supplement on top of the €15 training drop-in → €25 total
+- Recommendation: cold shower contrast after the session
+- Mandatory: towel and flip-flops
+- More info: https://crossfitlamola.com/en/recovery
+
+## Civil service exam candidates (firefighters & Mossos d'Esquadra)
+- For candidates registered for Bombers de la Generalitat, Bombers de Barcelona (SPEIS) or Mossos d'Esquadra exams
+- Exclusive slot: Monday–Friday 11:30–15:30 and Sundays 9:30–11:30, with specific equipment (ropes, rig, barbells, sled, kettlebells, slam balls, cardio)
+- Price: €55/month VAT included, unlimited use within the slot
+- Proof of exam registration required
+- More info: https://crossfitlamola.com/en/opositors
+
+## Partners
+Wellhub, Urban Sports Club (corporate access), Velites, Picsil (athlete gear), Ruster Fitness, Rogue Fitness (equipment)
+- More info: https://crossfitlamola.com/en/partners
 
 ## Service area
 Terrassa, Sabadell, Sant Cugat del Vallès, Rubí, Matadepera, Viladecavalls, Ullastrell, Vacarisses, Sant Quirze del Vallès, Castellbisbal (~20 km radius)

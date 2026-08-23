@@ -9,6 +9,7 @@ import Schema from '../../components/Schema.astro'
 <Layout
   title="Pricing · CrossFit La Mola Terrassa"
   description="CrossFit box pricing in Terrassa. Free sign-up and no lock-in, with a free first trial class. Unlimited memberships, 10 sessions/month and open gym."
+  showPromo={true}
 >
   <Schema type="tarifes" slot="head" />
   <Breadcrumb items={[{name: "Pricing"}]} lang="en" slot="head" />
@@ -25,7 +26,8 @@ import Schema from '../../components/Schema.astro'
         {"@type":"Offer","name":"Master · Unlimited senior (+60)","description":"Unlimited bookings, special rate for 60+","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
         {"@type":"Offer","name":"Unlimited Access","description":"Unlimited bookings, access to all disciplines, includes The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
         {"@type":"Offer","name":"Drop-in","description":"One class and facility access for the day","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"10 Session Pack","description":"10 classes with no expiration","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"}
+        {"@type":"Offer","name":"10 Session Pack","description":"10 classes with no expiration","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
+        {"@type":"Offer","name":"La Mola Recovery add-on","description":"Unlimited infrared sauna for members. Every plan includes 1 session/month","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/recovery"}
       ]
     }
     </script>
@@ -153,6 +155,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>5 monthly bookings</li>
             <li>Access to all disciplines</li>
+            <li>Includes La Mola Recovery · 1 sauna session/month</li>
             <li>No contract</li>
             <li>Book via Aimharder app</li>
           </ul>
@@ -166,6 +169,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>10 monthly bookings</li>
             <li>Access to all disciplines</li>
+            <li>Includes La Mola Recovery · 1 sauna session/month</li>
             <li>No contract</li>
             <li>Book via Aimharder app</li>
           </ul>
@@ -179,6 +183,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>15 monthly bookings</li>
             <li>Access to all disciplines</li>
+            <li>Includes La Mola Recovery · 1 sauna session/month</li>
             <li>No contract</li>
             <li>Book via Aimharder app</li>
           </ul>
@@ -192,6 +197,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>Unlimited bookings</li>
             <li>Access to all disciplines</li>
+            <li>Includes La Mola Recovery · 1 sauna session/month</li>
             <li>Special rate for 60+</li>
             <li>No contract</li>
           </ul>
@@ -205,6 +211,7 @@ import Schema from '../../components/Schema.astro'
           <ul>
             <li>Unlimited bookings</li>
             <li>Access to all disciplines</li>
+            <li>Includes La Mola Recovery · 1 sauna session/month</li>
             <li><strong style="color:var(--accent-hi); font-weight:500;">Includes The Program</strong></li>
             <li>No contract</li>
           </ul>
@@ -218,6 +225,7 @@ import Schema from '../../components/Schema.astro'
         <div><span class="label">Extra · 03</span><div><h4>Extra class <em class="serif">(if you've used your quota)</em></h4><p>Used all your monthly bookings and want one more? Add extra sessions or upgrade your plan.</p></div><span class="p">8€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/class</span></span></div>
         <div><span class="label">Extra · 04</span><div><h4>Hold fee <em class="serif">(max. 2 months/year)</em></h4><p>Going on vacation? Keep your spot without losing it. Reactivate when you're back.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month</span></span></div>
         <div><span class="label">Extra · 05</span><div><h4>Rejoining fee <em class="serif">(only if you return)</em></h4><p>First sign-up is free. If you cancel and come back later, there's a rejoining fee.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/once</span></span></div>
+        <div><span class="label">Extra · 06</span><div><h4>La Mola Recovery <em class="serif">(infrared sauna)</em></h4><p>One monthly session included in every plan. Extra sessions €5 or unlimited add-on. <a href="/en/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Discover La Mola Recovery →</a></p></div><span class="p">9.90€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month unlimited</span></span></div>
       </div>
     </div>
   </section>

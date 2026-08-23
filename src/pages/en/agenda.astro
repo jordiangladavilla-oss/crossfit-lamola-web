@@ -196,7 +196,7 @@ function getBadgeText(event: AgendaEvent): string {
       </div>
 
       {featuredEvent && (
-        <div class="std-poster reveal">
+        <div class="std-poster reveal" data-end={featuredEvent.end}>
           <div>
             <span class="label">{catLabels[lang][featuredEvent.cat]} · La Mola</span>
             <h2>La Mola.<br>{featuredNameWords.length > 1 ? featuredNameWords.slice(0, -1).join(' ') + ' ' : ''}<em>{featuredNameWords.at(-1)}</em><span class="dot">.</span></h2>
@@ -220,7 +220,7 @@ function getBadgeText(event: AgendaEvent): string {
           </h3>
           <div class="event-list">
             {events.map(event => (
-              <div class={`event ${event.featured ? 'featured' : ''}`} data-cat={event.cat}>
+              <div class={`event ${event.featured ? "featured" : ""}`} data-cat={event.cat} data-end={event.end}>
                 <div class="when">
                   {formatEventDays(event)}
                   <small>{isDateRange(event) ? `– ${new Date(event.end).getDate().toString().padStart(2, '0')}` : getEventDayName(event, lang)}</small>
@@ -290,6 +290,18 @@ function getBadgeText(event: AgendaEvent): string {
 
   <script>
     (function(){
+      // Amaga events ja passats encara que el build sigui antic (la data es congela al deploy)
+      var now = new Date();
+      var today = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+      document.querySelectorAll('[data-end]').forEach(function(n){
+        var el = n as HTMLElement;
+        if ((el.dataset.end || '') < today) { el.dataset.stale = '1'; el.classList.add('hidden'); el.style.display = 'none'; }
+      });
+      document.querySelectorAll('.month-band').forEach(function(m){
+        var el = m as HTMLElement;
+        if (el.querySelector('[data-end]') && el.querySelectorAll('[data-end]:not([data-stale])').length === 0) el.style.display = 'none';
+      });
+
       var currentFilter='all';
       var filtersEl = document.getElementById('cat-filters');
       if (filtersEl) {
@@ -303,7 +315,7 @@ function getBadgeText(event: AgendaEvent): string {
           document.querySelectorAll('.event').forEach(function(ev){
             var el = ev as HTMLElement;
             var c = el.dataset.cat;
-            el.classList.toggle('hidden', currentFilter!=='all' && c!==currentFilter);
+            el.classList.toggle('hidden', (currentFilter!=='all' && c!==currentFilter) || el.dataset.stale==='1');
           });
           document.querySelectorAll('.month-band').forEach(function(m){
             var el = m as HTMLElement;
