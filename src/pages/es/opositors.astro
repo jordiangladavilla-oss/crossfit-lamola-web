@@ -9,11 +9,12 @@ import Schema from '../../components/Schema.astro'
 <Layout
   title="Oposiciones · Preparación física Bomberos y Mossos · CrossFit La Mola Terrassa"
   description="Prepara las pruebas físicas de oposiciones a Bomberos de la Generalitat, Bomberos de Barcelona y Mossos d'Esquadra en Terrassa. Franja exclusiva entre semana de 11:30 a 15:30 y domingos por la mañana. 55€/mes IVA incluido."
-  ogImage="/assets/elbox-zona-wod.webp"
+  ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
   <Breadcrumb items={[{name: "Oposiciones"}]} lang="es" slot="head" />
   <Fragment slot="head">
+    <link rel="preload" as="image" href="/assets/opositors-hero.webp" fetchpriority="high" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -85,7 +86,7 @@ import Schema from '../../components/Schema.astro'
   <Nav currentPage="/es/opositors" />
 
   <section class="page-hero">
-    <div class="bg" style="background-image:url('/assets/elbox-zona-wod.webp')"></div>
+    <div class="bg" style="background-image:url('/assets/opositors-hero.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Oposiciones</span></div>
       <div class="kicker"><span>Bomberos</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>

@@ -53,6 +53,7 @@ const partners = [
   <Schema type="base" slot="head" />
   <Breadcrumb items={[{name: "Partners"}]} lang="ca" slot="head" />
   <Fragment slot="head">
+    <link rel="preload" as="image" href="/assets/partners-hero.webp" fetchpriority="high" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,7 +89,7 @@ const partners = [
   <Nav currentPage="/partners" />
 
   <section class="page-hero">
-    <div class="bg" style="background-image:url('/assets/detail-chalk.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/partners-hero.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Partners</span></div>
       <div class="kicker"><span>Marques</span><span class="bar"></span><span>Plataformes</span></div>
