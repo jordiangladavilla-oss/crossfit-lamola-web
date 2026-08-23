@@ -159,8 +159,8 @@ export const agendaEvents: AgendaEvent[] = [
   },
   {
     id: 'sim-hybrid-1',
-    start: '2026-09-03',
-    end: '2026-09-03',
+    start: '2026-10-06',
+    end: '2026-10-06',
     cat: 'activitat',
     name: 'Simulacre Hybrid Race · 1r',
     nameEs: 'Simulacro Hybrid Race · 1º',
@@ -172,6 +172,36 @@ export const agendaEvents: AgendaEvent[] = [
     descEs: 'Primer simulacro de resistencia (carrera + estaciones funcionales) como preparación para la gran competición Hyrox de Barcelona.',
     descEn: 'First endurance simulation (running + functional stations) to prepare for the big Hyrox competition in Barcelona.',
     image: `${AGENDA_REPO_RAW}/class-wod.jpg`
+  },
+  {
+    id: 'mountain-btt',
+    start: '2026-09-20',
+    end: '2026-09-20',
+    cat: 'activitat',
+    name: 'Mountain Club · Sortida BTT',
+    nameEs: 'Mountain Club · Salida BTT',
+    nameEn: 'Mountain Club · MTB Ride',
+    place: 'Exterior · Ruta en grup',
+    placeEs: 'Exterior · Ruta en grupo',
+    placeEn: 'Outdoors · Group ride',
+    desc: 'Sortida en bicicleta de muntanya amb el Mountain Club. Ruta en grup, ritme adaptat al grup.',
+    descEs: 'Salida en bicicleta de montaña con el Mountain Club. Ruta en grupo, ritmo adaptado al grupo.',
+    descEn: 'Mountain bike ride with the Mountain Club. Group route, pace adapted to the group.'
+  },
+  {
+    id: 'mountain-bastiments',
+    start: '2026-09-26',
+    end: '2026-09-26',
+    cat: 'activitat',
+    name: 'Mountain Club · Pic de Bastiments',
+    nameEs: 'Mountain Club · Pic de Bastiments',
+    nameEn: 'Mountain Club · Bastiments Peak',
+    place: 'Ripollès · Cim 2.881 m',
+    placeEs: 'Ripollès · Cima 2.881 m',
+    placeEn: 'Ripollès · Summit 2,881 m',
+    desc: 'Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.',
+    descEs: 'Ascensión al Pic de Bastiments (2.881 m), en el Ripollès. Salida de montaña con el Mountain Club.',
+    descEn: 'Ascent of Bastiments Peak (2,881 m) in the Ripollès. Mountain outing with the Mountain Club.'
   },
   {
     id: 'sim-wodcelona',
@@ -206,8 +236,8 @@ export const agendaEvents: AgendaEvent[] = [
   },
   {
     id: 'sim-hybrid-2',
-    start: '2026-09-26',
-    end: '2026-09-26',
+    start: '2026-10-13',
+    end: '2026-10-13',
     cat: 'activitat',
     name: 'Simulacre Hybrid Race · 2n',
     nameEs: 'Simulacro Hybrid Race · 2º',
