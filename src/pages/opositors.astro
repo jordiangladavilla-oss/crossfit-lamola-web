@@ -7,8 +7,8 @@ import Schema from '../components/Schema.astro'
 ---
 
 <Layout
-  title="Oposicions · Preparació física Bombers i Mossos · CrossFit La Mola Terrassa"
-  description="Prepara les proves físiques d'oposicions a Bombers de la Generalitat, Bombers de Barcelona i Mossos d'Esquadra a Terrassa. Franja exclusiva entre setmana d'11:30 a 15:30 i diumenges al matí. 55€/mes IVA inclòs."
+  title="Preparació física per a oposicions a Terrassa · Bombers i Mossos · CrossFit La Mola"
+  description="Preparació física per a oposicions a Terrassa: proves físiques de Bombers de la Generalitat, Bombers de Barcelona i Mossos d'Esquadra. Franja exclusiva dl–dv 11:30–15:30 i diumenges al matí. Quota 55€/mes, drop-in 15€/dia, sauna +10€."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -25,15 +25,35 @@ import Schema from '../components/Schema.astro'
       "areaServed": {"@type": "City", "name": "Terrassa"},
       "audience": {"@type": "Audience", "audienceType": "Opositors a Bombers de la Generalitat de Catalunya, Bombers de l'Ajuntament de Barcelona i Mossos d'Esquadra"},
       "description": "Franja d'entrenament exclusiva per a opositors de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30, amb material per a la preparació física: cordes, força, càrrega, trineu, arrossegaments i capacitat aeròbica.",
-      "offers": {
-        "@type": "Offer",
-        "name": "Quota opositors",
-        "description": "Ús il·limitat de les instal·lacions dins la franja: de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Cal acreditar la inscripció a la convocatòria.",
-        "priceCurrency": "EUR",
-        "price": "55.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://crossfitlamola.com/opositors"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Quota opositors",
+          "description": "Ús il·limitat de les instal·lacions dins la franja: de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Cal acreditar la inscripció a la convocatòria.",
+          "priceCurrency": "EUR",
+          "price": "55.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "Drop-in opositors · 1 dia",
+          "description": "Un dia d'accés a la franja d'opositors i al material del box, sense quota mensual.",
+          "priceCurrency": "EUR",
+          "price": "15.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "Drop-in opositors + sauna",
+          "description": "Un dia d'entrenament a la franja d'opositors més una sessió de sauna per a la recuperació (suplement de 10€ sobre el drop-in).",
+          "priceCurrency": "EUR",
+          "price": "25.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/opositors"
+        }
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -46,7 +66,9 @@ import Schema from '../components/Schema.astro'
         {"@type": "Question", "name": "Com són les noves proves físiques de Bombers?", "acceptedAnswer": {"@type": "Answer", "text": "Les proves de cada convocatòria les fixen les bases oficials i poden canviar: consulta sempre la convocatòria vigent. Com a referència, l'INEFC ha proposat (informe 2025-2) simulacions d'intervenció: transport de discos de 10 kg i kettlebells de 12 kg amb pujada d'escales, estirar i empènyer un trineu amb corda, recorreguts en quadrupèdia, arrossegament d'un maniquí de 60 kg i blocs de rectes de 20 m amb slam balls. Són patrons d'entrenament funcional que es treballen habitualment en un box de CrossFit."}},
         {"@type": "Question", "name": "Quant costa la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "55€ al mes, IVA inclòs, amb ús il·limitat dins la franja d'11:30 a 15:30 de dilluns a divendres."}},
         {"@type": "Question", "name": "Quin material hi ha per preparar les proves?", "acceptedAnswer": {"@type": "Answer", "text": "517m² amb 9 cordes de pujada, rig de 15 places, més de 30 barres olímpiques, bancs de força, 4 zones de sled push, 12 estacions de cardio (Concept2 i Rogue) i zona exterior per treballar la capacitat aeròbica."}},
-        {"@type": "Question", "name": "Puc entrenar fora de la franja d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors dona accés a la franja d'11:30 a 15:30. Si vols venir a classes o entrenar en altres horaris, escriu-nos i t'expliquem com combinar-ho amb les tarifes generals."}}
+        {"@type": "Question", "name": "Vull preparar les oposicions i també fer classes al box. Quina quota necessito?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors (55€/mes) dona accés només a la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la quota Il·limitada, que inclou també l'espai i el material d'opositors."}},
+        {"@type": "Question", "name": "Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Amb la quota Il·limitada pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement."}},
+        {"@type": "Question", "name": "Puc venir només un dia a posar-me a prova?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El drop-in d'opositors costa 15€ i inclou un dia d'accés a la franja i al material. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar 10€ més i fer un dia complet d'entrenament i recuperació: 25€ en total."}}
       ]
     }
     </script>
@@ -90,8 +112,8 @@ import Schema from '../components/Schema.astro'
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Oposicions</span></div>
       <div class="kicker"><span>Bombers</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
-      <h1>Les proves físiques<br>es guanyen <em class="serif">abans</em><span class="dot">.</span></h1>
-      <p class="sub">Franja d'entrenament <strong>exclusiva per a opositors</strong> a Terrassa: material específic per preparar les proves físiques de Bombers i Mossos d'Esquadra, de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30.</p>
+      <h1>Preparació física<br>per a <em class="serif">oposicions</em><span class="dot">.</span></h1>
+      <p class="sub">Franja d'entrenament <strong>exclusiva per a opositors</strong> a Terrassa: material específic per preparar les proves físiques de Bombers i Mossos d'Esquadra, de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Quota mensual de 55€ o drop-in d'un dia per 15€.</p>
     </div>
   </section>
 
@@ -138,12 +160,14 @@ import Schema from '../components/Schema.astro'
     <div class="inner">
       <div class="eyebrow reveal"><span class="num">02 —</span><span>Condicions</span></div>
       <div style="height:24px"></div>
-      <h2 class="h-xl reveal">Una quota pensada<br>per a opositors<span class="dot">.</span></h2>
+      <h2 class="h-xl reveal">Quota mensual<br>o drop-in d'un dia<span class="dot">.</span></h2>
 
       <div class="conds reveal">
         <div><span class="label">01 · Quota</span><div><h4>55€/mes · IVA inclòs</h4><p>Ús il·limitat de les instal·lacions i el material dins la franja d'opositors.</p></div><span class="p">55€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/mes</span></span></div>
         <div><span class="label">02 · Franja</span><div><h4>Dilluns a divendres · 11:30–15:30</h4><p>Quatre hores diàries entre setmana amb material disponible en exclusiva per a l'entrenament d'oposicions. I també els <strong>diumenges de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">dies/setm.</span></span></div>
         <div><span class="label">03 · Acreditació</span><div><h4>Justificant d'inscripció</h4><p>Per accedir a aquesta tarifa cal acreditar la inscripció a la convocatòria d'oposicions (justificant o resguard d'inscripció).</p></div></div>
+        <div><span class="label">04 · Drop-in</span><div><h4>Un dia · 15€</h4><p>Vine un dia a posar-te a prova amb el material d'opositors dins la franja, sense quota mensual.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/dia</span></span></div>
+        <div><span class="label">05 · Sauna</span><div><h4>Recuperació · +10€</h4><p>Afegeix una sessió de sauna al drop-in i fes un dia complet d'entrenament i recuperació: 25€ en total.</p></div><span class="p">+10€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/sessió</span></span></div>
       </div>
     </div>
   </section>
@@ -158,7 +182,9 @@ import Schema from '../components/Schema.astro'
         <details><summary>Qui pot accedir a la quota d'opositors?</summary><p>Qualsevol persona inscrita a una convocatòria amb proves físiques: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong> o <strong>Mossos d'Esquadra</strong>. Cal acreditar la inscripció per donar-se d'alta.</p></details>
         <details><summary>Puc venir cada dia?</summary><p>Sí. L'ús dins la franja és <strong>il·limitat</strong>: de dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30.</p></details>
         <details><summary>Com són les noves proves de Bombers?</summary><p>Les proves les fixen les <strong>bases oficials de cada convocatòria</strong> i poden canviar — consulta sempre la convocatòria vigent. Com a referència, l'INEFC ha proposat (informe 2025-2) <strong>simulacions d'intervenció</strong>: transport de discos de 10 kg i kettlebells de 12 kg amb escales, trineu amb corda, quadrupèdia, arrossegament de maniquí de 60 kg i rectes de 20 m amb slam balls. Exactament els patrons funcionals que treballem al box.</p></details>
-        <details><summary>Puc entrenar fora de la franja?</summary><p>La quota d'opositors cobreix la franja d'11:30 a 15:30. Si també vols venir a classes o en altres horaris, escriu-nos i t'expliquem com combinar-ho.</p></details>
+        <details><summary>Vull preparar les oposicions i també fer classes al box. Quina quota necessito?</summary><p>La quota d'opositors (55€/mes) cobreix només la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la <strong>quota Il·limitada</strong>, que inclou també l'espai i el material d'opositors.</p></details>
+        <details><summary>Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?</summary><p>Sí. Amb la <strong>quota Il·limitada</strong> pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement.</p></details>
+        <details><summary>Puc venir només un dia a posar-me a prova?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>15€</strong> i inclou un dia d'accés a la franja i al material. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar <strong>10€ més</strong> i fer un dia complet d'entrenament i recuperació: 25€ en total.</p></details>
         <details><summary>Hi ha entrenament dirigit?</summary><p>La franja és d'entrenament lliure amb material exclusiu. Els coaches del box són a la sala i et poden orientar; si busques una programació específica per a la teva convocatòria, pregunta'ns.</p></details>
       </div>
     </div>

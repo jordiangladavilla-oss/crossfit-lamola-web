@@ -7,8 +7,8 @@ import Schema from '../../components/Schema.astro'
 ---
 
 <Layout
-  title="Civil Service Exam Prep · Firefighters & Mossos · CrossFit La Mola Terrassa"
-  description="Train for the physical tests of Catalonia's firefighter (Bombers) and police (Mossos d'Esquadra) civil service exams in Terrassa. Exclusive weekday slot 11:30–15:30 plus Sunday mornings. €55/month VAT included."
+  title="Physical Exam Prep in Terrassa · Firefighters & Mossos · CrossFit La Mola"
+  description="Physical preparation for Catalonia's firefighter (Bombers) and police (Mossos d'Esquadra) civil service exams in Terrassa. Exclusive weekday slot 11:30–15:30 plus Sunday mornings. €55/month, €15 day pass, sauna +€10."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -25,15 +25,35 @@ import Schema from '../../components/Schema.astro'
       "areaServed": {"@type": "City", "name": "Terrassa"},
       "audience": {"@type": "Audience", "audienceType": "Candidates for Catalonia's firefighter services (Bombers de la Generalitat, Bombers de Barcelona) and police force (Mossos d'Esquadra)"},
       "description": "Exclusive training slot for exam candidates, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30, with equipment for physical preparation: ropes, strength, loaded carries, sled work, drags and aerobic capacity.",
-      "offers": {
-        "@type": "Offer",
-        "name": "Exam candidate membership",
-        "description": "Unlimited use of the facilities within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
-        "priceCurrency": "EUR",
-        "price": "55.00",
-        "availability": "https://schema.org/InStock",
-        "url": "https://crossfitlamola.com/en/opositors"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Exam candidate membership",
+          "description": "Unlimited use of the facilities within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
+          "priceCurrency": "EUR",
+          "price": "55.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/en/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "Exam candidate day pass",
+          "description": "One day of access to the candidate slot and the box equipment, no monthly membership.",
+          "priceCurrency": "EUR",
+          "price": "15.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/en/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "Day pass + sauna",
+          "description": "One day of training in the candidate slot plus a sauna session for recovery (€10 add-on to the day pass).",
+          "priceCurrency": "EUR",
+          "price": "25.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/en/opositors"
+        }
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -46,7 +66,9 @@ import Schema from '../../components/Schema.astro'
         {"@type": "Question", "name": "What do the new firefighter tests look like?", "acceptedAnswer": {"@type": "Answer", "text": "Each exam call sets its own official tests and they can change: always check the current official announcement. As a reference, INEFC has proposed (2025-2 report) intervention simulations: carrying 10 kg plates and 12 kg kettlebells up stairs, pulling and pushing a sled with a rope, crawling courses, dragging a 60 kg rescue mannequin and 20 m shuttle blocks with slam balls. These are functional training patterns routinely trained at a CrossFit box."}},
         {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "€55 per month, VAT included, with unlimited use within the 11:30–15:30 weekday slot."}},
         {"@type": "Question", "name": "What equipment is available?", "acceptedAnswer": {"@type": "Answer", "text": "517m² with 9 climbing ropes, a 15-station rig, over 30 Olympic barbells, benches, 4 sled push lanes, 12 cardio stations (Concept2 and Rogue) and an outdoor area for aerobic work."}},
-        {"@type": "Question", "name": "Can I train outside the slot?", "acceptedAnswer": {"@type": "Answer", "text": "The exam candidate membership covers the 11:30–15:30 slot. If you also want classes or other hours, message us and we'll explain how to combine it with our regular memberships."}}
+        {"@type": "Question", "name": "I want to prepare for the exam and also take classes at the box. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The exam candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
+        {"@type": "Question", "name": "I'm already a CrossFit La Mola member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}},
+        {"@type": "Question", "name": "Can I come just one day to test myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The candidate day pass costs €15 and includes one day of access to the slot and the equipment. If you also want to recover well and get the benefits of the sauna, add €10 for a full day of training and recovery: €25 in total."}}
       ]
     }
     </script>
@@ -90,8 +112,8 @@ import Schema from '../../components/Schema.astro'
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
       <div class="kicker"><span>Firefighters</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
-      <h1>Physical tests<br>are won <em class="serif">early</em><span class="dot">.</span></h1>
-      <p class="sub">An <strong>exclusive training slot for exam candidates</strong> in Terrassa: specific equipment to prepare the physical tests for Catalonia's firefighter and police forces, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30.</p>
+      <h1>Physical prep<br>for <em class="serif">civil service exams</em><span class="dot">.</span></h1>
+      <p class="sub">An <strong>exclusive training slot for exam candidates</strong> in Terrassa: specific equipment to prepare the physical tests for Catalonia's firefighter and police forces, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30. €55/month membership or a €15 day pass.</p>
     </div>
   </section>
 
@@ -138,12 +160,14 @@ import Schema from '../../components/Schema.astro'
     <div class="inner">
       <div class="eyebrow reveal"><span class="num">02 —</span><span>Conditions</span></div>
       <div style="height:24px"></div>
-      <h2 class="h-xl reveal">A membership built<br>for candidates<span class="dot">.</span></h2>
+      <h2 class="h-xl reveal">Monthly membership<br>or a one-day pass<span class="dot">.</span></h2>
 
       <div class="conds reveal">
         <div><span class="label">01 · Price</span><div><h4>€55/month · VAT included</h4><p>Unlimited use of the facilities and equipment within the candidate slot.</p></div><span class="p">€55<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
         <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>Four hours of weekday access with equipment reserved exclusively for exam training. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
         <div><span class="label">03 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
+        <div><span class="label">04 · Day pass</span><div><h4>One day · €15</h4><p>Come for a day and test yourself with the candidate equipment within the slot, no monthly membership.</p></div><span class="p">€15<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
+        <div><span class="label">05 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €25 in total.</p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
       </div>
     </div>
   </section>
@@ -158,7 +182,9 @@ import Schema from '../../components/Schema.astro'
         <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong> or <strong>Mossos d'Esquadra</strong>. Proof of registration is required to sign up.</p></details>
         <details><summary>Can I come every day?</summary><p>Yes. Use within the slot is <strong>unlimited</strong>: Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30.</p></details>
         <details><summary>What do the new firefighter tests look like?</summary><p>Tests are set by <strong>each call's official announcement</strong> and can change — always check the current one. As a reference, INEFC has proposed (2025-2 report) <strong>intervention simulations</strong>: carrying 10 kg plates and 12 kg kettlebells up stairs, rope-sled pulls and pushes, crawling courses, dragging a 60 kg mannequin and 20 m shuttles with slam balls. Exactly the functional patterns we train at the box.</p></details>
-        <details><summary>Can I train outside the slot?</summary><p>This membership covers the 11:30–15:30 slot. If you also want classes or other hours, message us and we'll explain how to combine it.</p></details>
+        <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which also includes the candidate space and equipment.</p></details>
+        <details><summary>I'm already a member. Can I use the candidate space?</summary><p>Yes. With the <strong>Unlimited membership</strong> you can access the candidate space and equipment within the slot at no extra cost.</p></details>
+        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and includes one day of access to the slot and the equipment. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €25 in total.</p></details>
         <details><summary>Is there coached training?</summary><p>The slot is open training with exclusive equipment. The box coaches are around and can point you in the right direction; if you're after specific programming for your exam, ask us.</p></details>
       </div>
     </div>
