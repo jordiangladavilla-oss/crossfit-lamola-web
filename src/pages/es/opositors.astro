@@ -195,13 +195,96 @@ import Schema from '../../components/Schema.astro'
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Empezamos</span></div>
       <h2 class="h-hero reveal">La plaza se<br>prepara <em class="serif">hoy</em><span class="dot">.</span></h2>
-      <p class="reveal">Ven a ver el box, trae el justificante de inscripción y empieza a entrenar.</p>
-      <div class="actions reveal">
-        <a class="btn-primary" href="/es/contacte">Quiero información<span class="arr"></span></a>
-        <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o por WhatsApp</a>
-      </div>
+      <p class="reveal">Déjanos tus datos y te contactamos con toda la información. O ven directamente a ver el box con el justificante de inscripción.</p>
+      <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
+        <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
+        <div class="form-row two">
+          <div class="field"><label for="o-name">Nombre</label><input id="o-name" type="text" name="name" required aria-required="true" placeholder="¿Cómo te llamas?"></div>
+          <div class="field"><label for="o-phone">Teléfono</label><input id="o-phone" type="tel" name="phone" required aria-required="true" placeholder="629 ..."></div>
+        </div>
+        <div class="field"><label for="o-prep">¿Qué oposición preparas?</label>
+          <select id="o-prep" name="prep">
+            <option>Bombers de la Generalitat</option><option>Bomberos de Barcelona (SPEIS)</option><option>Mossos d'Esquadra</option><option>Otra convocatoria</option>
+          </select>
+        </div>
+        <div class="field"><label for="o-note">¿Algún comentario? (opcional)</label><input id="o-note" type="text" name="note" placeholder="Convocatoria, fechas de las pruebas, dudas..."></div>
+        <div class="actions" style="margin-top:0;">
+          <button type="submit" class="form-submit" id="opo-submit">Quiero información<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
+          <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o por WhatsApp</a>
+        </div>
+        <div id="opo-msg" style="display:none; padding:20px; border-radius:8px; font-family:var(--f-display);"></div>
+      </form>
     </div>
   </section>
 
   <Footer />
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
+
+  function getSource() {
+    const params = new URLSearchParams(window.location.search);
+    const utm = params.get('utm_source');
+    if (utm) return utm;
+    const from = params.get('from');
+    if (from) return from;
+    return 'web';
+  }
+
+  document.getElementById('opo-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('opo-submit');
+    const msg = document.getElementById('opo-msg');
+    const btnText = btn.innerHTML;
+
+    btn.innerHTML = 'Enviando...';
+    btn.disabled = true;
+    msg.style.display = 'none';
+
+    const source = getSource();
+    const data = {
+      origen: 'Opositors (' + source + ')',
+      name: form.name.value,
+      email: '',
+      phone: form.phone.value,
+      disc: 'Oposicions · ' + form.prep.value,
+      level: '',
+      when: '',
+      note: form.note.value,
+      website: form.website.value
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      msg.style.display = 'block';
+      msg.style.background = 'var(--accent-ink)';
+      msg.style.color = 'var(--bone)';
+      msg.innerHTML = '<strong>¡Gracias!</strong> Hemos recibido tus datos. Te contactamos pronto.';
+      form.reset();
+
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          event_category: 'forms',
+          event_label: 'Opositors',
+          value: 1
+        });
+      }
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.style.background = '#fee';
+      msg.style.color = '#c00';
+      msg.innerHTML = 'Error al enviar. Prueba por WhatsApp: <a href="https://wa.me/34699196531" style="color:#c00;">699 19 65 31</a>';
+    }
+
+    btn.innerHTML = btnText;
+    btn.disabled = false;
+  });
+</script>
 </Layout>
