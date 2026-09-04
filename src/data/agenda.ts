@@ -190,22 +190,6 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/btt.jpg`
   },
   {
-    id: 'mountain-bastiments',
-    start: '2026-09-26',
-    end: '2026-09-26',
-    cat: 'activitat',
-    name: 'Mountain Club · Pic de Bastiments',
-    nameEs: 'Mountain Club · Pic de Bastiments',
-    nameEn: 'Mountain Club · Bastiments Peak',
-    place: 'Ripollès · Cim 2.881 m',
-    placeEs: 'Ripollès · Cima 2.881 m',
-    placeEn: 'Ripollès · Summit 2,881 m',
-    desc: 'Ascensió al Pic de Bastiments (2.881 m), al Ripollès. Sortida de muntanya amb el Mountain Club.',
-    descEs: 'Ascensión al Pic de Bastiments (2.881 m), en el Ripollès. Salida de montaña con el Mountain Club.',
-    descEn: 'Ascent of Bastiments Peak (2,881 m) in the Ripollès. Mountain outing with the Mountain Club.',
-    image: `${AGENDA_REPO_RAW}/pic-bastiments.webp`
-  },
-  {
     id: 'sim-wodcelona',
     start: '2026-09-05',
     end: '2026-09-05',
@@ -253,19 +237,19 @@ export const agendaEvents: AgendaEvent[] = [
     image: `${AGENDA_REPO_RAW}/fitrace.png`
   },
   {
-    id: 'sim-hybrid',
+    id: 'sim-hyrox',
     start: '2026-11-07',
     end: '2026-11-07',
     cat: 'activitat',
-    name: 'Simulacre Hybrid Race',
-    nameEs: 'Simulacro Hybrid Race',
-    nameEn: 'Hybrid Race Simulation',
-    place: 'La Mola · Cursa + estacions · Gratuït',
-    placeEs: 'La Mola · Carrera + estaciones · Gratis',
-    placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Simulacre de resistència (cursa + estacions funcionals) com a preparació per la gran competició Hyrox de Barcelona.',
-    descEs: 'Simulacro de resistencia (carrera + estaciones funcionales) como preparación para la gran competición Hyrox de Barcelona.',
-    descEn: 'Endurance simulation (running + functional stations) to prepare for the big Hyrox competition in Barcelona.',
+    name: 'Simulacre Hyrox Barcelona',
+    nameEs: 'Simulacro Hyrox Barcelona',
+    nameEn: 'Hyrox Barcelona Simulation',
+    place: 'La Mola · HYROX · Gratuït',
+    placeEs: 'La Mola · HYROX · Gratis',
+    placeEn: 'La Mola · HYROX · Free',
+    desc: 'Simulacre HYROX abans de la gran cita a Barcelona. Afina el ritme de cursa i les transicions.',
+    descEs: 'Simulacro HYROX antes de la gran cita en Barcelona. Afina el ritmo de carrera y las transiciones.',
+    descEn: 'HYROX simulation ahead of the big event in Barcelona. Fine-tune race pace and transitions.',
     image: `${AGENDA_REPO_RAW}/hyrox-bcn.jpg`
   },
   {
