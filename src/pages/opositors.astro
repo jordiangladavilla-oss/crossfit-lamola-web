@@ -98,6 +98,7 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
     .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
     .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
     @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
+    @media(max-width:759px){ .conds .p{ display:none;} }
     .conds .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink);}
     .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
     .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
