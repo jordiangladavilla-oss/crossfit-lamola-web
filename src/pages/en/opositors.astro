@@ -4,11 +4,13 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import Schema from '../../components/Schema.astro'
+
+const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%20Bombers%20de%20la%20Generalitat%20exam%20(call%2081%2F26)%20and%20would%20like%20information%20about%20the%20candidate%20membership%20at%20La%20Mola.'
 ---
 
 <Layout
-  title="Physical Exam Prep in Terrassa · Firefighters & Mossos · CrossFit La Mola"
-  description="Physical preparation for Catalonia's firefighter (Bombers) and police (Mossos d'Esquadra) civil service exams in Terrassa. Exclusive weekday slot 11:30–15:30 plus Sunday mornings. €55/month, €15 day pass, sauna +€10."
+  title="Physical Exam Prep in Terrassa · Firefighters 2026 & Mossos · CrossFit La Mola"
+  description="Physical preparation for Catalonia's civil service exams in Terrassa: weekly circuit sessions for the 2026 Bombers de la Generalitat test (call 81/26) and open training. Also for Barcelona firefighters and Mossos d'Esquadra. Weekday slot 11:30–15:30 plus Sunday mornings. €55/month, €20 day pass."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -23,12 +25,12 @@ import Schema from '../../components/Schema.astro'
       "serviceType": "Training for civil service physical tests",
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
       "areaServed": {"@type": "City", "name": "Terrassa"},
-      "audience": {"@type": "Audience", "audienceType": "Candidates for Catalonia's firefighter services (Bombers de la Generalitat, Bombers de Barcelona) and police force (Mossos d'Esquadra)"},
-      "description": "Exclusive training slot for exam candidates, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30, with equipment for physical preparation: ropes, strength, loaded carries, sled work, drags and aerobic capacity.",
+      "audience": {"@type": "Audience", "audienceType": "Candidates for Bombers de la Generalitat de Catalunya (call 81/26), Barcelona city firefighters (SPEIS) and Mossos d'Esquadra exams"},
+      "description": "Training slot for exam candidates, Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Weekly circuit sessions for the two fire simulations of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026) and open training on the other days, with coaches on the floor. Personalised programming on request. The water rescue simulation is prepared in a pool.",
       "offers": [
         {
           "@type": "Offer",
-          "name": "Exam candidate membership",
+          "name": "Candidate membership",
           "description": "Unlimited use of the facilities within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
           "priceCurrency": "EUR",
           "price": "55.00",
@@ -37,19 +39,19 @@ import Schema from '../../components/Schema.astro'
         },
         {
           "@type": "Offer",
-          "name": "Exam candidate day pass",
+          "name": "Candidate day pass",
           "description": "One day of access to the candidate slot and the box equipment, no monthly membership.",
           "priceCurrency": "EUR",
-          "price": "15.00",
+          "price": "20.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/en/opositors"
         },
         {
           "@type": "Offer",
-          "name": "Day pass + sauna",
-          "description": "One day of training in the candidate slot plus a sauna session for recovery (€10 add-on to the day pass).",
+          "name": "Candidate day pass + sauna",
+          "description": "One day of training in the candidate slot plus a sauna session for recovery (€10 supplement on the day pass).",
           "priceCurrency": "EUR",
-          "price": "25.00",
+          "price": "30.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/en/opositors"
         }
@@ -61,20 +63,23 @@ import Schema from '../../components/Schema.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Who can join the exam candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone registered for a civil service exam with physical tests: Bombers de la Generalitat de Catalunya, Bombers de Barcelona (SPEIS) or Mossos d'Esquadra. Proof of registration is required to sign up."}},
-        {"@type": "Question", "name": "What are the training hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30. Within this slot, use of the facilities and equipment is unlimited."}},
-        {"@type": "Question", "name": "What do the new firefighter tests look like?", "acceptedAnswer": {"@type": "Answer", "text": "Each exam call sets its own official tests and they can change: always check the current official announcement. As a reference, INEFC has proposed (2025-2 report) intervention simulations: carrying 10 kg plates and 12 kg kettlebells up stairs, pulling and pushing a sled with a rope, crawling courses, dragging a 60 kg rescue mannequin and 20 m shuttle blocks with slam balls. These are functional training patterns routinely trained at a CrossFit box."}},
-        {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "€55 per month, VAT included, with unlimited use within the 11:30–15:30 weekday slot."}},
-        {"@type": "Question", "name": "What equipment is available?", "acceptedAnswer": {"@type": "Answer", "text": "517m² with 9 climbing ropes, a 15-station rig, over 30 Olympic barbells, benches, 4 sled push lanes, 12 cardio stations (Concept2 and Rogue) and an outdoor area for aerobic work."}},
-        {"@type": "Question", "name": "I want to prepare for the exam and also take classes at the box. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The exam candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
-        {"@type": "Question", "name": "I'm already a CrossFit La Mola member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}},
-        {"@type": "Question", "name": "Can I come just one day to test myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The candidate day pass costs €15 and includes one day of access to the slot and the equipment. If you also want to recover well and get the benefits of the sauna, add €10 for a full day of training and recovery: €25 in total."}}
+        {"@type": "Question", "name": "Which parts of the 2026 Bombers de la Generalitat physical test can be prepared at the box?", "acceptedAnswer": {"@type": "Answer", "text": "Call 81/26 (Resolution ISP/3218/2026) has three timed intervention simulations. The two fire simulations (wildland and structural) are prepared at the box: the circuit is set up in weekly sessions within the slot. The third, the water rescue, takes place in a pool and cannot be prepared at the box; here we only build the aerobic base, pulling strength and core that support it."}},
+        {"@type": "Question", "name": "Is there coached training or programming?", "acceptedAnswer": {"@type": "Answer", "text": "Training within the slot is open, with weekly circuit sessions. Coaches are on the floor and, if one day you want to be timed or have your technique checked, just ask. If you want personalised programming for your exam, ask us."}},
+        {"@type": "Question", "name": "When are the 2026 firefighter physical tests?", "acceptedAnswer": {"@type": "Answer", "text": "Dates have not been published yet. The physical test comes after the knowledge test. Registration for call 81/26 is online at tràmits.gencat.cat for 10 working days from 16 September 2026. Always check the official announcement."}},
+        {"@type": "Question", "name": "Who can join the candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone registered for an exam with physical tests: Bombers de la Generalitat de Catalunya, Barcelona city firefighters (SPEIS), Mossos d'Esquadra or other forces. Proof of registration is required to sign up."}},
+        {"@type": "Question", "name": "What are the candidate slot hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday to Friday 11:30–15:30, plus Sundays 9:30–11:30. Within the slot, use of the facilities and equipment is unlimited."}},
+        {"@type": "Question", "name": "How much is the candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "€55 per month, VAT included, with unlimited use within the slot. There is also a €20 day pass, and for €10 more you can add a sauna session (€30 in total)."}},
+        {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
+        {"@type": "Question", "name": "I'm already a member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}}
       ]
     }
     </script>
   </Fragment>
 
   <style>
+    .hero-acts{ display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; margin-top:30px; }
+    .hero-acts .hero-cta{ align-self:auto; }
+
     .cossos{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
     @media(min-width:900px){ .cossos{ grid-template-columns:repeat(3,1fr);} }
     .cos{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
@@ -83,6 +88,13 @@ import Schema from '../../components/Schema.astro'
     .cos h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
     .cos p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
 
+    .regla{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:10px; }
+    .regla .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .regla p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0; max-width:75ch;}
+    .font{ margin-top:22px; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; line-height:1.7; color:var(--bone-3);}
+    .font a{ color:var(--bone-3); border-bottom:1px solid var(--line-strong);}
+    .font a:hover{ color:var(--accent-hi); border-color:var(--accent-hi);}
+
     .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
     .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
     @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
@@ -90,11 +102,6 @@ import Schema from '../../components/Schema.astro'
     .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
     .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
     .conds .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone-ink);}
-
-    .gear{ list-style:none; padding:0; margin:48px 0 0; display:grid; gap:12px; font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2);}
-    @media(min-width:760px){ .gear{ grid-template-columns:repeat(2,1fr);} }
-    .gear li{ display:flex; gap:14px; align-items:baseline;}
-    .gear li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(-2px);}
 
     .faq{ display:grid; gap:0; border-top:1px solid var(--line); margin-top:60px;}
     .faq details{ border-bottom:1px solid var(--line); padding:22px 0;}
@@ -111,48 +118,50 @@ import Schema from '../../components/Schema.astro'
     <div class="bg" style="background-image:url('/assets/opositors-hero.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
-      <div class="kicker"><span>Firefighters</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
+      <div class="kicker"><span>Firefighters · Call 81/26 open</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
       <h1>Physical prep<br>for <em class="serif">civil service exams</em><span class="dot">.</span></h1>
-      <p class="sub">An <strong>exclusive training slot for exam candidates</strong> in Terrassa: specific equipment to prepare the physical tests for Catalonia's firefighter and police forces, Monday to Friday from 11:30 to 15:30 and Sundays from 9:30 to 11:30. €55/month membership or a €15 day pass.</p>
+      <p class="sub">A slot <strong>for exam candidates</strong> in Terrassa: weekly circuit sessions for the 2026 firefighter test and open training on the other days, with the same standards as the rest of the box. Also for Barcelona firefighter and Mossos d'Esquadra candidates. Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. €55/month or a €20 day pass.</p>
+      <div class="hero-acts">
+        <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Message us on WhatsApp<span class="arr"></span></a>
+        <a class="btn-ghost" href="#opo-form">or leave your details</a>
+      </div>
     </div>
   </section>
 
   <section class="sec ink">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 —</span><span>Who it's for</span></div>
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>What we train</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Every exam,<br>its own training<span class="dot">.</span></h2>
-        <p class="lead reveal">Exam calls change and the tests evolve — always check your call's official announcement. What doesn't change is the physical base they demand: strength, loaded carries, pulling, agility and aerobic capacity. Here you have the space and the equipment to build it every day.</p>
+        <h2 class="h-xl reveal">Weekly circuit<br>and open training<span class="dot">.</span></h2>
+        <p class="lead reveal">The 2026 Bombers de la Generalitat physical test (call 81/26) has three timed intervention simulations. The two fire simulations are prepared at the box. The third, the water rescue, is in a pool.</p>
       </div>
 
       <div class="cossos reveal-stagger">
         <div class="cos" style="--i:0">
-          <span class="tag">01 · Generalitat</span>
-          <h3>Bombers de la <em>Generalitat</em></h3>
-          <p>INEFC has proposed for the force (2025-2 report) intervention simulations: carrying 10 kg plates and 12 kg kettlebells up stairs, rope-sled pulls and pushes, dragging a 60 kg mannequin and 20 m shuttles with slam balls. Patterns trained here every day.</p>
+          <span class="tag">01 · Circuit</span>
+          <h3>Weekly <em>sessions</em></h3>
+          <p>Every week we set up the fire simulation circuit within the slot. It is trained the way it will be done on test day: chained together, against the clock.</p>
         </div>
         <div class="cos" style="--i:1">
-          <span class="tag">02 · Barcelona</span>
-          <h3>Bombers de <em>Barcelona</em></h3>
-          <p>Build the physical base the Barcelona city firefighter (SPEIS) entry demands: strength, power and endurance with Olympic barbells, sled push and loaded carry zones. Check the current official announcement.</p>
+          <span class="tag">02 · Slot</span>
+          <h3>Open <em>training</em></h3>
+          <p>On the other days, open training within the slot with all the box equipment. Coaches are on the floor: if you want your technique checked or an attempt timed, just ask.</p>
         </div>
         <div class="cos" style="--i:2">
-          <span class="tag">03 · Mossos</span>
-          <h3>Mossos <em>d'Esquadra</em></h3>
-          <p>Build the all-round conditioning the entry process demands: strength, agility and aerobic capacity, combining loaded work with 12 cardio stations and an outdoor area. Check the current official announcement.</p>
+          <span class="tag">03 · Exam mode</span>
+          <h3>One attempt, <em>first time</em></h3>
+          <p>In the test there is a single attempt and no gloves, chalk, grips, knee sleeves, wrist wraps, belts or braces are allowed. Train it the same way.</p>
         </div>
       </div>
 
-      <ul class="gear reveal">
-        <li>9 climbing ropes and a 15-station rig</li>
-        <li>30+ Olympic barbells and benches</li>
-        <li>4 sled push and carry lanes</li>
-        <li>12 Concept2 and Rogue cardio stations</li>
-        <li>Kettlebells, plates and slam balls for the simulations</li>
-        <li>Outdoor area for aerobic work</li>
-        <li>517m² with exclusive equipment during the slot</li>
-      </ul>
+      <p class="font reveal">Source: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolution ISP/3218/2026 (DOGC no. 9751, 15.9.2026)</a>. Registration at tràmits.gencat.cat for 10 working days from 16 September. Physical test dates have not been published yet. The official announcement is the reference.</p>
+
+      <div class="regla reveal">
+        <span class="tag">Barcelona firefighters · Mossos d'Esquadra · other forces</span>
+        <p>The slot is also for candidates preparing for Barcelona city firefighters (SPEIS), Mossos d'Esquadra or any other exam with physical tests. The equipment and the strength and aerobic base are the same. Check your call's official announcement and, if you are unsure what to work on, ask us.</p>
+      </div>
+
     </div>
   </section>
 
@@ -164,10 +173,12 @@ import Schema from '../../components/Schema.astro'
 
       <div class="conds reveal">
         <div><span class="label">01 · Price</span><div><h4>€55/month · VAT included</h4><p>Unlimited use of the facilities and equipment within the candidate slot.</p></div><span class="p">€55<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
-        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>Four hours of weekday access with equipment reserved exclusively for exam training. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
-        <div><span class="label">03 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
-        <div><span class="label">04 · Day pass</span><div><h4>One day · €15</h4><p>Come for a day and test yourself with the candidate equipment within the slot, no monthly membership.</p></div><span class="p">€15<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
-        <div><span class="label">05 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €25 in total.</p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
+        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>Four hours of weekday access with all the box equipment available. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
+        <div><span class="label">03 · Circuit</span><div><h4>Weekly sessions</h4><p>Every week we set up the fire simulation circuit within the slot. On the other days, open training.</p></div></div>
+        <div><span class="label">04 · Programming</span><div><h4>Personalised · ask us</h4><p>If you want programming tailored to your exam and your starting point, ask us.</p></div></div>
+        <div><span class="label">05 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
+        <div><span class="label">06 · Day pass</span><div><h4>One day · €20</h4><p>Come on a circuit day and test yourself, no monthly membership.</p></div><span class="p">€20<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
+        <div><span class="label">07 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €30 in total.</p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
       </div>
     </div>
   </section>
@@ -179,13 +190,14 @@ import Schema from '../../components/Schema.astro'
       <h2 class="h-xl reveal" style="color:var(--bone)">Common<br>questions<span class="dot">.</span></h2>
 
       <div class="faq reveal" style="margin-top:52px;">
-        <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong> or <strong>Mossos d'Esquadra</strong>. Proof of registration is required to sign up.</p></details>
+        <details><summary>Which parts of the 2026 firefighter test can I prepare at the box?</summary><p>Call 81/26 has <strong>three timed simulations</strong>. The two <strong>fire simulations</strong> (wildland and structural) are prepared at the box: we set up the circuit in weekly sessions within the slot. The <strong>water rescue</strong> takes place in a pool and cannot be prepared here: from the box we only contribute the aerobic base, pulling strength and core.</p></details>
+        <details><summary>Is there coached training or programming?</summary><p>Training within the slot is <strong>open</strong>, with <strong>weekly circuit sessions</strong>. Coaches are on the floor and, if one day you want to be timed or have your technique checked, just ask. If you want <strong>personalised programming</strong> for your exam, ask us.</p></details>
+        <details><summary>When are the physical tests?</summary><p>Dates <strong>have not been published yet</strong>. The physical test comes after the knowledge test. Registration for call 81/26 is at tràmits.gencat.cat for 10 working days from 16 September. Always check the official announcement.</p></details>
+        <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Barcelona firefighters (SPEIS)</strong>, <strong>Mossos d'Esquadra</strong> or other forces. Proof of registration is required to sign up.</p></details>
         <details><summary>Can I come every day?</summary><p>Yes. Use within the slot is <strong>unlimited</strong>: Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30.</p></details>
-        <details><summary>What do the new firefighter tests look like?</summary><p>Tests are set by <strong>each call's official announcement</strong> and can change — always check the current one. As a reference, INEFC has proposed (2025-2 report) <strong>intervention simulations</strong>: carrying 10 kg plates and 12 kg kettlebells up stairs, rope-sled pulls and pushes, crawling courses, dragging a 60 kg mannequin and 20 m shuttles with slam balls. Exactly the functional patterns we train at the box.</p></details>
         <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which also includes the candidate space and equipment.</p></details>
         <details><summary>I'm already a member. Can I use the candidate space?</summary><p>Yes. With the <strong>Unlimited membership</strong> you can access the candidate space and equipment within the slot at no extra cost.</p></details>
-        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and includes one day of access to the slot and the equipment. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €25 in total.</p></details>
-        <details><summary>Is there coached training?</summary><p>The slot is open training with exclusive equipment. The box coaches are around and can point you in the right direction; if you're after specific programming for your exam, ask us.</p></details>
+        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€20</strong> and includes one day of access to the slot and the equipment. Come on a circuit day and test yourself. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €30 in total.</p></details>
       </div>
     </div>
   </section>
@@ -195,7 +207,7 @@ import Schema from '../../components/Schema.astro'
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Let's start</span></div>
       <h2 class="h-hero reveal">Your spot is<br>earned <em class="serif">today</em><span class="dot">.</span></h2>
-      <p class="reveal">Leave us your details and we'll get back to you with all the information. Or come see the box directly with your registration proof.</p>
+      <p class="reveal">Tell us which exam you are preparing for and we'll get back to you with all the information. Or come see the box with your registration proof.</p>
       <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
         <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
         <div class="form-row two">
@@ -204,13 +216,13 @@ import Schema from '../../components/Schema.astro'
         </div>
         <div class="field"><label for="o-prep">Which exam are you preparing for?</label>
           <select id="o-prep" name="prep">
-            <option>Bombers de la Generalitat (Firefighters)</option><option>Barcelona Firefighters (SPEIS)</option><option>Mossos d'Esquadra (Police)</option><option>Another exam</option>
+            <option>Bombers de la Generalitat (call 81/26)</option><option>Barcelona Firefighters (SPEIS)</option><option>Mossos d'Esquadra (Police)</option><option>Another exam</option>
           </select>
         </div>
         <div class="field"><label for="o-note">Any comments? (optional)</label><input id="o-note" type="text" name="note" placeholder="Exam call, test dates, questions..."></div>
         <div class="actions" style="margin-top:0;">
           <button type="submit" class="form-submit" id="opo-submit">Get info<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
-          <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">or via WhatsApp</a>
+          <a class="btn-ghost" href={WA} target="_blank" rel="noopener" data-wa="form">or via WhatsApp</a>
         </div>
         <div id="opo-msg" style="display:none; padding:20px; border-radius:8px; font-family:var(--f-display);"></div>
       </form>
@@ -230,6 +242,14 @@ import Schema from '../../components/Schema.astro'
     if (from) return from;
     return 'web';
   }
+
+  document.querySelectorAll('[data-wa]').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', { event_category: 'contact', event_label: 'Opositors · ' + a.dataset.wa });
+      }
+    });
+  });
 
   document.getElementById('opo-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -266,7 +286,7 @@ import Schema from '../../components/Schema.astro'
       msg.style.display = 'block';
       msg.style.background = 'var(--accent-ink)';
       msg.style.color = 'var(--bone)';
-      msg.innerHTML = '<strong>Thanks!</strong> We\'ve received your details. We\'ll contact you soon.';
+      msg.innerHTML = '<strong>Thanks!</strong> We have your details. We\'ll be in touch soon.';
       form.reset();
 
       if (typeof gtag !== 'undefined') {
@@ -280,7 +300,7 @@ import Schema from '../../components/Schema.astro'
       msg.style.display = 'block';
       msg.style.background = '#fee';
       msg.style.color = '#c00';
-      msg.innerHTML = 'Error sending. Try WhatsApp: <a href="https://wa.me/34699196531" style="color:#c00;">699 19 65 31</a>';
+      msg.innerHTML = 'Something went wrong. Try WhatsApp: <a href="https://wa.me/34699196531" style="color:#c00;">699 19 65 31</a>';
     }
 
     btn.innerHTML = btnText;

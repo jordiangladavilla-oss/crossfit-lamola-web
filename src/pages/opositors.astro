@@ -4,11 +4,13 @@ import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import Schema from '../components/Schema.astro'
+
+const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20de%20Bombers%20de%20la%20Generalitat%20(conv.%2081%2F26)%20i%20vull%20informaci%C3%B3%20de%20la%20quota%20d%E2%80%99opositors%20de%20La%20Mola.'
 ---
 
 <Layout
-  title="Preparació física per a oposicions a Terrassa · Bombers i Mossos · CrossFit La Mola"
-  description="Preparació física per a oposicions a Terrassa: proves físiques de Bombers de la Generalitat, Bombers de Barcelona i Mossos d'Esquadra. Franja exclusiva dl–dv 11:30–15:30 i diumenges al matí. Quota 55€/mes, drop-in 15€/dia, sauna +10€."
+  title="Preparació física per a oposicions a Terrassa · Bombers 2026 i Mossos · CrossFit La Mola"
+  description="Preparació física per a oposicions a Terrassa: sessions setmanals de circuit de la prova de Bombers de la Generalitat 2026 (convocatòria 81/26) i entrenament lliure. També Bombers de Barcelona i Mossos d'Esquadra. Franja dl–dv 11:30–15:30 i diumenges. Quota 55€/mes, drop-in 20€."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -23,8 +25,8 @@ import Schema from '../components/Schema.astro'
       "serviceType": "Entrenament per a proves físiques d'oposicions",
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
       "areaServed": {"@type": "City", "name": "Terrassa"},
-      "audience": {"@type": "Audience", "audienceType": "Opositors a Bombers de la Generalitat de Catalunya, Bombers de l'Ajuntament de Barcelona i Mossos d'Esquadra"},
-      "description": "Franja d'entrenament exclusiva per a opositors de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30, amb material per a la preparació física: cordes, força, càrrega, trineu, arrossegaments i capacitat aeròbica.",
+      "audience": {"@type": "Audience", "audienceType": "Opositors a Bombers de la Generalitat de Catalunya (convocatòria 81/26), Bombers de l'Ajuntament de Barcelona i Mossos d'Esquadra"},
+      "description": "Franja d'entrenament per a opositors de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Sessions setmanals de circuit de les dues simulacions d'incendi de la prova física de Bombers de la Generalitat 2026 (Resolució ISP/3218/2026) i entrenament lliure la resta de dies, amb coaches a la sala. Programació personalitzada a consultar. El rescat aquàtic es prepara en piscina.",
       "offers": [
         {
           "@type": "Offer",
@@ -40,7 +42,7 @@ import Schema from '../components/Schema.astro'
           "name": "Drop-in opositors · 1 dia",
           "description": "Un dia d'accés a la franja d'opositors i al material del box, sense quota mensual.",
           "priceCurrency": "EUR",
-          "price": "15.00",
+          "price": "20.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/opositors"
         },
@@ -49,7 +51,7 @@ import Schema from '../components/Schema.astro'
           "name": "Drop-in opositors + sauna",
           "description": "Un dia d'entrenament a la franja d'opositors més una sessió de sauna per a la recuperació (suplement de 10€ sobre el drop-in).",
           "priceCurrency": "EUR",
-          "price": "25.00",
+          "price": "30.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/opositors"
         }
@@ -61,20 +63,23 @@ import Schema from '../components/Schema.astro'
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Qui pot accedir a la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Qualsevol persona inscrita a una convocatòria d'oposicions amb proves físiques: Bombers de la Generalitat de Catalunya, Bombers de l'Ajuntament de Barcelona (SPEIS) o Mossos d'Esquadra. Cal acreditar la inscripció a la convocatòria per donar-se d'alta."}},
+        {"@type": "Question", "name": "Què es pot preparar al box de la prova física de Bombers de la Generalitat 2026?", "acceptedAnswer": {"@type": "Answer", "text": "La convocatòria 81/26 (Resolució ISP/3218/2026) té tres simulacions d'intervenció cronometrades. Les dues simulacions d'incendi (vegetació i estructural) es preparen al box: es munta el circuit en sessions setmanals dins la franja. La tercera, el rescat aquàtic, es fa en piscina i no es pot preparar al box; des d'aquí només s'hi treballa la base aeròbica, la tracció i el core."}},
+        {"@type": "Question", "name": "Hi ha entrenament dirigit o programació?", "acceptedAnswer": {"@type": "Answer", "text": "L'entrenament dins la franja és lliure, amb sessions setmanals de circuit. Els coaches són a la sala i, si un dia vols que et cronometrin o et revisin l'execució, demana-ho. Si vols una programació personalitzada per a la teva convocatòria, consulta'ns."}},
+        {"@type": "Question", "name": "Quan són les proves físiques de Bombers 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Les dates encara no s'han publicat. La prova física va després del test de coneixements. Les inscripcions a la convocatòria 81/26 són telemàtiques a tràmits.gencat.cat, durant 10 dies hàbils a partir del 16 de setembre de 2026. Consulta sempre les bases oficials."}},
+        {"@type": "Question", "name": "Qui pot accedir a la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Qualsevol persona inscrita a una convocatòria d'oposicions amb proves físiques: Bombers de la Generalitat de Catalunya, Bombers de l'Ajuntament de Barcelona (SPEIS), Mossos d'Esquadra o altres cossos. Cal acreditar la inscripció a la convocatòria per donar-se d'alta."}},
         {"@type": "Question", "name": "Quin horari té la franja d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "De dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30. Dins d'aquesta franja l'ús de les instal·lacions i el material és il·limitat."}},
-        {"@type": "Question", "name": "Com són les noves proves físiques de Bombers?", "acceptedAnswer": {"@type": "Answer", "text": "Les proves de cada convocatòria les fixen les bases oficials i poden canviar: consulta sempre la convocatòria vigent. Com a referència, l'INEFC ha proposat (informe 2025-2) simulacions d'intervenció: transport de discos de 10 kg i kettlebells de 12 kg amb pujada d'escales, estirar i empènyer un trineu amb corda, recorreguts en quadrupèdia, arrossegament d'un maniquí de 60 kg i blocs de rectes de 20 m amb slam balls. Són patrons d'entrenament funcional que es treballen habitualment en un box de CrossFit."}},
-        {"@type": "Question", "name": "Quant costa la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "55€ al mes, IVA inclòs, amb ús il·limitat dins la franja d'11:30 a 15:30 de dilluns a divendres."}},
-        {"@type": "Question", "name": "Quin material hi ha per preparar les proves?", "acceptedAnswer": {"@type": "Answer", "text": "517m² amb 9 cordes de pujada, rig de 15 places, més de 30 barres olímpiques, bancs de força, 4 zones de sled push, 12 estacions de cardio (Concept2 i Rogue) i zona exterior per treballar la capacitat aeròbica."}},
+        {"@type": "Question", "name": "Quant costa la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "55€ al mes, IVA inclòs, amb ús il·limitat dins la franja. També hi ha un drop-in d'un dia per 20€, i per 10€ més s'hi pot afegir una sessió de sauna (30€ en total)."}},
         {"@type": "Question", "name": "Vull preparar les oposicions i també fer classes al box. Quina quota necessito?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors (55€/mes) dona accés només a la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la quota Il·limitada, que inclou també l'espai i el material d'opositors."}},
-        {"@type": "Question", "name": "Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Amb la quota Il·limitada pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement."}},
-        {"@type": "Question", "name": "Puc venir només un dia a posar-me a prova?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El drop-in d'opositors costa 15€ i inclou un dia d'accés a la franja i al material. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar 10€ més i fer un dia complet d'entrenament i recuperació: 25€ en total."}}
+        {"@type": "Question", "name": "Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Amb la quota Il·limitada pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement."}}
       ]
     }
     </script>
   </Fragment>
 
   <style>
+    .hero-acts{ display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; margin-top:30px; }
+    .hero-acts .hero-cta{ align-self:auto; }
+
     .cossos{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
     @media(min-width:900px){ .cossos{ grid-template-columns:repeat(3,1fr);} }
     .cos{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
@@ -83,6 +88,13 @@ import Schema from '../components/Schema.astro'
     .cos h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
     .cos p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
 
+    .regla{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:10px; }
+    .regla .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .regla p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0; max-width:75ch;}
+    .font{ margin-top:22px; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; line-height:1.7; color:var(--bone-3);}
+    .font a{ color:var(--bone-3); border-bottom:1px solid var(--line-strong);}
+    .font a:hover{ color:var(--accent-hi); border-color:var(--accent-hi);}
+
     .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
     .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
     @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
@@ -90,11 +102,6 @@ import Schema from '../components/Schema.astro'
     .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
     .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
     .conds .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone-ink);}
-
-    .gear{ list-style:none; padding:0; margin:48px 0 0; display:grid; gap:12px; font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-2);}
-    @media(min-width:760px){ .gear{ grid-template-columns:repeat(2,1fr);} }
-    .gear li{ display:flex; gap:14px; align-items:baseline;}
-    .gear li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(-2px);}
 
     .faq{ display:grid; gap:0; border-top:1px solid var(--line); margin-top:60px;}
     .faq details{ border-bottom:1px solid var(--line); padding:22px 0;}
@@ -111,48 +118,50 @@ import Schema from '../components/Schema.astro'
     <div class="bg" style="background-image:url('/assets/opositors-hero.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Oposicions</span></div>
-      <div class="kicker"><span>Bombers</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
+      <div class="kicker"><span>Bombers · Convocatòria 81/26 oberta</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
       <h1>Preparació física<br>per a <em class="serif">oposicions</em><span class="dot">.</span></h1>
-      <p class="sub">Franja d'entrenament <strong>exclusiva per a opositors</strong> a Terrassa: material específic per preparar les proves físiques de Bombers i Mossos d'Esquadra, de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Quota mensual de 55€ o drop-in d'un dia per 15€.</p>
+      <p class="sub">Una franja <strong>per a opositors</strong> a Terrassa: sessions setmanals de circuit de la prova de Bombers 2026 i entrenament lliure la resta de dies, amb el mateix criteri que a tot el box. També per a Bombers de Barcelona i Mossos d'Esquadra. De dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Quota de 55€/mes o drop-in de 20€.</p>
+      <div class="hero-acts">
+        <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Escriu-nos per WhatsApp<span class="arr"></span></a>
+        <a class="btn-ghost" href="#opo-form">o deixa'ns les teves dades</a>
+      </div>
     </div>
   </section>
 
   <section class="sec ink">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 —</span><span>Per a qui</span></div>
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>Què treballem</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Cada convocatòria,<br>el seu entrenament<span class="dot">.</span></h2>
-        <p class="lead reveal">Les convocatòries canvien i les proves evolucionen — consulta sempre les bases oficials de la teva convocatòria. El que no canvia és la base física que exigeixen: força, càrrega, tracció, agilitat i capacitat aeròbica. Aquí tens l'espai i el material per treballar-la cada dia.</p>
+        <h2 class="h-xl reveal">Circuit setmanal<br>i entrenament lliure<span class="dot">.</span></h2>
+        <p class="lead reveal">La prova física de Bombers de la Generalitat 2026 (convocatòria 81/26) té tres simulacions d'intervenció cronometrades. Les dues d'incendi es preparen al box. La tercera, el rescat aquàtic, és en piscina.</p>
       </div>
 
       <div class="cossos reveal-stagger">
         <div class="cos" style="--i:0">
-          <span class="tag">01 · Generalitat</span>
-          <h3>Bombers de la <em>Generalitat</em></h3>
-          <p>L'INEFC ha proposat per al cos (informe 2025-2) simulacions d'intervenció: transport de discos de 10 kg i kettlebells de 12 kg amb escales, trineu amb corda, arrossegament de maniquí de 60 kg i rectes de 20 m amb slam balls. Patrons que aquí s'entrenen cada dia.</p>
+          <span class="tag">01 · Circuit</span>
+          <h3>Sessions <em>setmanals</em></h3>
+          <p>Cada setmana muntem el circuit de les simulacions d'incendi dins la franja. S'entrena tal com es farà el dia de la prova: encadenat i amb cronòmetre.</p>
         </div>
         <div class="cos" style="--i:1">
-          <span class="tag">02 · Barcelona</span>
-          <h3>Bombers de <em>Barcelona</em></h3>
-          <p>Construeix la base física que demana l'accés al cos de Bombers de l'Ajuntament de Barcelona (SPEIS): força, potència i resistència amb barres olímpiques, sled push i zones de càrrega. Consulta les bases de la convocatòria vigent.</p>
+          <span class="tag">02 · Franja</span>
+          <h3>Entrenament <em>lliure</em></h3>
+          <p>La resta de dies, entrenament lliure dins la franja amb tot el material del box. Els coaches són a la sala: si vols que et revisin l'execució o et cronometrin un intent, demana-ho.</p>
         </div>
         <div class="cos" style="--i:2">
-          <span class="tag">03 · Mossos</span>
-          <h3>Mossos <em>d'Esquadra</em></h3>
-          <p>Treballa la condició física general que exigeix l'accés: força, agilitat i capacitat aeròbica, combinant treball de càrrega amb 12 estacions de cardio i zona exterior. Consulta les bases de la convocatòria vigent.</p>
+          <span class="tag">03 · Mode oposició</span>
+          <h3>Un intent, <em>a la primera</em></h3>
+          <p>A la prova només hi ha un intent i no es permeten guants, magnèsia, calleres, genolleres, canelleres, faixes ni cinturons. Entrena-ho igual.</p>
         </div>
       </div>
 
-      <ul class="gear reveal">
-        <li>9 cordes de pujada i rig de 15 places</li>
-        <li>+30 barres olímpiques i bancs de força</li>
-        <li>4 zones de sled push i càrrega</li>
-        <li>12 estacions de cardio Concept2 i Rogue</li>
-        <li>Kettlebells, discos i slam balls per a les simulacions</li>
-        <li>Zona exterior per a treball aeròbic</li>
-        <li>517m² amb material exclusiu dins la franja</li>
-      </ul>
+      <p class="font reveal">Font: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolució ISP/3218/2026 (DOGC núm. 9751, 15.9.2026)</a>. Inscripcions a tràmits.gencat.cat durant 10 dies hàbils a partir del 16 de setembre. Les dates de la prova física encara no s'han publicat. Les bases oficials són la referència.</p>
+
+      <div class="regla reveal">
+        <span class="tag">Bombers de Barcelona · Mossos d'Esquadra · altres cossos</span>
+        <p>La franja també és per a qui prepara Bombers de l'Ajuntament de Barcelona (SPEIS), Mossos d'Esquadra o qualsevol altra convocatòria amb proves físiques. El material i la base de força i capacitat aeròbica són els mateixos. Consulta les bases de la teva convocatòria i, si tens dubtes sobre què treballar, pregunta'ns.</p>
+      </div>
+
     </div>
   </section>
 
@@ -164,10 +173,12 @@ import Schema from '../components/Schema.astro'
 
       <div class="conds reveal">
         <div><span class="label">01 · Quota</span><div><h4>55€/mes · IVA inclòs</h4><p>Ús il·limitat de les instal·lacions i el material dins la franja d'opositors.</p></div><span class="p">55€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/mes</span></span></div>
-        <div><span class="label">02 · Franja</span><div><h4>Dilluns a divendres · 11:30–15:30</h4><p>Quatre hores diàries entre setmana amb material disponible en exclusiva per a l'entrenament d'oposicions. I també els <strong>diumenges de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">dies/setm.</span></span></div>
-        <div><span class="label">03 · Acreditació</span><div><h4>Justificant d'inscripció</h4><p>Per accedir a aquesta tarifa cal acreditar la inscripció a la convocatòria d'oposicions (justificant o resguard d'inscripció).</p></div></div>
-        <div><span class="label">04 · Drop-in</span><div><h4>Un dia · 15€</h4><p>Vine un dia a posar-te a prova amb el material d'opositors dins la franja, sense quota mensual.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/dia</span></span></div>
-        <div><span class="label">05 · Sauna</span><div><h4>Recuperació · +10€</h4><p>Afegeix una sessió de sauna al drop-in i fes un dia complet d'entrenament i recuperació: 25€ en total.</p></div><span class="p">+10€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/sessió</span></span></div>
+        <div><span class="label">02 · Franja</span><div><h4>Dilluns a divendres · 11:30–15:30</h4><p>Quatre hores diàries entre setmana amb tot el material del box a disposició. I també els <strong>diumenges de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">dies/setm.</span></span></div>
+        <div><span class="label">03 · Circuit</span><div><h4>Sessions setmanals</h4><p>Cada setmana muntem el circuit de les simulacions d'incendi dins la franja. La resta de dies, entrenament lliure.</p></div></div>
+        <div><span class="label">04 · Programació</span><div><h4>Personalitzada · consulta'ns</h4><p>Si vols una programació adaptada a la teva convocatòria i al teu punt de partida, consulta'ns.</p></div></div>
+        <div><span class="label">05 · Acreditació</span><div><h4>Justificant d'inscripció</h4><p>Per accedir a aquesta tarifa cal acreditar la inscripció a la convocatòria d'oposicions (justificant o resguard d'inscripció).</p></div></div>
+        <div><span class="label">06 · Drop-in</span><div><h4>Un dia · 20€</h4><p>Vine el dia del circuit i posa't a prova, sense quota mensual.</p></div><span class="p">20€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/dia</span></span></div>
+        <div><span class="label">07 · Sauna</span><div><h4>Recuperació · +10€</h4><p>Afegeix una sessió de sauna al drop-in i fes un dia complet d'entrenament i recuperació: 30€ en total.</p></div><span class="p">+10€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/sessió</span></span></div>
       </div>
     </div>
   </section>
@@ -179,13 +190,14 @@ import Schema from '../components/Schema.astro'
       <h2 class="h-xl reveal" style="color:var(--bone)">Dubtes<br>habituals<span class="dot">.</span></h2>
 
       <div class="faq reveal" style="margin-top:52px;">
-        <details><summary>Qui pot accedir a la quota d'opositors?</summary><p>Qualsevol persona inscrita a una convocatòria amb proves físiques: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong> o <strong>Mossos d'Esquadra</strong>. Cal acreditar la inscripció per donar-se d'alta.</p></details>
+        <details><summary>Què es pot preparar al box de la prova de Bombers 2026?</summary><p>La convocatòria 81/26 té <strong>tres simulacions cronometrades</strong>. Les dues <strong>simulacions d'incendi</strong> (vegetació i estructural) es preparen al box: muntem el circuit en sessions setmanals dins la franja. El <strong>rescat aquàtic</strong> es fa en piscina i no es pot preparar aquí: des del box només hi aportem base aeròbica, tracció i core.</p></details>
+        <details><summary>Hi ha entrenament dirigit o programació?</summary><p>L'entrenament dins la franja és <strong>lliure</strong>, amb <strong>sessions setmanals de circuit</strong>. Els coaches són a la sala i, si un dia vols que et cronometrin o et revisin l'execució, demana-ho. Si vols una <strong>programació personalitzada</strong> per a la teva convocatòria, consulta'ns.</p></details>
+        <details><summary>Quan són les proves físiques?</summary><p>Les dates <strong>encara no s'han publicat</strong>. La física va després del test de coneixements. Les inscripcions a la convocatòria 81/26 són a tràmits.gencat.cat durant 10 dies hàbils a partir del 16 de setembre. Consulta sempre les bases oficials.</p></details>
+        <details><summary>Qui pot accedir a la quota d'opositors?</summary><p>Qualsevol persona inscrita a una convocatòria amb proves físiques: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong>, <strong>Mossos d'Esquadra</strong> o altres cossos. Cal acreditar la inscripció per donar-se d'alta.</p></details>
         <details><summary>Puc venir cada dia?</summary><p>Sí. L'ús dins la franja és <strong>il·limitat</strong>: de dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30.</p></details>
-        <details><summary>Com són les noves proves de Bombers?</summary><p>Les proves les fixen les <strong>bases oficials de cada convocatòria</strong> i poden canviar — consulta sempre la convocatòria vigent. Com a referència, l'INEFC ha proposat (informe 2025-2) <strong>simulacions d'intervenció</strong>: transport de discos de 10 kg i kettlebells de 12 kg amb escales, trineu amb corda, quadrupèdia, arrossegament de maniquí de 60 kg i rectes de 20 m amb slam balls. Exactament els patrons funcionals que treballem al box.</p></details>
         <details><summary>Vull preparar les oposicions i també fer classes al box. Quina quota necessito?</summary><p>La quota d'opositors (55€/mes) cobreix només la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la <strong>quota Il·limitada</strong>, que inclou també l'espai i el material d'opositors.</p></details>
         <details><summary>Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?</summary><p>Sí. Amb la <strong>quota Il·limitada</strong> pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement.</p></details>
-        <details><summary>Puc venir només un dia a posar-me a prova?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>15€</strong> i inclou un dia d'accés a la franja i al material. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar <strong>10€ més</strong> i fer un dia complet d'entrenament i recuperació: 25€ en total.</p></details>
-        <details><summary>Hi ha entrenament dirigit?</summary><p>La franja és d'entrenament lliure amb material exclusiu. Els coaches del box són a la sala i et poden orientar; si busques una programació específica per a la teva convocatòria, pregunta'ns.</p></details>
+        <details><summary>Puc venir només un dia a posar-me a prova?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>20€</strong> i inclou un dia d'accés a la franja i al material. Vine el dia del circuit i posa't a prova. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar <strong>10€ més</strong> i fer un dia complet d'entrenament i recuperació: 30€ en total.</p></details>
       </div>
     </div>
   </section>
@@ -195,7 +207,7 @@ import Schema from '../components/Schema.astro'
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Comencem</span></div>
       <h2 class="h-hero reveal">La plaça es<br>prepara <em class="serif">avui</em><span class="dot">.</span></h2>
-      <p class="reveal">Deixa'ns les teves dades i et contactem amb tota la informació. O vine directament a veure el box amb el justificant d'inscripció.</p>
+      <p class="reveal">Ens dius quina convocatòria prepares i et contactem amb tota la informació. O vine a veure el box amb el justificant d'inscripció.</p>
       <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
         <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
         <div class="form-row two">
@@ -204,13 +216,13 @@ import Schema from '../components/Schema.astro'
         </div>
         <div class="field"><label for="o-prep">Quina oposició prepares?</label>
           <select id="o-prep" name="prep">
-            <option>Bombers de la Generalitat</option><option>Bombers de Barcelona (SPEIS)</option><option>Mossos d'Esquadra</option><option>Una altra convocatòria</option>
+            <option>Bombers de la Generalitat (conv. 81/26)</option><option>Bombers de Barcelona (SPEIS)</option><option>Mossos d'Esquadra</option><option>Una altra convocatòria</option>
           </select>
         </div>
         <div class="field"><label for="o-note">Algun comentari? (opcional)</label><input id="o-note" type="text" name="note" placeholder="Convocatòria, dates de les proves, dubtes..."></div>
         <div class="actions" style="margin-top:0;">
           <button type="submit" class="form-submit" id="opo-submit">Vull informació<span style="display:inline-block; width:20px; height:1px; background:currentColor;"></span></button>
-          <a class="btn-ghost" href="https://wa.me/34699196531" target="_blank" rel="noopener">o per WhatsApp</a>
+          <a class="btn-ghost" href={WA} target="_blank" rel="noopener" data-wa="form">o per WhatsApp</a>
         </div>
         <div id="opo-msg" style="display:none; padding:20px; border-radius:8px; font-family:var(--f-display);"></div>
       </form>
@@ -230,6 +242,14 @@ import Schema from '../components/Schema.astro'
     if (from) return from;
     return 'web';
   }
+
+  document.querySelectorAll('[data-wa]').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', { event_category: 'contact', event_label: 'Opositors · ' + a.dataset.wa });
+      }
+    });
+  });
 
   document.getElementById('opo-form').addEventListener('submit', async (e) => {
     e.preventDefault();
