@@ -91,6 +91,14 @@ const WA = 'https://wa.me/34699196531?text=%C2%A1Hola!%20Preparo%20las%20oposici
     .regla{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:10px; }
     .regla .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
     .regla p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0; max-width:75ch;}
+    .mat{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:20px; }
+    .mat .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .mat-cols{ display:grid; gap:22px 40px; grid-template-columns:1fr; }
+    @media(min-width:760px){ .mat-cols{ grid-template-columns:1fr 1fr;} }
+    .mat h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(18px,1.8vw,22px); letter-spacing:-0.02em; line-height:1.1; margin:0 0 12px; color:var(--bone);}
+    .mat ul{ margin:0; padding-left:18px; font-family:var(--f-serif); font-size:16px; line-height:1.6; color:var(--bone-2);}
+    .mat li + li{ margin-top:4px;}
+    .mat p{ font-family:var(--f-serif); font-size:15px; line-height:1.55; color:var(--bone-3); margin:0; max-width:75ch;}
     .font{ margin-top:22px; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; line-height:1.7; color:var(--bone-3);}
     .font a{ color:var(--bone-3); border-bottom:1px solid var(--line-strong);}
     .font a:hover{ color:var(--accent-hi); border-color:var(--accent-hi);}
@@ -156,6 +164,30 @@ const WA = 'https://wa.me/34699196531?text=%C2%A1Hola!%20Preparo%20las%20oposici
         </div>
       </div>
 
+
+      <div class="mat reveal">
+        <span class="tag">Material del circuito disponible en el box</span>
+        <div class="mat-cols">
+          <div>
+            <h4>Ejercicio 1 · Incendio de vegetación</h4>
+            <ul>
+              <li>Slam ball de 6 kg (pelota medicinal que no rebota)</li>
+              <li>Cono alto para el giro de 180° al final de la recta de 20 m</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Ejercicio 2 · Incendio estructural</h4>
+            <ul>
+              <li>Barra de equilibrio de 3 m (21,5 cm de altura y 10 cm de ancho)</li>
+              <li>Kettlebells de 12 kg y discos bumper de 10 kg</li>
+              <li>Cajón para los 10 step-ups</li>
+              <li>Worm de 75 kg con asas, para el arrastre del maniquí</li>
+              <li>Trineo de 95 kg: pull con cuerda y push, 10 m cada tramo</li>
+            </ul>
+          </div>
+        </div>
+        <p>Pesos y medidas según las bases de la convocatoria 81/26. Dos diferencias respecto a la prueba: el maniquí oficial pesa unos 50 kg (el worm de 75 kg es más exigente) y el trineo oficial lleva freno magnético, que no se puede replicar. Lo trabajamos por tiempo de tramo.</p>
+      </div>
       <p class="font reveal">Fuente: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolución ISP/3218/2026 (DOGC núm. 9751, 15.9.2026)</a>. Inscripciones en tràmits.gencat.cat durante 10 días hábiles a partir del 16 de septiembre. Las fechas de la prueba física aún no se han publicado. Las bases oficiales son la referencia.</p>
 
       <div class="regla reveal">
