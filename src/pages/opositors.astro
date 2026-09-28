@@ -10,7 +10,7 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
 
 <Layout
   title="Preparació física per a oposicions a Terrassa · Bombers 2026 i Mossos · CrossFit La Mola"
-  description="Preparació física per a oposicions a Terrassa: sessions setmanals de circuit de la prova de Bombers de la Generalitat 2026 (convocatòria 81/26) i entrenament lliure. També Bombers de Barcelona i Mossos d'Esquadra. Franja dl–dv 11:30–15:30 i diumenges. Quota 55€/mes, drop-in 15€."
+  description="Preparació física per a oposicions a Terrassa: classe dirigida setmanal amb els elements de la prova de Bombers de la Generalitat 2026 (convocatòria 81/26) i una hora d'entrenament lliure al dia. També Bombers de Barcelona i Mossos d'Esquadra. Franja dl–dv 11:30–15:30 i diumenges. Quota 65€/mes, primera classe gratuïta."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -26,14 +26,23 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
       "areaServed": {"@type": "City", "name": "Terrassa"},
       "audience": {"@type": "Audience", "audienceType": "Opositors a Bombers de la Generalitat de Catalunya (convocatòria 81/26), Bombers de l'Ajuntament de Barcelona i Mossos d'Esquadra"},
-      "description": "Franja d'entrenament per a opositors de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Sessions setmanals de circuit de les dues simulacions d'incendi de la prova física de Bombers de la Generalitat 2026 (Resolució ISP/3218/2026) i entrenament lliure la resta de dies, amb coaches a la sala. Programació personalitzada a consultar. El rescat aquàtic es prepara en piscina.",
+      "description": "Franja d'entrenament per a opositors de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Classe dirigida específica per a opositors cada dijous de 14:30 a 15:30, amb els elements de la prova física de Bombers de la Generalitat 2026 (Resolució ISP/3218/2026), i una hora d'entrenament lliure al dia amb coaches a la sala. Programació personalitzada a consultar. El rescat aquàtic es prepara en piscina.",
       "offers": [
         {
           "@type": "Offer",
           "name": "Quota opositors",
-          "description": "Ús il·limitat de les instal·lacions dins la franja: de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Cal acreditar la inscripció a la convocatòria.",
+          "description": "Classe dirigida setmanal (dijous 14:30–15:30) i una hora d'entrenament lliure al dia dins la franja: de dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Cal acreditar la inscripció a la convocatòria.",
           "priceCurrency": "EUR",
-          "price": "55.00",
+          "price": "65.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "Primera classe dirigida d'opositors · gratuïta",
+          "description": "La primera classe dirigida d'opositors (dijous 14:30–15:30) és gratuïta per conèixer el box i provar el material.",
+          "priceCurrency": "EUR",
+          "price": "0.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/opositors"
         },
@@ -63,13 +72,14 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Què es pot preparar al box de la prova física de Bombers de la Generalitat 2026?", "acceptedAnswer": {"@type": "Answer", "text": "La convocatòria 81/26 (Resolució ISP/3218/2026) té tres simulacions d'intervenció cronometrades. Les dues simulacions d'incendi (vegetació i estructural) es preparen al box: es munta el circuit en sessions setmanals dins la franja. La tercera, el rescat aquàtic, es fa en piscina i no es pot preparar al box; des d'aquí només s'hi treballa la base aeròbica, la tracció i el core."}},
-        {"@type": "Question", "name": "Hi ha entrenament dirigit o programació?", "acceptedAnswer": {"@type": "Answer", "text": "L'entrenament dins la franja és lliure, amb sessions setmanals de circuit. Els coaches són a la sala i, si un dia vols que et cronometrin o et revisin l'execució, demana-ho. Si vols una programació personalitzada per a la teva convocatòria, consulta'ns."}},
+        {"@type": "Question", "name": "Què es pot preparar al box de la prova física de Bombers de la Generalitat 2026?", "acceptedAnswer": {"@type": "Answer", "text": "La convocatòria 81/26 (Resolució ISP/3218/2026) té tres simulacions d'intervenció cronometrades. Les dues simulacions d'incendi (vegetació i estructural) es preparen al box: el material és a la sala i el treballem a la classe dirigida i a les hores lliures, amb simulacres cronometrats de tant en tant. La tercera, el rescat aquàtic, es fa en piscina i no es pot preparar al box; des d'aquí només s'hi treballa la base aeròbica, la tracció i el core."}},
+        {"@type": "Question", "name": "Hi ha entrenament dirigit o programació?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Cada dijous de 14:30 a 15:30 hi ha una classe dirigida específica per a opositors: entrenament d'alta intensitat amb els elements de la prova i treball de força. La resta de la franja, una hora al dia d'entrenament lliure amb coaches a la sala. Si vols una programació personalitzada per a la teva convocatòria, consulta'ns."}},
         {"@type": "Question", "name": "Quan són les proves físiques de Bombers 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Les dates encara no s'han publicat. La prova física va després del test de coneixements. Les inscripcions a la convocatòria 81/26 són telemàtiques a tràmits.gencat.cat, durant 10 dies hàbils a partir del 16 de setembre de 2026. Consulta sempre les bases oficials."}},
         {"@type": "Question", "name": "Qui pot accedir a la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Qualsevol persona inscrita a una convocatòria d'oposicions amb proves físiques: Bombers de la Generalitat de Catalunya, Bombers de l'Ajuntament de Barcelona (SPEIS), Mossos d'Esquadra o altres cossos. Cal acreditar la inscripció a la convocatòria per donar-se d'alta."}},
-        {"@type": "Question", "name": "Quin horari té la franja d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "De dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30. Dins d'aquesta franja l'ús de les instal·lacions i el material és il·limitat."}},
-        {"@type": "Question", "name": "Quant costa la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "55€ al mes, IVA inclòs, amb ús il·limitat dins la franja. També hi ha un drop-in d'un dia per 15€, i per 10€ més s'hi pot afegir una sessió de sauna (25€ en total)."}},
-        {"@type": "Question", "name": "Vull preparar les oposicions i també fer classes al box. Quina quota necessito?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors (55€/mes) dona accés només a la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la quota Il·limitada, que inclou també l'espai i el material d'opositors."}},
+        {"@type": "Question", "name": "Quin horari té la franja d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "De dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30. Cada dia de la franja tens una hora d'entrenament lliure, a l'hora que triïs. El dijous, la classe dirigida de 14:30 a 15:30 ocupa aquesta hora."}},
+        {"@type": "Question", "name": "Quant costa la quota d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "65€ al mes, IVA inclòs: classe dirigida setmanal i una hora d'entrenament lliure al dia dins la franja. La primera classe dirigida és gratuïta. També hi ha un drop-in d'un dia per 15€, i per 10€ més s'hi pot afegir una sessió de sauna (25€ en total)."}},
+        {"@type": "Question", "name": "Puc provar-ho abans d'apuntar-me?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La primera classe dirigida d'opositors és gratuïta: vine un dijous a les 14:30, coneix el box i prova el material amb què treballem. Per a qualsevol altre dia hi ha el drop-in de 15€."}},
+        {"@type": "Question", "name": "Vull preparar les oposicions i també fer classes al box. Quina quota necessito?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors (65€/mes) dona accés a la classe dirigida del dijous i a una hora al dia dins la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la quota Il·limitada, que inclou també l'espai i el material d'opositors."}},
         {"@type": "Question", "name": "Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Amb la quota Il·limitada pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement."}}
       ]
     }
@@ -128,7 +138,7 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Oposicions</span></div>
       <div class="kicker"><span>Bombers · Convocatòria 81/26 oberta</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
       <h1>Preparació física<br>per a <em class="serif">oposicions</em><span class="dot">.</span></h1>
-      <p class="sub">Una franja <strong>per a opositors</strong> a Terrassa: sessions setmanals de circuit de la prova de Bombers 2026 i entrenament lliure la resta de dies, amb el mateix criteri que a tot el box. També per a Bombers de Barcelona i Mossos d'Esquadra. De dilluns a divendres d'11:30 a 15:30 i diumenges de 9:30 a 11:30. Quota de 55€/mes o drop-in de 15€.</p>
+      <p class="sub">Una franja <strong>per a opositors</strong> a Terrassa: una classe dirigida setmanal amb els elements de la prova de Bombers 2026 i una hora d'entrenament lliure al dia, amb coaches a la sala. També per a Bombers de Barcelona i Mossos d'Esquadra. De dilluns a divendres entre les 11:30 i les 15:30, i diumenges entre les 9:30 i les 11:30. Quota de 65€/mes. Primera classe gratuïta. <strong>Portes obertes gratuïtes: diumenge 11 d'octubre, de 9:30 a 11:30. Places limitades.</strong></p>
       <div class="hero-acts">
         <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Escriu-nos per WhatsApp<span class="arr"></span></a>
         <a class="btn-ghost" href="#opo-form">o deixa'ns les teves dades</a>
@@ -141,25 +151,25 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       <div class="eyebrow reveal"><span class="num">01 —</span><span>Què treballem</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Circuit setmanal<br>i entrenament lliure<span class="dot">.</span></h2>
+        <h2 class="h-xl reveal">Classe dirigida<br>i entrenament lliure<span class="dot">.</span></h2>
         <p class="lead reveal">La prova física de Bombers de la Generalitat 2026 (convocatòria 81/26) té tres simulacions d'intervenció cronometrades. Les dues d'incendi es preparen al box. La tercera, el rescat aquàtic, és en piscina.</p>
       </div>
 
       <div class="cossos reveal-stagger">
         <div class="cos" style="--i:0">
-          <span class="tag">01 · Circuit</span>
-          <h3>Sessions <em>setmanals</em></h3>
-          <p>Cada setmana muntem el circuit de les simulacions d'incendi dins la franja. S'entrena tal com es farà el dia de la prova: encadenat i amb cronòmetre.</p>
+          <span class="tag">01 · Dirigida</span>
+          <h3>Dijous, <em>14:30</em></h3>
+          <p>Una classe setmanal específica per a opositors: entrenament d'alta intensitat amb els elements de la prova i treball específic de força. Guanyar força i resistència, i dominar-los sota fatiga.</p>
         </div>
         <div class="cos" style="--i:1">
           <span class="tag">02 · Franja</span>
-          <h3>Entrenament <em>lliure</em></h3>
-          <p>La resta de dies, entrenament lliure dins la franja amb tot el material del box. Els coaches són a la sala: si vols que et revisin l'execució o et cronometrin un intent, demana-ho.</p>
+          <h3>Una hora <em>al dia</em></h3>
+          <p>Cada dia de la franja tens una hora d'entrenament lliure amb tot el material del box. Sempre hi ha un coach a la sala: si tens dubtes durant l'entrenament, t'orientem.</p>
         </div>
         <div class="cos" style="--i:2">
-          <span class="tag">03 · Mode oposició</span>
-          <h3>Un intent, <em>a la primera</em></h3>
-          <p>A la prova només hi ha un intent i no es permeten guants, magnèsia, calleres, genolleres, canelleres, faixes ni cinturons. Entrena-ho igual.</p>
+          <span class="tag">03 · Circuit</span>
+          <h3>I <em>simulacres</em></h3>
+          <p>El material del circuit és al box. El treballem a la classe dirigida i a les hores lliures, i de tant en tant fem simulacres cronometrats com el dia de la prova: encadenat i sense guants, magnesi ni cinturó.</p>
         </div>
       </div>
 
@@ -168,20 +178,17 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
         <span class="tag">Material del circuit disponible al box</span>
         <div class="mat-cols">
           <div>
-            <h4>Exercici 1 · Incendi de vegetació</h4>
             <ul>
-              <li>Slam ball de 6 kg (pilota medicinal que no rebota)</li>
-              <li>Con alt per al gir de 180° al final de la recta de 20 m</li>
+              <li>Trineu i zona per arrossegar-lo</li>
+              <li>Wall balls</li>
+              <li>Calaixos</li>
             </ul>
           </div>
           <div>
-            <h4>Exercici 2 · Incendi estructural</h4>
             <ul>
-              <li>Barra d'equilibri de 3 m (21,5 cm d'alçada i 10 cm d'ample)</li>
-              <li>Kettlebells de 12 kg i discos bumper de 10 kg</li>
-              <li>Calaix per als 10 step-ups</li>
-              <li>Arrossegament del maniquí amb sac de 50 kg</li>
-              <li>Trineu de 95 kg: pull amb corda i push, 10 m cada tram</li>
+              <li>Arrossegament de maniquí (worm de 70 kg)</li>
+              <li>Barra d'equilibri</li>
+              <li>Espai suficient per treballar la part de carrera</li>
             </ul>
           </div>
         </div>
@@ -203,13 +210,14 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       <h2 class="h-xl reveal">Quota mensual<br>o drop-in d'un dia<span class="dot">.</span></h2>
 
       <div class="conds reveal">
-        <div><span class="label">01 · Quota</span><div><h4>55€/mes · IVA inclòs</h4><p>Ús il·limitat de les instal·lacions i el material dins la franja d'opositors.</p></div><span class="p">55€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/mes</span></span></div>
-        <div><span class="label">02 · Franja</span><div><h4>Dilluns a divendres · 11:30–15:30</h4><p>Quatre hores diàries entre setmana amb tot el material del box a disposició. I també els <strong>diumenges de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">dies/setm.</span></span></div>
-        <div><span class="label">03 · Circuit</span><div><h4>Sessions setmanals</h4><p>Cada setmana muntem el circuit de les simulacions d'incendi dins la franja. La resta de dies, entrenament lliure.</p></div></div>
+        <div><span class="label">01 · Quota</span><div><h4>65€/mes · IVA inclòs</h4><p>Classe dirigida setmanal i una hora d'entrenament lliure al dia dins la franja d'opositors.</p></div><span class="p">65€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/mes</span></span></div>
+        <div><span class="label">02 · Franja</span><div><h4>Dilluns a divendres · 11:30–15:30</h4><p>Una hora al dia, a l'hora que triïs, amb tot el material del box a disposició. I també els <strong>diumenges de 9:30 a 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">dies/setm.</span></span></div>
+        <div><span class="label">03 · Dirigida</span><div><h4>Dijous · 14:30–15:30</h4><p>Classe específica per a opositors amb els elements de la prova. El dijous, la classe és la teva hora del dia.</p></div><span class="p">1<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">classe/setm.</span></span></div>
         <div><span class="label">04 · Programació</span><div><h4>Personalitzada · consulta'ns</h4><p>Si vols una programació adaptada a la teva convocatòria i al teu punt de partida, consulta'ns.</p></div></div>
         <div><span class="label">05 · Acreditació</span><div><h4>Justificant d'inscripció</h4><p>Per accedir a aquesta tarifa cal acreditar la inscripció a la convocatòria d'oposicions (justificant o resguard d'inscripció).</p></div></div>
-        <div><span class="label">06 · Drop-in</span><div><h4>Un dia · 15€</h4><p>Vine el dia del circuit i posa't a prova, sense quota mensual.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/dia</span></span></div>
-        <div><span class="label">07 · Sauna</span><div><h4>Recuperació · +10€</h4><p>Afegeix una sessió de sauna al drop-in i fes un dia complet d'entrenament i recuperació: 25€ en total.</p></div><span class="p">+10€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/sessió</span></span></div>
+        <div><span class="label">06 · Primera classe</span><div><h4>Dirigida · gratuïta</h4><p>Vine un dijous a les 14:30, coneix el box i prova el material amb què treballem.</p></div><span class="p">0€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">1a classe</span></span></div>
+        <div><span class="label">07 · Drop-in</span><div><h4>Un dia · 15€</h4><p>Un dia d'accés a la franja i al material, sense quota mensual.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/dia</span></span></div>
+        <div><span class="label">08 · Sauna</span><div><h4>Recuperació · +10€</h4><p>Afegeix una sessió de sauna al drop-in i fes un dia complet d'entrenament i recuperació: 25€ en total.</p></div><span class="p">+10€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/sessió</span></span></div>
       </div>
     </div>
   </section>
@@ -221,14 +229,15 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
       <h2 class="h-xl reveal" style="color:var(--bone)">Dubtes<br>habituals<span class="dot">.</span></h2>
 
       <div class="faq reveal" style="margin-top:52px;">
-        <details><summary>Què es pot preparar al box de la prova de Bombers 2026?</summary><p>La convocatòria 81/26 té <strong>tres simulacions cronometrades</strong>. Les dues <strong>simulacions d'incendi</strong> (vegetació i estructural) es preparen al box: muntem el circuit en sessions setmanals dins la franja. El <strong>rescat aquàtic</strong> es fa en piscina i no es pot preparar aquí: des del box només hi aportem base aeròbica, tracció i core.</p></details>
-        <details><summary>Hi ha entrenament dirigit o programació?</summary><p>L'entrenament dins la franja és <strong>lliure</strong>, amb <strong>sessions setmanals de circuit</strong>. Els coaches són a la sala i, si un dia vols que et cronometrin o et revisin l'execució, demana-ho. Si vols una <strong>programació personalitzada</strong> per a la teva convocatòria, consulta'ns.</p></details>
+        <details><summary>Què es pot preparar al box de la prova de Bombers 2026?</summary><p>La convocatòria 81/26 té <strong>tres simulacions cronometrades</strong>. Les dues <strong>simulacions d'incendi</strong> (vegetació i estructural) es preparen al box: el material és a la sala i el treballem a la classe dirigida i a les hores lliures, amb simulacres cronometrats de tant en tant. El <strong>rescat aquàtic</strong> es fa en piscina i no es pot preparar aquí: des del box només hi aportem base aeròbica, tracció i core.</p></details>
+        <details><summary>Hi ha entrenament dirigit o programació?</summary><p>Sí. Cada <strong>dijous de 14:30 a 15:30</strong> hi ha una classe dirigida específica per a opositors: entrenament d'alta intensitat amb els elements de la prova i treball de força. La resta de la franja, <strong>una hora al dia</strong> d'entrenament lliure amb coaches a la sala. Si vols una <strong>programació personalitzada</strong> per a la teva convocatòria, consulta'ns.</p></details>
         <details><summary>Quan són les proves físiques?</summary><p>Les dates <strong>encara no s'han publicat</strong>. La física va després del test de coneixements. Les inscripcions a la convocatòria 81/26 són a tràmits.gencat.cat durant 10 dies hàbils a partir del 16 de setembre. Consulta sempre les bases oficials.</p></details>
         <details><summary>Qui pot accedir a la quota d'opositors?</summary><p>Qualsevol persona inscrita a una convocatòria amb proves físiques: <strong>Bombers de la Generalitat</strong>, <strong>Bombers de Barcelona (SPEIS)</strong>, <strong>Mossos d'Esquadra</strong> o altres cossos. Cal acreditar la inscripció per donar-se d'alta.</p></details>
-        <details><summary>Puc venir cada dia?</summary><p>Sí. L'ús dins la franja és <strong>il·limitat</strong>: de dilluns a divendres d'11:30 a 15:30, i diumenges de 9:30 a 11:30.</p></details>
-        <details><summary>Vull preparar les oposicions i també fer classes al box. Quina quota necessito?</summary><p>La quota d'opositors (55€/mes) cobreix només la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la <strong>quota Il·limitada</strong>, que inclou també l'espai i el material d'opositors.</p></details>
+        <details><summary>Puc venir cada dia?</summary><p>Sí. Cada dia de la franja tens <strong>una hora</strong> d'entrenament lliure, a l'hora que triïs: de dilluns a divendres entre les 11:30 i les 15:30, i diumenges entre les 9:30 i les 11:30. El dijous, la classe dirigida ocupa aquesta hora.</p></details>
+        <details><summary>Puc provar-ho abans d'apuntar-me?</summary><p>Sí. La <strong>primera classe dirigida</strong> d'opositors és gratuïta: vine un dijous a les 14:30, coneix el box i prova el material amb què treballem. Per a qualsevol altre dia hi ha el drop-in de 15€.</p></details>
+        <details><summary>Vull preparar les oposicions i també fer classes al box. Quina quota necessito?</summary><p>La quota d'opositors (65€/mes) dona accés a la classe dirigida del dijous i a una hora al dia dins la franja d'11:30 a 15:30 entre setmana i diumenges al matí. Si a més vols fer alguna de les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la <strong>quota Il·limitada</strong>, que inclou també l'espai i el material d'opositors.</p></details>
         <details><summary>Ja soc soci de CrossFit La Mola. Puc utilitzar l'espai d'opositors?</summary><p>Sí. Amb la <strong>quota Il·limitada</strong> pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement.</p></details>
-        <details><summary>Puc venir només un dia a posar-me a prova?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>15€</strong> i inclou un dia d'accés a la franja i al material. Vine el dia del circuit i posa't a prova. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar <strong>10€ més</strong> i fer un dia complet d'entrenament i recuperació: 25€ en total.</p></details>
+        <details><summary>Puc venir només un dia a posar-me a prova?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>15€</strong> i inclou un dia d'accés a la franja i al material, sense quota mensual. Si a més vols recuperar bé i aprofitar els beneficis de la sauna, pots abonar <strong>10€ més</strong> i fer un dia complet d'entrenament i recuperació: 25€ en total.</p></details>
       </div>
     </div>
   </section>
@@ -238,7 +247,7 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Comencem</span></div>
       <h2 class="h-hero reveal">La plaça es<br>prepara <em class="serif">avui</em><span class="dot">.</span></h2>
-      <p class="reveal">Ens dius quina convocatòria prepares i et contactem amb tota la informació. O vine a veure el box amb el justificant d'inscripció.</p>
+      <p class="reveal">Ens dius quina convocatòria prepares i et contactem amb tota la informació. O vine un dijous a la classe gratuïta amb el justificant d'inscripció.</p>
       <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
         <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
         <div class="form-row two">
