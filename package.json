@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:faq": "node scripts/faq-sync.mjs",
+    "check:faq:dist": "node scripts/faq-sync.mjs --dist"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.7",
