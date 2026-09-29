@@ -10,7 +10,7 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
 
 <Layout
   title="Physical Exam Prep in Terrassa · Firefighters 2026 & Mossos · CrossFit La Mola"
-  description="Physical preparation for Catalonia's civil service exams in Terrassa: weekly circuit sessions for the 2026 Bombers de la Generalitat test (call 81/26) and open training. Also for Barcelona firefighters and Mossos d'Esquadra. Weekday slot 11:30–15:30 plus Sunday mornings. €55/month, €15 day pass."
+  description="Physical preparation for Catalonia's civil service exams in Terrassa: a weekly coached class with the elements of the 2026 Bombers de la Generalitat test (call 81/26) and one hour of open training a day. Also for Barcelona firefighters and Mossos d'Esquadra. Weekday slot 11:30–15:30 plus Sunday mornings. €65/month, first class free."
   ogImage="/assets/opositors-hero.webp"
 >
   <Schema type="base" slot="head" />
@@ -26,14 +26,23 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
       "areaServed": {"@type": "City", "name": "Terrassa"},
       "audience": {"@type": "Audience", "audienceType": "Candidates for Bombers de la Generalitat de Catalunya (call 81/26), Barcelona city firefighters (SPEIS) and Mossos d'Esquadra exams"},
-      "description": "Training slot for exam candidates, Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Weekly circuit sessions for the two fire simulations of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026) and open training on the other days, with coaches on the floor. Personalised programming on request. The water rescue simulation is prepared in a pool.",
+      "description": "Training slot for exam candidates, Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. A coached class for exam candidates every Thursday 14:30–15:30, with the elements of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026), and one hour of open training a day with coaches on the floor. Personalised programming on request. The water rescue simulation is prepared in a pool.",
       "offers": [
         {
           "@type": "Offer",
           "name": "Candidate membership",
-          "description": "Unlimited use of the facilities within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
+          "description": "Weekly coached class (Thursday 14:30–15:30) and one hour of open training a day within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
           "priceCurrency": "EUR",
-          "price": "55.00",
+          "price": "65.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://crossfitlamola.com/en/opositors"
+        },
+        {
+          "@type": "Offer",
+          "name": "First candidate coached class · free",
+          "description": "The first coached class for exam candidates (Thursday 14:30–15:30) is free, to get to know the box and try the equipment.",
+          "priceCurrency": "EUR",
+          "price": "0.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/en/opositors"
         },
@@ -63,13 +72,14 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Which parts of the 2026 Bombers de la Generalitat physical test can be prepared at the box?", "acceptedAnswer": {"@type": "Answer", "text": "Call 81/26 (Resolution ISP/3218/2026) has three timed intervention simulations. The two fire simulations (wildland and structural) are prepared at the box: the circuit is set up in weekly sessions within the slot. The third, the water rescue, takes place in a pool and cannot be prepared at the box; here we only build the aerobic base, pulling strength and core that support it."}},
-        {"@type": "Question", "name": "Is there coached training or programming?", "acceptedAnswer": {"@type": "Answer", "text": "Training within the slot is open, with weekly circuit sessions. Coaches are on the floor and, if one day you want to be timed or have your technique checked, just ask. If you want personalised programming for your exam, ask us."}},
+        {"@type": "Question", "name": "Which parts of the 2026 Bombers de la Generalitat physical test can be prepared at the box?", "acceptedAnswer": {"@type": "Answer", "text": "Call 81/26 (Resolution ISP/3218/2026) has three timed intervention simulations. The two fire simulations (wildland and structural) are prepared at the box: the equipment is on the floor and we work on it in the coached class and during open hours, with timed mock tests from time to time. The third, the water rescue, takes place in a pool and cannot be prepared at the box; here we only build the aerobic base, pulling strength and core that support it."}},
+        {"@type": "Question", "name": "Is there coached training or programming?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Thursday 14:30–15:30 there is a coached class for exam candidates: high-intensity training with the elements of the test plus strength work. The rest of the slot is one hour of open training a day with coaches on the floor. If you want personalised programming for your exam, ask us."}},
         {"@type": "Question", "name": "When are the 2026 firefighter physical tests?", "acceptedAnswer": {"@type": "Answer", "text": "Dates have not been published yet. The physical test comes after the knowledge test. Registration for call 81/26 is online at tràmits.gencat.cat for 10 working days from 16 September 2026. Always check the official announcement."}},
         {"@type": "Question", "name": "Who can join the candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone registered for an exam with physical tests: Bombers de la Generalitat de Catalunya, Barcelona city firefighters (SPEIS), Mossos d'Esquadra or other forces. Proof of registration is required to sign up."}},
-        {"@type": "Question", "name": "What are the candidate slot hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday to Friday 11:30–15:30, plus Sundays 9:30–11:30. Within the slot, use of the facilities and equipment is unlimited."}},
-        {"@type": "Question", "name": "How much is the candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "€55 per month, VAT included, with unlimited use within the slot. There is also a €15 day pass, and for €10 more you can add a sauna session (€25 in total)."}},
-        {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
+        {"@type": "Question", "name": "What are the candidate slot hours?", "acceptedAnswer": {"@type": "Answer", "text": "Monday to Friday 11:30–15:30, plus Sundays 9:30–11:30. Each day of the slot you get one hour of open training, at the time you choose. On Thursdays, the 14:30–15:30 coached class is that hour."}},
+        {"@type": "Question", "name": "How much is the candidate membership?", "acceptedAnswer": {"@type": "Answer", "text": "€65 per month, VAT included: a weekly coached class and one hour of open training a day within the slot. The first coached class is free. There is also a €15 day pass, and for €10 more you can add a sauna session (€25 in total)."}},
+        {"@type": "Question", "name": "Can I try it before signing up?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first coached class for exam candidates is free: come on a Thursday at 14:30, get to know the box and try the equipment we work with. For any other day there is the €15 day pass."}},
+        {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership (€65/month) gives access to the Thursday coached class and one hour a day within the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
         {"@type": "Question", "name": "I'm already a member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}}
       ]
     }
@@ -128,7 +138,7 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
       <div class="kicker"><span>Firefighters · Call 81/26 open</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
       <h1>Physical prep<br>for <em class="serif">civil service exams</em><span class="dot">.</span></h1>
-      <p class="sub">A slot <strong>for exam candidates</strong> in Terrassa: weekly circuit sessions for the 2026 firefighter test and open training on the other days, with the same standards as the rest of the box. Also for Barcelona firefighter and Mossos d'Esquadra candidates. Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. €55/month or a €15 day pass.</p>
+      <p class="sub">A slot <strong>for exam candidates</strong> in Terrassa: a weekly coached class with the elements of the 2026 firefighter test and one hour of open training a day, with coaches on the floor. Also for Barcelona firefighter and Mossos d'Esquadra candidates. Monday to Friday between 11:30 and 15:30, and Sundays between 9:30 and 11:30. €65/month. First class free. <strong>Free open day: Sunday 11 October, 9:30–11:30. Limited places.</strong></p>
       <div class="hero-acts">
         <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Message us on WhatsApp<span class="arr"></span></a>
         <a class="btn-ghost" href="#opo-form">or leave your details</a>
@@ -141,25 +151,25 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       <div class="eyebrow reveal"><span class="num">01 —</span><span>What we train</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Weekly circuit<br>and open training<span class="dot">.</span></h2>
+        <h2 class="h-xl reveal">Coached class<br>and open training<span class="dot">.</span></h2>
         <p class="lead reveal">The 2026 Bombers de la Generalitat physical test (call 81/26) has three timed intervention simulations. The two fire simulations are prepared at the box. The third, the water rescue, is in a pool.</p>
       </div>
 
       <div class="cossos reveal-stagger">
         <div class="cos" style="--i:0">
-          <span class="tag">01 · Circuit</span>
-          <h3>Weekly <em>sessions</em></h3>
-          <p>Every week we set up the fire simulation circuit within the slot. It is trained the way it will be done on test day: chained together, against the clock.</p>
+          <span class="tag">01 · Coached</span>
+          <h3>Thursdays, <em>14:30</em></h3>
+          <p>One weekly class for exam candidates: high-intensity training with the elements of the test plus specific strength work. Build strength and endurance, and master the elements under fatigue.</p>
         </div>
         <div class="cos" style="--i:1">
           <span class="tag">02 · Slot</span>
-          <h3>Open <em>training</em></h3>
-          <p>On the other days, open training within the slot with all the box equipment. Coaches are on the floor: if you want your technique checked or an attempt timed, just ask.</p>
+          <h3>One hour <em>a day</em></h3>
+          <p>Each day of the slot you get one hour of open training with all the box equipment. There is always a coach on the floor: if you have questions during your session, we guide you.</p>
         </div>
         <div class="cos" style="--i:2">
-          <span class="tag">03 · Exam mode</span>
-          <h3>One attempt, <em>first time</em></h3>
-          <p>In the test there is a single attempt and no gloves, chalk, grips, knee sleeves, wrist wraps, belts or braces are allowed. Train it the same way.</p>
+          <span class="tag">03 · Circuit</span>
+          <h3>And <em>mock tests</em></h3>
+          <p>The circuit equipment is at the box. We work on it in the coached class and during open hours, and from time to time we run timed mock tests the way it is done on test day: chained together, no gloves, chalk or belt.</p>
         </div>
       </div>
 
@@ -168,20 +178,17 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
         <span class="tag">Circuit equipment available at the box</span>
         <div class="mat-cols">
           <div>
-            <h4>Exercise 1 · Wildland fire</h4>
             <ul>
-              <li>6 kg slam ball (non-bouncing medicine ball)</li>
-              <li>Tall cone for the 180° turn at the end of the 20 m shuttle</li>
+              <li>Sled and a lane to drag it</li>
+              <li>Wall balls</li>
+              <li>Boxes</li>
             </ul>
           </div>
           <div>
-            <h4>Exercise 2 · Structural fire</h4>
             <ul>
-              <li>3 m balance beam (21.5 cm high, 10 cm wide)</li>
-              <li>12 kg kettlebells and 10 kg bumper plates</li>
-              <li>Box for the 10 step-ups</li>
-              <li>Dummy drag with a 50 kg sandbag</li>
-              <li>95 kg sled: rope pull and push, 10 m each</li>
+              <li>Dummy drag (70 kg worm)</li>
+              <li>Balance beam</li>
+              <li>Enough space for the running work</li>
             </ul>
           </div>
         </div>
@@ -203,13 +210,14 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       <h2 class="h-xl reveal">Monthly membership<br>or a one-day pass<span class="dot">.</span></h2>
 
       <div class="conds reveal">
-        <div><span class="label">01 · Price</span><div><h4>€55/month · VAT included</h4><p>Unlimited use of the facilities and equipment within the candidate slot.</p></div><span class="p">€55<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
-        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>Four hours of weekday access with all the box equipment available. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
-        <div><span class="label">03 · Circuit</span><div><h4>Weekly sessions</h4><p>Every week we set up the fire simulation circuit within the slot. On the other days, open training.</p></div></div>
+        <div><span class="label">01 · Price</span><div><h4>€65/month · VAT included</h4><p>A weekly coached class and one hour of open training a day within the candidate slot.</p></div><span class="p">€65<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
+        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>One hour a day, at the time you choose, with all the box equipment available. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
+        <div><span class="label">03 · Coached</span><div><h4>Thursday · 14:30–15:30</h4><p>A class for exam candidates with the elements of the test. On Thursdays, the class is your hour for the day.</p></div><span class="p">1<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">class/wk</span></span></div>
         <div><span class="label">04 · Programming</span><div><h4>Personalised · ask us</h4><p>If you want programming tailored to your exam and your starting point, ask us.</p></div></div>
         <div><span class="label">05 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
-        <div><span class="label">06 · Day pass</span><div><h4>One day · €15</h4><p>Come on a circuit day and test yourself, no monthly membership.</p></div><span class="p">€15<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
-        <div><span class="label">07 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €25 in total.</p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
+        <div><span class="label">06 · First class</span><div><h4>Coached · free</h4><p>Come on a Thursday at 14:30, get to know the box and try the equipment we work with.</p></div><span class="p">€0<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">1st class</span></span></div>
+        <div><span class="label">07 · Day pass</span><div><h4>One day · €15</h4><p>One day of access to the slot and the equipment, no monthly membership.</p></div><span class="p">€15<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
+        <div><span class="label">08 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €25 in total.</p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
       </div>
     </div>
   </section>
@@ -221,14 +229,15 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       <h2 class="h-xl reveal" style="color:var(--bone)">Common<br>questions<span class="dot">.</span></h2>
 
       <div class="faq reveal" style="margin-top:52px;">
-        <details><summary>Which parts of the 2026 firefighter test can I prepare at the box?</summary><p>Call 81/26 has <strong>three timed simulations</strong>. The two <strong>fire simulations</strong> (wildland and structural) are prepared at the box: we set up the circuit in weekly sessions within the slot. The <strong>water rescue</strong> takes place in a pool and cannot be prepared here: from the box we only contribute the aerobic base, pulling strength and core.</p></details>
-        <details><summary>Is there coached training or programming?</summary><p>Training within the slot is <strong>open</strong>, with <strong>weekly circuit sessions</strong>. Coaches are on the floor and, if one day you want to be timed or have your technique checked, just ask. If you want <strong>personalised programming</strong> for your exam, ask us.</p></details>
+        <details><summary>Which parts of the 2026 firefighter test can I prepare at the box?</summary><p>Call 81/26 has <strong>three timed simulations</strong>. The two <strong>fire simulations</strong> (wildland and structural) are prepared at the box: the equipment is on the floor and we work on it in the coached class and during open hours, with timed mock tests from time to time. The <strong>water rescue</strong> takes place in a pool and cannot be prepared here: from the box we only contribute the aerobic base, pulling strength and core.</p></details>
+        <details><summary>Is there coached training or programming?</summary><p>Yes. Every <strong>Thursday 14:30–15:30</strong> there is a coached class for exam candidates: high-intensity training with the elements of the test plus strength work. The rest of the slot is <strong>one hour a day</strong> of open training with coaches on the floor. If you want <strong>personalised programming</strong> for your exam, ask us.</p></details>
         <details><summary>When are the physical tests?</summary><p>Dates <strong>have not been published yet</strong>. The physical test comes after the knowledge test. Registration for call 81/26 is at tràmits.gencat.cat for 10 working days from 16 September. Always check the official announcement.</p></details>
         <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Barcelona firefighters (SPEIS)</strong>, <strong>Mossos d'Esquadra</strong> or other forces. Proof of registration is required to sign up.</p></details>
-        <details><summary>Can I come every day?</summary><p>Yes. Use within the slot is <strong>unlimited</strong>: Monday to Friday 11:30 to 15:30, plus Sundays 9:30 to 11:30.</p></details>
-        <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership (€55/month) only covers the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which also includes the candidate space and equipment.</p></details>
+        <details><summary>Can I come every day?</summary><p>Yes. Each day of the slot you get <strong>one hour</strong> of open training, at the time you choose: Monday to Friday between 11:30 and 15:30, plus Sundays between 9:30 and 11:30. On Thursdays, the coached class is that hour.</p></details>
+        <details><summary>Can I try it before signing up?</summary><p>Yes. The <strong>first coached class</strong> for exam candidates is free: come on a Thursday at 14:30, get to know the box and try the equipment we work with. For any other day there is the €15 day pass.</p></details>
+        <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership (€65/month) gives access to the Thursday coached class and one hour a day within the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which also includes the candidate space and equipment.</p></details>
         <details><summary>I'm already a member. Can I use the candidate space?</summary><p>Yes. With the <strong>Unlimited membership</strong> you can access the candidate space and equipment within the slot at no extra cost.</p></details>
-        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and includes one day of access to the slot and the equipment. Come on a circuit day and test yourself. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €25 in total.</p></details>
+        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and includes one day of access to the slot and the equipment, no monthly membership. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €25 in total.</p></details>
       </div>
     </div>
   </section>
@@ -238,7 +247,7 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
     <div class="inner">
       <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Let's start</span></div>
       <h2 class="h-hero reveal">Your spot is<br>earned <em class="serif">today</em><span class="dot">.</span></h2>
-      <p class="reveal">Tell us which exam you are preparing for and we'll get back to you with all the information. Or come see the box with your registration proof.</p>
+      <p class="reveal">Tell us which exam you are preparing for and we'll get back to you with all the information. Or come to the free Thursday class with your registration proof.</p>
       <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
         <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
         <div class="form-row two">
