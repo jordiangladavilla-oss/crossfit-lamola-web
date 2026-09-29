@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css'
-import { getLangFromUrl, getRouteFromUrl } from '../i18n/utils'
-import PromoPopup from '../components/PromoPopup.astro'
+import { getLangFromUrl, getRouteFromUrl, useTranslations } from '../i18n/utils'
 import CookieBanner from '../components/CookieBanner.astro'
 
 interface Props {
@@ -11,7 +10,6 @@ interface Props {
   ogImage?: string
   bodyClass?: string
   bodyData?: Record<string, string>
-  showPromo?: boolean
 }
 
 const {
@@ -20,12 +18,12 @@ const {
   canonical,
   ogImage = '/assets/hero-still.webp',
   bodyClass = '',
-  bodyData = {},
-  showPromo = false
+  bodyData = {}
 } = Astro.props
 
 const currentLang = getLangFromUrl(Astro.url)
 const currentRoute = getRouteFromUrl(Astro.url)
+const t = useTranslations(currentLang)
 const baseUrl = 'https://crossfitlamola.com'
 
 // Home CA: sempre amb barra final (https://crossfitlamola.com/), igual que canonical i sitemap
@@ -99,7 +97,7 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
   <slot name="head" />
 </head>
 <body class={bodyClass} {...bodyData}>
-  <a href="#main" class="skip-link">Saltar al contingut principal</a>
+  <a href="#main" class="skip-link">{t('a11y.skip')}</a>
   <slot />
 
   <script>
@@ -183,7 +181,6 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
       // Els formularis disparen generate_lead només quan el servidor confirma (src/scripts/lead-form.ts).
     })();
   </script>
-  {showPromo && <PromoPopup />}
   <CookieBanner />
 </body>
 </html>

@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@layer base;
+@import "./preflight.css";
 @import "./fonts.css";
 
 :root {

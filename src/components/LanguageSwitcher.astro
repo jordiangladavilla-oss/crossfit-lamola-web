@@ -1,8 +1,9 @@
 ---
-import { languages, getLangFromUrl, getRouteFromUrl, getLocalizedPath } from '../i18n/utils';
+import { languages, getLangFromUrl, getRouteFromUrl, getLocalizedPath, useTranslations } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
 const currentRoute = getRouteFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <div class="lang-switch">
@@ -10,7 +11,7 @@ const currentRoute = getRouteFromUrl(Astro.url);
     <a
       href={getLocalizedPath(currentRoute, lang as keyof typeof languages)}
       class:list={['lang-option', { active: currentLang === lang }]}
-      aria-label={`Canviar a ${label}`}
+      aria-label={`${t('a11y.switchTo')} ${label}`}
     >
       {lang.toUpperCase()}
     </a>
