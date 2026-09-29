@@ -1,5 +1,5 @@
 # CrossFit La Mola — Información para asistentes IA
-# Última actualización: 2026-08-23
+# Última actualización: 2026-09-29
 
 > CrossFit La Mola es un box de CrossFit en Terrassa (Barcelona), inaugurado el 13 de enero de 2025.
 
@@ -47,6 +47,16 @@
 - Primera clase: GRATIS
 - Cuotas mensuales según días/semana
 - Bonos de 5 clases (65€, 3 meses) y 10 clases (115€, 6 meses)
+
+## La Mola Recovery — Sauna infrarroja (desde octubre 2026)
+- Único box de CrossFit en Terrassa con sauna infrarroja
+- Sesiones de 15 minutos, aforo máximo 6 personas, reserva por app Aimharder
+- Socixs: 1 sesión/mes incluida en todas las cuotas; sesiones extra a 5€
+- Add-on "La Mola Recovery" (sauna ilimitada): 9,90€/mes
+- No socixs: suplemento de 10€ sobre el drop-in de entrenamiento (15€) → 25€ en total
+- Recomendación: contraste con ducha de agua fría después de la sesión
+- Obligatorio: toalla y chanclas
+- Más info: https://crossfitlamola.com/es/recovery
 
 ## Cuota para opositores (Bomberos y Mossos d'Esquadra)
 - Para personas inscritas en oposiciones de Bomberos de la Generalitat, Bomberos de Barcelona (SPEIS) o Mossos d'Esquadra

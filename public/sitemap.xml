@@ -52,6 +52,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://crossfitlamola.com/recovery</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/recovery"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/recovery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/recovery"/>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://crossfitlamola.com/partners</loc>
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/partners"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/partners"/>
@@ -174,6 +184,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://crossfitlamola.com/es/recovery</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/recovery"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/recovery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/recovery"/>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://crossfitlamola.com/es/partners</loc>
     <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/partners"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/partners"/>
@@ -291,6 +311,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/opositors"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/opositors"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/opositors"/>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crossfitlamola.com/en/recovery</loc>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://crossfitlamola.com/recovery"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://crossfitlamola.com/es/recovery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crossfitlamola.com/en/recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crossfitlamola.com/recovery"/>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
