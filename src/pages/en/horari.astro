@@ -4,6 +4,9 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
+import { buildWeek } from '../../data/schedule'
+
+const week = buildWeek('en')
 ---
 
 <Layout
@@ -28,7 +31,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
 
   <div class="status-strip">
     <div class="wrap">
-      <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Open now</span></span>
+      <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Opening hours</span></span>
       <span>Av. del Vallès 724C · Terrassa</span>
       <span>Mon-Thu 07:00-21:30 · Fri 07:00-20:30 · Sat-Sun 09:30-11:30</span>
       <span style="margin-left:auto;"><a href="https://wa.me/34699196531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
@@ -50,18 +53,30 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
       </div>
 
       <div class="filters reveal" id="filters">
-        <button class="filter on" data-f="all">All <span class="count" id="c-all"></span></button>
-        <button class="filter" data-f="wod">WOD <span class="count" id="c-wod"></span></button>
-        <button class="filter" data-f="wl">Weightlifting <span class="count" id="c-wl"></span></button>
-        <button class="filter" data-f="hy">Hybrid <span class="count" id="c-hy"></span></button>
-        <button class="filter" data-f="bw">Bodyweight <span class="count" id="c-bw"></span></button>
-        <button class="filter" data-f="st">Strength Club <span class="count" id="c-st"></span></button>
-        <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab"></span></button>
-        <button class="filter" data-f="pr">The Program <span class="count" id="c-pr"></span></button>
-        <button class="filter" data-f="rc">Running <span class="count" id="c-rc"></span></button>
+        <button class="filter on" data-f="all">All <span class="count" id="c-all">· {week.counts.all}</span></button>
+        <button class="filter" data-f="wod">WOD <span class="count" id="c-wod">· {week.counts.wod}</span></button>
+        <button class="filter" data-f="wl">Weightlifting <span class="count" id="c-wl">· {week.counts.wl}</span></button>
+        <button class="filter" data-f="hy">Hybrid <span class="count" id="c-hy">· {week.counts.hy}</span></button>
+        <button class="filter" data-f="bw">Bodyweight <span class="count" id="c-bw">· {week.counts.bw}</span></button>
+        <button class="filter" data-f="st">Strength Club <span class="count" id="c-st">· {week.counts.st}</span></button>
+        <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab">· {week.counts.ab}</span></button>
+        <button class="filter" data-f="pr">The Program <span class="count" id="c-pr">· {week.counts.pr}</span></button>
+        <button class="filter" data-f="rc">Running <span class="count" id="c-rc">· {week.counts.rc}</span></button>
       </div>
 
-      <div class="week reveal" id="week"></div>
+      <div class="week reveal" id="week">
+        {week.days.map((d) => (
+          <div class="day" data-day={d.index}>
+            <h4><span class="full">{d.name}</span><span class="abbrev">{d.abbr}</span></h4>
+            {d.slots.length === 0 && <p class="empty">{week.t.empty}</p>}
+            {d.slots.map((s) => (
+              <div class={'slot' + (s.openOnly ? ' open-only' : '') + (s.alwaysVisible ? ' always-visible' : '') + (s.openOnly && !s.alwaysVisible ? ' hidden' : '')} data-disc={s.k}>
+                <div class="time">{s.time}</div><div class="disc">{s.label}</div>{s.extras && <div class="extras">{s.extras}</div>}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
 
       <div class="legend reveal">
         <span class="chip" style="--c:var(--bone-ink);">WOD</span>
@@ -165,201 +180,44 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
     .meta-card strong{ font-weight:500; letter-spacing:-0.005em;}
   </style>
 
-  <script>
+  <script define:vars={{ OPEN_TXT: "Open now", CLOSED_TXT: "Closed now" }}>
   (function(){
+    // Estat obert/tancat (el HTML porta un text neutre; només el client sap l'hora)
     function updateStatus(){
       var now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
       var open = (d>=1&&d<=4 && h>=7 && h<21.5) || (d===5 && h>=7 && h<20.5) || (d===6 && h>=9.5 && h<11.5) || (d===0 && h>=9.5 && h<11.5);
       var dot=document.getElementById('statusDot'), t=document.getElementById('statusText');
       if (dot && t) {
-        if (open){ dot.classList.remove('closed'); t.textContent='Open now'; }
-        else { dot.classList.add('closed'); t.textContent='Closed now'; }
+        if (open){ dot.classList.remove('closed'); t.textContent=OPEN_TXT; }
+        else { dot.classList.add('closed'); t.textContent=CLOSED_TXT; }
       }
     }
     updateStatus(); setInterval(updateStatus, 60000);
 
-    var SCHEDULE = {
-      "Monday": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-16:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["THE PROGRAM", "OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "BODYWEIGHT LAB", "OPEN", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Tuesday": [
-        ["07:00-08:00", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["11:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-16:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["THE PROGRAM", "OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "BODYWEIGHT LAB", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Wednesday": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["11:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-16:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["THE PROGRAM", "OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "LA MOLA WEIGHTLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["WOD", "BODYWEIGHT LAB", "OPEN", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Thursday": [
-        ["07:00-08:00", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["ABS & CALS", "OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["11:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-16:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["THE PROGRAM", "OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "RUNNING CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["20:30-21:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Friday": [
-        ["07:00-08:00", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["08:00-09:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["09:30-10:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["11:30-13:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["13:30-14:30", ["WOD", "OPEN", "OPEN EXTERIOR"]],
-        ["14:30-16:00", ["OPEN", "OPEN EXTERIOR"]],
-        ["16:00-17:30", ["THE PROGRAM", "OPEN", "OPEN EXTERIOR"]],
-        ["17:30-18:30", ["STRENGTH CLUB - POWERLIFTING", "OPEN", "OPEN EXTERIOR"]],
-        ["18:30-19:30", ["HYBRID CLUB", "OPEN", "OPEN EXTERIOR"]],
-        ["19:30-20:30", ["WOD", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Saturday": [
-        ["09:30-10:30", ["WOD IN PAIRS", "OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["WOD IN PAIRS", "OPEN", "OPEN EXTERIOR"]]
-      ],
-      "Sunday": [
-        ["09:30-10:30", ["OPEN", "OPEN EXTERIOR"]],
-        ["10:30-11:30", ["OPEN", "OPEN EXTERIOR"]]
-      ]
-    };
-
-    function classify(name){
-      var n=name.toUpperCase();
-      if (n==='OPEN' || n==='OPEN EXTERIOR') return {k:'open', l:n, interior:n==='OPEN'};
-      if (n.indexOf('THE PROGRAM')>=0) return {k:'pr', l:'The Program'};
-      if (n.indexOf('WEIGHTLIFTING')>=0) return {k:'wl', l:'Weightlifting'};
-      if (n.indexOf('HYBRID')>=0) return {k:'hy', l:'Hybrid Club'};
-      if (n.indexOf('STRENGTH')>=0) return {k:'st', l:'Strength · Powerlifting'};
-      if (n.indexOf('BODYWEIGHT')>=0) return {k:'bw', l:n.indexOf('ADVANCE')>=0?'Bodyweight Lab · Advance':(n.indexOf('BASE')>=0?'Bodyweight Lab · Base':'Bodyweight Lab')};
-      if (n.indexOf('ABS')>=0) return {k:'ab', l:'Abs & Cals'};
-      if (n.indexOf('RUNNING')>=0 || n.indexOf('RUN BY')>=0) return {k:'rc', l:n.indexOf('BEACH')>=0?'Run + Brunch + Beach':'Running Club'};
-      if (n.indexOf('WOD IN PAIRS')>=0) return {k:'wod', l:'Partner WOD'};
-      if (n.indexOf('WOD')>=0) return {k:'wod', l:'WOD'};
-      return {k:'wod', l:name};
-    }
-
-    var days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-    var abbr=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-    var monday=new Date(); monday.setHours(0,0,0,0); var day=monday.getDay(); var diff=(day===0?-6:1-day); monday.setDate(monday.getDate()+diff);
+    // Marca el dia d'avui (la graella ja ve renderitzada al HTML des de src/data/schedule.ts)
+    var monday=new Date(); monday.setHours(0,0,0,0); var day=monday.getDay(); monday.setDate(monday.getDate()+(day===0?-6:1-day));
     var today=new Date(); today.setHours(0,0,0,0);
-    var fmt=function(d){ return d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];};
-    document.querySelectorAll('.js-week-range').forEach(function(el){ var s=new Date(monday); var e=new Date(monday); e.setDate(e.getDate()+6); el.textContent = fmt(s)+' - '+fmt(e); });
+    var idx=Math.round((today-monday)/86400000);
+    var todayEl=document.querySelector('.day[data-day="'+idx+'"]'); if (todayEl) todayEl.classList.add('today');
 
-    var counts={all:0,wod:0,wl:0,hy:0,bw:0,st:0,ab:0,pr:0,rc:0};
-    var week=document.getElementById('week');
-
-    if (week) {
-      days.forEach(function(dname, i){
-        var d=new Date(monday); d.setDate(d.getDate()+i);
-        var isToday=(d.getTime()===today.getTime());
-        var div=document.createElement('div'); div.className='day'+(isToday?' today':'');
-        div.innerHTML='<h4><span class="full">'+dname+'</span><span class="abbrev">'+abbr[i]+'</span></h4>';
-
-        var slots=SCHEDULE[dname]||[];
-        var dayHasCoached = slots.some(function(entry){
-          return entry[1].some(function(c){ return classify(c).k !== 'open'; });
-        });
-        if (!slots.length){
-          div.innerHTML += '<p class="empty">Rest day · no classes</p>';
-        } else {
-          slots.forEach(function(entry){
-            var time=entry[0], arr=entry[1];
-            var coached=[], opens=[];
-            arr.forEach(function(c){ var r=classify(c); if(r.k==='open') opens.push(r); else coached.push(r); });
-
-            if (!coached.length && !opens.length) return;
-
-            if (coached.length){
-              coached.forEach(function(r){
-                counts.all++; if(counts[r.k]!==undefined) counts[r.k]++;
-                var extras='';
-                if (opens.length) extras='+ Open'+(opens.some(function(o){return !o.interior;})?' · Outdoor':'');
-                var el=document.createElement('div');
-                el.className='slot';
-                el.setAttribute('data-disc', r.k);
-                el.innerHTML='<div class="time">'+time+'</div><div class="disc">'+r.l+'</div>'+(extras?'<div class="extras">'+extras+'</div>':'');
-                div.appendChild(el);
-              });
-            } else if (opens.length){
-              var label=opens.map(function(o){return o.l==='OPEN EXTERIOR'?'Open Exterior':'Open';}).join(' - ');
-              var el=document.createElement('div');
-              el.className='slot open-only' + (dayHasCoached ? '' : ' always-visible');
-              el.setAttribute('data-disc', 'open');
-              el.innerHTML='<div class="time">'+time+'</div><div class="disc">'+label+'</div>';
-              div.appendChild(el);
-            }
-          });
-        }
-        week.appendChild(div);
-      });
-    }
-
-    Object.keys(counts).forEach(function(k){ var el=document.getElementById('c-'+k); if(el) el.textContent='· '+counts[k]; });
-
-    var currentFilter='all';
-    var filtersEl = document.getElementById('filters');
+    // Filtres
+    var currentFilter='all', showOpen=false;
+    var filtersEl=document.getElementById('filters');
     if (filtersEl) {
       filtersEl.addEventListener('click', function(e){
         var b=e.target.closest('.filter'); if(!b) return;
         document.querySelectorAll('.filter').forEach(function(x){x.classList.remove('on');});
-        b.classList.add('on');
-        currentFilter=b.dataset.f;
-        applyFilter();
+        b.classList.add('on'); currentFilter=b.dataset.f; applyFilter();
       });
     }
-
-    var showOpen=false;
-    var showOpenEl = document.getElementById('showOpen');
-    if (showOpenEl) {
-      showOpenEl.addEventListener('change', function(e){
-        showOpen=e.target.checked;
-        applyFilter();
-      });
-    }
+    var showOpenEl=document.getElementById('showOpen');
+    if (showOpenEl) showOpenEl.addEventListener('change', function(e){ showOpen=e.target.checked; applyFilter(); });
 
     function applyFilter(){
       document.querySelectorAll('.slot').forEach(function(s){
-        var d=s.dataset.disc;
-        var isOpen=(d==='open');
-        var alwaysVisible=s.classList.contains('always-visible');
-        var matchFilter = (currentFilter==='all') || (d===currentFilter);
-        var visible = matchFilter && (!isOpen || showOpen || alwaysVisible);
-        s.classList.toggle('hidden', !visible);
+        var d=s.dataset.disc, isOpen=(d==='open'), alwaysVisible=s.classList.contains('always-visible');
+        var matchFilter=(currentFilter==='all')||(d===currentFilter);
+        s.classList.toggle('hidden', !(matchFilter && (!isOpen || showOpen || alwaysVisible)));
       });
     }
     applyFilter();
