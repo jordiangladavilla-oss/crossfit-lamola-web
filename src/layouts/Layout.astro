@@ -28,10 +28,11 @@ const currentLang = getLangFromUrl(Astro.url)
 const currentRoute = getRouteFromUrl(Astro.url)
 const baseUrl = 'https://crossfitlamola.com'
 
-const canonicalUrl = canonical || `${baseUrl}${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`
+// Home CA: sempre amb barra final (https://crossfitlamola.com/), igual que canonical i sitemap
+const canonicalUrl = canonical || `${baseUrl}${Astro.url.pathname === '/' ? '/' : Astro.url.pathname}`
 
 const hreflangUrls = {
-  ca: `${baseUrl}${currentRoute === '/' ? '' : currentRoute}`,
+  ca: `${baseUrl}${currentRoute === '/' ? '/' : currentRoute}`,
   es: `${baseUrl}/es${currentRoute === '/' ? '' : currentRoute}`,
   en: `${baseUrl}/en${currentRoute === '/' ? '' : currentRoute}`
 }

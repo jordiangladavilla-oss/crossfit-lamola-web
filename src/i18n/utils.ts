@@ -31,6 +31,11 @@ export function getLocalizedPath(path: string, lang: Lang): string {
     return cleanPath;
   }
 
+  // Home: /es i /en sense barra final (trailingSlash: never; evita 308 i "Page with redirect" a GSC)
+  if (cleanPath === '/') {
+    return `/${lang}`;
+  }
+
   return `/${lang}${cleanPath}`;
 }
 
