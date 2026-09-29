@@ -180,14 +180,7 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
           fire('instagram_click', { link_url: href, page_path: location.pathname });
         }
       }, true);
-      document.addEventListener('submit', function(e){
-        var form = e.target;
-        if (!form || form.tagName !== 'FORM') return;
-        var id = form.id || form.getAttribute('name') || 'unknown';
-        if (id === 'contact-form' || id === 'home-form') {
-          fire('lead_form_submit', { form_id: id, page_path: location.pathname });
-        }
-      }, true);
+      // Els formularis disparen generate_lead només quan el servidor confirma (src/scripts/lead-form.ts).
     })();
   </script>
   {showPromo && <PromoPopup />}

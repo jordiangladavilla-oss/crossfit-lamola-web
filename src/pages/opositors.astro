@@ -272,79 +272,13 @@ const WA = 'https://wa.me/34699196531?text=Hola!%20Preparo%20les%20oposicions%20
   <Footer />
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHm_4Rwt_x9RN5q1PEKxTzXj587hgKYp70WqyNA9DpbETdy-dcUPt2n3YtaZ7KFJinww/exec';
-
-  function getSource() {
-    const params = new URLSearchParams(window.location.search);
-    const utm = params.get('utm_source');
-    if (utm) return utm;
-    const from = params.get('from');
-    if (from) return from;
-    return 'web';
-  }
-
-  document.querySelectorAll('[data-wa]').forEach((a) => {
-    a.addEventListener('click', () => {
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', { event_category: 'contact', event_label: 'Opositors · ' + a.dataset.wa });
-      }
-    });
-  });
-
-  document.getElementById('opo-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const btn = document.getElementById('opo-submit');
-    const msg = document.getElementById('opo-msg');
-    const btnText = btn.innerHTML;
-
-    btn.innerHTML = 'Enviant...';
-    btn.disabled = true;
-    msg.style.display = 'none';
-
-    const source = getSource();
-    const data = {
-      origen: 'Opositors (' + source + ')',
-      name: form.name.value,
-      email: '',
-      phone: form.phone.value,
-      disc: 'Oposicions · ' + form.prep.value,
-      level: '',
-      when: '',
-      note: form.note.value,
-      website: form.website.value
-    };
-
-    try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      msg.style.display = 'block';
-      msg.style.background = 'var(--accent-ink)';
-      msg.style.color = 'var(--bone)';
-      msg.innerHTML = '<strong>Gràcies!</strong> Hem rebut les teves dades. Et contactem aviat.';
-      form.reset();
-
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', {
-          event_category: 'forms',
-          event_label: 'Opositors',
-          value: 1
-        });
-      }
-    } catch (err) {
-      msg.style.display = 'block';
-      msg.style.background = '#fee';
-      msg.style.color = '#c00';
-      msg.innerHTML = 'Error en enviar. Prova per WhatsApp: <a href="https://wa.me/34699196531" style="color:#c00;">699 19 65 31</a>';
-    }
-
-    btn.innerHTML = btnText;
-    btn.disabled = false;
+  import { initLeadForm, payloads } from '../scripts/lead-form';
+  // Handler compartit (src/scripts/lead-form.ts). El clic de WhatsApp el registra el Layout.
+  initLeadForm({
+    formId: "opo-form", submitId: "opo-submit", msgId: "opo-msg",
+    origen: "Opositors", gaLabel: "Opositors",
+    texts: { sending: "Enviant...", ok: "<strong>Gràcies!</strong> Hem rebut les teves dades. Et contactem aviat.", err: "Error en enviar. Prova per WhatsApp: <a href=\"https://wa.me/34699196531\" style=\"color:#c00;\">699 19 65 31</a>" },
+    build: payloads.opositors,
   });
 </script>
 </Layout>

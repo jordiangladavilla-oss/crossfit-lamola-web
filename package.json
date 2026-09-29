@@ -11,10 +11,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:faq": "node scripts/faq-sync.mjs",
-    "check:faq:dist": "node scripts/faq-sync.mjs --dist"
+    "check:faq:dist": "node scripts/faq-sync.mjs --dist",
+    "test:leads": "node scripts/test-lead-forms.mjs http://127.0.0.1:4321"
   },
   "dependencies": {
-    "@astrojs/partytown": "^2.1.7",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/montserrat": "^5.2.8",
     "@tailwindcss/vite": "^4.2.4",

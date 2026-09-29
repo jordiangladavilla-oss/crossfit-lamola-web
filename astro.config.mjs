@@ -1,20 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://crossfitlamola.com',
   trailingSlash: 'never',
   compressHTML: true,
-  integrations: [
-    partytown({
-      config: {
-        forward: ['dataLayer.push', 'gtag']
-      }
-    })
-  ],
+  // Partytown eliminat (2026-09-29): estava instal·lat sense cap <script type="text/partytown">
+  // i el seu stub de window.gtag llançava una excepció a cada event → GA4 no rebia cap lead.
+  integrations: [],
   i18n: {
     defaultLocale: 'ca',
     locales: ['ca', 'es', 'en'],
