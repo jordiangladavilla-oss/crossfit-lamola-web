@@ -1,4 +1,6 @@
 ---
+import { priceRange } from '../data/pricing'
+
 interface Props {
   type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte' | 'el-box' | 'horari' | 'agenda'
 }
@@ -120,7 +122,7 @@ const baseSchema = {
     "name": "Tarifes CrossFit La Mola",
     "itemListElement": [
       {"@type": "Offer", "name": "Primera classe gratuïta", "price": "0", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Quota mensual", "priceRange": "49€ - 105€"}
+      {"@type": "Offer", "name": "Quota mensual", "priceRange": priceRange}
     ]
   },
   "knowsAbout": ["CrossFit", "Halterofília", "Entrenament funcional", "HIIT", "Gimnàstic", "Strength & Conditioning", "Hybrid Training", "Sled push", "Powerlifting"],

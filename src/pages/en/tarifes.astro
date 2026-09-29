@@ -4,6 +4,9 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import Schema from '../../components/Schema.astro'
+import { PRICES, eur, offerCatalog } from '../../data/pricing'
+
+const lang = 'en' as const
 ---
 
 <Layout
@@ -14,24 +17,7 @@ import Schema from '../../components/Schema.astro'
   <link rel="preload" as="image" href="/assets/community-2.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Pricing"}]} lang="en" slot="head" />
   <Fragment slot="head">
-    <script type="application/ld+json" data-schema="offercatalog">
-    {
-      "@context": "https://schema.org",
-      "@type": "OfferCatalog",
-      "name": "CrossFit La Mola Memberships",
-      "itemListElement": [
-        {"@type":"Offer","name":"Occasional · 5 sessions/month","description":"5 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"49.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"Regular · 10 sessions/month","description":"10 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"79.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"Consistent · 15 sessions/month","description":"15 monthly bookings, access to all disciplines, no contract","priceCurrency":"EUR","price":"84.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"Master · Unlimited senior (+60)","description":"Unlimited bookings, special rate for 60+","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
-        {"@type":"Offer","name":"Unlimited Access","description":"Unlimited bookings, access to all disciplines, includes The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"Drop-in","description":"One class and facility access for the day","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"5 Session Pack","description":"5 classes, valid for 3 months","priceCurrency":"EUR","price":"65.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"10 Session Pack","description":"10 classes, valid for 6 months","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/tarifes"},
-        {"@type":"Offer","name":"La Mola Recovery add-on","description":"Unlimited infrared sauna for members. Every plan includes 1 session/month","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/en/recovery"}
-      ]
-    }
-    </script>
+    <script type="application/ld+json" data-schema="offercatalog" set:html={JSON.stringify(offerCatalog(lang))} />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -152,7 +138,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:0">
           <span class="tag">01 · Occasional</span>
           <h3>5 sessions <em>/</em> month</h3>
-          <div><span class="num">49<sup>€</sup></span><span class="per">/month</span></div>
+          <div><span class="num">{PRICES.ocasional}<sup>€</sup></span><span class="per">/month</span></div>
           <ul>
             <li>5 monthly bookings</li>
             <li>Access to all disciplines</li>
@@ -166,7 +152,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:1">
           <span class="tag">02 · Regular</span>
           <h3>10 sessions <em>/</em> month</h3>
-          <div><span class="num">79<sup>€</sup></span><span class="per">/month</span></div>
+          <div><span class="num">{PRICES.regular}<sup>€</sup></span><span class="per">/month</span></div>
           <ul>
             <li>10 monthly bookings</li>
             <li>Access to all disciplines</li>
@@ -180,7 +166,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:2">
           <span class="tag">03 · Consistent</span>
           <h3>15 sessions <em>/</em> month</h3>
-          <div><span class="num">84<sup>€</sup></span><span class="per">/month</span></div>
+          <div><span class="num">{PRICES.constant}<sup>€</sup></span><span class="per">/month</span></div>
           <ul>
             <li>15 monthly bookings</li>
             <li>Access to all disciplines</li>
@@ -194,7 +180,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:3">
           <span class="tag">04 · Master <em class="serif" style="color:var(--accent-ink); font-family:var(--f-serif); font-style:italic;">(60+ years)</em></span>
           <h3>Unlimited <em>senior</em></h3>
-          <div><span class="num">60<sup>€</sup></span><span class="per">/month</span></div>
+          <div><span class="num">{PRICES.master}<sup>€</sup></span><span class="per">/month</span></div>
           <ul>
             <li>Unlimited bookings</li>
             <li>Access to all disciplines</li>
@@ -208,7 +194,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price featured" style="--i:4">
           <span class="tag">05 · Unlimited · Recommended</span>
           <h3>Unlimited <em>Access</em></h3>
-          <div><span class="num">105<sup>€</sup></span><span class="per">/month</span></div>
+          <div><span class="num">{PRICES.unlimited}<sup>€</sup></span><span class="per">/month</span></div>
           <ul>
             <li>Unlimited bookings</li>
             <li>Access to all disciplines</li>
@@ -221,13 +207,13 @@ import Schema from '../../components/Schema.astro'
       </div>
 
       <div class="extras reveal">
-        <div><span class="label">Extra · 01</span><div><h4>Drop-in</h4><p>For visiting athletes. One class plus facility access for the day.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/day</span></span></div>
-        <div><span class="label">Extra · 02</span><div><h4>5 Session Pack</h4><p>5 classes to use within 3 months. Good for trying us out or short stays.</p></div><span class="p">65€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/pack</span></span></div>
-        <div><span class="label">Extra · 03</span><div><h4>10 Session Pack</h4><p>10 classes to use within 6 months. Great for irregular schedules.</p></div><span class="p">115€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/pack</span></span></div>
-        <div><span class="label">Extra · 04</span><div><h4>Extra class <em class="serif">(if you've used your quota)</em></h4><p>Used all your monthly bookings and want one more? Add extra sessions or upgrade your plan.</p></div><span class="p">8€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/class</span></span></div>
-        <div><span class="label">Extra · 05</span><div><h4>Hold fee <em class="serif">(max. 2 months/year)</em></h4><p>Going on vacation? Keep your spot without losing it. Reactivate when you're back.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month</span></span></div>
-        <div><span class="label">Extra · 06</span><div><h4>Rejoining fee <em class="serif">(only if you return)</em></h4><p>First sign-up is free. If you cancel and come back later, there's a rejoining fee.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/once</span></span></div>
-        <div><span class="label">Extra · 07</span><div><h4>La Mola Recovery <em class="serif">(infrared sauna)</em></h4><p>One monthly session included in every plan. Extra sessions €5 or unlimited add-on. <a href="/en/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Discover La Mola Recovery →</a></p></div><span class="p">€9.90<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month unlimited</span></span></div>
+        <div><span class="label">Extra · 01</span><div><h4>Drop-in</h4><p>For visiting athletes. One class plus facility access for the day.</p></div><span class="p">{eur(PRICES.dropIn, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/day</span></span></div>
+        <div><span class="label">Extra · 02</span><div><h4>5 Session Pack</h4><p>5 classes to use within 3 months. Good for trying us out or short stays.</p></div><span class="p">{eur(PRICES.bono5, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/pack</span></span></div>
+        <div><span class="label">Extra · 03</span><div><h4>10 Session Pack</h4><p>10 classes to use within 6 months. Great for irregular schedules.</p></div><span class="p">{eur(PRICES.bono10, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/pack</span></span></div>
+        <div><span class="label">Extra · 04</span><div><h4>Extra class <em class="serif">(if you've used your quota)</em></h4><p>Used all your monthly bookings and want one more? Add extra sessions or upgrade your plan.</p></div><span class="p">{eur(PRICES.classeExtra, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/class</span></span></div>
+        <div><span class="label">Extra · 05</span><div><h4>Hold fee <em class="serif">(max. 2 months/year)</em></h4><p>Going on vacation? Keep your spot without losing it. Reactivate when you're back.</p></div><span class="p">{eur(PRICES.manteniment, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month</span></span></div>
+        <div><span class="label">Extra · 06</span><div><h4>Rejoining fee <em class="serif">(only if you return)</em></h4><p>First sign-up is free. If you cancel and come back later, there's a rejoining fee.</p></div><span class="p">{eur(PRICES.matricula, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/once</span></span></div>
+        <div><span class="label">Extra · 07</span><div><h4>La Mola Recovery <em class="serif">(infrared sauna)</em></h4><p>One monthly session included in every plan. Extra sessions €5 or unlimited add-on. <a href="/en/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Discover La Mola Recovery →</a></p></div><span class="p">{eur(PRICES.recoveryAddon, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/month unlimited</span></span></div>
       </div>
     </div>
   </section>

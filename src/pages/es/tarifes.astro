@@ -4,6 +4,9 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import Schema from '../../components/Schema.astro'
+import { PRICES, eur, offerCatalog } from '../../data/pricing'
+
+const lang = 'es' as const
 ---
 
 <Layout
@@ -14,24 +17,7 @@ import Schema from '../../components/Schema.astro'
   <link rel="preload" as="image" href="/assets/community-2.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Tarifas"}]} lang="es" slot="head" />
   <Fragment slot="head">
-    <script type="application/ld+json" data-schema="offercatalog">
-    {
-      "@context": "https://schema.org",
-      "@type": "OfferCatalog",
-      "name": "Cuotas CrossFit La Mola",
-      "itemListElement": [
-        {"@type":"Offer","name":"Ocasional · 5 sesiones/mes","description":"5 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"49.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Regular · 10 sesiones/mes","description":"10 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"79.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Constante · 15 sesiones/mes","description":"15 reservas mensuales, acceso a todas las disciplinas, sin permanencia","priceCurrency":"EUR","price":"84.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Master · Ilimitado senior (+60)","description":"Reservas ilimitadas, cuota especial para +60 años","priceCurrency":"EUR","price":"60.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes","eligibleCustomerType":"https://schema.org/ReturningCustomer"},
-        {"@type":"Offer","name":"Unlimited Access","description":"Reservas ilimitadas, acceso a todas las disciplinas, incluye The Program","priceCurrency":"EUR","price":"105.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Drop-in","description":"Una clase y acceso a las instalaciones ese día","priceCurrency":"EUR","price":"15.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Bono 5 sesiones","description":"5 clases a consumir en 3 meses","priceCurrency":"EUR","price":"65.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Bono 10 sesiones","description":"10 clases a consumir en 6 meses","priceCurrency":"EUR","price":"115.00","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/tarifes"},
-        {"@type":"Offer","name":"Add-on La Mola Recovery","description":"Sauna infrarroja ilimitada para socixs. Todas las cuotas incluyen 1 sesión/mes","priceCurrency":"EUR","price":"9.90","availability":"https://schema.org/InStock","url":"https://crossfitlamola.com/es/recovery"}
-      ]
-    }
-    </script>
+    <script type="application/ld+json" data-schema="offercatalog" set:html={JSON.stringify(offerCatalog(lang))} />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -152,7 +138,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:0">
           <span class="tag">01 · Ocasional</span>
           <h3>5 sesiones <em>/</em> mes</h3>
-          <div><span class="num">49<sup>€</sup></span><span class="per">/mes</span></div>
+          <div><span class="num">{PRICES.ocasional}<sup>€</sup></span><span class="per">/mes</span></div>
           <ul>
             <li>5 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
@@ -166,7 +152,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:1">
           <span class="tag">02 · Regular</span>
           <h3>10 sesiones <em>/</em> mes</h3>
-          <div><span class="num">79<sup>€</sup></span><span class="per">/mes</span></div>
+          <div><span class="num">{PRICES.regular}<sup>€</sup></span><span class="per">/mes</span></div>
           <ul>
             <li>10 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
@@ -180,7 +166,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:2">
           <span class="tag">03 · Constante</span>
           <h3>15 sesiones <em>/</em> mes</h3>
-          <div><span class="num">84<sup>€</sup></span><span class="per">/mes</span></div>
+          <div><span class="num">{PRICES.constant}<sup>€</sup></span><span class="per">/mes</span></div>
           <ul>
             <li>15 reservas mensuales</li>
             <li>Acceso a todas las disciplinas</li>
@@ -194,7 +180,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price" style="--i:3">
           <span class="tag">04 · Master <em class="serif" style="color:var(--accent-ink); font-family:var(--f-serif); font-style:italic;">(+60 años)</em></span>
           <h3>Ilimitado <em>senior</em></h3>
-          <div><span class="num">60<sup>€</sup></span><span class="per">/mes</span></div>
+          <div><span class="num">{PRICES.master}<sup>€</sup></span><span class="per">/mes</span></div>
           <ul>
             <li>Reservas ilimitadas</li>
             <li>Acceso a todas las disciplinas</li>
@@ -208,7 +194,7 @@ import Schema from '../../components/Schema.astro'
         <div class="price featured" style="--i:4">
           <span class="tag">05 · Ilimitada · Recomendada</span>
           <h3>Unlimited <em>Access</em></h3>
-          <div><span class="num">105<sup>€</sup></span><span class="per">/mes</span></div>
+          <div><span class="num">{PRICES.unlimited}<sup>€</sup></span><span class="per">/mes</span></div>
           <ul>
             <li>Reservas ilimitadas</li>
             <li>Acceso a todas las disciplinas</li>
@@ -221,13 +207,13 @@ import Schema from '../../components/Schema.astro'
       </div>
 
       <div class="extras reveal">
-        <div><span class="label">Extra · 01</span><div><h4>Drop-in <em class="serif">(día abierto)</em></h4><p>Para atletas de paso. Una clase y acceso a las instalaciones ese día.</p></div><span class="p">15€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/día</span></span></div>
-        <div><span class="label">Extra · 02</span><div><h4>Bono 5 sesiones</h4><p>5 clases a consumir en 3 meses. Para probar con calma o para estancias cortas.</p></div><span class="p">65€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
-        <div><span class="label">Extra · 03</span><div><h4>Bono 10 sesiones</h4><p>10 clases a consumir en 6 meses. Ideal para horarios irregulares o vueltas puntuales.</p></div><span class="p">115€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
-        <div><span class="label">Extra · 04</span><div><h4>Clase extra <em class="serif">(si has consumido la cuota)</em></h4><p>Si has hecho todas las reservas del mes y quieres una más. La alternativa es subir de tarifa.</p></div><span class="p">8€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/clase</span></span></div>
-        <div><span class="label">Extra · 05</span><div><h4>Cuota de mantenimiento <em class="serif">(máx. 2 meses/año)</em></h4><p>Si te vas de vacaciones puedes mantener la plaza sin perderla. Reactiva cuando vuelvas.</p></div><span class="p">25€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
-        <div><span class="label">Extra · 06</span><div><h4>Matrícula <em class="serif">(solo si vuelves)</em></h4><p>La primera inscripción no tiene coste. Si dejas la cuota y vuelves más adelante, se abona la matrícula.</p></div><span class="p">40€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/única</span></span></div>
-        <div><span class="label">Extra · 07</span><div><h4>La Mola Recovery <em class="serif">(sauna infrarroja)</em></h4><p>Una sesión mensual incluida en todas las cuotas. Sesiones extra a 5€ o add-on ilimitado. <a href="/es/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Descubre La Mola Recovery →</a></p></div><span class="p">9,90€<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes ilimitado</span></span></div>
+        <div><span class="label">Extra · 01</span><div><h4>Drop-in <em class="serif">(día abierto)</em></h4><p>Para atletas de paso. Una clase y acceso a las instalaciones ese día.</p></div><span class="p">{eur(PRICES.dropIn, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/día</span></span></div>
+        <div><span class="label">Extra · 02</span><div><h4>Bono 5 sesiones</h4><p>5 clases a consumir en 3 meses. Para probar con calma o para estancias cortas.</p></div><span class="p">{eur(PRICES.bono5, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
+        <div><span class="label">Extra · 03</span><div><h4>Bono 10 sesiones</h4><p>10 clases a consumir en 6 meses. Ideal para horarios irregulares o vueltas puntuales.</p></div><span class="p">{eur(PRICES.bono10, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/bono</span></span></div>
+        <div><span class="label">Extra · 04</span><div><h4>Clase extra <em class="serif">(si has consumido la cuota)</em></h4><p>Si has hecho todas las reservas del mes y quieres una más. La alternativa es subir de tarifa.</p></div><span class="p">{eur(PRICES.classeExtra, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/clase</span></span></div>
+        <div><span class="label">Extra · 05</span><div><h4>Cuota de mantenimiento <em class="serif">(máx. 2 meses/año)</em></h4><p>Si te vas de vacaciones puedes mantener la plaza sin perderla. Reactiva cuando vuelvas.</p></div><span class="p">{eur(PRICES.manteniment, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes</span></span></div>
+        <div><span class="label">Extra · 06</span><div><h4>Matrícula <em class="serif">(solo si vuelves)</em></h4><p>La primera inscripción no tiene coste. Si dejas la cuota y vuelves más adelante, se abona la matrícula.</p></div><span class="p">{eur(PRICES.matricula, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/única</span></span></div>
+        <div><span class="label">Extra · 07</span><div><h4>La Mola Recovery <em class="serif">(sauna infrarroja)</em></h4><p>Una sesión mensual incluida en todas las cuotas. Sesiones extra a 5€ o add-on ilimitado. <a href="/es/recovery" style="color:var(--accent-hi); text-decoration:underline; text-underline-offset:3px;">Descubre La Mola Recovery →</a></p></div><span class="p">{eur(PRICES.recoveryAddon, lang)}<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted); margin-left:6px;">/mes ilimitado</span></span></div>
       </div>
     </div>
   </section>
