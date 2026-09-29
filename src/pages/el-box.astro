@@ -11,6 +11,7 @@ import Schema from '../components/Schema.astro'
   description="Visita el box: 517m² amb rig de 15 places, plataformes, sled push, 9 rope climbs, Coffee Corner i vestidors. Equipament Rogue i Concept2 a Terrassa."
 >
   <Schema type="el-box" slot="head" />
+  <link rel="preload" as="image" href="/assets/team.webp" fetchpriority="high" slot="head" />
   <Fragment slot="head">
     <Breadcrumb items={[{name: "El Box"}]} lang="ca" />
   </Fragment>
@@ -18,7 +19,7 @@ import Schema from '../components/Schema.astro'
   <Nav currentPage="/el-box" />
 
   <section class="page-hero" id="main">
-    <div class="bg" style="background-image:url('/assets/team.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/team.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>El box</span></div>
       <div class="kicker"><span>L'espai</span><span class="bar"></span><span>Terrassa</span></div>

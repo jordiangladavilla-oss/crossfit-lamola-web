@@ -11,12 +11,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
   description="Visita el box: 517m² con rig de 15 plazas, plataformas, sled push, 9 rope climbs, Coffee Corner y vestuarios. Equipamiento Rogue y Concept2 en Terrassa."
 >
   <Schema type="el-box" slot="head" />
+  <link rel="preload" as="image" href="/assets/team.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "El box"}]} lang="es" slot="head" />
 
   <Nav currentPage="/es/el-box" />
 
   <section class="page-hero" id="main">
-    <div class="bg" style="background-image:url('/assets/team.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/team.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>El box</span></div>
       <div class="kicker"><span>El espacio</span><span class="bar"></span><span>Terrassa</span></div>

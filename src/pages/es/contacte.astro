@@ -11,6 +11,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
 
 <Layout title={title} description={description}>
   <Schema type="contacte" slot="head" />
+  <link rel="preload" as="image" href="/assets/community-7.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Contacto"}]} lang="es" slot="head" />
   <Fragment slot="head">
     <style>
@@ -46,7 +47,7 @@ const description = "CrossFit La Mola · Av. del Vallès 724C, Terrassa. WhatsAp
   <Nav currentPage="/es/contacte" />
 
   <section class="page-hero" id="main" style="min-height:50svh">
-    <div class="bg" style="background-image:url('/assets/community-7.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/community-7.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Contacto</span></div>
       <div class="kicker"><span>Escríbenos</span><span class="bar"></span><span>Respuesta en 24h</span></div>

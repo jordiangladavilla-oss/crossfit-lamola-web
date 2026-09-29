@@ -11,6 +11,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
   description="8 disciplinas con coaches CF-L1 y CF-L2: WOD, halterofilia, Hybrid Club, Strength, Bodyweight, Abs & Cals y más."
 >
   <Schema type="classes" slot="head" />
+  <link rel="preload" as="image" href="/assets/detail-rope.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Clases"}]} lang="es" slot="head" />
   <Fragment slot="head">
     <script type="application/ld+json" data-schema="itemlist-disciplines" set:html={JSON.stringify({
@@ -170,7 +171,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
   <Nav currentPage="/es/classes" />
 
   <section class="page-hero" id="main">
-    <div class="bg" style="background-image:url('/assets/detail-rope.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/detail-rope.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Clases</span></div>
       <div class="kicker"><span>8 disciplinas</span><span class="bar"></span><span>Un mismo objetivo</span></div>

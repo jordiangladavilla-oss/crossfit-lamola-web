@@ -11,6 +11,7 @@ import Schema from '../../components/Schema.astro'
   description="CrossFit box pricing in Terrassa. Free sign-up and no lock-in, with a free first trial class. Unlimited memberships, 10 sessions/month and open gym."
 >
   <Schema type="tarifes" slot="head" />
+  <link rel="preload" as="image" href="/assets/community-2.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Pricing"}]} lang="en" slot="head" />
   <Fragment slot="head">
     <script type="application/ld+json" data-schema="offercatalog">
@@ -129,7 +130,7 @@ import Schema from '../../components/Schema.astro'
   <Nav currentPage="/en/tarifes" />
 
   <section class="page-hero">
-    <div class="bg" style="background-image:url('/assets/community-2.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/community-2.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Pricing</span></div>
       <div class="kicker"><span>Free sign-up</span><span class="bar"></span><span>No contracts</span></div>

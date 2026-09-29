@@ -11,6 +11,7 @@ import Schema from '../../components/Schema.astro'
   description="Tarifas del box de CrossFit en Terrassa. Matrícula gratuita y sin permanencia, con primera clase de prueba gratis. Cuotas ilimitadas, 10 sesiones/mes y open gym."
 >
   <Schema type="tarifes" slot="head" />
+  <link rel="preload" as="image" href="/assets/community-2.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Tarifas"}]} lang="es" slot="head" />
   <Fragment slot="head">
     <script type="application/ld+json" data-schema="offercatalog">
@@ -129,7 +130,7 @@ import Schema from '../../components/Schema.astro'
   <Nav currentPage="/es/tarifes" />
 
   <section class="page-hero">
-    <div class="bg" style="background-image:url('/assets/community-2.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/community-2.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/es">Inicio</a><span>/</span><span>Tarifas</span></div>
       <div class="kicker"><span>Matrícula gratuita</span><span class="bar"></span><span>Sin permanencia</span></div>

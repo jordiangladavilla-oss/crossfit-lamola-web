@@ -12,11 +12,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
   canonical="https://crossfitlamola.com/en/horari"
 >
   <Schema type="horari" slot="head" />
+  <link rel="preload" as="image" href="/assets/community-5.webp" fetchpriority="high" slot="head" />
   <Breadcrumb items={[{name: "Schedule"}]} lang="en" slot="head" />
   <Nav currentPage="/en/horari" />
 
   <section class="page-hero" id="main">
-    <div class="bg" style="background-image:url('/assets/community-5.jpg')"></div>
+    <div class="bg" style="background-image:url('/assets/community-5.webp')"></div>
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Schedule</span></div>
       <div class="kicker"><span>Weekly</span><span class="bar"></span><span>Book via Aimharder</span></div>
