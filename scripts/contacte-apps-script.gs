@@ -20,6 +20,7 @@
  * implementació EXISTENT → Versió nova → Desplega. (MAI "Nova implementació":
  * canviaria la URL /exec i els formularis de la web deixarien de funcionar.)
  * Versió 2 (2026-09-29): límit horari, dedupe, comprovació de temps, errors genèrics.
+ * Versió 2.1 (2026-09-30): "t" obligatori; clau de dedupe només després d'escriure al full. PENDENT DE REDESPLEGAR.
  */
 
 var MAX_FIELD_LEN = 500;
@@ -53,12 +54,11 @@ function doPost(e) {
     // Honeypot: si té valor, és un bot. Es respon success igualment.
     if (data.website && String(data.website).length > 0) return json_({success: true});
 
-    // Temps de compleció: instantani o token caducat → bot / replay. Silenci.
+    // Temps de compleció: la web sempre envia "t". Sense "t", instantani o caducat → bot / replay. Silenci.
     var t = Number(data.t);
-    if (t) {
-      var elapsed = Date.now() - t;
-      if (elapsed < MIN_FILL_MS || elapsed > MAX_FILL_MS) return json_({success: true});
-    }
+    if (!t) return json_({success: true});
+    var elapsed = Date.now() - t;
+    if (elapsed < MIN_FILL_MS || elapsed > MAX_FILL_MS) return json_({success: true});
 
     var origen   = clean_(data.origen);
     var name     = clean_(data.name);
@@ -77,9 +77,9 @@ function doPost(e) {
     var cache = CacheService.getScriptCache();
 
     // Dedupe: mateix telèfon/email en DEDUPE_SECONDS → no repetir (l'usuari pot haver reenviat).
+    // La clau es posa DESPRÉS d'escriure al full: si appendRow falla, el reintent no es perd.
     var key = 'lead:' + (phone || email).replace(/\s+/g, '').toLowerCase();
     if (cache.get(key)) return json_({success: true});
-    cache.put(key, '1', DEDUPE_SECONDS);
 
     // Límit global per hora (protegeix la quota de Gmail).
     var hourKey = 'leads:' + Math.floor(Date.now() / 3600e3);
@@ -93,6 +93,7 @@ function doPost(e) {
       origen + (rateLimited ? ' [SENSE EMAIL: límit horari]' : ''),
       name, email, phone, topic, disc, level, when, schedule, message
     ]);
+    cache.put(key, '1', DEDUPE_SECONDS);
 
     if (!rateLimited) {
       var subject = '🏋️ Nou lead CrossFit La Mola - ' + (name || 'Sense nom');
@@ -118,5 +119,5 @@ function doPost(e) {
 
 // Health-check: GET https://script.google.com/macros/s/.../exec → {ok:true}
 function doGet() {
-  return json_({ok: true, service: 'lamola-leads', version: 2});
+  return json_({ok: true, service: 'lamola-leads', version: 2.1});
 }

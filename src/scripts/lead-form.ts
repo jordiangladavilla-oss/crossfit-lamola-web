@@ -67,8 +67,11 @@ export function initLeadForm(o: LeadFormOptions): void {
     //   · resposta no-OK però redirigida → doPost ha respost i l'eco de Google ha fallat: èxit
     //   · 404/5xx sense redirecció       → URL morta o script caigut: error
     //   · fetch llança (CORS a l'eco)    → èxit si hi ha xarxa; error si estem offline
-    let ok = false;
-    try {
+    // Si la resposta no és JSON llegible (eco de Google caigut o CORS), es reintenta UNA vegada
+    // al cap d'1,5 s: el servidor descarta el duplicat (mateix telèfon/email en 10 min) i respon
+    // success:true, així la segona lectura sol ser neta. Només si també falla es cau al criteri
+    // "el script ha respost (redirigit) o hi ha xarxa" → èxit.
+    const send = async (): Promise<boolean | null> => {
       const res = await fetch(LEAD_ENDPOINT, {
         method: 'POST',
         mode: 'cors',
@@ -77,12 +80,25 @@ export function initLeadForm(o: LeadFormOptions): void {
       });
       if (res.ok) {
         const json = await res.json().catch(() => null);
-        ok = json ? json.success === true : res.redirected;
-      } else {
-        ok = res.redirected;
+        if (json && typeof json.success === 'boolean') return json.success;
+        return res.redirected ? null : false; // redirigit sense JSON → indeterminat; no redirigit → error real
       }
+      return res.redirected ? null : false;
+    };
+    let ok = false;
+    try {
+      let r = await send();
+      if (r === null) {
+        await new Promise((res) => setTimeout(res, 1500));
+        try { r = await send(); } catch { r = null; }
+      }
+      ok = r === null ? true : r;
     } catch {
-      ok = navigator.onLine;
+      if (!navigator.onLine) ok = false;
+      else {
+        await new Promise((res) => setTimeout(res, 1500));
+        try { const r = await send(); ok = r === null ? true : r; } catch { ok = true; }
+      }
     }
 
     msg.style.display = 'block';
