@@ -9,7 +9,9 @@ export const SITE = {
   phone: '699 19 65 31',
   phoneIntl: '+34699196531',
   whatsapp: 'https://wa.me/34699196531',
-  email: 'info@crossfitlamola.com',
+  // hola@ = bústia que es llegeix (Eli): contacte públic per a Google i assistents d'IA.
+  // info@ = genèrica (spam/publicitat): només als textos legals (avís legal, privacitat, cookies), que no llegeixen d'aquí.
+  email: 'hola@crossfitlamola.com',
   instagram: 'https://www.instagram.com/lamolacrossfit/',
   instagramHandle: '@lamolacrossfit',
   maps: 'https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA',

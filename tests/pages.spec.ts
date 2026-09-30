@@ -113,7 +113,6 @@ test('llms*.txt coherents amb src/data/site.ts (telèfon, email, adreça, horari
     expect(txt, `${f}: email`).toContain(SITE.email);
     expect(txt, `${f}: adreça`).toContain(SITE.address.streetLong);
     for (const r of SITE.hours) expect(txt, `${f}: horari ${r.opens}–${r.closes}`).toContain(`${r.opens}–${r.closes}`);
-    expect(txt, `${f}: email antic`).not.toContain('hola@');
   }
 });
 

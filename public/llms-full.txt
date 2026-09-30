@@ -14,7 +14,7 @@
 - Adreça: Avinguda del Vallès 724C, 08227 Terrassa, Barcelona, Catalunya, Espanya
 - Coordenades: 41.581285, 2.027955
 - Telèfon: +34 699 19 65 31
-- Email: info@crossfitlamola.com
+- Email: hola@crossfitlamola.com
 - Web: https://crossfitlamola.com
 - Instagram: @lamolacrossfit
 
@@ -122,7 +122,7 @@ R: Avinguda del Vallès 724C, Terrassa (Barcelona).
 - Dirección: Avinguda del Vallès 724C, 08227 Terrassa, Barcelona, Catalunya, España
 - Coordenadas: 41.581285, 2.027955
 - Teléfono: +34 699 19 65 31
-- Email: info@crossfitlamola.com
+- Email: hola@crossfitlamola.com
 - Web: https://crossfitlamola.com
 - Instagram: @lamolacrossfit
 
@@ -229,7 +229,7 @@ Last updated: 2026-09-30
 - Address: Avinguda del Vallès 724C, 08227 Terrassa, Barcelona, Catalonia, Spain
 - Coordinates: 41.581285, 2.027955
 - Phone: +34 699 19 65 31
-- Email: info@crossfitlamola.com
+- Email: hola@crossfitlamola.com
 - Website: https://crossfitlamola.com
 - Instagram: @lamolacrossfit
 
