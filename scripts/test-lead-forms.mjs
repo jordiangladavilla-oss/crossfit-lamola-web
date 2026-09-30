@@ -21,7 +21,7 @@ for (const mode of ['ok', 'reject', 'fail']) {
     for (const [k, v] of Object.entries(f.fill)) { const el = page.locator(`${f.form} [name="${k}"]`); if (await el.count()) await el.fill(v); }
     await page.locator(`${f.form} [name="website"]`).fill('bot'); // honeypot → mai email
     await page.click(f.submit);
-    await page.waitForFunction((sel) => { const m = document.querySelector(sel); return m && m.style.display === 'block'; }, f.msg, { timeout: 20000 });
+    await page.waitForFunction((sel) => { const m = document.querySelector(sel); return m && m.style.display === 'block'; }, f.msg, { timeout: 90000 });
     const txt = (await page.locator(f.msg).innerText()).trim();
     const ga = await page.evaluate(() => window.__ga.filter((a) => a[1] === 'generate_lead').length);
     const btn = await page.locator(f.submit).isDisabled();

@@ -2,24 +2,23 @@
  * CrossFit La Mola · Formulari de Baixes — Google Apps Script
  * ----------------------------------------------------------------------------
  * Rep els POST del formulari /baixa i els escriu a un Google Sheet PROPI
- * anomenat "La Mola · Baixes" (independent del Sheet de reserves).
+ * anomenat "La Mola · Baixes" (independent del Sheet de reserves i del de leads).
  *
- * COM DESPLEGAR (copiar-enganxar, sense modificar res):
- *   1. Ves a https://script.google.com  →  Nou projecte.
- *   2. Esborra el contingut i enganxa TOT aquest fitxer.
- *   3. Desa.  Desplega  →  Nova implementació  →  Tipus: "Aplicació web".
- *        - Executa com a:           Jo mateix
- *        - Qui hi té accés:         Qualsevol  (necessari pel formulari públic)
- *   4. Autoritza els permisos quan ho demani.
- *   5. Copia la URL del Web App (acaba en /exec) i enganxa-la a SCRIPT_URL
- *      dins src/pages/baixa.astro.
+ * Versió 2 (2026-09-30): límit horari (MAX_PER_HOUR) amb descart silenciós, resposta
+ * d'error genèrica (sense text de l'excepció), i el client llegeix la resposta (mode cors).
  *
- * El Sheet "La Mola · Baixes" es crea automàticament la primera vegada i
- * el seu ID queda guardat a les propietats del projecte (no es torna a crear).
- * El trobaràs al teu Google Drive amb aquest nom.
+ * DESPLEGAR CANVIS: Desplega → Gestiona les implementacions → editar la implementació
+ * EXISTENT → Versió nova → Desplega. (MAI "Nova implementació": canviaria la URL /exec que
+ * porta src/pages/baixa.astro.)
+ *
+ * El Sheet "La Mola · Baixes" es crea automàticament la primera vegada i el seu ID queda
+ * guardat a les propietats del projecte.
  */
 
 var SHEET_NAME = 'La Mola · Baixes';
+var MAX_PER_HOUR = 20;      // per sobre: es descarta en silenci (el formulari és de baixes reals: mai n'hi ha 20/h)
+var MAX_FIELD_LEN = 500;
+var MAX_PAYLOAD_LEN = 20000;
 
 // Ordre de columnes (clau del payload + etiqueta de capçalera llegible).
 var FIELDS = [
@@ -49,14 +48,7 @@ var FIELDS = [
   ['comentariFinal',        'Comentari final']
 ];
 
-// Límit de mida per camp i per payload sencer (anti-spam).
-var MAX_FIELD_LEN = 500;
-var MAX_PAYLOAD_LEN = 20000;
-
-// Neteja cada valor abans d'escriure'l al Sheet:
-//  - trunca a MAX_FIELD_LEN
-//  - prefixa amb ' els valors que comencen per = + - @ (anti formula injection:
-//    sense això, un camp com "=IMPORTRANGE(...)" s'executaria en obrir el Sheet)
+// Neteja cada valor: trunca i neutralitza fórmules (= + - @ al començament).
 function clean_(v) {
   if (Array.isArray(v)) v = v.join(', ');
   if (v === undefined || v === null) return '';
@@ -67,34 +59,35 @@ function clean_(v) {
 
 function doPost(e) {
   try {
-    if (!e.postData || e.postData.contents.length > MAX_PAYLOAD_LEN) {
+    if (!e.postData || !e.postData.contents || e.postData.contents.length > MAX_PAYLOAD_LEN) {
       return json_({ result: 'ok' });
     }
-    var data = JSON.parse(e.postData.contents);
+    var data;
+    try { data = JSON.parse(e.postData.contents); } catch (err) { return json_({ result: 'error', error: 'bad_json' }); }
 
-    // Honeypot: el camp "website" és invisible al formulari; si arriba ple, és un bot.
-    // Es respon 'ok' igualment perquè el bot no sàpiga que s'ha descartat.
-    if (data.website) {
-      return json_({ result: 'ok' });
-    }
+    // Honeypot: camp invisible; si arriba ple, és un bot. Es respon 'ok' igualment.
+    if (data.website) return json_({ result: 'ok' });
+
+    // Límit horari: protegeix el Sheet d'una inundació.
+    var cache = CacheService.getScriptCache();
+    var hourKey = 'baixes:' + Math.floor(Date.now() / 3600e3);
+    var n = Number(cache.get(hourKey) || 0) + 1;
+    cache.put(hourKey, String(n), 3700);
+    if (n > MAX_PER_HOUR) return json_({ result: 'ok' });
 
     var sheet = getSheet_();
-
-    var row = FIELDS.map(function (f) {
-      return clean_(data[f[0]]);
-    });
-
-    sheet.appendRow(row);
-
+    sheet.appendRow(FIELDS.map(function (f) { return clean_(data[f[0]]); }));
     return json_({ result: 'ok' });
+
   } catch (err) {
-    return json_({ result: 'error', error: String(err) });
+    console.error('baixes doPost error: ' + err);   // al registre d'execucions, no al client
+    return json_({ result: 'error', error: 'server_error' });
   }
 }
 
-// Petita resposta perquè puguis comprovar la URL al navegador.
+// Health-check: GET .../exec
 function doGet() {
-  return json_({ status: 'CrossFit La Mola · Baixes — endpoint actiu' });
+  return json_({ ok: true, service: 'lamola-baixes', version: 2 });
 }
 
 // Find-or-create del Sheet propi. Guarda l'ID a les propietats del projecte.
@@ -102,29 +95,17 @@ function getSheet_() {
   var props = PropertiesService.getScriptProperties();
   var id = props.getProperty('BAIXES_SHEET_ID');
   var ss = null;
-
-  if (id) {
-    try { ss = SpreadsheetApp.openById(id); } catch (e) { ss = null; }
-  }
-  if (!ss) {
-    ss = SpreadsheetApp.create(SHEET_NAME);
-    props.setProperty('BAIXES_SHEET_ID', ss.getId());
-  }
-
+  if (id) { try { ss = SpreadsheetApp.openById(id); } catch (e) { ss = null; } }
+  if (!ss) { ss = SpreadsheetApp.create(SHEET_NAME); props.setProperty('BAIXES_SHEET_ID', ss.getId()); }
   var sheet = ss.getSheets()[0];
-
-  // Capçalera la primera vegada.
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(FIELDS.map(function (f) { return f[1]; }));
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, FIELDS.length).setFontWeight('bold');
   }
-
   return sheet;
 }
 
 function json_(obj) {
-  return ContentService
-    .createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }

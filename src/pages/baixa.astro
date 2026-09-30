@@ -1,6 +1,6 @@
 ---
 // Formulari de baixes — pàgina autònoma (sense Nav/Footer de la web principal).
-// Privada: no indexable (meta noindex + Disallow a robots.txt). S'envia via enllaç directe.
+// Fora del sitemap i amb noindex (meta + X-Robots-Tag); robots.txt NO la bloqueja perquè Google vegi el noindex.
 // Les dades s'envien a un Google Apps Script propi que escriu al Sheet "La Mola · Baixes"
 // (independent del de reserves). Enganxa la URL del Web App a SCRIPT_URL dins submitForm().
 ---
@@ -797,7 +797,12 @@
 
     <!-- ───────── GRÀCIES ───────── -->
     <div class="step" id="step-thanks">
-      <div class="thank-you">
+      <div class="thank-you" id="submit-error" style="display:none">
+        <span class="ty-icon">⚠️</span>
+        <h2>No hem pogut desar les respostes.</h2>
+        <p>Hi ha hagut un problema en enviar el formulari. Torna-ho a provar en un moment o escriu-nos per WhatsApp al <a href="https://wa.me/34699196531" style="color:var(--black);text-decoration:underline;">699 19 65 31</a> i ho gestionem directament.</p>
+      </div>
+      <div class="thank-you" id="submit-ok">
         <span class="ty-icon">🤍</span>
         <h2>Gràcies de tot cor.</h2>
         <p>Les teves respostes ens ajuden a millorar cada dia.<br>
@@ -976,18 +981,31 @@
     const btn = document.getElementById('btn-submit');
     if (btn) { btn.disabled = true; btn.textContent = 'Enviant…'; }
 
+    /* Mode cors + text/plain: l'Apps Script respon JSON {result:'ok'|'error'} llegible.
+       Si l'eco de Google falla (resposta redirigida sense JSON o CORS), es reintenta una vegada;
+       si torna a fallar, es dona per enviat només si el script ha respost (redirigit). */
+    const send = async () => {
+      const res = await fetch(SCRIPT_URL, { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+      if (res.ok) {
+        const json = await res.json().catch(() => null);
+        if (json && json.result) return json.result === 'ok';
+        return res.redirected ? null : false;
+      }
+      return res.redirected ? null : false;
+    };
+    let ok = false;
     try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+      let r = await send();
+      if (r === null) { await new Promise((w) => setTimeout(w, 1500)); try { r = await send(); } catch { r = null; } }
+      ok = r === null ? true : r;
     } catch (err) {
-      /* mode no-cors: la resposta és opaca; les dades arriben igualment al Sheet */
       console.error('Error enviant el formulari de baixa:', err);
+      ok = navigator.onLine;
     }
 
+    document.getElementById('submit-ok').style.display = ok ? '' : 'none';
+    document.getElementById('submit-error').style.display = ok ? 'none' : '';
+    if (!ok && btn) { btn.disabled = false; btn.textContent = 'Torna-ho a provar'; }
     goStep('thanks');
   }
 </script>
