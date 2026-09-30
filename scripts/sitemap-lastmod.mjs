@@ -6,7 +6,11 @@ import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 
 const DEPS = { horari: ['src/data/schedule.ts'], tarifes: ['src/data/pricing.ts'], agenda: ['src/data/agenda.ts'] };
-const git = (f) => { try { return execSync(`git log -1 --format=%cs -- "${f}"`, { encoding: 'utf8' }).trim(); } catch { return ''; } };
+const today = new Date().toISOString().slice(0, 10);
+const dirty = new Set(execSync('git status --porcelain', { encoding: 'utf8' }).split(/?
+/).map((l) => l.slice(3).trim().replace(/\/g, '/')).filter(Boolean));
+// Fitxers amb canvis encara no comesos → avui (així es pot executar abans del commit)
+const git = (f) => { if (dirty.has(f)) return today; try { return execSync(`git log -1 --format=%cs -- "${f}"`, { encoding: 'utf8' }).trim(); } catch { return ''; } };
 
 let xml = fs.readFileSync('public/sitemap.xml', 'utf8');
 const crlf = xml.includes('\r\n'); if (crlf) xml = xml.replace(/\r\n/g, '\n');
