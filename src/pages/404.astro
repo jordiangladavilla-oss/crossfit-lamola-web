@@ -1,0 +1,62 @@
+---
+// Pàgina 404 (Vercel la serveix per a qualsevol ruta inexistent, en qualsevol idioma).
+// Trilingüe en una sola pàgina: la ruta que ha fallat no ens diu l'idioma amb fiabilitat.
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="Pàgina no trobada · CrossFit La Mola"
+  description="Aquesta pàgina no existeix. Torna a l'inici de CrossFit La Mola, a les classes, l'horari, les tarifes o el contacte."
+  canonical="https://crossfitlamola.com/404"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+
+  <style>
+    .nf{ min-height:60svh; display:flex; align-items:center; }
+    .nf .code{ font-family:var(--f-mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--accent-ink); }
+    .nf h1{ font-family:var(--f-display); font-weight:500; letter-spacing:-0.035em; line-height:.94; font-size:clamp(44px,8vw,120px); margin:16px 0 22px; color:var(--bone-ink); }
+    .nf h1 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-ink); }
+    .nf p{ font-family:var(--f-serif); font-size:clamp(17px,1.8vw,21px); line-height:1.4; color:var(--bone-ink); opacity:.8; max-width:52ch; margin:0 0 10px; }
+    .nf .langs{ display:grid; gap:34px; margin-top:44px; }
+    @media(min-width:820px){ .nf .langs{ grid-template-columns:repeat(3,1fr); } }
+    .nf .lang .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-ink); margin-bottom:10px; }
+    .nf .lang p{ font-size:16px; margin:0 0 14px; }
+    .nf .links{ display:flex; flex-wrap:wrap; gap:8px 18px; font-family:var(--f-mono); font-size:12px; letter-spacing:.08em; }
+    .nf .links a{ color:var(--bone-ink); border-bottom:1px solid var(--line-ink-s); padding-bottom:2px; }
+    .nf .links a:hover{ color:var(--accent-ink); border-color:var(--accent-ink); }
+  </style>
+
+  <Nav currentPage="/404" />
+
+  <section class="sec bone nf" id="main">
+    <div class="inner">
+      <div class="code">Error 404</div>
+      <h1>Aquesta pàgina<br>no <em>existeix</em><span class="dot">.</span></h1>
+      <p>Potser l'enllaç era antic o hi ha una lletra de més. El box, en canvi, hi és sempre.</p>
+
+      <div class="langs">
+        <div class="lang">
+          <div class="tag">Català</div>
+          <p>Torna a l'inici o ves directament al que buscaves.</p>
+          <div class="links"><a href="/">Inici</a><a href="/classes">Classes</a><a href="/horari">Horari</a><a href="/tarifes">Tarifes</a><a href="/contacte">Contacte</a></div>
+        </div>
+        <div class="lang">
+          <div class="tag">Español</div>
+          <p>Esta página no existe. Vuelve al inicio o ve directamente a lo que buscabas.</p>
+          <div class="links"><a href="/es">Inicio</a><a href="/es/classes">Clases</a><a href="/es/horari">Horario</a><a href="/es/tarifes">Tarifas</a><a href="/es/contacte">Contacto</a></div>
+        </div>
+        <div class="lang">
+          <div class="tag">English</div>
+          <p>This page does not exist. Go back home or straight to what you were looking for.</p>
+          <div class="links"><a href="/en">Home</a><a href="/en/classes">Classes</a><a href="/en/horari">Schedule</a><a href="/en/tarifes">Pricing</a><a href="/en/contacte">Contact</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

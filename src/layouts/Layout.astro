@@ -98,9 +98,7 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
 </head>
 <body class={bodyClass} {...bodyData}>
   <a href="#main" class="skip-link">{t('a11y.skip')}</a>
-  <main id="main">
-    <slot />
-  </main>
+  <slot />
 
   <script>
     const nav = document.getElementById('nav');

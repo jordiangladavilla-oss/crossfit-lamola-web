@@ -18,6 +18,8 @@ const AGENDA = getUpcomingEvents(6).map(e => {
     note: ''
   }
 })
+import { PRICES, eur } from '../../data/pricing'
+const lang = 'es' as const
 ---
 
 <Layout
@@ -50,7 +52,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
   <Nav currentPage="/" lang="es" />
 
   <main>
-  <section class="hero" id="top">
+  <section class="hero" id="main">
     <div class="hero-grid">
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-still.webp">
@@ -159,7 +161,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
         <p class="reveal">El centro es el WOD, donde se combinan la halterofilia, la gimnástica y el trabajo híbrido para desarrollar un rendimiento completo. A partir de aquí, cada disciplina se trabaja también de manera específica para consolidar la técnica y la progresión, con el powerlifting y las sesiones de Abs & Cals como base que sostiene todo el conjunto.</p>
       </div>
       <div class="disc-grid reveal-stagger">
-        <a href="/es/classes" class="disc-card" style="--i:0">
+        <a href="/es/classes#wod" class="disc-card" style="--i:0">
           <div class="img"><img src="/assets/class-wod.webp" alt="Clase WOD en CrossFit La Mola con grupo de atletas y coach explicando el workout" loading="lazy"></div>
           <div class="body">
             <div class="tag">Cada día · Base</div>
@@ -168,7 +170,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:1">
+        <a href="/es/classes#weightlifting" class="disc-card" style="--i:1">
           <div class="img"><img src="/assets/class-weightlifting.webp" alt="Atleta haciendo jerk con barra olímpica durante clase de Weightlifting" loading="lazy"></div>
           <div class="body">
             <div class="tag">Halterofilia · Técnica</div>
@@ -177,7 +179,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:2">
+        <a href="/es/classes#hybrid" class="disc-card" style="--i:2">
           <div class="img"><img src="/assets/class-hybrid.webp" alt="Atletas entrenando en la Concept2 BikeERG durante clase Hybrid Club" loading="lazy"></div>
           <div class="body">
             <div class="tag">Fuerza + Resistencia</div>
@@ -186,7 +188,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:3">
+        <a href="/es/classes#bodyweight" class="disc-card" style="--i:3">
           <div class="img"><img src="/assets/class-bodyweight.webp" alt="Atletas haciendo rope climb durante clase de Bodyweight Lab" loading="lazy"></div>
           <div class="body">
             <div class="tag">Gimnástico · Base / Advance</div>
@@ -195,7 +197,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:4">
+        <a href="/es/classes#strength" class="disc-card" style="--i:4">
           <div class="img"><img src="/assets/class-strength.webp" alt="Grupo de atletas con barras olímpicas durante clase Strength Club" loading="lazy"></div>
           <div class="body">
             <div class="tag">Fuerza pura · 2 días/semana</div>
@@ -204,7 +206,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:5">
+        <a href="/es/classes#abs-cals" class="disc-card" style="--i:5">
           <div class="img"><img src="/assets/class-abs.webp" alt="Atleta entrenando en la rower Concept2 durante clase Abs and Cals" style="object-position: center top;" loading="lazy"></div>
           <div class="body">
             <div class="tag">Máquinas · Core</div>
@@ -213,7 +215,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:6">
+        <a href="/es/classes#the-program" class="disc-card" style="--i:6">
           <div class="img"><img src="/assets/class-program.webp" alt="Coach explicando el WOD en la pizarra con atletas escuchando" loading="lazy"></div>
           <div class="body">
             <div class="tag">Competición · RX · Ciclos</div>
@@ -222,13 +224,62 @@ const AGENDA = getUpcomingEvents(6).map(e => {
             <span class="link">Ver clase →</span>
           </div>
         </a>
-        <a href="/es/classes" class="disc-card" style="--i:7">
+        <a href="/es/classes#running" class="disc-card" style="--i:7">
           <div class="img"><img src="/assets/class-running.webp" alt="Dos atletas sonriendo mientras entrenan en las Echo Bikes" loading="lazy"></div>
           <div class="body">
             <div class="tag">Correr · En comunidad</div>
             <h3>Running Club</h3>
             <p>Para sumar el correr a tu entrenamiento, y hacerlo en comunidad. Un espacio para compartir la carrera con otros atletas.</p>
             <span class="link">Ver clase →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone" id="serveis" style="padding-top:0;">
+    <div class="inner">
+      <div class="eyebrow reveal"><span>Servicios</span></div>
+      <div style="height:16px"></div>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">Más allá de las <em class="serif">clases</em><span class="dot">.</span></h2>
+        <p class="lead reveal">Recuperación, preparación de oposiciones y las marcas con las que trabajamos. Todo en el mismo box de Terrassa.</p>
+      </div>
+      <div class="disc-grid reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <a href="/es/recovery" class="disc-card" style="--i:0">
+          <div class="img"><img src="/assets/recovery-sauna.webp" alt="Sauna infrarroja de La Mola Recovery" loading="lazy" width="800" height="600"></div>
+          <div class="body">
+            <div class="tag">Nuevo · Octubre 2026</div>
+            <h3>La Mola Recovery</h3>
+            <p>Sauna infrarroja en Terrassa. Una sesión al mes incluida en todas las cuotas, sesiones extra a {eur(PRICES.saunaExtra, lang)} o ilimitada por {eur(PRICES.recoveryAddon, lang)}/mes.</p>
+            <span class="link">Ver Recovery →</span>
+          </div>
+        </a>
+        <a href="/es/opositors" class="disc-card" style="--i:1">
+          <div class="img"><img src="/assets/opositors-hero.webp" alt="Preparación física para oposiciones en el box" loading="lazy" width="800" height="600"></div>
+          <div class="body">
+            <div class="tag">Bomberos · Mossos d’Esquadra</div>
+            <h3>Preparación física para oposiciones</h3>
+            <p>Clase dirigida semanal con los elementos de la prueba y una hora al día de entrenamiento libre. {eur(PRICES.opositors, lang)}/mes, primera clase gratis.</p>
+            <span class="link">Ver la cuota →</span>
+          </div>
+        </a>
+        <a href="/es/classes#entrenament-funcional" class="disc-card" style="--i:2">
+          <div class="img"><img src="/assets/elbox-zona-wod.webp" alt="Zona WOD del box, base del entrenamiento funcional" loading="lazy" width="800" height="600"></div>
+          <div class="body">
+            <div class="tag">La base de todo</div>
+            <h3>Entrenamiento funcional en Terrassa</h3>
+            <p>Empujar, tirar, levantar, cargar, correr. La base de las ocho disciplinas, con carga y técnica adaptadas a cada persona.</p>
+            <span class="link">Cómo lo trabajamos →</span>
+          </div>
+        </a>
+        <a href="/es/partners" class="disc-card" style="--i:3">
+          <div class="img"><img src="/assets/partners-hero.webp" alt="Material de entrenamiento de las marcas partner" loading="lazy" width="800" height="600"></div>
+          <div class="body">
+            <div class="tag">Wellhub · USC · Velites · Picsil</div>
+            <h3>Partners y marcas</h3>
+            <p>Plataformas de acceso corporativo y marcas de material con las que construimos el box.</p>
+            <span class="link">Ver partners →</span>
           </div>
         </a>
       </div>
