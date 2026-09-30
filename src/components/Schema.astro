@@ -1,5 +1,5 @@
 ---
-import { priceRange } from '../data/pricing'
+import { priceRange, PRICES } from '../data/pricing'
 
 interface Props {
   type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte' | 'el-box' | 'horari' | 'agenda'
@@ -24,7 +24,7 @@ const baseSchema = {
   ],
   "telephone": "+34699196531",
   "email": "hola@crossfitlamola.com",
-  "priceRange": "€€",
+  "priceRange": priceRange,
   "foundingDate": "2025-01-13",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Credit Card, Bank Transfer, Direct Debit, Virtual POS",
@@ -100,7 +100,7 @@ const baseSchema = {
     "name": "Tarifes CrossFit La Mola",
     "itemListElement": [
       {"@type": "Offer", "name": "Primera classe gratuïta", "price": "0", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Quota mensual", "priceRange": priceRange}
+      {"@type": "Offer", "name": "Quota mensual", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": PRICES.ocasional, "maxPrice": PRICES.unlimited, "priceCurrency": "EUR"}}
     ]
   },
   "knowsAbout": ["CrossFit", "Halterofília", "Entrenament funcional", "HIIT", "Gimnàstic", "Strength & Conditioning", "Hybrid Training", "Sled push", "Powerlifting"],
