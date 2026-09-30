@@ -56,6 +56,7 @@ const lang = 'ca' as const
     <div class="hero-grid">
       <div class="hero-media">
         <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-still.webp">
+          <source media="(max-width: 700px)" src="/assets/hero-mobile.mp4" type="video/mp4">
           <source src="/assets/hero.mp4" type="video/mp4">
         </video>
       </div>
@@ -68,7 +69,7 @@ const lang = 'ca' as const
             <span>Terrassa · CrossFit Affiliate</span>
           </div>
           <h1 class="visually-hidden">CrossFit La Mola · Box de CrossFit a Terrassa.</h1>
-          <img class="hero-logo" src="/assets/logo-full.png" alt="CrossFit La Mola. Build strength together." width="1280" height="199" fetchpriority="high">
+          <img srcset="/assets/logo-full.png-800.webp 800w, /assets/logo-full.png-1200.webp 1200w, /assets/logo-full.png 1674w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" class="hero-logo" src="/assets/logo-full.png-1200.webp" alt="CrossFit La Mola. Build strength together." width="1280" height="199" fetchpriority="high">
         </div>
 
         <div class="hero-bottom-row">
@@ -143,10 +144,10 @@ const lang = 'ca' as const
         </div>
         <div class="story-images reveal-stagger">
           <figure class="tall" style="--i:0"><img src="/assets/lamola-climb.webp" alt="Atleta fent rope climb a CrossFit La Mola, com pujar La Mola pas a pas" width="520" height="780" loading="lazy"></figure>
-          <figure style="--i:1"><img src="/assets/detail-chalk.webp" alt="Mà d'atleta amb magnesi preparant-se per aixecar" loading="lazy"></figure>
-          <figure style="--i:2"><img src="/assets/detail-dumbbells.webp" alt="Rack de manuelles de competició al box" loading="lazy"></figure>
-          <figure style="--i:3"><img src="/assets/class-weightlifting.webp" alt="Atleta fent halterofília amb barra per sobre el cap al box" loading="lazy"></figure>
-          <figure style="--i:4"><img src="/assets/detail-rope.webp" alt="Corda de batalla enrotllada al terra del box" loading="lazy"></figure>
+          <figure style="--i:1"><img src="/assets/detail-chalk.webp" alt="Mà d'atleta amb magnesi preparant-se per aixecar" loading="lazy" width="600" height="900"></figure>
+          <figure style="--i:2"><img src="/assets/detail-dumbbells.webp" alt="Rack de manuelles de competició al box" loading="lazy" width="600" height="900"></figure>
+          <figure style="--i:3"><img src="/assets/class-weightlifting.webp" alt="Atleta fent halterofília amb barra per sobre el cap al box" loading="lazy" width="600" height="900"></figure>
+          <figure style="--i:4"><img src="/assets/detail-rope.webp" alt="Corda de batalla enrotllada al terra del box" loading="lazy" width="600" height="900"></figure>
         </div>
       </div>
     </div>
@@ -162,7 +163,7 @@ const lang = 'ca' as const
       </div>
       <div class="disc-grid reveal-stagger">
         <a href="/classes#wod" class="disc-card" style="--i:0">
-          <div class="img"><img src="/assets/class-wod.webp" alt="Classe WOD a CrossFit La Mola amb grup d'atletes i coach explicant el workout" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-wod.webp" alt="Classe WOD a CrossFit La Mola amb grup d'atletes i coach explicant el workout" loading="lazy" width="600" height="400"></div>
           <div class="body">
             <div class="tag">Cada dia · Base</div>
             <h3>WOD</h3>
@@ -171,7 +172,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#weightlifting" class="disc-card" style="--i:1">
-          <div class="img"><img src="/assets/class-weightlifting.webp" alt="Atleta fent jerk amb barra olímpica durant classe de Weightlifting" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-weightlifting.webp" alt="Atleta fent jerk amb barra olímpica durant classe de Weightlifting" loading="lazy" width="600" height="900"></div>
           <div class="body">
             <div class="tag">Halterofília · Tècnica</div>
             <h3>Weightlifting</h3>
@@ -180,7 +181,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#hybrid" class="disc-card" style="--i:2">
-          <div class="img"><img src="/assets/class-hybrid.webp" alt="Atletes entrenant a la Concept2 BikeERG durant classe Hybrid Club" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-hybrid.webp" alt="Atletes entrenant a la Concept2 BikeERG durant classe Hybrid Club" loading="lazy" width="600" height="900"></div>
           <div class="body">
             <div class="tag">Força + Resistència</div>
             <h3>Hybrid Club</h3>
@@ -189,7 +190,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#bodyweight" class="disc-card" style="--i:3">
-          <div class="img"><img src="/assets/class-bodyweight.webp" alt="Atletes fent rope climb durant classe de Bodyweight Lab" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-bodyweight.webp" alt="Atletes fent rope climb durant classe de Bodyweight Lab" loading="lazy" width="600" height="400"></div>
           <div class="body">
             <div class="tag">Gimnàstic · Base / Advance</div>
             <h3>Bodyweight Lab</h3>
@@ -198,7 +199,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#strength" class="disc-card" style="--i:4">
-          <div class="img"><img src="/assets/class-strength.webp" alt="Grup d'atletes amb barres olímpiques durant classe Strength Club" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-strength.webp" alt="Grup d'atletes amb barres olímpiques durant classe Strength Club" loading="lazy" width="600" height="900"></div>
           <div class="body">
             <div class="tag">Força pura · 2 dies/setmana</div>
             <h3>Strength Club</h3>
@@ -207,7 +208,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#abs-cals" class="disc-card" style="--i:5">
-          <div class="img"><img src="/assets/class-abs.webp" alt="Atleta entrenant a la rower Concept2 durant classe Abs and Cals" style="object-position: center top;" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-abs.webp" alt="Atleta entrenant a la rower Concept2 durant classe Abs and Cals" style="object-position: center top;" loading="lazy" width="600" height="900"></div>
           <div class="body">
             <div class="tag">Màquines · Core</div>
             <h3>Abs &amp; Cals</h3>
@@ -216,7 +217,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#the-program" class="disc-card" style="--i:6">
-          <div class="img"><img src="/assets/class-program.webp" alt="Coach explicant el WOD a la pissarra amb atletes escoltant" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-program.webp" alt="Coach explicant el WOD a la pissarra amb atletes escoltant" loading="lazy" width="600" height="400"></div>
           <div class="body">
             <div class="tag">Competició · RX · Cicles</div>
             <h3>The Program</h3>
@@ -225,7 +226,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/classes#running" class="disc-card" style="--i:7">
-          <div class="img"><img src="/assets/class-running.webp" alt="Dues atletes somrient mentre entrenen a les Echo Bikes" loading="lazy"></div>
+          <div class="img"><img src="/assets/class-running.webp" alt="Dues atletes somrient mentre entrenen a les Echo Bikes" loading="lazy" width="600" height="400"></div>
           <div class="body">
             <div class="tag">Córrer · En comunitat</div>
             <h3>Running Club</h3>
@@ -249,7 +250,7 @@ const lang = 'ca' as const
         <article class="coach" style="--i:0">
           <div class="photo">
             <span class="tag">01 · Head Coach</span>
-            <img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i cofundador de CrossFit La Mola, certificat CF-L2" loading="lazy">
+            <img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i cofundador de CrossFit La Mola, certificat CF-L2" loading="lazy" width="500" height="750">
           </div>
           <h3>Sergi</h3>
           <div class="coach-kvs">
@@ -262,7 +263,7 @@ const lang = 'ca' as const
         <article class="coach" style="--i:1">
           <div class="photo">
             <span class="tag">02 · Coach</span>
-            <img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" loading="lazy">
+            <img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" loading="lazy" width="500" height="750">
           </div>
           <h3>Juse</h3>
           <div class="coach-kvs">
@@ -275,7 +276,7 @@ const lang = 'ca' as const
         <article class="coach" style="--i:2">
           <div class="photo">
             <span class="tag">03 · Coach</span>
-            <img src="/assets/coach-eli.jpg" alt="Eli, coach i cofundadora de CrossFit La Mola, certificada CF-L1" loading="lazy">
+            <img src="/assets/coach-eli.jpg" alt="Eli, coach i cofundadora de CrossFit La Mola, certificada CF-L1" loading="lazy" width="500" height="750">
           </div>
           <h3>Eli</h3>
           <div class="coach-kvs">
@@ -328,22 +329,22 @@ const lang = 'ca' as const
         <p class="reveal">Algunes persones busquen salut, altres rendiment o competició. També n'hi ha que venen per desconnectar, socialitzar o trobar un espai on sentir-se còmodes i segures. Aquí tothom escala, tothom progressa i tothom té el seu espai.</p>
       </div>
       <div class="comm-grid reveal-stagger">
-        <figure class="wide" style="--i:0"><img src="/assets/RAQ_7644.jpg" alt="L'equip complet de CrossFit La Mola: coaches i atletes junts al box" loading="lazy"></figure>
-        <figure style="--i:2"><img src="/assets/detail-chalk.webp" alt="Mà d'atleta amb magnesi preparant-se per aixecar" loading="lazy"></figure>
+        <figure class="wide" style="--i:0"><img src="/assets/RAQ_7644.webp" alt="L'equip complet de CrossFit La Mola: coaches i atletes junts al box" loading="lazy" width="900" height="600"></figure>
+        <figure style="--i:2"><img src="/assets/detail-chalk.webp" alt="Mà d'atleta amb magnesi preparant-se per aixecar" loading="lazy" width="600" height="900"></figure>
         <div class="quote-card" style="--i:3">
           <blockquote>"Molt bon ambient, grans professionals, familiar i amb molt bones instal·lacions."</blockquote>
           <cite>Marc · desembre 2025 · <a href="https://goo.gl/maps/v5yuvhn1jXABGmbY8?g_st=aw" target="_blank" rel="noopener">Veure ressenya</a></cite>
         </div>
-        <figure class="tall" style="--i:4"><img src="/assets/community-7.webp" alt="Grup d'atletes animant un company durant el WOD" loading="lazy"></figure>
-        <figure style="--i:5"><img src="/assets/community-4.webp" alt="Dues atletes somrient mentre entrenen a les Echo Bikes" loading="lazy"></figure>
-        <figure style="--i:6"><img src="/assets/community-6.webp" alt="Atletes entrenant junts a classe de CrossFit" loading="lazy"></figure>
+        <figure class="tall" style="--i:4"><img src="/assets/community-7.webp" alt="Grup d'atletes animant un company durant el WOD" loading="lazy" width="900" height="600"></figure>
+        <figure style="--i:5"><img src="/assets/community-4.webp" alt="Dues atletes somrient mentre entrenen a les Echo Bikes" loading="lazy" width="600" height="900"></figure>
+        <figure style="--i:6"><img src="/assets/community-6.webp" alt="Atletes entrenant junts a classe de CrossFit" loading="lazy" width="600" height="900"></figure>
         <div class="quote-card" style="--i:7">
           <blockquote>"Sense dubte el millor box on he estat. Són molt propers, atents, sempre estan pendents de tu. Tot està ordenat, net i impecable. A més, no paren d'innovar i millorar. Gust d'entrenar aquí!"</blockquote>
           <cite>Eva · abril 2025 · <a href="https://goo.gl/maps/HP3B6uTDn8vEuixR6?g_st=aw" target="_blank" rel="noopener">Veure ressenya</a></cite>
         </div>
-        <figure style="--i:8"><img src="/assets/community-4.2.webp" alt="Tres atletes celebrant després d'un entrenament intens" loading="lazy"></figure>
-        <figure class="wide" style="--i:9"><img src="/assets/community-group.webp" alt="Grup ampli d'atletes posant junts al box" loading="lazy"></figure>
-        <figure class="tall" style="--i:10"><img src="/assets/community-8.webp" alt="Atleta fent ring muscle-ups durant el WOD" loading="lazy"></figure>
+        <figure style="--i:8"><img src="/assets/community-4.2.webp" alt="Tres atletes celebrant després d'un entrenament intens" loading="lazy" width="900" height="600"></figure>
+        <figure class="wide" style="--i:9"><img srcset="/assets/community-group-800.webp 800w, /assets/community-group-1200.webp 1200w, /assets/community-group.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/community-group-1200.webp" alt="Grup ampli d'atletes posant junts al box" loading="lazy" width="1200" height="675"></figure>
+        <figure class="tall" style="--i:10"><img src="/assets/community-8.webp" alt="Atleta fent ring muscle-ups durant el WOD" loading="lazy" width="900" height="600"></figure>
       </div>
     </div>
   </section>
@@ -367,7 +368,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/opositors" class="disc-card" style="--i:1">
-          <div class="img"><img src="/assets/elbox-equipament-2.webp" alt="Worms, sandbags i calaixos per al circuit de la prova física" loading="lazy" width="800" height="600"></div>
+          <div class="img"><img srcset="/assets/elbox-equipament-2-800.webp 800w, /assets/elbox-equipament-2-1200.webp 1200w, /assets/elbox-equipament-2.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-equipament-2-1200.webp" alt="Worms, sandbags i calaixos per al circuit de la prova física" loading="lazy" width="800" height="600"></div>
           <div class="body">
             <div class="tag">Bombers · Mossos d'Esquadra</div>
             <h3>Preparació física per a oposicions</h3>
@@ -385,7 +386,7 @@ const lang = 'ca' as const
           </div>
         </a>
         <a href="/partners" class="disc-card" style="--i:3">
-          <div class="img"><img src="/assets/elbox-equipament-1.webp" alt="Rack amb manuelles i wall balls Ruster" loading="lazy" width="800" height="600"></div>
+          <div class="img"><img srcset="/assets/elbox-equipament-1-800.webp 800w, /assets/elbox-equipament-1-1200.webp 1200w, /assets/elbox-equipament-1.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-equipament-1-1200.webp" alt="Rack amb manuelles i wall balls Ruster" loading="lazy" width="800" height="600"></div>
           <div class="body">
             <div class="tag">Wellhub · USC · Velites · Picsil</div>
             <h3>Partners i marques</h3>

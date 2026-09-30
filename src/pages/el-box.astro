@@ -59,7 +59,7 @@ import Schema from '../components/Schema.astro'
 
       <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="reveal-stagger">
         <article style="--i:0; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i cofundador de CrossFit La Mola, certificat CF-L2" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-sergi.jpg" alt="Sergi, head coach i cofundador de CrossFit La Mola, certificat CF-L2" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy" width="500" height="750"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">01 · Head Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Sergi</h3>
@@ -73,7 +73,7 @@ import Schema from '../components/Schema.astro'
         </article>
         <!-- Juse -->
         <article style="--i:1; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-juse.jpg" alt="Juse, coach de CrossFit La Mola, certificat CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy" width="500" height="750"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">02 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Juse</h3>
@@ -87,7 +87,7 @@ import Schema from '../components/Schema.astro'
         </article>
         <!-- Eli -->
         <article style="--i:2; display:grid; grid-template-columns:1fr; gap:24px;">
-          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach i cofundadora de CrossFit La Mola, certificada CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy"></div>
+          <div style="aspect-ratio:4/5; overflow:hidden; background:var(--ink-2);"><img src="/assets/coach-eli.jpg" alt="Eli, coach i cofundadora de CrossFit La Mola, certificada CF-L1" style="width:100%; height:100%; object-fit:cover; filter:saturate(.9) contrast(1.02);" loading="lazy" width="500" height="750"></div>
           <div>
             <div style="font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);">03 · Coach</div>
             <h3 style="font-family:var(--f-display); font-weight:500; font-size:clamp(30px,3.4vw,42px); letter-spacing:-0.03em; margin:10px 0 18px;">Eli</h3>
@@ -120,23 +120,23 @@ import Schema from '../components/Schema.astro'
       </div>
 
       <div class="gallery reveal-stagger">
-        <figure class="huge" style="--i:0"><img src="/assets/elbox-zona-wod.webp" alt="Vista aèria de la zona WOD principal de CrossFit La Mola amb rig de 15 places" loading="lazy"><figcaption>Zona WOD principal</figcaption></figure>
-        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Atletes entrenant al box durant una classe de CrossFit" loading="lazy"><figcaption>Entrenament en grup</figcaption></figure>
-        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Atleta realitzant un snatch amb samarreta La Mola" loading="lazy"><figcaption>Halterofília</figcaption></figure>
-        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Detall de mà agafant dumbbell Ruster al rack d'equipament" loading="lazy"><figcaption>Equipació</figcaption></figure>
-        <figure class="wide" style="--i:4"><img src="/assets/elbox-cardio.webp" alt="Zona cardio amb Echo Bikes Rogue i Ski Ergs" loading="lazy"><figcaption>Zona cardio</figcaption></figure>
-        <figure class="tall" style="--i:5"><img src="/assets/elbox-equipament-1.webp" alt="Rack d'equipament amb dumbbells, wallballs i sandbags Ruster" loading="lazy"><figcaption>Material</figcaption></figure>
-        <figure style="--i:6"><img src="/assets/elbox-vestidors.webp" alt="Detall dels lavabos dels vestidors amb acabats de qualitat" loading="lazy"><figcaption>Vestidors</figcaption></figure>
-        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Atleta amb samarreta CrossFit La Mola durant classe" loading="lazy"><figcaption>Comunitat</figcaption></figure>
+        <figure class="huge" style="--i:0"><img srcset="/assets/elbox-zona-wod-800.webp 800w, /assets/elbox-zona-wod-1200.webp 1200w, /assets/elbox-zona-wod.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-zona-wod-1200.webp" alt="Vista aèria de la zona WOD principal de CrossFit La Mola amb rig de 15 places" loading="lazy" width="1200" height="904"><figcaption>Zona WOD principal</figcaption></figure>
+        <figure class="tall" style="--i:1"><img src="/assets/elbox-entrenament-1.webp" alt="Atletes entrenant al box durant una classe de CrossFit" loading="lazy" width="900" height="600"><figcaption>Entrenament en grup</figcaption></figure>
+        <figure style="--i:2"><img src="/assets/elbox-entrenament-3.webp" alt="Atleta realitzant un snatch amb samarreta La Mola" loading="lazy" width="900" height="600"><figcaption>Halterofília</figcaption></figure>
+        <figure style="--i:3"><img src="/assets/elbox-equipament-3.webp" alt="Detall de mà agafant dumbbell Ruster al rack d'equipament" loading="lazy" width="600" height="900"><figcaption>Equipació</figcaption></figure>
+        <figure class="wide" style="--i:4"><img srcset="/assets/elbox-cardio-800.webp 800w, /assets/elbox-cardio-1200.webp 1200w, /assets/elbox-cardio.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-cardio-1200.webp" alt="Zona cardio amb Echo Bikes Rogue i Ski Ergs" loading="lazy" width="1200" height="675"><figcaption>Zona cardio</figcaption></figure>
+        <figure class="tall" style="--i:5"><img srcset="/assets/elbox-equipament-1-800.webp 800w, /assets/elbox-equipament-1-1200.webp 1200w, /assets/elbox-equipament-1.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-equipament-1-1200.webp" alt="Rack d'equipament amb dumbbells, wallballs i sandbags Ruster" loading="lazy" width="1200" height="904"><figcaption>Material</figcaption></figure>
+        <figure style="--i:6"><img src="/assets/elbox-vestuaris.webp" alt="Detall dels lavabos dels vestidors amb acabats de qualitat" loading="lazy" width="600" height="900"><figcaption>Vestidors</figcaption></figure>
+        <figure style="--i:7"><img src="/assets/elbox-entrenament-4.webp" alt="Atleta amb samarreta CrossFit La Mola durant classe" loading="lazy" width="600" height="900"><figcaption>Comunitat</figcaption></figure>
         <figure class="wide video-hover" style="--i:8">
-          <img src="/assets/elbox-exterior-2.webp" alt="Façana exterior de CrossFit La Mola amb rètol" class="poster" loading="lazy" style="object-position:center bottom">
+          <img srcset="/assets/elbox-exterior-2-800.webp 800w, /assets/elbox-exterior-2-1200.webp 1200w, /assets/elbox-exterior-2.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-exterior-2-1200.webp" alt="Façana exterior de CrossFit La Mola amb rètol" class="poster" loading="lazy" style="object-position:center bottom" width="1200" height="904">
           <video src="/assets/video-exterior.mp4" muted loop playsinline preload="metadata" style="object-position:center bottom"></video>
           <figcaption>Zona exterior</figcaption>
         </figure>
-        <figure class="tall" style="--i:9"><img src="/assets/elbox-coffee-corner.webp" alt="Zona de descans amb sofàs i plantes al coffee corner" loading="lazy"><figcaption>Coffee corner</figcaption></figure>
-        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Detall de cordes i anelles de fusta al rig de gimnàstic" loading="lazy"><figcaption>Rig i anelles</figcaption></figure>
-        <figure style="--i:11"><img src="/assets/elbox-exterior-1.webp" alt="Zona exterior amb gespa artificial i rig per entrenar a l'aire lliure" loading="lazy"><figcaption>Training outdoor</figcaption></figure>
-        <figure class="wide" style="--i:12"><img src="/assets/elbox-equipament-2.webp" alt="Worms, sandbags i matalassets HSPU de la marca Ruster" loading="lazy"><figcaption>Material funcional</figcaption></figure>
+        <figure class="tall" style="--i:9"><img srcset="/assets/elbox-coffee-corner-800.webp 800w, /assets/elbox-coffee-corner-1200.webp 1200w, /assets/elbox-coffee-corner.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-coffee-corner-1200.webp" alt="Zona de descans amb sofàs i plantes al coffee corner" loading="lazy" width="1200" height="904"><figcaption>Coffee corner</figcaption></figure>
+        <figure style="--i:10"><img src="/assets/elbox-rig-anelles.webp" alt="Detall de cordes i anelles de fusta al rig de gimnàstic" loading="lazy" width="600" height="900"><figcaption>Rig i anelles</figcaption></figure>
+        <figure style="--i:11"><img srcset="/assets/elbox-exterior-1-800.webp 800w, /assets/elbox-exterior-1-1200.webp 1200w, /assets/elbox-exterior-1.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-exterior-1-1200.webp" alt="Zona exterior amb gespa artificial i rig per entrenar a l'aire lliure" loading="lazy" width="1200" height="904"><figcaption>Training outdoor</figcaption></figure>
+        <figure class="wide" style="--i:12"><img srcset="/assets/elbox-equipament-2-800.webp 800w, /assets/elbox-equipament-2-1200.webp 1200w, /assets/elbox-equipament-2.webp 2048w" sizes="(min-width: 1100px) 50vw, (min-width: 700px) 60vw, 100vw" src="/assets/elbox-equipament-2-1200.webp" alt="Worms, sandbags i matalassets HSPU de la marca Ruster" loading="lazy" width="1200" height="904"><figcaption>Material funcional</figcaption></figure>
       </div>
 
       <div class="equip reveal">
