@@ -12,7 +12,8 @@
     "astro": "astro",
     "check:faq": "node scripts/faq-sync.mjs",
     "check:faq:dist": "node scripts/faq-sync.mjs --dist",
-    "test:leads": "node scripts/test-lead-forms.mjs http://127.0.0.1:4321"
+    "test:leads": "node scripts/test-lead-forms.mjs http://127.0.0.1:4321",
+    "sitemap": "node scripts/sitemap-lastmod.mjs"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "^5.2.8",

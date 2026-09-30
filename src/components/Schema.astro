@@ -40,30 +40,8 @@ const baseSchema = {
   },
   "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
   "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "20",
-    "reviewCount": "20"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {"@type": "Person", "name": "Marc"},
-      "datePublished": "2025-12-15",
-      "reviewBody": "Molt bon ambient, grans professionals, familiar i amb molt bones instal·lacions.",
-      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
-    },
-    {
-      "@type": "Review",
-      "author": {"@type": "Person", "name": "Eva"},
-      "datePublished": "2025-04-15",
-      "reviewBody": "Sense dubte el millor box on he estat. Són molt propers, atents, sempre estan pendents de tu. Tot està ordenat, net i impecable.",
-      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
-    }
-  ],
+  // aggregateRating/review autoservides eliminades (2026-09-30): Google no les fa servir per a rich results de
+  // LocalBusiness des del 2019 i poden generar avís a GSC. Les ressenyes reals són al perfil de Google (sameAs).
   "sameAs": [
     "https://www.instagram.com/lamolacrossfit/",
     "https://www.crossfit.com/gym/34944/crossfit-la-mola",
