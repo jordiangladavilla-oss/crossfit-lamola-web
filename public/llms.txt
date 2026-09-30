@@ -19,8 +19,8 @@
 - Graella de classes per franja: https://crossfitlamola.com/horari
 
 ## Coaches certificats
-1. Sergi — Head Coach & Co-fundador (CF-L2, FP Grau Superior Esports)
-2. Eliana (Eli) — Coach & Co-fundadora (CF-L1)
+1. Sergi — Head Coach & Cofundador (CF-L2, FP Grau Superior Esports)
+2. Eliana (Eli) — Coach & Cofundadora (CF-L1)
 3. Juse — Coach (CF-L1, FP Grau Superior Esports)
 
 ## Disciplines (8 programes)
@@ -28,7 +28,7 @@
 2. Weightlifting — Halterofília olímpica (snatch, clean, jerk)
 3. Hybrid Club — Força + resistència sense moviments complexos
 4. Bodyweight Lab — Gimnàstic (pull-ups, muscle-ups, handstands)
-5. Strength Club — Powerlifting (sentadilla, pes mort, press)
+5. Strength Club — Powerlifting (esquat, pes mort, press)
 6. Abs & Cals — Core + màquines cardio (Concept2)
 7. The Program — Programació competició RX
 8. Running Club — Córrer en comunitat

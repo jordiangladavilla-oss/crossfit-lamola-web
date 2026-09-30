@@ -120,7 +120,7 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'La Mola · Alfonso · 50 €',
     placeEs: 'La Mola · Alfonso · 50 €',
     placeEn: 'La Mola · Alfonso · €50',
-    desc: "Seminari intensiu amb Alfonso. Millora la tècnica d'arrancada i dos temps amb un dels millors coaches.",
+    desc: "Seminari intensiu amb Alfonso. Millora la tècnica d'arrencada i dos temps amb un dels millors coaches.",
     descEs: 'Seminario intensivo con Alfonso. Mejora la técnica de arrancada y dos tiempos con uno de los mejores coaches.',
     descEn: 'Intensive seminar with Alfonso. Improve your snatch and clean & jerk technique with one of the best coaches.',
     image: `${AGENDA_REPO_RAW}/Halteroseminari.jpg`
@@ -184,7 +184,7 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'La Mola · Cursa + estacions · Gratuït',
     placeEs: 'La Mola · Carrera + estaciones · Gratis',
     placeEn: 'La Mola · Race + stations · Free',
-    desc: 'Primer simulacre de preparació per la Fit Race FCL Costa Brava. Afina el ritme de cursa i les transicions.',
+    desc: 'Primer simulacre de preparació per a la Fit Race FCL Costa Brava. Afina el ritme de cursa i les transicions.',
     descEs: 'Primer simulacro de preparación para la Fit Race FCL Costa Brava. Afina el ritmo de carrera y las transiciones.',
     descEn: 'First preparation simulation for the Fit Race FCL Costa Brava. Fine-tune race pace and transitions.',
     image: `${AGENDA_REPO_RAW}/fitrace.png`
@@ -216,7 +216,7 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'La Mola · Teams of 3 · Gratuït',
     placeEs: 'La Mola · Teams of 3 · Gratis',
     placeEn: 'La Mola · Teams of 3 · Free',
-    desc: 'Simulacre de preparació per Wodcelona. WOD per equips de 3.',
+    desc: 'Simulacre de preparació per a Wodcelona. WOD per equips de 3.',
     descEs: 'Simulacro de preparación para Wodcelona. WOD por equipos de 3.',
     descEn: 'Preparation simulation for Wodcelona. Teams of 3 WOD.'
   },
@@ -257,9 +257,9 @@ export const agendaEvents: AgendaEvent[] = [
     start: '2026-11-07',
     end: '2026-11-07',
     cat: 'activitat',
-    name: 'Simulacre Hyrox Barcelona',
-    nameEs: 'Simulacro Hyrox Barcelona',
-    nameEn: 'Hyrox Barcelona Simulation',
+    name: 'Simulacre HYROX Barcelona',
+    nameEs: 'Simulacro HYROX Barcelona',
+    nameEn: 'HYROX Barcelona Simulation',
     place: 'La Mola · HYROX · Gratuït',
     placeEs: 'La Mola · HYROX · Gratis',
     placeEn: 'La Mola · HYROX · Free',
@@ -343,9 +343,9 @@ export const agendaEvents: AgendaEvent[] = [
     place: 'Costa Brava · Inscripcions obertes',
     placeEs: 'Costa Brava · Inscripciones abiertas',
     placeEn: 'Costa Brava · Registration open',
-    desc: "Cursa d'obstacles i fitness a la Costa Brava. Inscripcions obertes!",
-    descEs: '¡Carrera de obstáculos y fitness en la Costa Brava. Inscripciones abiertas!',
-    descEn: 'Obstacle and fitness race on the Costa Brava. Registration open!',
+    desc: "Cursa d'obstacles i fitness a la Costa Brava. Inscripcions obertes.",
+    descEs: 'Carrera de obstáculos y fitness en la Costa Brava. Inscripciones abiertas.',
+    descEn: 'Obstacle and fitness race on the Costa Brava. Registration open.',
     image: `${AGENDA_REPO_RAW}/run%20by%20the%20beach.jpeg`
   },
   {
