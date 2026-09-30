@@ -228,6 +228,14 @@ const t = {
       applyConsent(prefs);
     }
     function applyConsent(prefs){
+      // Retirar el consentiment també ha d'actuar sobre la sessió en curs: desactiva GA i esborra _ga*
+      window['ga-disable-' + gaId] = !prefs.analytics;
+      if (!prefs.analytics) {
+        document.cookie.split(';').forEach(function(c){
+          var n = c.split('=')[0].trim();
+          if (/^_ga/.test(n)) { document.cookie = n + '=; Max-Age=0; path=/'; document.cookie = n + '=; Max-Age=0; path=/; domain=.crossfitlamola.com'; }
+        });
+      }
       if (prefs.analytics && !gaLoaded) loadGA();
     }
     function loadGA(){
