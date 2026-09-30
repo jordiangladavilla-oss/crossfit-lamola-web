@@ -55,7 +55,10 @@ export function initLeadForm(o: LeadFormOptions): void {
       origen: `${o.origen} (${getSource()})`,
       ...o.build(form),
       website: val(form, 'website'),
-      t: String(loadedAt),
+      // Temps d'ompliment mesurat AL CLIENT (ms). Abans s'enviava l'instant de càrrega ("t") i el
+      // servidor el comparava amb el seu rellotge: un dispositiu amb l'hora avançada feia descartar
+      // leads reals en silenci. Ara el servidor només mira aquest valor.
+      fill: String(Date.now() - loadedAt),
     };
 
     // Com llegir la resposta d'un Apps Script: script.google.com executa doPost i respon 302 cap a

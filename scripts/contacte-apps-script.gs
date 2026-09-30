@@ -20,15 +20,16 @@
  * implementació EXISTENT → Versió nova → Desplega. (MAI "Nova implementació":
  * canviaria la URL /exec i els formularis de la web deixarien de funcionar.)
  * Versió 2 (2026-09-29): límit horari, dedupe, comprovació de temps, errors genèrics.
- * Versió 2.1 (2026-09-30): "t" obligatori; clau de dedupe només després d'escriure al full. PENDENT DE REDESPLEGAR.
+ * Versió 2.1 (2026-09-30): clau de dedupe només després d'escriure al full.
+ * Versió 2.2 (2026-09-30): temps d'ompliment mesurat al client ("fill"), sense dependre del rellotge; dedupe 2 min. PENDENT DE REDESPLEGAR.
  */
 
 var MAX_FIELD_LEN = 500;
 var MAX_PAYLOAD_LEN = 20000;
 var LEADS_PER_HOUR = 30;        // per sobre: al Sheet sí, email no
-var DEDUPE_SECONDS = 600;       // mateix telèfon/email en 10 min → descartat en silenci
+var DEDUPE_SECONDS = 120;       // mateix telèfon/email en 2 min → descartat en silenci (doble clic / reenviament)
 var MIN_FILL_MS = 3000;         // formulari enviat abans de 3 s des de la càrrega → bot
-var MAX_FILL_MS = 24 * 3600e3;  // "t" més antic de 24 h → descartat (token caducat)
+var MAX_FILL_MS = 24 * 3600e3;  // (reservat)
 var NOTIFY_TO = 'hola@crossfitlamola.com';
 
 function clean_(v) {
@@ -54,11 +55,11 @@ function doPost(e) {
     // Honeypot: si té valor, és un bot. Es respon success igualment.
     if (data.website && String(data.website).length > 0) return json_({success: true});
 
-    // Temps de compleció: la web sempre envia "t". Sense "t", instantani o caducat → bot / replay. Silenci.
-    var t = Number(data.t);
-    if (!t) return json_({success: true});
-    var elapsed = Date.now() - t;
-    if (elapsed < MIN_FILL_MS || elapsed > MAX_FILL_MS) return json_({success: true});
+    // Temps d'ompliment mesurat al client ("fill", ms). NO es compara amb el rellotge del servidor:
+    // la v2 feia Date.now() - t i un dispositiu amb l'hora avançada feia descartar leads reals.
+    // Sense "fill" (client antic en caché) s'accepta; amb "fill" < 3 s → bot, silenci.
+    var fill = Number(data.fill);
+    if (data.fill !== undefined && data.fill !== '' && (!isFinite(fill) || fill < MIN_FILL_MS)) return json_({success: true});
 
     var origen   = clean_(data.origen);
     var name     = clean_(data.name);
@@ -119,5 +120,5 @@ function doPost(e) {
 
 // Health-check: GET https://script.google.com/macros/s/.../exec → {ok:true}
 function doGet() {
-  return json_({ok: true, service: 'lamola-leads', version: 2.1});
+  return json_({ok: true, service: 'lamola-leads', version: 2.2});
 }
