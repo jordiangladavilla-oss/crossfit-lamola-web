@@ -3,6 +3,7 @@
 // surten del mapa L segons l'idioma de la URL (abans tot era en català també a /es i /en).
 import { priceRange, PRICES } from '../data/pricing'
 import { getLangFromUrl } from '../i18n/utils'
+import { SITE, openingHoursSpecification } from '../data/site'
 
 interface Props {
   // 'classes' | 'tarifes' | 'horari' | 'agenda' no afegeixen res: només el bloc base.
@@ -86,8 +87,8 @@ const baseSchema = {
     "https://crossfitlamola.com/assets/elbox-zona-wod.webp",
     "https://crossfitlamola.com/assets/team.webp"
   ],
-  "telephone": "+34699196531",
-  "email": "hola@crossfitlamola.com",
+  "telephone": SITE.phoneIntl,
+  "email": SITE.email,
   "priceRange": priceRange,
   "foundingDate": "2025-01-13",
   "currenciesAccepted": "EUR",
@@ -96,14 +97,14 @@ const baseSchema = {
   "floorSize": {"@type": "QuantitativeValue", "value": 517, "unitCode": "MTK"},
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Avinguda del Vallès 724C",
-    "postalCode": "08227",
-    "addressLocality": "Terrassa",
-    "addressRegion": "Catalunya",
-    "addressCountry": "ES"
+    "streetAddress": SITE.address.streetLong,
+    "postalCode": SITE.address.postalCode,
+    "addressLocality": SITE.address.city,
+    "addressRegion": SITE.address.region,
+    "addressCountry": SITE.address.country
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": "41.581285", "longitude": "2.027955" },
-  "hasMap": "https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA",
+  "geo": { "@type": "GeoCoordinates", ...SITE.geo },
+  "hasMap": SITE.maps,
   // aggregateRating/review autoservides eliminades (2026-09-30): Google no les fa servir per a rich results de
   // LocalBusiness des del 2019 i poden generar avís a GSC. Les ressenyes reals són al perfil de Google (sameAs).
   "sameAs": [
@@ -111,11 +112,7 @@ const baseSchema = {
     "https://www.crossfit.com/gym/34944/crossfit-la-mola",
     "https://www.google.com/maps/place/CrossFit+La+Mola/@41.581285,2.027955"
   ],
-  "openingHoursSpecification": [
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:30"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"20:30"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:30","closes":"11:30"}
-  ],
+  "openingHoursSpecification": openingHoursSpecification(),
   "areaServed": [
     {"@type":"City","name":"Terrassa","sameAs":"https://www.wikidata.org/wiki/Q15616"},
     {"@type":"City","name":"Sabadell"},

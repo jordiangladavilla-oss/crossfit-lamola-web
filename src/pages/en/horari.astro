@@ -5,8 +5,10 @@ import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import { buildWeek } from '../../data/schedule'
+import { SITE, hoursStrip, hoursLines, hoursSentence, addressLine } from '../../data/site'
 
-const week = buildWeek('en')
+const lang = 'en' as const
+const week = buildWeek(lang)
 ---
 
 <Layout
@@ -25,16 +27,16 @@ const week = buildWeek('en')
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Schedule</span></div>
       <div class="kicker"><span>Weekly</span><span class="bar"></span><span>Book via Aimharder</span></div>
       <h1>The week's<br><em class="serif">schedule</em><span class="dot">.</span></h1>
-      <p class="sub">Monday to Thursday from 7:00 to 21:30. Friday from 7:00 to 20:30. Saturday and Sunday from 9:30 to 11:30. Book via the app.</p>
+      <p class="sub">{hoursSentence(lang)} Book via the app.</p>
     </div>
   </section>
 
   <div class="status-strip">
     <div class="wrap">
       <span id="status"><span class="dot-live" id="statusDot"></span><span id="statusText">Opening hours</span></span>
-      <span>Av. del Vallès 724C · Terrassa</span>
-      <span>Mon-Thu 07:00-21:30 · Fri 07:00-20:30 · Sat-Sun 09:30-11:30</span>
-      <span style="margin-left:auto;"><a href="https://wa.me/34699196531" style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
+      <span>{addressLine(false)}</span>
+      <span>{hoursStrip(lang)}</span>
+      <span style="margin-left:auto;"><a href={SITE.whatsapp} style="color:var(--accent-ink);">WhatsApp &rarr;</a></span>
     </div>
   </div>
 

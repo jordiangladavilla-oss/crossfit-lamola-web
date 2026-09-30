@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { SITE } from '../data/site'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -35,14 +36,14 @@ const manageCookiesLabel = { ca: 'Gestionar cookies', es: 'Gestionar cookies', e
     </div>
     <div class="foot-col">
       <h3>{t('footer.location')}</h3>
-      <p>Av. del Vallès 724C</p>
-      <p>08227 Terrassa · Barcelona</p>
-      <a href="https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA" target="_blank" rel="noopener">{t('footer.directions')} →</a>
+      <p>{SITE.address.street}</p>
+      <p>{SITE.address.postalCode} {SITE.address.city} · {SITE.address.province}</p>
+      <a href={SITE.maps} target="_blank" rel="noopener">{t('footer.directions')} →</a>
     </div>
     <div class="foot-col">
       <h3>{t('nav.contacte')}</h3>
-      <a href="https://wa.me/34699196531">699 19 65 31</a>
-      <a href="https://www.instagram.com/lamolacrossfit/" target="_blank" rel="noopener">@lamolacrossfit</a>
+      <a href={SITE.whatsapp}>{SITE.phone}</a>
+      <a href={SITE.instagram} target="_blank" rel="noopener">{SITE.instagramHandle}</a>
     </div>
   </div>
   <div class="foot-bottom">

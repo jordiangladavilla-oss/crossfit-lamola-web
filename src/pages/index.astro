@@ -19,6 +19,7 @@ const AGENDA = getUpcomingEvents(6).map(e => {
   }
 })
 import { PRICES, eur } from '../data/pricing'
+import { SITE, hoursStrip, hoursLines, hoursSentence, addressLine } from '../data/site'
 const lang = 'ca' as const
 ---
 
@@ -95,8 +96,8 @@ const lang = 'ca' as const
 
   <div class="status-strip">
     <span class="live" id="live-status">Classe en curs · Consulta l'horari</span>
-    <span>Dl–Dj 07:00–21:30 · Dv 07:00–20:30 · Ds–Dg 09:30–11:30</span>
-    <span>Av. del Vallès 724C · 08227 Terrassa</span>
+    <span>{hoursStrip(lang)}</span>
+    <span>{addressLine()}</span>
   </div>
 
   <div class="marquee" aria-hidden="true">
@@ -520,16 +521,14 @@ const lang = 'ca' as const
             <span class="ic">⌁</span>
             <div>
               <h3>Horaris</h3>
-              <p>Dl–Dj · 07:00–21:30</p>
-              <p>Dv · 07:00–20:30</p>
-              <p>Ds–Dg · 09:30–11:30</p>
+              {hoursLines(lang).map((h) => <p>{h}</p>)}
             </div>
           </div>
           <div class="contact-card">
             <span class="ic">◎</span>
             <div>
               <h3>On som</h3>
-              <p>Av. del Vallès 724C</p>
+              <p>{SITE.address.street}</p>
               <p>08227 Terrassa · Barcelona</p>
               <a href="https://maps.app.goo.gl/LMWX4XfiVLq8PXxAA" target="_blank" rel="noopener" style="color:var(--accent-hi); margin-top:6px;">Com arribar →</a>
             </div>

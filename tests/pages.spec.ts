@@ -104,3 +104,26 @@ test('menú mòbil', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.nav-toggle')).toBeVisible();
 });
+
+test('llms*.txt coherents amb src/data/site.ts (telèfon, email, adreça, horari)', async () => {
+  const { SITE } = await import('../src/data/site');
+  for (const f of ['public/llms.txt', 'public/llms-es.txt', 'public/llms-en.txt']) {
+    const txt = fs.readFileSync(f, 'utf8');
+    expect(txt, `${f}: telèfon`).toContain(SITE.phone);
+    expect(txt, `${f}: email`).toContain(SITE.email);
+    expect(txt, `${f}: adreça`).toContain(SITE.address.streetLong);
+    for (const r of SITE.hours) expect(txt, `${f}: horari ${r.opens}–${r.closes}`).toContain(`${r.opens}–${r.closes}`);
+    expect(txt, `${f}: email antic`).not.toContain('hola@');
+  }
+});
+
+test('la tira d\'horari de la home i el JSON-LD surten de site.ts', async ({ page }) => {
+  const { hoursStrip, SITE } = await import('../src/data/site');
+  await page.goto('/');
+  await expect(page.locator('.status-strip span').nth(1)).toHaveText(hoursStrip('ca'));
+  const ld = await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => JSON.parse(x.textContent || '{}')));
+  const org = ld.find((o) => o['@id'] === 'https://crossfitlamola.com/#organization');
+  expect(org.email).toBe(SITE.email);
+  expect(org.telephone).toBe(SITE.phoneIntl);
+  expect(org.openingHoursSpecification).toHaveLength(SITE.hours.length);
+});
