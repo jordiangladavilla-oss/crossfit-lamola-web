@@ -1,5 +1,6 @@
 // Posa a public/sitemap.xml el <lastmod> real de cada URL: data de l'últim commit del .astro de la
-// pàgina (i de les dades que la nodreixen). Executar abans de fer commit quan canviïn pàgines:
+// pàgina (i de les dades que la nodreixen). Els fitxers amb canvis encara no comesos compten com
+// d'avui, així es pot executar just abans del commit:
 //   npm run sitemap
 // No s'executa al build de Vercel (clon superficial: git log no és fiable allà).
 import fs from 'node:fs';
@@ -7,10 +8,16 @@ import { execSync } from 'node:child_process';
 
 const DEPS = { horari: ['src/data/schedule.ts'], tarifes: ['src/data/pricing.ts'], agenda: ['src/data/agenda.ts'] };
 const today = new Date().toISOString().slice(0, 10);
-const dirty = new Set(execSync('git status --porcelain', { encoding: 'utf8' }).split(/?
-/).map((l) => l.slice(3).trim().replace(/\/g, '/')).filter(Boolean));
-// Fitxers amb canvis encara no comesos → avui (així es pot executar abans del commit)
-const git = (f) => { if (dirty.has(f)) return today; try { return execSync(`git log -1 --format=%cs -- "${f}"`, { encoding: 'utf8' }).trim(); } catch { return ''; } };
+const dirty = new Set(
+  execSync('git status --porcelain', { encoding: 'utf8' })
+    .split(/\r?\n/)
+    .map((l) => l.slice(3).trim().replace(/\\/g, '/'))
+    .filter(Boolean),
+);
+const git = (f) => {
+  if (dirty.has(f)) return today;
+  try { return execSync(`git log -1 --format=%cs -- "${f}"`, { encoding: 'utf8' }).trim(); } catch { return ''; }
+};
 
 let xml = fs.readFileSync('public/sitemap.xml', 'utf8');
 const crlf = xml.includes('\r\n'); if (crlf) xml = xml.replace(/\r\n/g, '\n');
