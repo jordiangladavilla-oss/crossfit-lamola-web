@@ -1,5 +1,5 @@
 # CrossFit La Mola — Information for AI assistants
-# Last updated: 2026-09-29
+Last updated: 2026-09-30
 
 > CrossFit La Mola is a CrossFit box in Terrassa (Barcelona), opened January 13, 2025.
 
@@ -79,13 +79,18 @@ Wellhub, Urban Sports Club (corporate access), Velites, Picsil (athlete gear), R
 ## Service area
 Terrassa, Sabadell, Sant Cugat del Vallès, Rubí, Matadepera, Viladecavalls, Ullastrell, Vacarisses, Sant Quirze del Vallès, Castellbisbal (~20 km radius)
 
+## Calendar
+- Competitions, outings and events of the season: https://crossfitlamola.com/en/agenda
+
+## Links
+- Classes: https://crossfitlamola.com/en/classes · Schedule: https://crossfitlamola.com/en/horari · Pricing: https://crossfitlamola.com/en/tarifes · The box: https://crossfitlamola.com/en/el-box
+- Functional training in Terrassa: https://crossfitlamola.com/en/classes#entrenament-funcional
+
 ## Contact to book
 - WhatsApp: https://wa.me/34699196531
 - Web: https://crossfitlamola.com/en/contacte
 - Call: +34 699 19 65 31
 
-## Reviews
-- Google Maps: 5.0/5 (20+ reviews)
 
 ## Quick FAQ
 Q: Can I do CrossFit if I'm not in shape?

@@ -1,19 +1,83 @@
 ---
+// Dades estructurades del negoci (LocalBusiness) + extres per pàgina. Trilingüe: els textos
+// surten del mapa L segons l'idioma de la URL (abans tot era en català també a /es i /en).
 import { priceRange, PRICES } from '../data/pricing'
+import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
+  // 'classes' | 'tarifes' | 'horari' | 'agenda' no afegeixen res: només el bloc base.
   type?: 'base' | 'home' | 'classes' | 'tarifes' | 'contacte' | 'el-box' | 'horari' | 'agenda'
 }
 
 const { type = 'base' } = Astro.props
+const lang = getLangFromUrl(Astro.url) as 'ca' | 'es' | 'en'
+const pfx = lang === 'ca' ? '' : `/${lang}`
+
+const L = {
+  ca: {
+    description: "Box de CrossFit a Terrassa fundat el 13 de gener de 2025. Instal·lacions de 517 m² amb rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones de sled push i 12 estacions de màquines cardio. Equipament Rogue, Concept2 i Ruster. Coaches amb certificació CF-L1 i CF-L2.",
+    reserve: 'Reserva primera classe gratuïta', exercise: 'Classe de CrossFit',
+    catalog: 'Tarifes CrossFit La Mola', firstClass: 'Primera classe gratuïta', monthly: 'Quota mensual',
+    knowsAbout: ['CrossFit', 'Halterofília', 'Entrenament funcional', 'HIIT', 'Gimnàstic', 'Strength & Conditioning', 'Hybrid Training', 'Sled push', 'Powerlifting'],
+    keywords: 'CrossFit Terrassa, box CrossFit Terrassa, entrenament funcional Terrassa, hybrid training Terrassa, entrenament híbrid Terrassa, halterofília Terrassa, gimnàs Terrassa, fitness Terrassa, CrossFit Vallès Occidental, CrossFit Sabadell, CrossFit Sant Cugat, CrossFit Rubí, CrossFit Matadepera, WOD Terrassa, sauna infraroja Terrassa, preparació física oposicions Terrassa',
+    coaches: [
+      ['Head Coach i cofundador', "Titulat en FP de Grau Superior d'Esports. Practica CrossFit des de fa més de 15 anys. Ha entrenat al CAR (Centre d'Alt Rendiment) en halterofília i ha competit a la Federació Catalana d'Halterofília amb el Club Matadepera.", ['CrossFit', 'Halterofília olímpica', 'Strength & Conditioning', "Programació d'entrenament"], "FP Grau Superior d'Esports"],
+      ['Coach i cofundadora', "Directora de projectes de màrqueting i comunicació amb més de 5 anys d'experiència editorial. Practica CrossFit des de fa més de 10 anys. Formacions i seminaris específics en gimnàstics i tècnica.", ['CrossFit', 'Gimnàstics', 'Tècnica de moviments', 'Màrqueting esportiu'], 'Formació especialitzada en gimnàstics'],
+      ['Coach', "Titulat en FP de Grau Superior d'Esports. Nivell avançat en CrossFit. Ha practicat alta competició en futbol i altres disciplines.", ['CrossFit', 'Preparació física', "Entrenament d'alt rendiment", 'Futbol'], "FP Grau Superior d'Esports"],
+    ],
+    amenities: [['Rig de 15 places Rogue', '15 estacions'], ['Rope climbs', '9 cordes'], ['Barres olímpiques', '+30 barres'], ['Zones de sled push', '4 zones'], ['Màquines cardio Concept2 i Rogue', '12 estacions'], ["Plataformes d'halterofília"], ['Zona Hybrid training'], ['Zona Open exterior'], ['Sauna infraroja (La Mola Recovery)'], ['Coffee Corner'], ['Vestidors amb dutxa'], ['Aparcament gratuït']],
+    sponsor: 'Partner de material per a atletes',
+    video: ['CrossFit La Mola, box de CrossFit a Terrassa', 'El box de CrossFit La Mola a Terrassa: entrenament funcional, halterofília, gimnàstic i cardio amb coaches amb certificació CF-L1 i CF-L2. Classes per a tots els nivells.'],
+    contact: ['Contacte · CrossFit La Mola', 'Pàgina de contacte de CrossFit La Mola: WhatsApp, email, telèfon i adreça del box a Terrassa.'],
+    about: ['El box · CrossFit La Mola', "Sobre les instal·lacions i l'equip de CrossFit La Mola a Terrassa."],
+  },
+  es: {
+    description: 'Box de CrossFit en Terrassa fundado el 13 de enero de 2025. Instalaciones de 517 m² con rig de 15 plazas, 9 rope climbs, +30 barras olímpicas, 4 zonas de sled push y 12 estaciones de máquinas cardio. Equipamiento Rogue, Concept2 y Ruster. Coaches con certificación CF-L1 y CF-L2.',
+    reserve: 'Reserva primera clase gratis', exercise: 'Clase de CrossFit',
+    catalog: 'Tarifas CrossFit La Mola', firstClass: 'Primera clase gratis', monthly: 'Cuota mensual',
+    knowsAbout: ['CrossFit', 'Halterofilia', 'Entrenamiento funcional', 'HIIT', 'Gimnásticos', 'Strength & Conditioning', 'Hybrid Training', 'Sled push', 'Powerlifting'],
+    keywords: 'CrossFit Terrassa, box CrossFit Terrassa, entrenamiento funcional Terrassa, hybrid training Terrassa, entrenamiento híbrido Terrassa, halterofilia Terrassa, gimnasio Terrassa, fitness Terrassa, CrossFit Vallès Occidental, CrossFit Sabadell, CrossFit Sant Cugat, CrossFit Rubí, CrossFit Matadepera, WOD Terrassa, sauna infrarroja Terrassa, preparación física oposiciones Terrassa',
+    coaches: [
+      ['Head Coach y cofundador', 'Titulado en FP de Grado Superior de Deportes. Practica CrossFit desde hace más de 15 años. Ha entrenado en el CAR (Centro de Alto Rendimiento) en halterofilia y ha competido en la Federación Catalana de Halterofilia con el Club Matadepera.', ['CrossFit', 'Halterofilia olímpica', 'Strength & Conditioning', 'Programación de entrenamiento'], 'FP Grado Superior de Deportes'],
+      ['Coach y cofundadora', 'Directora de proyectos de marketing y comunicación con más de 5 años de experiencia editorial. Practica CrossFit desde hace más de 10 años. Formaciones y seminarios específicos en gimnásticos y técnica.', ['CrossFit', 'Gimnásticos', 'Técnica de movimientos', 'Marketing deportivo'], 'Formación especializada en gimnásticos'],
+      ['Coach', 'Titulado en FP de Grado Superior de Deportes. Nivel avanzado en CrossFit. Ha practicado alta competición en fútbol y otras disciplinas.', ['CrossFit', 'Preparación física', 'Entrenamiento de alto rendimiento', 'Fútbol'], 'FP Grado Superior de Deportes'],
+    ],
+    amenities: [['Rig de 15 plazas Rogue', '15 estaciones'], ['Rope climbs', '9 cuerdas'], ['Barras olímpicas', '+30 barras'], ['Zonas de sled push', '4 zonas'], ['Máquinas cardio Concept2 y Rogue', '12 estaciones'], ['Plataformas de halterofilia'], ['Zona Hybrid training'], ['Zona Open exterior'], ['Sauna infrarroja (La Mola Recovery)'], ['Coffee Corner'], ['Vestuarios con ducha'], ['Aparcamiento gratuito']],
+    sponsor: 'Partner de material para atletas',
+    video: ['CrossFit La Mola, box de CrossFit en Terrassa', 'El box de CrossFit La Mola en Terrassa: entrenamiento funcional, halterofilia, gimnásticos y cardio con coaches con certificación CF-L1 y CF-L2. Clases para todos los niveles.'],
+    contact: ['Contacto · CrossFit La Mola', 'Página de contacto de CrossFit La Mola: WhatsApp, email, teléfono y dirección del box en Terrassa.'],
+    about: ['El box · CrossFit La Mola', 'Sobre las instalaciones y el equipo de CrossFit La Mola en Terrassa.'],
+  },
+  en: {
+    description: 'CrossFit box in Terrassa founded on 13 January 2025. 517 m² facility with a 15-station rig, 9 rope climbs, 30+ Olympic barbells, 4 sled push lanes and 12 cardio machines. Rogue, Concept2 and Ruster equipment. CF-L1 and CF-L2 certified coaches.',
+    reserve: 'Book a free first class', exercise: 'CrossFit class',
+    catalog: 'CrossFit La Mola pricing', firstClass: 'Free first class', monthly: 'Monthly plan',
+    knowsAbout: ['CrossFit', 'Olympic weightlifting', 'Functional training', 'HIIT', 'Gymnastics', 'Strength & Conditioning', 'Hybrid Training', 'Sled push', 'Powerlifting'],
+    keywords: 'CrossFit Terrassa, CrossFit box Terrassa, functional training Terrassa, hybrid training Terrassa, weightlifting Terrassa, gym Terrassa, fitness Terrassa, CrossFit Vallès Occidental, CrossFit Sabadell, CrossFit Sant Cugat, WOD Terrassa, infrared sauna Terrassa, fitness test preparation Terrassa',
+    coaches: [
+      ['Head Coach and co-founder', 'Higher Vocational Diploma in Sports. Has practised CrossFit for over 15 years. Trained in Olympic weightlifting at the CAR (High Performance Centre) and competed in the Catalan Weightlifting Federation with Club Matadepera.', ['CrossFit', 'Olympic weightlifting', 'Strength & Conditioning', 'Training programming'], 'Higher Vocational Diploma in Sports'],
+      ['Coach and co-founder', 'Marketing and communication project director with over 5 years of publishing experience. Has practised CrossFit for over 10 years. Specific training and seminars in gymnastics and technique.', ['CrossFit', 'Gymnastics', 'Movement technique', 'Sports marketing'], 'Specialised gymnastics training'],
+      ['Coach', 'Higher Vocational Diploma in Sports. Advanced CrossFit level. Competed at a high level in football and other sports.', ['CrossFit', 'Physical preparation', 'High performance training', 'Football'], 'Higher Vocational Diploma in Sports'],
+    ],
+    amenities: [['15-station Rogue rig', '15 stations'], ['Rope climbs', '9 ropes'], ['Olympic barbells', '30+ barbells'], ['Sled push lanes', '4 lanes'], ['Concept2 and Rogue cardio machines', '12 stations'], ['Weightlifting platforms'], ['Hybrid training area'], ['Outdoor open area'], ['Infrared sauna (La Mola Recovery)'], ['Coffee Corner'], ['Changing rooms with showers'], ['Free parking']],
+    sponsor: 'Equipment partner for athletes',
+    video: ['CrossFit La Mola, CrossFit box in Terrassa', 'The CrossFit La Mola box in Terrassa: functional training, weightlifting, gymnastics and cardio with CF-L1 and CF-L2 certified coaches. Classes for all levels.'],
+    contact: ['Contact · CrossFit La Mola', 'Contact page of CrossFit La Mola: WhatsApp, email, phone and address of the box in Terrassa.'],
+    about: ['The box · CrossFit La Mola', 'About the facilities and the team of CrossFit La Mola in Terrassa.'],
+  },
+} as const
+
+const t = L[lang]
+const ORG = 'https://crossfitlamola.com/#organization'
 
 const baseSchema = {
   "@context": "https://schema.org",
   "@type": ["ExerciseGym", "SportsActivityLocation", "HealthClub"],
-  "@id": "https://crossfitlamola.com/#organization",
+  "@id": ORG,
   "name": "CrossFit La Mola",
   "alternateName": ["La Mola CrossFit", "CrossFit Terrassa La Mola"],
-  "description": "Box de CrossFit a Terrassa fundat el 13 de gener de 2025. Instal·lacions de 517m² amb rig de 15 places, 9 rope climbs, +30 barres olímpiques, 4 zones de sled push i 12 estacions de màquines cardio. Equipament Rogue, Concept2 i Ruster. Coaches certificats CF-L1 i CF-L2.",
+  "description": t.description,
+  "inLanguage": lang,
   "slogan": "Move with purpose. Build strength together.",
   "url": "https://crossfitlamola.com/",
   "logo": "https://crossfitlamola.com/assets/logo-full.png",
@@ -84,125 +148,88 @@ const baseSchema = {
       "@type": "ReserveAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://crossfitlamola.com/contacte",
+        "urlTemplate": `https://crossfitlamola.com${pfx}/contacte`,
         "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
       },
-      "result": {"@type": "Reservation", "name": "Reserva primera classe gratuïta"}
+      "result": {"@type": "Reservation", "name": t.reserve}
     },
-    {
-      "@type": "ExerciseAction",
-      "name": "Classe de CrossFit",
-      "location": {"@id": "https://crossfitlamola.com/#organization"}
-    }
+    { "@type": "ExerciseAction", "name": t.exercise, "location": {"@id": ORG} }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Tarifes CrossFit La Mola",
+    "name": t.catalog,
     "itemListElement": [
-      {"@type": "Offer", "name": "Primera classe gratuïta", "price": "0", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Quota mensual", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": PRICES.ocasional, "maxPrice": PRICES.unlimited, "priceCurrency": "EUR"}}
+      {"@type": "Offer", "name": t.firstClass, "price": "0", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": t.monthly, "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": PRICES.ocasional, "maxPrice": PRICES.unlimited, "priceCurrency": "EUR"}}
     ]
   },
-  "knowsAbout": ["CrossFit", "Halterofília", "Entrenament funcional", "HIIT", "Gimnàstic", "Strength & Conditioning", "Hybrid Training", "Sled push", "Powerlifting"],
-  "keywords": "CrossFit Terrassa, box CrossFit Terrassa, entrenament funcional Terrassa, hybrid training Terrassa, entrenament híbrid Terrassa, halterofília Terrassa, gimnàs Terrassa, fitness Terrassa, CrossFit Vallès Occidental, CrossFit Sabadell, CrossFit Sant Cugat, CrossFit Rubí, CrossFit Matadepera, WOD Terrassa, halterofília olímpica, entrenament HIIT, gimnàstica CrossFit, strength training Terrassa, sled push, ski erg"
+  "knowsAbout": t.knowsAbout,
+  "keywords": t.keywords
 }
+
+const COACHES = [
+  { id: 'sergi', name: 'Sergi', level: 'CrossFit Level 2 Trainer (CF-L2)' },
+  { id: 'eli', name: 'Eliana', level: 'CrossFit Level 1 Trainer (CF-L1)' },
+  { id: 'juse', name: 'Juse', level: 'CrossFit Level 1 Trainer (CF-L1)' },
+]
 
 const homeExtras = {
   "@context": "https://schema.org",
   "@type": "ExerciseGym",
   "@id": "https://crossfitlamola.com/#organization-team",
-  "employee": [
-    {
-      "@type": "Person",
-      "@id": "https://crossfitlamola.com/#coach-sergi",
-      "name": "Sergi",
-      "jobTitle": "Head Coach & Co-fundador",
-      "description": "Titulat en FP Grau Superior d'Esports. Practica CrossFit des de fa +15 anys. Ha entrenat al CAR (Centre d'Alt Rendiment) en halterofília. Ha competit a la Federació Catalana d'Halterofília amb el Club Matadepera sota la direcció del Sr. Paredes.",
-      "knowsAbout": ["CrossFit", "Halterofília Olímpica", "Strength & Conditioning", "Programació d'entrenament"],
-      "hasCredential": [
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 2 Trainer (CF-L2)"},
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "FP Grau Superior d'Esports"}
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://crossfitlamola.com/#coach-eli",
-      "name": "Eliana",
-      "jobTitle": "Coach & Co-fundadora",
-      "description": "Directora de projectes de màrqueting i comunicació amb +5 anys d'experiència a l'editorial Cinco Tintas Barcelona. Practica CrossFit des de fa +10 anys. Ha realitzat formacions i seminaris específics en gimnàstics i perfeccionament de tècnica.",
-      "knowsAbout": ["CrossFit", "Gymnastics", "Tècnica de moviments", "Màrqueting esportiu"],
-      "hasCredential": [
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 1 Trainer (CF-L1)"},
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "Formació especialitzada en Gymnastics"}
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://crossfitlamola.com/#coach-juse",
-      "name": "Juse",
-      "jobTitle": "Coach",
-      "description": "Titulat en FP Grau Superior d'Esports. Nivell molt avançat en CrossFit. Ha practicat alta competició en futbol i altres disciplines esportives.",
-      "knowsAbout": ["CrossFit", "Preparació física", "Entrenament d'alt rendiment", "Futbol"],
-      "hasCredential": [
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "CrossFit Level 1 Trainer (CF-L1)"},
-        {"@type": "EducationalOccupationalCredential", "credentialCategory": "FP Grau Superior d'Esports"}
-      ]
-    }
-  ],
-  "amenityFeature": [
-    {"@type":"LocationFeatureSpecification","name":"Rig de 15 places Rogue","value":"15 estacions"},
-    {"@type":"LocationFeatureSpecification","name":"Rope climbs","value":"9 cordes"},
-    {"@type":"LocationFeatureSpecification","name":"Barres olímpiques","value":"+30 barres"},
-    {"@type":"LocationFeatureSpecification","name":"Zones sled push","value":"4 zones"},
-    {"@type":"LocationFeatureSpecification","name":"Màquines cardio Concept2 i Rogue","value":"12 estacions"},
-    {"@type":"LocationFeatureSpecification","name":"Plataformes d'halterofília"},
-    {"@type":"LocationFeatureSpecification","name":"Zona Hybrid training"},
-    {"@type":"LocationFeatureSpecification","name":"Zona Open exterior"},
-    {"@type":"LocationFeatureSpecification","name":"Coffee Corner"},
-    {"@type":"LocationFeatureSpecification","name":"Vestidors amb dutxa"},
-    {"@type":"LocationFeatureSpecification","name":"Parking gratuït"}
-  ],
+  "employee": COACHES.map((c, i) => ({
+    "@type": "Person",
+    "@id": `https://crossfitlamola.com/#coach-${c.id}`,
+    "name": c.name,
+    "jobTitle": t.coaches[i][0],
+    "description": t.coaches[i][1],
+    "knowsAbout": t.coaches[i][2],
+    "hasCredential": [
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": c.level},
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": t.coaches[i][3]}
+    ]
+  })),
+  "amenityFeature": t.amenities.map(([name, value]) => (value ? {"@type": "LocationFeatureSpecification", name, value} : {"@type": "LocationFeatureSpecification", name})),
   "brand": [
     {"@type":"Brand","name":"Rogue Fitness"},
     {"@type":"Brand","name":"Concept2"},
     {"@type":"Brand","name":"Ruster Fitness"}
   ],
   "sponsor": [
-    {"@type":"Organization","name":"Velites","description":"Partner oficial amb descomptes per atletes"},
-    {"@type":"Organization","name":"Picsil","description":"Partner oficial amb descomptes per atletes"}
+    {"@type":"Organization","name":"Velites","description": t.sponsor},
+    {"@type":"Organization","name":"Picsil","description": t.sponsor}
   ]
 }
 
 const heroVideo = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "CrossFit La Mola - Box de CrossFit a Terrassa",
-  "description": "Descobreix el nostre box de CrossFit a Terrassa. Entrenament funcional, halterofília, gimnàstic i cardio amb coaches certificats CF-L1 i CF-L2. Classes per a tots els nivells.",
+  "name": t.video[0],
+  "description": t.video[1],
+  "inLanguage": lang,
   "thumbnailUrl": "https://crossfitlamola.com/assets/hero-still.webp",
   "contentUrl": "https://crossfitlamola.com/assets/hero.mp4",
   "uploadDate": "2025-01-13T00:00:00+01:00",
   "duration": "PT20S",
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://crossfitlamola.com/#organization",
-    "name": "CrossFit La Mola"
-  }
+  "publisher": { "@type": "Organization", "@id": ORG, "name": "CrossFit La Mola" }
 }
 
 const contactPage = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": "Contacte CrossFit La Mola",
-  "description": "Pàgina de contacte de CrossFit La Mola: WhatsApp, email, telèfon i adreça del box a Terrassa.",
-  "mainEntity": { "@id": "https://crossfitlamola.com/#organization" }
+  "name": t.contact[0],
+  "description": t.contact[1],
+  "inLanguage": lang,
+  "mainEntity": { "@id": ORG }
 }
 
 const aboutPage = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "El box · CrossFit La Mola",
-  "description": "Sobre les instal·lacions i l'equip de CrossFit La Mola a Terrassa.",
-  "mainEntity": { "@id": "https://crossfitlamola.com/#organization" }
+  "name": t.about[0],
+  "description": t.about[1],
+  "inLanguage": lang,
+  "mainEntity": { "@id": ORG }
 }
 ---
 

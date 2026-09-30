@@ -122,7 +122,8 @@ function getBadgeText(event: AgendaEvent): string {
     </style>
     <script type="application/ld+json" set:html={JSON.stringify((() => {
       const today = new Date().toISOString().split('T')[0];
-      return AGENDA_EVENTS_2026.map(e => {
+      const cutoff = new Date(Date.now() - 90 * 86400e3).toISOString().split('T')[0];
+      return AGENDA_EVENTS_2026.filter(e => e.end >= cutoff).map(e => {
       const isExternal = e.cat === 'comp-ext';
       const placeName = e.place.split('·')[0].trim();
       const isPast = e.end < today;
@@ -149,16 +150,9 @@ function getBadgeText(event: AgendaEvent): string {
         "location":{
           "@type":"Place",
           "name": placeName,
-          "address":{"@type":"PostalAddress","addressLocality": placeName,"addressRegion":"Catalunya","addressCountry":"ES"}
+          "address":{"@type":"PostalAddress","addressLocality": isExternal ? placeName : "Terrassa","addressRegion":"Catalunya","addressCountry":"ES"}
         },
-        "offers": {
-          "@type": "Offer",
-          "url": `https://crossfitlamola.com/en/agenda#${e.id}`,
-          "price": "0",
-          "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock",
-          "validFrom": e.start
-        },
+        "url": `https://crossfitlamola.com/en/agenda#${e.id}`,
         "organizer": isExternal
           ? {"@type": "Organization", "name": placeName}
           : {"@id":"https://crossfitlamola.com/#organization"},

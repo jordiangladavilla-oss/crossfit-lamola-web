@@ -54,6 +54,9 @@ const ogLocales = { ca: 'ca_ES', es: 'es_ES', en: 'en_GB' }
   <link rel="alternate" hreflang="en" href={hreflangUrls.en} />
   <link rel="alternate" hreflang="x-default" href={hreflangUrls.ca} />
 
+  <!-- Context per a assistents d'IA (llmstxt.org) -->
+  <link rel="alternate" type="text/plain" href={currentLang === 'ca' ? '/llms.txt' : `/llms-${currentLang}.txt`} title="llms.txt" />
+
   <!-- Self-hosted fonts: preload critical weights for LCP -->
   <link rel="preload" href="/fonts/montserrat-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>

@@ -31,6 +31,22 @@ const AGENDA_REPO_RAW = 'https://raw.githubusercontent.com/jordiangladavilla-oss
 
 export const agendaEvents: AgendaEvent[] = [
   {
+    id: 'portes-obertes-opositors',
+    start: '2026-10-11',
+    end: '2026-10-11',
+    cat: 'activitat',
+    name: 'Portes obertes · Preparació física per a oposicions',
+    nameEs: 'Puertas abiertas · Preparación física para oposiciones',
+    nameEn: 'Open day · Fitness test prep for civil service exams',
+    place: 'CrossFit La Mola · 9:30–11:30 · Gratuït, places limitades',
+    placeEs: 'CrossFit La Mola · 9:30–11:30 · Gratis, plazas limitadas',
+    placeEn: 'CrossFit La Mola · 9:30–11:30 · Free, limited places',
+    desc: "Jornada gratuïta per a qui prepara Bombers, Mossos o altres cossos: entrenament d'alta intensitat amb els elements de la prova i testeig de les proves. Avisa'ns per WhatsApp per reservar plaça.",
+    descEs: 'Jornada gratuita para quien prepara Bomberos, Mossos u otros cuerpos: entrenamiento de alta intensidad con los elementos de la prueba y testeo de las pruebas. Avísanos por WhatsApp para reservar plaza.',
+    descEn: 'Free session for firefighter, Mossos and other civil service candidates: high-intensity training with the test elements and a trial of the tests. Message us on WhatsApp to book a place.',
+    image: 'https://crossfitlamola.com/assets/opositors-hero.webp'
+  },
+  {
     id: 'pedraforca',
     start: '2026-05-09',
     end: '2026-05-10',
