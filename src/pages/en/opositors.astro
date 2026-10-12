@@ -4,13 +4,15 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import Schema from '../../components/Schema.astro'
+import { PRICES, eur } from '../../data/pricing'
 
 const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%20Bombers%20de%20la%20Generalitat%20exam%20(call%2081%2F26)%20and%20would%20like%20information%20about%20the%20candidate%20membership%20at%20La%20Mola.'
+const Q = eur(PRICES.opositors, 'en')
 ---
 
 <Layout
   title="Firefighter & Mossos Fitness Test Prep in Terrassa"
-  description="Weekly coached class with the 2026 firefighter test elements plus one hour of open training a day. Mon–Fri 11:30–15:30 and Sundays. €65/month, first class free."
+  description="Fitness test prep for civil service exams in Terrassa: 3 coached classes a week with the 2026 firefighter test elements, open training, a monthly mock test and sauna. €80/month."
   ogImage="/assets/og/og-opositors.jpg"
 >
   <Schema type="base" slot="head" />
@@ -26,30 +28,30 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
       "areaServed": {"@type": "City", "name": "Terrassa"},
       "audience": {"@type": "Audience", "audienceType": "Candidates for Bombers de la Generalitat de Catalunya (call 81/26), Barcelona city firefighters (SPEIS) and Mossos d'Esquadra exams"},
-      "description": "Training slot for exam candidates, Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. A coached class for exam candidates every Thursday 14:30–15:30, with the elements of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026), and one hour of open training a day with coaches on the floor. Personalised programming on request. The water rescue simulation is prepared in a pool.",
+      "description": "Candidate membership in Terrassa: programming specific to the physical tests, three coached classes a week (Monday, Wednesday and Friday 12:30–13:30: wildland fire, structural fire and general conditioning), three open training sessions a week (Monday, Wednesday and Friday 10:30–15:30; Tuesday and Thursday 11:30–15:30), a WhatsApp group, a monthly timed mock test of the full circuit and one sauna session a month. Elements of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026). The water rescue simulation is prepared in a pool. Bookings through the Aimharder app.",
       "offers": [
         {
           "@type": "Offer",
           "name": "Candidate membership",
-          "description": "Weekly coached class (Thursday 14:30–15:30) and one hour of open training a day within the slot: Monday to Friday 11:30–15:30 and Sundays 9:30–11:30. Proof of exam registration required.",
+          "description": "Specific programming, three coached classes and three open training sessions a week, WhatsApp group, monthly mock test and one sauna session a month. No joining fee on first sign-up. Groups of more than four people: 10% off the first month. Proof of exam registration required.",
           "priceCurrency": "EUR",
-          "price": "65.00",
+          "price": "80.00",
           "availability": "https://schema.org/InStock",
           "url": "https://crossfitlamola.com/en/opositors"
         },
         {
           "@type": "Offer",
-          "name": "First candidate coached class · free",
-          "description": "The first coached class for exam candidates (Thursday 14:30–15:30) is free, to get to know the box and try the equipment.",
+          "name": "Unlimited sauna · add-on to the candidate membership",
+          "description": "Unlimited access to the La Mola Recovery infrared sauna, added to the candidate membership.",
           "priceCurrency": "EUR",
-          "price": "0.00",
+          "price": "9.90",
           "availability": "https://schema.org/InStock",
-          "url": "https://crossfitlamola.com/en/opositors"
+          "url": "https://crossfitlamola.com/en/recovery"
         },
         {
           "@type": "Offer",
           "name": "Candidate day pass",
-          "description": "One day of access to the candidate slot and the box equipment, no monthly membership.",
+          "description": "One day of access to the candidate open training slot and the box equipment, no monthly membership.",
           "priceCurrency": "EUR",
           "price": "15.00",
           "availability": "https://schema.org/InStock",
@@ -72,15 +74,16 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Which parts of the 2026 firefighter test can I prepare at the box?", "acceptedAnswer": {"@type": "Answer", "text": "Call 81/26 has three timed simulations. The two fire simulations (wildland and structural) are prepared at the box: the equipment is on the floor and we work on it in the coached class and during open hours, with timed mock tests from time to time. The water rescue takes place in a pool and cannot be prepared here: from the box we only contribute the aerobic base, pulling strength and core."}},
-        {"@type": "Question", "name": "Is there coached training or programming?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Thursday 14:30–15:30 there is a coached class for exam candidates: high-intensity training with the elements of the test plus strength work. The rest of the slot is one hour a day of open training with coaches on the floor. If you want personalised programming for your exam, ask us."}},
-        {"@type": "Question", "name": "When are the physical tests?", "acceptedAnswer": {"@type": "Answer", "text": "Dates have not been published yet. The physical test comes after the knowledge test. Registration for call 81/26 is at tràmits.gencat.cat for 10 working days from 16 September. Always check the official announcement."}},
+        {"@type": "Question", "name": "Which parts of the 2026 firefighter test can I prepare at the box?", "acceptedAnswer": {"@type": "Answer", "text": "Call 81/26 has three timed simulations. The two fire simulations (wildland and structural) are prepared at the box with the circuit equipment. The water rescue takes place in a pool: from the box we only contribute the aerobic base, pulling strength and core."}},
+        {"@type": "Question", "name": "Which days are the coached classes?", "acceptedAnswer": {"@type": "Answer", "text": "Monday, Wednesday and Friday 12:30–13:30. Every week: one wildland fire session, one structural fire session and one general conditioning session. They are booked through the Aimharder app."}},
+        {"@type": "Question", "name": "How many days can I come?", "acceptedAnswer": {"@type": "Answer", "text": "Up to six: three coached classes and three open training sessions a week. The open slots are Monday, Wednesday and Friday 10:30–15:30, and Tuesday and Thursday 11:30–15:30."}},
+        {"@type": "Question", "name": "Is there a joining fee or a minimum term?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no joining fee on your first sign-up and no minimum term. If you come as a group of more than four people, the first month is 10% off."}},
         {"@type": "Question", "name": "Who can join?", "acceptedAnswer": {"@type": "Answer", "text": "Anyone registered for an exam with physical tests: Bombers de la Generalitat, Barcelona firefighters (SPEIS), Mossos d'Esquadra or other forces. Proof of registration is required to sign up."}},
-        {"@type": "Question", "name": "Can I come every day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each day of the slot you get one hour of open training, at the time you choose: Monday to Friday between 11:30 and 15:30, plus Sundays between 9:30 and 11:30. On Thursdays, the coached class is that hour."}},
-        {"@type": "Question", "name": "Can I try it before signing up?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first coached class for exam candidates is free: come on a Thursday at 14:30, get to know the box and try the equipment we work with. For any other day there is the €15 day pass."}},
-        {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership (€65/month) gives access to the Thursday coached class and one hour a day within the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which also includes the candidate space and equipment."}},
+        {"@type": "Question", "name": "When are the physical tests?", "acceptedAnswer": {"@type": "Answer", "text": "Dates have not been published yet. The physical test comes after the knowledge test. Always check the official announcement for call 81/26."}},
+        {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership gives access to the three coached classes and the three weekly open sessions within the midday slots. To also take the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which includes the candidate space and equipment."}},
         {"@type": "Question", "name": "I'm already a member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}},
-        {"@type": "Question", "name": "Can I come just one day to test myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The candidate day pass costs €15 and includes one day of access to the slot and the equipment, no monthly membership. If you also want to recover well and get the benefits of the sauna, add €10 for a full day of training and recovery: €25 in total."}}
+        {"@type": "Question", "name": "Can I come just one day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The candidate day pass costs €15 and gives one day of access to the open slot and the equipment, no monthly membership. With a sauna session, €25 in total. Message us to book."}},
+        {"@type": "Question", "name": "Is the sauna included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, one 15-minute session a month. For unlimited sauna, add La Mola Recovery to your membership for €9.90 a month."}}
       ]
     }
     </script>
@@ -90,47 +93,63 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
     .hero-acts{ display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; margin-top:30px; }
     .hero-acts .hero-cta{ align-self:auto; }
 
-    .cossos{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
-    @media(min-width:900px){ .cossos{ grid-template-columns:repeat(3,1fr);} }
-    .cos{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
-    .cos .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
-    .cos h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.2vw,28px); letter-spacing:-0.025em; line-height:1.02; margin:0; color:var(--bone);}
-    .cos h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
-    .cos p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
+    .incl-grid{ display:grid; gap:1px; margin-top:60px; background:var(--line); }
+    @media(min-width:700px){ .incl-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1000px){ .incl-grid{ grid-template-columns:repeat(3,1fr);} }
+    .incl{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:14px; }
+    .incl .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .incl h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.025em; line-height:1; margin:0; color:var(--bone);}
+    .incl h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
+    .incl p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
 
-    .regla{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:10px; }
-    .regla .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
-    .regla p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0; max-width:75ch;}
-    .mat{ margin-top:48px; padding:26px 30px; border:1px solid var(--line); display:grid; gap:20px; }
+    /* 02 · Tarifa (fons bone): una sola targeta de preu + condicions */
+    .tarifa{ display:grid; gap:40px; margin-top:60px; align-items:start; }
+    @media(min-width:900px){ .tarifa{ grid-template-columns:minmax(0,460px) 1fr; gap:60px;} }
+    .price{ background:var(--ink); padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:18px; color:var(--bone);}
+    .price *{ color: inherit; }
+    .price .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .price h3{ font-family:var(--f-display); font-weight:500; font-size:clamp(24px,2.6vw,32px); letter-spacing:-0.03em; line-height:.98; margin:0;}
+    .price h3 em{ font-family:var(--f-serif); font-style:italic; font-weight:300; color:var(--accent-hi);}
+    .price .num{ font-family:var(--f-display); font-weight:500; font-size:clamp(48px,6vw,72px); letter-spacing:-0.04em; line-height:1;}
+    .price .num sup{ font-size:.4em; font-weight:500; vertical-align:.5em; margin-left:4px;}
+    .price .per{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-left:8px;}
+    .price ul{ list-style:none; padding:0; margin:0; font-family:var(--f-serif); font-size:16.5px; line-height:1.55; display:grid; gap:10px;}
+    .price ul li{ display:flex; gap:12px; align-items:baseline;}
+    .price ul li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(2px);}
+    .terms{ list-style:none; margin:0; padding:0; display:grid; gap:0; border-top:1px solid var(--line-ink);}
+    .terms li{ display:flex; gap:14px; align-items:baseline; padding:18px 0; border-bottom:1px solid var(--line-ink); font-family:var(--f-serif); font-size:17px; line-height:1.5; color:var(--bone-ink);}
+    .terms li::before{ content:""; width:6px; height:6px; background:var(--accent-ink); border-radius:50%; flex:none; transform:translateY(-2px);}
+    .terms strong{ font-weight:500;}
+
+    /* 03 · La prova (fons ink, foto + material) */
+    .prova{ display:grid; gap:40px; margin-top:60px; align-items:start; }
+    @media(min-width:900px){ .prova{ grid-template-columns:1fr 1fr; gap:60px;} }
+    .prova .pic{ margin:0; aspect-ratio:4/3; overflow:hidden; border:1px solid var(--line); background:#1a1712; }
+    .prova .pic img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .prova .pic figcaption{ font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--bone-3); padding:10px 0 0; }
+    .mat{ border-top:1px solid var(--line); display:grid; gap:18px; padding-top:22px; }
     .mat .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
-    .mat-cols{ display:grid; gap:22px 40px; grid-template-columns:1fr; }
-    @media(min-width:760px){ .mat-cols{ grid-template-columns:1fr 1fr;} }
-    .mat h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(18px,1.8vw,22px); letter-spacing:-0.02em; line-height:1.1; margin:0 0 12px; color:var(--bone);}
-    .mat ul{ margin:0; padding-left:18px; font-family:var(--f-serif); font-size:16px; line-height:1.6; color:var(--bone-2);}
-    .mat li + li{ margin-top:4px;}
+    .mat ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; font-family:var(--f-serif); font-size:16.5px; line-height:1.5; color:var(--bone-2);}
+    @media(min-width:560px){ .mat ul{ grid-template-columns:1fr 1fr; gap:10px 28px;} }
+    .mat li{ display:flex; gap:12px; align-items:baseline;}
+    .mat li::before{ content:""; width:6px; height:6px; background:var(--accent-hi); border-radius:50%; flex:none; transform:translateY(-2px);}
+    .regla{ margin-top:28px; padding:22px 26px; border:1px solid var(--line); display:grid; gap:8px; }
+    .regla .tag{ font-family:var(--f-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-hi);}
+    .regla p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-2); margin:0;}
     .font{ margin-top:22px; font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; line-height:1.7; color:var(--bone-3);}
     .font a{ color:var(--bone-3); border-bottom:1px solid var(--line-strong);}
     .font a:hover{ color:var(--accent-hi); border-color:var(--accent-hi);}
 
-    .conds{ display:grid; gap:0; margin-top:60px; border-top:1px solid var(--line-ink);}
-    .conds > div{ display:grid; grid-template-columns:1fr; gap:8px 24px; padding:24px 0; border-bottom:1px solid var(--line-ink); align-items:baseline;}
-    @media(min-width:760px){ .conds > div{ grid-template-columns:200px 1fr auto;} }
-    @media(max-width:759px){ .conds .p{ display:none;} }
-    .conds .label{ font-family:var(--f-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink);}
-    .conds h4{ font-family:var(--f-display); font-weight:500; font-size:clamp(20px,2vw,26px); letter-spacing:-0.02em; margin:0; color:var(--bone-ink);}
-    .conds p{ font-family:var(--f-serif); font-size:16px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:6px 0 0; max-width:65ch;}
-    .conds .p{ font-family:var(--f-display); font-weight:500; font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.02em; color:var(--bone-ink);}
-
-    .faq{ display:grid; gap:0; border-top:1px solid var(--line); margin-top:60px;}
-    .faq details{ border-bottom:1px solid var(--line); padding:22px 0;}
-    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em; color:var(--bone);}
+    .faq{ display:grid; gap:0; border-top:1px solid var(--line-ink); margin-top:60px;}
+    .faq details{ border-bottom:1px solid var(--line-ink); padding:22px 0;}
+    .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--f-display); font-weight:500; font-size:clamp(19px,2vw,24px); letter-spacing:-0.02em; color:var(--bone-ink);}
     .faq summary::-webkit-details-marker{ display:none;}
-    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-hi); transition:transform .3s;}
+    .faq summary::after{ content:"+"; font-family:var(--f-display); font-weight:400; font-size:24px; color:var(--accent-ink); transition:transform .3s;}
     .faq details[open] summary::after{ transform:rotate(45deg);}
-    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-2); margin:14px 0 0; max-width:60ch;}
+    .faq p{ font-family:var(--f-serif); font-size:17px; line-height:1.55; color:var(--bone-ink); opacity:.75; margin:14px 0 0; max-width:60ch;}
   </style>
 
-  <Nav currentPage="/en/opositors" />
+  <Nav currentPage="/opositors" />
 
   <section class="page-hero" id="main">
     <div class="bg" style="background-image:url('/assets/opositors-hero.webp')"></div>
@@ -138,7 +157,7 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
       <div class="kicker"><span>Firefighters · Call 81/26</span><span class="bar"></span><span>Mossos d'Esquadra</span></div>
       <h1>Physical prep<br>for <em class="serif">civil service exams</em><span class="dot">.</span></h1>
-      <p class="sub">A slot <strong>for exam candidates</strong> in Terrassa: a weekly coached class with the elements of the 2026 firefighter test and one hour of open training a day, with coaches on the floor. Also for Barcelona firefighter and Mossos d'Esquadra candidates. Monday to Friday between 11:30 and 15:30, and Sundays between 9:30 and 11:30. €65/month. First class free. <strong>Free open day: Sunday 11 October, 9:30–11:30. Limited places.</strong></p>
+      <p class="sub">Training for exam candidates in Terrassa: three coached classes a week with the elements of the 2026 firefighter test, open training, a monthly mock test and sauna. For Bombers de la Generalitat, Barcelona firefighter and Mossos d'Esquadra candidates. <strong>{Q}/month, no joining fee.</strong></p>
       <div class="hero-acts">
         <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Message us on WhatsApp<span class="arr"></span></a>
         <a class="btn-ghost" href="#opo-form">or leave your details</a>
@@ -148,96 +167,131 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
 
   <section class="sec ink">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">01 —</span><span>What we train</span></div>
+      <div class="eyebrow reveal"><span class="num">01 —</span><span>What's included</span></div>
       <div style="height:24px"></div>
       <div class="sec-head">
-        <h2 class="h-xl reveal">Coached class<br>and open training<span class="dot">.</span></h2>
-        <p class="lead reveal">The 2026 Bombers de la Generalitat physical test (call 81/26) has three timed intervention simulations. The two fire simulations are prepared at the box. The third, the water rescue, is in a pool.</p>
+        <h2 class="h-xl reveal">Everything the candidate<br>membership includes<span class="dot">.</span></h2>
+        <p class="lead reveal">Six things, no small print. Coached classes and open sessions are booked through the Aimharder app.</p>
       </div>
 
-      <div class="cossos reveal-stagger">
-        <div class="cos" style="--i:0">
-          <span class="tag">01 · Coached</span>
-          <h3>Thursdays, <em>14:30</em></h3>
-          <p>One weekly class for exam candidates: high-intensity training with the elements of the test plus specific strength work. Build strength and endurance, and master the elements under fatigue.</p>
+      <div class="incl-grid reveal-stagger">
+        <div class="incl" style="--i:0">
+          <span class="tag">01 · Programming</span>
+          <h3>Specific <em>programming</em></h3>
+          <p>Training planned around the physical tests of your exam call.</p>
         </div>
-        <div class="cos" style="--i:1">
-          <span class="tag">02 · Slot</span>
-          <h3>One hour <em>a day</em></h3>
-          <p>Each day of the slot you get one hour of open training with all the box equipment. There is always a coach on the floor: if you have questions during your session, we guide you.</p>
+        <div class="incl" style="--i:1">
+          <span class="tag">02 · Coached</span>
+          <h3>3 classes <em>a week</em></h3>
+          <p>Monday, Wednesday and Friday 12:30–13:30: wildland fire, structural fire and general conditioning.</p>
         </div>
-        <div class="cos" style="--i:2">
-          <span class="tag">03 · Circuit</span>
-          <h3>And <em>mock tests</em></h3>
-          <p>The circuit equipment is at the box. We work on it in the coached class and during open hours, and from time to time we run timed mock tests the way it is done on test day: chained together, no gloves, chalk or belt.</p>
+        <div class="incl" style="--i:2">
+          <span class="tag">03 · Open</span>
+          <h3>3 open <em>sessions</em></h3>
+          <p>Monday, Wednesday and Friday 10:30–15:30; Tuesday and Thursday 11:30–15:30. All the box equipment and coaches on the floor.</p>
         </div>
-      </div>
-
-
-      <div class="mat reveal">
-        <span class="tag">Circuit equipment available at the box</span>
-        <div class="mat-cols">
-          <div>
-            <ul>
-              <li>Sled and a lane to drag it</li>
-              <li>Wall balls</li>
-              <li>Boxes</li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>Dummy drag (70 kg worm)</li>
-              <li>Balance beam</li>
-              <li>Enough space for the running work</li>
-            </ul>
-          </div>
+        <div class="incl" style="--i:3">
+          <span class="tag">04 · Group</span>
+          <h3>Candidates' <em>WhatsApp</em></h3>
+          <p>The specific sessions shared and the group in touch throughout the process.</p>
+        </div>
+        <div class="incl" style="--i:4">
+          <span class="tag">05 · Mock test</span>
+          <h3>Full circuit <em>every month</em></h3>
+          <p>Timed the way it is done on test day, chained together with no gloves, chalk or belt. To track progress.</p>
+        </div>
+        <div class="incl" style="--i:5">
+          <span class="tag">06 · Sauna</span>
+          <h3>1 session <em>a month</em></h3>
+          <p>15 minutes of infrared sauna to recover. Unlimited sauna for {eur(PRICES.recoveryAddon, 'en')}/month extra.</p>
         </div>
       </div>
-      <p class="font reveal">Source: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolution ISP/3218/2026 (DOGC no. 9751, 15.9.2026)</a>. Registration at tràmits.gencat.cat for 10 working days from 16 September. Physical test dates have not been published yet. The official announcement is the reference.</p>
-
-      <div class="regla reveal">
-        <span class="tag">Barcelona firefighters · Mossos d'Esquadra · other forces</span>
-        <p>The slot is also for candidates preparing for Barcelona city firefighters (SPEIS), Mossos d'Esquadra or any other exam with physical tests. The equipment and the strength and aerobic base are the same. Check your call's official announcement and, if you are unsure what to work on, ask us.</p>
-      </div>
-
     </div>
   </section>
 
   <section class="sec bone">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">02 —</span><span>Conditions</span></div>
+      <div class="eyebrow reveal"><span class="num">02 —</span><span>Pricing</span></div>
       <div style="height:24px"></div>
-      <h2 class="h-xl reveal">Monthly membership<br>or a one-day pass<span class="dot">.</span></h2>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">One membership,<br>everything included<span class="dot">.</span></h2>
+        <p class="lead reveal">Day passes and unlimited sauna are covered in the FAQ.</p>
+      </div>
 
-      <div class="conds reveal">
-        <div><span class="label">01 · Price</span><div><h4>€65/month · VAT included</h4><p>A weekly coached class and one hour of open training a day within the candidate slot.</p></div><span class="p">€65<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/month</span></span></div>
-        <div><span class="label">02 · Slot</span><div><h4>Monday to Friday · 11:30–15:30</h4><p>One hour a day, at the time you choose, with all the box equipment available. Plus <strong>Sundays from 9:30 to 11:30</strong>.</p></div><span class="p">6<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">days/wk</span></span></div>
-        <div><span class="label">03 · Coached</span><div><h4>Thursday · 14:30–15:30</h4><p>A class for exam candidates with the elements of the test. On Thursdays, the class is your hour for the day.</p></div><span class="p">1<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">class/wk</span></span></div>
-        <div><span class="label">04 · Programming</span><div><h4>Personalised · ask us</h4><p>If you want programming tailored to your exam and your starting point, ask us.</p></div></div>
-        <div><span class="label">05 · Proof</span><div><h4>Exam registration required</h4><p>To access this rate you must show proof of registration for the current exam call.</p></div></div>
-        <div><span class="label">06 · First class</span><div><h4>Coached · free</h4><p>Come on a Thursday at 14:30, get to know the box and try the equipment we work with.</p></div><span class="p">€0<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">1st class</span></span></div>
-        <div><span class="label">07 · Day pass</span><div><h4>One day · €15</h4><p>One day of access to the slot and the equipment, no monthly membership.</p></div><span class="p">€15<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/day</span></span></div>
-        <div><span class="label">08 · Sauna</span><div><h4>Recovery · +€10</h4><p>Add a sauna session to your day pass for a full day of training and recovery: €25 in total. <a href="/en/recovery" style="color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px;">La Mola Recovery →</a></p></div><span class="p">+€10<span style="font-family:var(--f-mono); font-size:11px; color:var(--muted-ink); margin-left:6px;">/session</span></span></div>
+      <div class="tarifa reveal">
+        <div class="price">
+          <span class="tag">Candidate membership</span>
+          <h3>Monthly <em>membership</em></h3>
+          <div><span class="num">{PRICES.opositors}<sup>€</sup></span><span class="per">/month · VAT incl.</span></div>
+          <ul>
+            <li>3 coached classes + 3 open sessions a week</li>
+            <li>Specific programming and WhatsApp group</li>
+            <li>Monthly circuit mock test and 1 sauna session a month</li>
+          </ul>
+        </div>
+        <ul class="terms">
+          <li><span><strong>No joining fee</strong> on first sign-up and no minimum term.</span></li>
+          <li><span><strong>Groups of more than 4 people:</strong> 10% off the first month.</span></li>
+          <li><span><strong>Proof of registration</strong> for the exam call is required to sign up.</span></li>
+          <li><span><strong>Bookings</strong> for coached classes and open sessions through the Aimharder app.</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="sec ink">
     <div class="inner">
-      <div class="eyebrow reveal"><span class="num">03 —</span><span>FAQ</span></div>
+      <div class="eyebrow reveal"><span class="num">03 —</span><span>The test</span></div>
       <div style="height:24px"></div>
-      <h2 class="h-xl reveal" style="color:var(--bone)">Common<br>questions<span class="dot">.</span></h2>
+      <div class="sec-head">
+        <h2 class="h-xl reveal">The 2026 firefighter<br>physical test<span class="dot">.</span></h2>
+        <p class="lead reveal">Call 81/26 has three timed intervention simulations. The two fire simulations are prepared at the box. The third, the water rescue, is in a pool.</p>
+      </div>
+
+      <div class="prova reveal">
+        <figure class="pic">
+          <img src="/assets/elbox-entrenament-1.webp" alt="Group training with plates in the WOD area at CrossFit La Mola, Terrassa" loading="lazy" width="900" height="600">
+          <figcaption>Training at the box · CrossFit La Mola, Terrassa</figcaption>
+        </figure>
+        <div>
+          <div class="mat">
+            <span class="tag">Circuit equipment at the box</span>
+            <ul>
+              <li>Sled and a lane to drag it</li>
+              <li>Dummy drag</li>
+              <li>Wall balls</li>
+              <li>Balance beam</li>
+              <li>Boxes</li>
+              <li>Space for the running work</li>
+            </ul>
+          </div>
+          <div class="regla">
+            <span class="tag">Barcelona firefighters · Mossos d'Esquadra · other forces</span>
+            <p>The membership is also for candidates preparing for Barcelona city firefighters (SPEIS), Mossos d'Esquadra or any other exam with physical tests. The strength and aerobic base is the same.</p>
+          </div>
+          <p class="font">Source: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolution ISP/3218/2026 (DOGC no. 9751, 15.9.2026)</a>. Physical test dates have not been published yet. The official announcement is the reference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bone">
+    <div class="inner">
+      <div class="eyebrow reveal"><span class="num">04 —</span><span>FAQ</span></div>
+      <div style="height:24px"></div>
+      <h2 class="h-xl reveal">Common<br>questions<span class="dot">.</span></h2>
 
       <div class="faq reveal" style="margin-top:52px;">
-        <details><summary>Which parts of the 2026 firefighter test can I prepare at the box?</summary><p>Call 81/26 has <strong>three timed simulations</strong>. The two <strong>fire simulations</strong> (wildland and structural) are prepared at the box: the equipment is on the floor and we work on it in the coached class and during open hours, with timed mock tests from time to time. The <strong>water rescue</strong> takes place in a pool and cannot be prepared here: from the box we only contribute the aerobic base, pulling strength and core.</p></details>
-        <details><summary>Is there coached training or programming?</summary><p>Yes. Every <strong>Thursday 14:30–15:30</strong> there is a coached class for exam candidates: high-intensity training with the elements of the test plus strength work. The rest of the slot is <strong>one hour a day</strong> of open training with coaches on the floor. If you want <strong>personalised programming</strong> for your exam, ask us.</p></details>
-        <details><summary>When are the physical tests?</summary><p>Dates <strong>have not been published yet</strong>. The physical test comes after the knowledge test. Registration for call 81/26 is at tràmits.gencat.cat for 10 working days from 16 September. Always check the official announcement.</p></details>
+        <details><summary>Which parts of the 2026 firefighter test can I prepare at the box?</summary><p>Call 81/26 has <strong>three timed simulations</strong>. The two fire simulations (wildland and structural) are prepared at the box with the circuit equipment. The <strong>water rescue</strong> takes place in a pool: from the box we only contribute the aerobic base, pulling strength and core.</p></details>
+        <details><summary>Which days are the coached classes?</summary><p><strong>Monday, Wednesday and Friday 12:30–13:30.</strong> Every week: one wildland fire session, one structural fire session and one general conditioning session. They are booked through the Aimharder app.</p></details>
+        <details><summary>How many days can I come?</summary><p>Up to six: <strong>three coached classes and three open training sessions</strong> a week. The open slots are Monday, Wednesday and Friday 10:30–15:30, and Tuesday and Thursday 11:30–15:30.</p></details>
+        <details><summary>Is there a joining fee or a minimum term?</summary><p>No. There is <strong>no joining fee</strong> on your first sign-up and no minimum term. If you come as a group of more than four people, the first month is <strong>10% off</strong>.</p></details>
         <details><summary>Who can join?</summary><p>Anyone registered for an exam with physical tests: <strong>Bombers de la Generalitat</strong>, <strong>Barcelona firefighters (SPEIS)</strong>, <strong>Mossos d'Esquadra</strong> or other forces. Proof of registration is required to sign up.</p></details>
-        <details><summary>Can I come every day?</summary><p>Yes. Each day of the slot you get <strong>one hour</strong> of open training, at the time you choose: Monday to Friday between 11:30 and 15:30, plus Sundays between 9:30 and 11:30. On Thursdays, the coached class is that hour.</p></details>
-        <details><summary>Can I try it before signing up?</summary><p>Yes. The <strong>first coached class</strong> for exam candidates is free: come on a Thursday at 14:30, get to know the box and try the equipment we work with. For any other day there is the €15 day pass.</p></details>
-        <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership (€65/month) gives access to the Thursday coached class and one hour a day within the weekday 11:30–15:30 slot and Sunday mornings. If you also want to take any of the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which also includes the candidate space and equipment.</p></details>
+        <details><summary>When are the physical tests?</summary><p>Dates <strong>have not been published yet</strong>. The physical test comes after the knowledge test. Always check the official announcement for call 81/26.</p></details>
+        <details><summary>I want to prepare for the exam and also take classes. Which membership do I need?</summary><p>The candidate membership gives access to the three coached classes and the three weekly open sessions within the midday slots. To also take the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the <strong>Unlimited membership</strong>, which includes the candidate space and equipment.</p></details>
         <details><summary>I'm already a member. Can I use the candidate space?</summary><p>Yes. With the <strong>Unlimited membership</strong> you can access the candidate space and equipment within the slot at no extra cost.</p></details>
-        <details><summary>Can I come just one day to test myself?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and includes one day of access to the slot and the equipment, no monthly membership. If you also want to recover well and get the benefits of the sauna, add <strong>€10</strong> for a full day of training and recovery: €25 in total.</p></details>
+        <details><summary>Can I come just one day?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and gives one day of access to the open slot and the equipment, no monthly membership. With a sauna session, €25 in total. Message us to book.</p></details>
+        <details><summary>Is the sauna included?</summary><p>Yes, <strong>one 15-minute session a month</strong>. For unlimited sauna, add <a href="/en/recovery" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">La Mola Recovery</a> to your membership for <strong>€9.90 a month</strong>.</p></details>
       </div>
     </div>
   </section>
@@ -245,9 +299,9 @@ const WA = 'https://wa.me/34699196531?text=Hi!%20I%20am%20preparing%20for%20the%
   <section class="cta-block">
     <div class="bg" style="background-image:url('/assets/hero-climb.jpg')"></div>
     <div class="inner">
-      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">04 —</span><span>Let's start</span></div>
+      <div class="eyebrow reveal" style="color:var(--bone-3)"><span class="num" style="color:var(--accent-hi)">05 —</span><span>Let's start</span></div>
       <h2 class="h-hero reveal">Your spot is<br>earned <em class="serif">today</em><span class="dot">.</span></h2>
-      <p class="reveal">Tell us which exam you are preparing for and we'll get back to you with all the information. Or come to the free Thursday class with your registration proof.</p>
+      <p class="reveal">Tell us which exam you are preparing for and we'll get back to you with the information and the next steps.</p>
       <form id="opo-form" class="reveal" style="display:grid; gap:24px; max-width:560px;">
         <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Honeypot anti-spam">
         <div class="form-row two">

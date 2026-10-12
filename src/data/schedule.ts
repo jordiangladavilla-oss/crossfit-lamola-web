@@ -1,6 +1,7 @@
 // Font única de la graella setmanal de classes. Es renderitza al build (SSR estàtic) a /horari ×3
 // perquè Google i els assistents d'IA la vegin al HTML; el JS del client només filtra i marca "avui".
-// Dades exactes del box (horari setembre 2026). Per editar l'horari: només aquest fitxer.
+// Dades exactes del box (horari octubre 2026; classe OPOS d'opositors dl/dc/dv 12:30 des del 19/10).
+// Per editar l'horari: només aquest fitxer.
 
 export type Lang = 'ca' | 'es' | 'en';
 export type Slot = [time: string, classes: string[]];
@@ -12,7 +13,8 @@ export const SCHEDULE: Slot[][] = [
     ['08:00-09:00', ['OPEN', 'OPEN EXTERIOR']],
     ['09:30-10:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['10:30-11:30', ['HYBRID CLUB', 'OPEN', 'OPEN EXTERIOR']],
-    ['11:30-13:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['11:30-12:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['12:30-13:30', ['OPOS', 'OPEN', 'OPEN EXTERIOR']],
     ['13:30-14:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['14:30-16:00', ['OPEN', 'OPEN EXTERIOR']],
     ['16:00-17:30', ['THE PROGRAM', 'OPEN', 'OPEN EXTERIOR']],
@@ -40,7 +42,8 @@ export const SCHEDULE: Slot[][] = [
     ['08:00-09:00', ['LA MOLA WEIGHTLIFTING', 'OPEN', 'OPEN EXTERIOR']],
     ['09:30-10:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['10:30-11:30', ['OPEN', 'OPEN EXTERIOR']],
-    ['11:30-13:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['11:30-12:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['12:30-13:30', ['OPOS', 'OPEN', 'OPEN EXTERIOR']],
     ['13:30-14:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['14:30-16:00', ['OPEN', 'OPEN EXTERIOR']],
     ['16:00-17:30', ['THE PROGRAM', 'OPEN', 'OPEN EXTERIOR']],
@@ -68,7 +71,8 @@ export const SCHEDULE: Slot[][] = [
     ['08:00-09:00', ['OPEN', 'OPEN EXTERIOR']],
     ['09:30-10:30', ['STRENGTH CLUB - POWERLIFTING', 'OPEN', 'OPEN EXTERIOR']],
     ['10:30-11:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
-    ['11:30-13:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['11:30-12:30', ['OPEN', 'OPEN EXTERIOR']],
+    ['12:30-13:30', ['OPOS', 'OPEN', 'OPEN EXTERIOR']],
     ['13:30-14:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['14:30-16:00', ['OPEN', 'OPEN EXTERIOR']],
     ['16:00-17:30', ['THE PROGRAM', 'OPEN', 'OPEN EXTERIOR']],
@@ -91,23 +95,23 @@ const T = {
     days: ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte', 'Diumenge'],
     abbr: ['Dl', 'Dm', 'Dc', 'Dj', 'Dv', 'Ds', 'Dg'],
     empty: 'Descans · sense classes',
-    pairs: 'WOD in Pairs', wodInit: 'WOD · Iniciació', outdoor: 'Exterior',
+    pairs: 'WOD in Pairs', opos: 'Opositors', wodInit: 'WOD · Iniciació', outdoor: 'Exterior',
   },
   es: {
     days: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
     abbr: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
     empty: 'Descanso · sin clases',
-    pairs: 'WOD en Parejas', wodInit: 'WOD · Iniciación', outdoor: 'Exterior',
+    pairs: 'WOD en Parejas', opos: 'Opositores', wodInit: 'WOD · Iniciación', outdoor: 'Exterior',
   },
   en: {
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     abbr: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     empty: 'Rest day · no classes',
-    pairs: 'Partner WOD', wodInit: 'WOD', outdoor: 'Outdoor',
+    pairs: 'Partner WOD', opos: 'Exam prep', wodInit: 'WOD', outdoor: 'Outdoor',
   },
 } as const;
 
-export type FilterKey = 'open' | 'pr' | 'wl' | 'hy' | 'st' | 'bw' | 'ab' | 'rc' | 'wod';
+export type FilterKey = 'open' | 'pr' | 'wl' | 'hy' | 'st' | 'bw' | 'ab' | 'rc' | 'op' | 'wod';
 
 // Mateixa lògica que tenia el JS del client: nom de classe → clau de filtre + etiqueta
 export function classify(name: string, lang: Lang): { k: FilterKey; l: string; interior?: boolean } {
@@ -115,6 +119,7 @@ export function classify(name: string, lang: Lang): { k: FilterKey; l: string; i
   const t = T[lang];
   if (n === 'OPEN' || n === 'OPEN EXTERIOR') return { k: 'open', l: n, interior: n === 'OPEN' };
   if (n.includes('THE PROGRAM')) return { k: 'pr', l: 'The Program' };
+  if (n.includes('OPOS')) return { k: 'op', l: t.opos };
   if (n.includes('WEIGHTLIFTING')) return { k: 'wl', l: 'Weightlifting' };
   if (n.includes('HYBRID')) return { k: 'hy', l: 'Hybrid Club' };
   if (n.includes('STRENGTH')) return { k: 'st', l: 'Strength · Powerlifting' };
@@ -132,7 +137,7 @@ export interface RenderedWeek { days: RenderedDay[]; counts: Record<string, numb
 
 export function buildWeek(lang: Lang): RenderedWeek {
   const t = T[lang];
-  const counts: Record<string, number> = { all: 0, wod: 0, wl: 0, hy: 0, bw: 0, st: 0, ab: 0, pr: 0, rc: 0 };
+  const counts: Record<string, number> = { all: 0, wod: 0, wl: 0, hy: 0, bw: 0, st: 0, ab: 0, pr: 0, rc: 0, op: 0 };
   const days: RenderedDay[] = SCHEDULE.map((slots, i) => {
     const dayHasCoached = slots.some(([, arr]) => arr.some((c) => classify(c, lang).k !== 'open'));
     const out: RenderedSlot[] = [];

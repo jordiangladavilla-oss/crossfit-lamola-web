@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import Schema from '../components/Schema.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
+import { PRICES, eur } from '../data/pricing'
 ---
 
 <Layout
@@ -86,6 +87,15 @@ import Breadcrumb from '../components/Breadcrumb.astro'
           "teaches":["Fartlek","Sèries","Tirades llargues","Tècnica de carrera"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
           "offers":{"@type":"Offer","category":"Free with membership","price":"0","priceCurrency":"EUR","description":"No consumeix crèdit de la quota mensual"}
+        }},
+        {"@type":"ListItem","position":9,"item":{"@id":"https://crossfitlamola.com/classes#opositors","url":"https://crossfitlamola.com/classes#opositors","image":"https://crossfitlamola.com/assets/opositors-hero.webp",
+          "@type":"Course","name":"Opositors · preparació física per a oposicions","description":"Classe dirigida per a qui prepara Bombers, Mossos d'Esquadra o altres cossos: dilluns, dimecres i divendres de 12:30 a 13:30, amb els elements de la prova física. Va amb la quota d'opositors (programació específica, entrenament lliure, simulacre mensual i sauna).",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"ca","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Persones inscrites a una convocatòria d'oposicions amb proves físiques"},
+          "teaches":["Circuit de la prova física","Força i resistència sota fatiga","Condicionament físic general","Simulacre cronometrat"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"Candidate membership","price":"80","priceCurrency":"EUR","description":"Quota d'opositors: 80€/mes, sense matrícula","url":"https://crossfitlamola.com/opositors"}
         }}
       ]
     })} />
@@ -295,6 +305,17 @@ import Breadcrumb from '../components/Breadcrumb.astro'
             <div><dt>Què portar</dt><dd>Sabatilles de running i roba transpirable. <strong>No consumeix crèdit</strong> de la quota mensual.</dd></div>
           </dl></details>
         </article>
+        <article class="disc" id="opositors" style="--i:8">
+          <span class="num">+</span>
+          <div><h3>Opositors</h3><div class="tagline">Proves físiques - 60 min · quota pròpia</div></div>
+          <p>Classe dirigida per a qui prepara Bombers, Mossos d'Esquadra o altres cossos: dilluns, dimecres i divendres a les 12:30, amb els elements de la prova. Va amb una quota pròpia de {eur(PRICES.opositors, 'ca')}/mes que inclou programació específica, entrenament lliure, simulacre mensual i sauna. <a href="/opositors" style="color:var(--accent-ink); font-weight:500; text-decoration:underline; text-underline-offset:3px;">Veure la quota d'opositors →</a></p>
+          <div class="meta"><span>Nivell <strong>Opositors</strong></span><span>Freqüència <strong>3x/setmana</strong></span></div>
+          <details class="disc-more"><summary><span class="disc-more-label">detalls</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
+            <div><dt>Per a qui és</dt><dd>Persones inscrites a una convocatòria amb proves físiques: Bombers de la Generalitat, Bombers de Barcelona, Mossos d'Esquadra o altres cossos. Cal acreditar la inscripció.</dd></div>
+            <div><dt>Què guanyes</dt><dd>Força i resistència amb els elements del circuit (trineu, wall balls, maniquí, barra d'equilibri), un simulacre mensual cronometrat i programació específica.</dd></div>
+            <div><dt>Què portar</dt><dd>Roba d'entrenament, aigua i el justificant d'inscripció el primer dia. <strong>No forma part de les quotes del box</strong>: té quota pròpia, o accés amb la Il·limitada.</dd></div>
+          </dl></details>
+        </article>
       </div>
     </div>
   </section>
@@ -332,7 +353,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         <div style="--i:0"><div class="when">Què és</div><h4>Força que serveix per a alguna cosa</h4><p>L'entrenament funcional treballa patrons de moviment complets, no músculs aïllats: esquat, frontissa de maluc, empenta, tracció i transport de càrrega. L'objectiu és rendir millor en el dia a dia i en l'esport, no només a la màquina.</p></div>
         <div style="--i:1"><div class="when">Com ho fem</div><h4>Amb coach, amb criteri</h4><p>Cada classe la dirigeix un coach amb certificació CF-L1 o CF-L2. Primer la tècnica, després la càrrega, sempre al teu nivell. Treballem amb barres, kettlebells, trineus, cordes, rem i ski erg en un box de 517 m² amb zona exterior.</p></div>
         <div style="--i:2"><div class="when">Per a qui</div><h4>Des de zero o amb experiència</h4><p>Per a qui comença i per a qui ja entrena. Les classes de WOD, Strength Club i Hybrid Club escalen cada moviment segons el teu punt de partida. No cal experiència prèvia.</p></div>
-        <div style="--i:3"><div class="when">Quan</div><h4>54 classes amb coach a la setmana</h4><p>De dilluns a divendres des de les 7:00 i caps de setmana al matí, a Terrassa (Av. del Vallès 724C). Consulta l'<a href="/horari" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">horari setmanal</a> i reserva la teva <a href="/contacte" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">primera classe gratuïta</a>.</p></div>
+        <div style="--i:3"><div class="when">Quan</div><h4>57 classes amb coach a la setmana</h4><p>De dilluns a divendres des de les 7:00 i caps de setmana al matí, a Terrassa (Av. del Vallès 724C). Consulta l'<a href="/horari" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">horari setmanal</a> i reserva la teva <a href="/contacte" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">primera classe gratuïta</a>.</p></div>
       </div>
     </div>
   </section>

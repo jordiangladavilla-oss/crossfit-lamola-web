@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Schema from '../../components/Schema.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
+import { PRICES, eur } from '../../data/pricing'
 ---
 
 <Layout
@@ -86,6 +87,15 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
           "teaches":["Fartlek","Series","Tiradas largas","Técnica de carrera"],
           "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
           "offers":{"@type":"Offer","category":"Free with membership","price":"0","priceCurrency":"EUR","description":"No consume crédito de la cuota mensual"}
+        }},
+        {"@type":"ListItem","position":9,"item":{"@id":"https://crossfitlamola.com/es/classes#opositors","url":"https://crossfitlamola.com/es/classes#opositors","image":"https://crossfitlamola.com/assets/opositors-hero.webp",
+          "@type":"Course","name":"Opositores · preparación física para oposiciones","description":"Clase dirigida para quien prepara Bomberos, Mossos d'Esquadra u otros cuerpos: lunes, miércoles y viernes de 12:30 a 13:30, con los elementos de la prueba física. Va con la cuota de opositores (programación específica, entrenamiento libre, simulacro mensual y sauna).",
+          "provider":{"@id":"https://crossfitlamola.com/#organization"},
+          "inLanguage":"es","educationalLevel":"All Levels","timeRequired":"PT60M",
+          "audience":{"@type":"EducationalAudience","audienceType":"Personas inscritas en una convocatoria de oposiciones con pruebas físicas"},
+          "teaches":["Circuito de la prueba física","Fuerza y resistencia bajo fatiga","Acondicionamiento físico general","Simulacro cronometrado"],
+          "hasCourseInstance":{"@type":"CourseInstance","courseMode":"Onsite","location":{"@id":"https://crossfitlamola.com/#organization"}},
+          "offers":{"@type":"Offer","category":"Candidate membership","price":"80","priceCurrency":"EUR","description":"Cuota de opositores: 80€/mes, sin matrícula","url":"https://crossfitlamola.com/es/opositors"}
         }}
       ]
     })} />
@@ -295,6 +305,17 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
             <div><dt>Qué llevar</dt><dd>Zapatillas de running y ropa transpirable. <strong>No consume crédito</strong> de la cuota mensual.</dd></div>
           </dl></details>
         </article>
+        <article class="disc" id="opositors" style="--i:8">
+          <span class="num">+</span>
+          <div><h3>Opositores</h3><div class="tagline">Pruebas físicas - 60 min · cuota propia</div></div>
+          <p>Clase dirigida para quien prepara Bomberos, Mossos d'Esquadra u otros cuerpos: lunes, miércoles y viernes a las 12:30, con los elementos de la prueba. Va con una cuota propia de {eur(PRICES.opositors, 'es')}/mes que incluye programación específica, entrenamiento libre, simulacro mensual y sauna. <a href="/es/opositors" style="color:var(--accent-ink); font-weight:500; text-decoration:underline; text-underline-offset:3px;">Ver la cuota de opositores →</a></p>
+          <div class="meta"><span>Nivel <strong>Opositores</strong></span><span>Frecuencia <strong>3x/semana</strong></span></div>
+          <details class="disc-more"><summary><span class="disc-more-label">detalles</span><span class="disc-more-icon" aria-hidden="true"></span></summary><dl class="disc-details">
+            <div><dt>Para quién es</dt><dd>Personas inscritas en una convocatoria con pruebas físicas: Bombers de la Generalitat, Bomberos de Barcelona, Mossos d'Esquadra u otros cuerpos. Hay que acreditar la inscripción.</dd></div>
+            <div><dt>Qué ganas</dt><dd>Fuerza y resistencia con los elementos del circuito (trineo, wall balls, maniquí, barra de equilibrio), un simulacro mensual cronometrado y programación específica.</dd></div>
+            <div><dt>Qué llevar</dt><dd>Ropa de entrenamiento, agua y el justificante de inscripción el primer día. <strong>No forma parte de las cuotas del box</strong>: tiene cuota propia, o acceso con la Ilimitada.</dd></div>
+          </dl></details>
+        </article>
       </div>
     </div>
   </section>
@@ -332,7 +353,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro'
         <div style="--i:0"><div class="when">Qué es</div><h4>Fuerza que sirve para algo</h4><p>El entrenamiento funcional trabaja patrones de movimiento completos, no músculos aislados: sentadilla, bisagra de cadera, empuje, tracción y transporte de carga. El objetivo es rendir mejor en el día a día y en el deporte, no solo en la máquina.</p></div>
         <div style="--i:1"><div class="when">Cómo lo hacemos</div><h4>Con coach, con criterio</h4><p>Cada clase la dirige un coach con certificación CF-L1 o CF-L2. Primero la técnica, después la carga, siempre a tu nivel. Trabajamos con barras, kettlebells, trineos, cuerdas, remo y ski erg en un box de 517 m² con zona exterior.</p></div>
         <div style="--i:2"><div class="when">Para quién</div><h4>Desde cero o con experiencia</h4><p>Para quien empieza y para quien ya entrena. Las clases de WOD, Strength Club y Hybrid Club escalan cada movimiento según tu punto de partida. No hace falta experiencia previa.</p></div>
-        <div style="--i:3"><div class="when">Cuándo</div><h4>54 clases con coach a la semana</h4><p>De lunes a viernes desde las 7:00 y fines de semana por la mañana, en Terrassa (Av. del Vallès 724C). Consulta el <a href="/es/horari" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">horario semanal</a> y reserva tu <a href="/es/contacte" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">primera clase gratis</a>.</p></div>
+        <div style="--i:3"><div class="when">Cuándo</div><h4>57 clases con coach a la semana</h4><p>De lunes a viernes desde las 7:00 y fines de semana por la mañana, en Terrassa (Av. del Vallès 724C). Consulta el <a href="/es/horari" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">horario semanal</a> y reserva tu <a href="/es/contacte" style="color:var(--accent-hi);text-decoration:underline;text-underline-offset:3px;">primera clase gratis</a>.</p></div>
       </div>
     </div>
   </section>

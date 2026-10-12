@@ -3,7 +3,7 @@
 // Per canviar un preu: només aquí. Els fitxers públics per a IA (public/llms*.txt) s'han
 // d'actualitzar a mà fins que es generin (pendent).
 //
-// NOTA: /opositors i /recovery encara porten els seus preus al propi fitxer (65, 15+10, 9,90, 5).
+// NOTA: /opositors i /recovery encara porten els seus preus al propi fitxer (80, 15+10, 9,90, 5).
 // Els valors d'aquí han de coincidir-hi: dropIn, saunaSupplement, saunaExtra, recoveryAddon, opositors.
 
 export type Lang = 'ca' | 'es' | 'en';
@@ -27,7 +27,7 @@ export const PRICES = {
   saunaExtra: 5,      // sessió extra per a qui té quota
   saunaSupplement: 10, // suplement sobre el drop-in (sense quota)
   // Opositors
-  opositors: 65,
+  opositors: 80,
 } as const;
 
 /** "49€" en CA/ES, "€49" en EN; decimals amb coma en CA/ES ("9,90€") i punt en EN ("€9.90"). */

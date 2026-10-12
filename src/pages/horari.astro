@@ -64,6 +64,7 @@ const week = buildWeek(lang)
         <button class="filter" data-f="ab">Abs &amp; Cals <span class="count" id="c-ab">· {week.counts.ab}</span></button>
         <button class="filter" data-f="pr">The Program <span class="count" id="c-pr">· {week.counts.pr}</span></button>
         <button class="filter" data-f="rc">Running <span class="count" id="c-rc">· {week.counts.rc}</span></button>
+        <button class="filter" data-f="op">Opositors <span class="count" id="c-op">· {week.counts.op}</span></button>
       </div>
 
       <div class="week reveal" id="week">
@@ -73,7 +74,7 @@ const week = buildWeek(lang)
             {d.slots.length === 0 && <p class="empty">{week.t.empty}</p>}
             {d.slots.map((s) => (
               <div class={'slot' + (s.openOnly ? ' open-only' : '') + (s.alwaysVisible ? ' always-visible' : '') + (s.openOnly && !s.alwaysVisible ? ' hidden' : '')} data-disc={s.k}>
-                <div class="time">{s.time}</div><div class="disc">{s.label}</div>{s.extras && <div class="extras">{s.extras}</div>}
+                <div class="time">{s.time}</div><div class="disc">{s.k === 'op' ? <a href="/opositors">{s.label}</a> : s.label}</div>{s.extras && <div class="extras">{s.extras}</div>}
               </div>
             ))}
           </div>
@@ -88,6 +89,7 @@ const week = buildWeek(lang)
         <span class="chip" style="--c:#5a4a2f;">Bodyweight</span>
         <span class="chip" style="--c:#7a4a3a;">Abs &amp; Cals</span>
         <span class="chip" style="--c:#3a5a7a;">Running</span>
+        <span class="chip" style="--c:#6b4f1d;">Opositors</span>
       </div>
 
       <div class="meta-card reveal">
@@ -170,6 +172,9 @@ const week = buildWeek(lang)
     .slot[data-disc*="ab"] .disc{ color:#7a4a3a;}
     .slot[data-disc*="pr"] .disc{ color:var(--accent-ink); font-weight:500;}
     .slot[data-disc*="rc"] .disc{ color:#3a5a7a;}
+    .slot[data-disc*="op"] .disc{ color:#6b4f1d;}
+    .slot .disc a{ color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(107,79,29,.45);}
+    .slot .disc a:hover{ text-decoration-color:currentColor;}
     .slot[data-disc*="pr"]{ background:linear-gradient(to right, rgba(185,169,114,.1), transparent 60%); }
 
     /* time column (desktop only) */
