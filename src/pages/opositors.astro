@@ -12,7 +12,7 @@ const Q = eur(PRICES.opositors, 'ca')
 
 <Layout
   title="Oposicions de Bombers · Preparació física a Terrassa"
-  description="Preparació física per a oposicions a Terrassa: 3 classes dirigides a la setmana amb els elements de la prova de Bombers 2026, entrenament lliure, simulacre mensual i sauna. 80€/mes."
+  description="Preparació física per a oposicions de Bombers a Terrassa: 3 classes a la setmana amb la prova 2026, entrenament lliure, simulacre mensual i sauna. 80€/mes."
   ogImage="/assets/og/og-opositors.jpg"
 >
   <Schema type="base" slot="head" />
@@ -26,7 +26,7 @@ const Q = eur(PRICES.opositors, 'ca')
       "name": "Preparació física per a oposicions · CrossFit La Mola",
       "serviceType": "Entrenament per a proves físiques d'oposicions",
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
-      "areaServed": {"@type": "City", "name": "Terrassa"},
+      "areaServed": [{"@type": "City", "name": "Terrassa"}, {"@type": "City", "name": "Sabadell"}, {"@type": "City", "name": "Rubí"}, {"@type": "City", "name": "Sant Cugat del Vallès"}],
       "audience": {"@type": "Audience", "audienceType": "Opositors a Bombers de la Generalitat de Catalunya (convocatòria 81/26), Bombers de l'Ajuntament de Barcelona"},
       "description": "Quota per a opositors a Terrassa: programació específica per a les proves físiques, tres classes dirigides a la setmana (dilluns, dimecres i divendres de 12:30 a 13:30: incendi de vegetació, incendi estructural i condicionament físic general), tres sessions d'entrenament lliure a la setmana (dilluns, dimecres i divendres de 10:30 a 15:30; dimarts i dijous d'11:30 a 15:30), grup de WhatsApp, simulacre mensual cronometrat del circuit complet i una sessió de sauna al mes. Elements de la prova física de Bombers de la Generalitat 2026 (Resolució ISP/3218/2026). El rescat aquàtic es prepara en piscina. Reserves per l'app Aimharder.",
       "offers": [
@@ -83,13 +83,18 @@ const Q = eur(PRICES.opositors, 'ca')
         {"@type": "Question", "name": "Vull preparar les oposicions i també fer classes al box. Quina quota necessito?", "acceptedAnswer": {"@type": "Answer", "text": "La quota d'opositors dona accés a les tres dirigides i a les tres sessions lliures setmanals dins les franges del migdia. Per fer també les classes del box (WOD, Hybrid Club, Weightlifting, Strength Club…) o entrenar en altres horaris, necessites la quota Il·limitada, que inclou l'espai i el material d'opositors."}},
         {"@type": "Question", "name": "Ja tinc quota a CrossFit La Mola. Puc utilitzar l'espai d'opositors?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Amb la quota Il·limitada pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement."}},
         {"@type": "Question", "name": "Puc venir només un dia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El drop-in d'opositors costa 15€ i dona accés un dia a la franja lliure i al material, sense quota mensual. Amb una sessió de sauna, 25€ en total. Escriu-nos per reservar."}},
-        {"@type": "Question", "name": "La sauna està inclosa?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, una sessió de 15 minuts al mes. Si vols sauna il·limitada, pots afegir La Mola Recovery a la quota per 9,90€ al mes."}}
+        {"@type": "Question", "name": "La sauna està inclosa?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, una sessió de 15 minuts al mes. Si vols sauna il·limitada, pots afegir La Mola Recovery a la quota per 9,90€ al mes."}},
+        {"@type": "Question", "name": "Vinc de Sabadell, Rubí o Sant Cugat. On és el box?", "acceptedAnswer": {"@type": "Answer", "text": "A Terrassa, a l'Avinguda del Vallès 724C. Sabadell i Rubí són a uns 10 km; Sant Cugat, a uns 15. Les franges d'opositors són de migdia, de dilluns a divendres."}}
       ]
     }
     </script>
   </Fragment>
 
   <style>
+    /* H1: salts fixos nomes quan la mida es relativa al viewport (>=578px); al mobil, salt natural */
+    .page-hero h1 .lg{ display:none; }
+    @media(min-width:578px){ .page-hero h1 .lg{ display:inline; } }
+
     .hero-acts{ display:flex; flex-wrap:wrap; gap:16px 24px; align-items:center; margin-top:30px; }
     .hero-acts .hero-cta{ align-self:auto; }
 
@@ -158,8 +163,8 @@ const Q = eur(PRICES.opositors, 'ca')
     <div class="inner">
       <div class="crumb"><a href="/">Inici</a><span>/</span><span>Oposicions</span></div>
       <div class="kicker"><span>Bombers · Convocatòria 81/26</span><span class="bar"></span><span>Bombers de Barcelona</span></div>
-      <h1>Preparació física<br>per a <em class="serif">oposicions</em><span class="dot">.</span></h1>
-      <p class="sub">Entrenament per a opositors a Terrassa: tres classes dirigides a la setmana amb els elements de la prova de Bombers 2026, entrenament lliure, simulacre mensual i sauna. Per a Bombers de la Generalitat i Bombers de Barcelona. <strong>{Q}/mes, sense matrícula.</strong></p>
+      <h1>Preparació física <br class="lg">per a <em class="serif">oposicions</em> <br class="lg"><em class="serif">de Bombers</em><span class="dot">.</span></h1>
+      <p class="sub">Entrenament per a opositors a Terrassa, Vallès Occidental: tres classes dirigides a la setmana amb els elements de la prova de Bombers 2026, entrenament lliure, simulacre mensual i sauna. Per a Bombers de la Generalitat i Bombers de Barcelona. <strong>{Q}/mes, sense matrícula.</strong></p>
       <div class="hero-acts">
         <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Escriu-nos per WhatsApp<span class="arr"></span></a>
         <a class="btn-ghost" href="#opo-form">o deixa'ns les teves dades</a>
@@ -250,6 +255,24 @@ const Q = eur(PRICES.opositors, 'ca')
         <p class="lead reveal">La convocatòria 81/26 té tres simulacions d'intervenció cronometrades. Les dues d'incendi es preparen al box. La tercera, el rescat aquàtic, és en piscina.</p>
       </div>
 
+      <div class="incl-grid reveal-stagger">
+        <div class="incl" style="--i:0">
+          <span class="tag">Exercici 1 · Vegetació</span>
+          <h3>Incendi de <em>vegetació</em></h3>
+          <p>Simulació cronometrada: desplaçaments en rectes de 20 m i treball amb pilota medicinal de 6 kg contra el terra. Es prepara al box.</p>
+        </div>
+        <div class="incl" style="--i:1">
+          <span class="tag">Exercici 2 · Estructural</span>
+          <h3>Incendi <em>estructural</em></h3>
+          <p>Simulació cronometrada amb armilla lastrada: transport de càrregues, arrossegament de trineu amb corda, pas de tanques i arrossegament de maniquí. Es prepara al box.</p>
+        </div>
+        <div class="incl" style="--i:2">
+          <span class="tag">Exercici 3 · Aquàtic</span>
+          <h3>Rescat <em>aquàtic</em></h3>
+          <p>En piscina, amb remolc de maniquí. No es prepara al box: hi aportem base aeròbica, tracció i core.</p>
+        </div>
+      </div>
+
       <div class="prova reveal">
         <figure class="pic">
           <img src="/assets/elbox-entrenament-1.webp" alt="Grup entrenant amb discos a la zona WOD de CrossFit La Mola, Terrassa" loading="lazy" width="900" height="600">
@@ -270,6 +293,10 @@ const Q = eur(PRICES.opositors, 'ca')
           <div class="regla">
             <span class="tag">Bombers de Barcelona</span>
             <p>La quota també és per a qui prepara Bombers de l'Ajuntament de Barcelona (SPEIS). La base de força i capacitat aeròbica és la mateixa.</p>
+          </div>
+          <div class="regla">
+            <span class="tag">Què canvia el 2026</span>
+            <p>Els tres exercicis es puntuen de 0 a 10 i substitueixen el model anterior de cinc proves separades (course navette, circuit d'agilitat, pressió en banc). Els barems són a les bases oficials.</p>
           </div>
           <p class="font">Font: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolució ISP/3218/2026 (DOGC núm. 9751, 15.9.2026)</a>. Les dates de la prova física encara no s'han publicat. Les bases oficials són la referència.</p>
         </div>
@@ -294,6 +321,7 @@ const Q = eur(PRICES.opositors, 'ca')
         <details><summary>Ja tinc quota a CrossFit La Mola. Puc utilitzar l'espai d'opositors?</summary><p>Sí. Amb la <strong>quota Il·limitada</strong> pots accedir a l'espai i al material d'opositors dins la franja, sense cap suplement.</p></details>
         <details><summary>Puc venir només un dia?</summary><p>Sí. El <strong>drop-in</strong> d'opositors costa <strong>15€</strong> i dona accés un dia a la franja lliure i al material, sense quota mensual. Amb una sessió de sauna, 25€ en total. Escriu-nos per reservar.</p></details>
         <details><summary>La sauna està inclosa?</summary><p>Sí, <strong>una sessió de 15 minuts al mes</strong>. Si vols sauna il·limitada, pots afegir <a href="/recovery" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">La Mola Recovery</a> a la quota per <strong>9,90€ al mes</strong>.</p></details>
+        <details><summary>Vinc de Sabadell, Rubí o Sant Cugat. On és el box?</summary><p>A Terrassa, a l'<strong>Avinguda del Vallès 724C</strong>. Sabadell i Rubí són a uns 10 km; Sant Cugat, a uns 15. Les franges d'opositors són de migdia, de dilluns a divendres.</p></details>
       </div>
     </div>
   </section>

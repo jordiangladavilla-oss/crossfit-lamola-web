@@ -1,5 +1,5 @@
 # CrossFit La Mola — llms-full.txt (CA · ES · EN)
-# Terrassa, Barcelona · https://crossfitlamola.com · Generat 2026-10-13
+# Terrassa, Barcelona · https://crossfitlamola.com · Generat 2026-10-15
 
 # ===== CATALÀ · https://crossfitlamola.com/llms.txt =====
 
@@ -76,7 +76,8 @@
 - Inclou: programació específica per a les proves físiques; 3 classes dirigides a la setmana (dilluns, dimecres i divendres 12:30–13:30: una sessió d'incendi de vegetació, una d'incendi estructural i una de condicionament físic general); 3 sessions d'entrenament lliure a la setmana (franges: dilluns, dimecres i divendres 10:30–15:30; dimarts i dijous 11:30–15:30) amb coaches a la sala; grup de WhatsApp d'opositors; simulacre mensual del circuit complet cronometrat; 1 sessió de sauna infraroja (15 min) al mes
 - Sauna il·limitada (add-on La Mola Recovery): 9,90€/mes
 - Reserves de dirigides i sessions lliures per l'app Aimharder
-- Bombers de la Generalitat 2026 (convocatòria 81/26, Resolució ISP/3218/2026): les dues simulacions d'incendi es treballen al box. El rescat aquàtic es prepara en piscina, no al box
+- Bombers de la Generalitat 2026 (convocatòria 81/26, Resolució ISP/3218/2026): tres exercicis cronometrats puntuats de 0 a 10 (incendi de vegetació, incendi estructural i rescat aquàtic) que substitueixen el model anterior de cinc proves. Les dues simulacions d'incendi es treballen al box. El rescat aquàtic es prepara en piscina, no al box
+- Zona: Terrassa (Vallès Occidental). També opositors de Sabadell i Rubí (uns 10 km) i Sant Cugat del Vallès (uns 15 km)
 - Material del circuit al box: trineu i zona d'arrossegament, wall balls, calaixos, arrossegament de maniquí, barra d'equilibri i espai per a la carrera
 - Drop-in 1 dia 15€; drop-in + sauna 25€
 - Cal acreditar la inscripció a la convocatòria
@@ -178,7 +179,8 @@ R: Avinguda del Vallès 724C, Terrassa (Barcelona).
 - Incluye: programación específica para las pruebas físicas; 3 clases dirigidas a la semana (lunes, miércoles y viernes 12:30–13:30: una sesión de incendio de vegetación, una de incendio estructural y una de acondicionamiento físico general); 3 sesiones de entrenamiento libre a la semana (franjas: lunes, miércoles y viernes 10:30–15:30; martes y jueves 11:30–15:30) con coaches en la sala; grupo de WhatsApp de opositores; simulacro mensual del circuito completo cronometrado; 1 sesión de sauna infrarroja (15 min) al mes
 - Sauna ilimitada (add-on La Mola Recovery): 9,90€/mes
 - Reservas de dirigidas y sesiones libres por la app Aimharder
-- Bombers de la Generalitat 2026 (convocatoria 81/26, Resolución ISP/3218/2026): las dos simulaciones de incendio se trabajan en el box. El rescate acuático se prepara en piscina, no en el box
+- Bombers de la Generalitat 2026 (convocatoria 81/26, Resolución ISP/3218/2026): tres ejercicios cronometrados puntuados de 0 a 10 (incendio de vegetación, incendio estructural y rescate acuático) que sustituyen el modelo anterior de cinco pruebas. Las dos simulaciones de incendio se trabajan en el box. El rescate acuático se prepara en piscina, no en el box
+- Zona: Terrassa (Vallès Occidental). También opositores de Sabadell y Rubí (unos 10 km) y Sant Cugat del Vallès (unos 15 km)
 - Material del circuito en el box: trineo y zona de arrastre, wall balls, cajones, arrastre de maniquí, barra de equilibrio y espacio para la carrera
 - Drop-in 1 día 15€; drop-in + sauna 25€
 - Hay que acreditar la inscripción a la convocatoria
@@ -284,7 +286,8 @@ Last updated: 2026-09-30
 - Includes: programming specific to the physical tests; 3 coached classes a week (Monday, Wednesday and Friday 12:30–13:30: one wildland fire session, one structural fire session and one general conditioning session); 3 open training sessions a week (slots: Monday, Wednesday and Friday 10:30–15:30; Tuesday and Thursday 11:30–15:30) with coaches on the floor; candidates' WhatsApp group; monthly timed mock test of the full circuit; 1 infrared sauna session (15 min) a month
 - Unlimited sauna (La Mola Recovery add-on): €9.90/month
 - Coached classes and open sessions booked through the Aimharder app
-- Bombers de la Generalitat 2026 (call 81/26, Resolution ISP/3218/2026): the two fire simulations are worked on at the box. The water rescue is prepared in a pool, not at the box
+- Bombers de la Generalitat 2026 (call 81/26, Resolution ISP/3218/2026): three timed exercises scored 0 to 10 (wildland fire, structural fire and water rescue) replacing the previous five-test model. The two fire simulations are worked on at the box. The water rescue is prepared in a pool, not at the box
+- Area: Terrassa (Vallès Occidental). Also candidates from Sabadell and Rubí (about 10 km) and Sant Cugat del Vallès (about 15 km)
 - Circuit equipment at the box: sled and drag lane, wall balls, boxes, dummy drag, balance beam and space for the running work
 - Day pass €15; day pass + sauna €25
 - Proof of exam registration required

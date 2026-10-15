@@ -12,7 +12,7 @@ const Q = eur(PRICES.opositors, 'en')
 
 <Layout
   title="Firefighter Fitness Test Prep in Terrassa"
-  description="Fitness test prep for civil service exams in Terrassa: 3 coached classes a week with the 2026 firefighter test elements, open training, a monthly mock test and sauna. €80/month."
+  description="Firefighter exam fitness prep in Terrassa: 3 coached classes a week built on the 2026 test, open training, a monthly mock test and sauna. €80/month."
   ogImage="/assets/og/og-opositors.jpg"
 >
   <Schema type="base" slot="head" />
@@ -26,7 +26,7 @@ const Q = eur(PRICES.opositors, 'en')
       "name": "Physical exam preparation · CrossFit La Mola",
       "serviceType": "Training for civil service physical tests",
       "provider": { "@id": "https://crossfitlamola.com/#organization" },
-      "areaServed": {"@type": "City", "name": "Terrassa"},
+      "areaServed": [{"@type": "City", "name": "Terrassa"}, {"@type": "City", "name": "Sabadell"}, {"@type": "City", "name": "Rubí"}, {"@type": "City", "name": "Sant Cugat del Vallès"}],
       "audience": {"@type": "Audience", "audienceType": "Candidates for Bombers de la Generalitat de Catalunya (call 81/26), Barcelona city firefighters (SPEIS) exams"},
       "description": "Candidate membership in Terrassa: programming specific to the physical tests, three coached classes a week (Monday, Wednesday and Friday 12:30–13:30: wildland fire, structural fire and general conditioning), three open training sessions a week (Monday, Wednesday and Friday 10:30–15:30; Tuesday and Thursday 11:30–15:30), a WhatsApp group, a monthly timed mock test of the full circuit and one sauna session a month. Elements of the 2026 Bombers de la Generalitat physical test (Resolution ISP/3218/2026). The water rescue simulation is prepared in a pool. Bookings through the Aimharder app.",
       "offers": [
@@ -83,7 +83,8 @@ const Q = eur(PRICES.opositors, 'en')
         {"@type": "Question", "name": "I want to prepare for the exam and also take classes. Which membership do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The candidate membership gives access to the three coached classes and the three weekly open sessions within the midday slots. To also take the box classes (WOD, Hybrid Club, Weightlifting, Strength Club…) or train at other hours, you need the Unlimited membership, which includes the candidate space and equipment."}},
         {"@type": "Question", "name": "I'm already a member. Can I use the candidate space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With the Unlimited membership you can access the candidate space and equipment within the slot at no extra cost."}},
         {"@type": "Question", "name": "Can I come just one day?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The candidate day pass costs €15 and gives one day of access to the open slot and the equipment, no monthly membership. With a sauna session, €25 in total. Message us to book."}},
-        {"@type": "Question", "name": "Is the sauna included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, one 15-minute session a month. For unlimited sauna, add La Mola Recovery to your membership for €9.90 a month."}}
+        {"@type": "Question", "name": "Is the sauna included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, one 15-minute session a month. For unlimited sauna, add La Mola Recovery to your membership for €9.90 a month."}},
+        {"@type": "Question", "name": "I'm coming from Sabadell, Rubí or Sant Cugat. Where is the box?", "acceptedAnswer": {"@type": "Answer", "text": "In Terrassa, at Avinguda del Vallès 724C. Sabadell and Rubí are about 10 km away; Sant Cugat about 15. Exam-prep slots are at midday, Monday to Friday."}}
       ]
     }
     </script>
@@ -156,8 +157,8 @@ const Q = eur(PRICES.opositors, 'en')
     <div class="inner">
       <div class="crumb"><a href="/en">Home</a><span>/</span><span>Exam prep</span></div>
       <div class="kicker"><span>Firefighters · Call 81/26</span><span class="bar"></span><span>Barcelona firefighters</span></div>
-      <h1>Physical prep<br>for <em class="serif">civil service exams</em><span class="dot">.</span></h1>
-      <p class="sub">Training for exam candidates in Terrassa: three coached classes a week with the elements of the 2026 firefighter test, open training, a monthly mock test and sauna. For Bombers de la Generalitat and Barcelona firefighter candidates. <strong>{Q}/month, no joining fee.</strong></p>
+      <h1>Physical prep for<br><em class="serif">firefighter exams</em><span class="dot">.</span></h1>
+      <p class="sub">Training for exam candidates in Terrassa, Vallès Occidental: three coached classes a week with the elements of the 2026 firefighter test, open training, a monthly mock test and sauna. For Bombers de la Generalitat and Barcelona firefighter candidates. <strong>{Q}/month, no joining fee.</strong></p>
       <div class="hero-acts">
         <a class="hero-cta" href={WA} target="_blank" rel="noopener" data-wa="hero">Message us on WhatsApp<span class="arr"></span></a>
         <a class="btn-ghost" href="#opo-form">or leave your details</a>
@@ -248,6 +249,24 @@ const Q = eur(PRICES.opositors, 'en')
         <p class="lead reveal">Call 81/26 has three timed intervention simulations. The two fire simulations are prepared at the box. The third, the water rescue, is in a pool.</p>
       </div>
 
+      <div class="incl-grid reveal-stagger">
+        <div class="incl" style="--i:0">
+          <span class="tag">Exercise 1 · Wildland</span>
+          <h3>Wildland <em>fire</em></h3>
+          <p>Timed simulation: 20 m shuttle runs and 6 kg medicine ball slams. Prepared at the box.</p>
+        </div>
+        <div class="incl" style="--i:1">
+          <span class="tag">Exercise 2 · Structural</span>
+          <h3>Structural <em>fire</em></h3>
+          <p>Timed simulation in a weighted vest: load carries, rope sled pull, hurdles and dummy drag. Prepared at the box.</p>
+        </div>
+        <div class="incl" style="--i:2">
+          <span class="tag">Exercise 3 · Water</span>
+          <h3>Water <em>rescue</em></h3>
+          <p>In a pool, towing a dummy. Not prepared at the box: we build the aerobic base, pulling strength and core.</p>
+        </div>
+      </div>
+
       <div class="prova reveal">
         <figure class="pic">
           <img src="/assets/elbox-entrenament-1.webp" alt="Group training with plates in the WOD area at CrossFit La Mola, Terrassa" loading="lazy" width="900" height="600">
@@ -268,6 +287,10 @@ const Q = eur(PRICES.opositors, 'en')
           <div class="regla">
             <span class="tag">Barcelona firefighters</span>
             <p>The membership is also for candidates preparing for Barcelona city firefighters (SPEIS). The strength and aerobic base is the same.</p>
+          </div>
+          <div class="regla">
+            <span class="tag">What changes in 2026</span>
+            <p>The three exercises are scored 0 to 10 and replace the previous model of five separate tests (shuttle run, agility circuit, bench press). Scoring tables are in the official rules.</p>
           </div>
           <p class="font">Source: <a href="https://portaldogc.gencat.cat/utilsEADOP/PDF/9751/2170230.pdf" target="_blank" rel="noopener">Resolution ISP/3218/2026 (DOGC no. 9751, 15.9.2026)</a>. Physical test dates have not been published yet. The official announcement is the reference.</p>
         </div>
@@ -292,6 +315,7 @@ const Q = eur(PRICES.opositors, 'en')
         <details><summary>I'm already a member. Can I use the candidate space?</summary><p>Yes. With the <strong>Unlimited membership</strong> you can access the candidate space and equipment within the slot at no extra cost.</p></details>
         <details><summary>Can I come just one day?</summary><p>Yes. The candidate <strong>day pass</strong> costs <strong>€15</strong> and gives one day of access to the open slot and the equipment, no monthly membership. With a sauna session, €25 in total. Message us to book.</p></details>
         <details><summary>Is the sauna included?</summary><p>Yes, <strong>one 15-minute session a month</strong>. For unlimited sauna, add <a href="/en/recovery" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">La Mola Recovery</a> to your membership for <strong>€9.90 a month</strong>.</p></details>
+        <details><summary>I'm coming from Sabadell, Rubí or Sant Cugat. Where is the box?</summary><p>In Terrassa, at <strong>Avinguda del Vallès 724C</strong>. Sabadell and Rubí are about 10 km away; Sant Cugat about 15. Exam-prep slots are at midday, Monday to Friday.</p></details>
       </div>
     </div>
   </section>
