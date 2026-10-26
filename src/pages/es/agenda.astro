@@ -198,7 +198,7 @@ function getBadgeText(event: AgendaEvent): string {
           </div>
           <div>
             <div class="when-big">
-              {formatEventDays(featuredEvent)} {monthNames[lang][new Date(featuredEvent.start).getMonth()]} 2026
+              {formatEventDays(featuredEvent)} {monthNames[lang][new Date(featuredEvent.start).getMonth()]} {new Date(featuredEvent.start).getFullYear()}
               <small>{featuredEvent.place.split('·')[1]?.trim() || ''} · CrossFit La Mola</small>
             </div>
           </div>
