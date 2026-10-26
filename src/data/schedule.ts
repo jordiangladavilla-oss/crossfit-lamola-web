@@ -1,6 +1,6 @@
 // Font única de la graella setmanal de classes. Es renderitza al build (SSR estàtic) a /horari ×3
 // perquè Google i els assistents d'IA la vegin al HTML; el JS del client només filtra i marca "avui".
-// Dades exactes del box (horari octubre 2026, divendres revisat 26/10: WOD 8:00 i 18:30, sense Hybrid; classe OPOS d'opositors dl/dc/dv 12:30 des del 19/10).
+// Dades exactes del box (horari octubre 2026, divendres revisat 26/10: WOD 8:00 i 18:30, 10:30 open, sense Hybrid; classe OPOS d'opositors dl/dc/dv 12:30 des del 19/10).
 // Per editar l'horari: només aquest fitxer.
 
 export type Lang = 'ca' | 'es' | 'en';
@@ -70,7 +70,7 @@ export const SCHEDULE: Slot[][] = [
     ['07:00-08:00', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['08:00-09:00', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
     ['09:30-10:30', ['STRENGTH CLUB - POWERLIFTING', 'OPEN', 'OPEN EXTERIOR']],
-    ['10:30-11:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
+    ['10:30-11:30', ['OPEN', 'OPEN EXTERIOR']],
     ['11:30-12:30', ['OPEN', 'OPEN EXTERIOR']],
     ['12:30-13:30', ['OPOS', 'OPEN', 'OPEN EXTERIOR']],
     ['13:30-14:30', ['WOD', 'OPEN', 'OPEN EXTERIOR']],
