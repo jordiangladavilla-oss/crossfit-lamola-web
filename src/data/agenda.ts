@@ -388,12 +388,12 @@ export const agendaEvents: AgendaEvent[] = [
     name: 'Simulacre Circuit Bombers',
     nameEs: 'Simulacro Circuito Bomberos',
     nameEn: 'Firefighter Circuit Simulation',
-    place: 'La Mola · Opositors Bombers',
-    placeEs: 'La Mola · Opositores Bomberos',
-    placeEn: 'La Mola · Firefighter candidates',
-    desc: 'Simulacre complet i cronometrat del circuit de la prova física de Bombers. Per a opositors i per a qui vulgui posar-se a prova.',
-    descEs: 'Simulacro completo y cronometrado del circuito de la prueba física de Bomberos. Para opositores y para quien quiera ponerse a prueba.',
-    descEn: 'Full timed simulation of the firefighter physical test circuit. For candidates and anyone who wants to test themselves.',
+    place: 'La Mola · Opositors Bombers · Drop-in no socis 20 €',
+    placeEs: 'La Mola · Opositores Bomberos · Drop-in no socios 20 €',
+    placeEn: 'La Mola · Firefighter candidates · Non-member drop-in 20 €',
+    desc: 'Simulacre complet i cronometrat del circuit de la prova física de Bombers. Per a opositors i per a qui vulgui posar-se a prova. Drop-in per a no socis: 20 €.',
+    descEs: 'Simulacro completo y cronometrado del circuito de la prueba física de Bomberos. Para opositores y para quien quiera ponerse a prueba. Drop-in para no socios: 20 €.',
+    descEn: 'Full timed simulation of the firefighter physical test circuit. For candidates and anyone who wants to test themselves. Non-member drop-in: 20 €.',
     image: `${AGENDA_REPO_RAW}/class-wod.jpg`
   },
   {
